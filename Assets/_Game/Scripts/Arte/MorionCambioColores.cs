@@ -11,7 +11,7 @@ public class MorionCambioColores : MonoBehaviour
     [HideInInspector]
     public Material m;
     public string   numeros = "234";
-    void Start()
+    void Awake()
     {
         m = renderer.material;
     }
