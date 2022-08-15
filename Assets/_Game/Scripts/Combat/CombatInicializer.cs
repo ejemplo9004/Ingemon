@@ -15,18 +15,15 @@ public class CombatInicializer : MonoBehaviour
 
     public void Awake()
     {
-        ScriptableCard[] cards = Resources.FindObjectsOfTypeAll<ScriptableCard>();
+        //Encontrar mejor manera de agregar las cartas.
+        /*ScriptableCard[] cards = Resources.FindObjectsOfTypeAll<ScriptableCard>();
         foreach (var card in cards)
         {
             Debug.Log($"{card.cardName} added!");
             baseCollection.Add(card);
-        }
+        }*/
+        Debug.Log($"EL TOTAL DE CARTAS ES {baseCollection.Count}");
         SetIngemons();
-    }
-
-    public void Start()
-    {
-
     }
 
     private void SetIngemons()
@@ -56,11 +53,8 @@ public class CombatInicializer : MonoBehaviour
         backEnemy.SetHealth();
 
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy);
-        manager.info.drawDeck = CreateDeck();
+        (manager.info.drawDeck, manager.info.enemyDeck) =
+            CardCombatController.Instance.Init(frontAlly, backAlly, frontEnemy, backEnemy);
         manager.info.ShuffleDeck();
     }
-
-    private List<ScriptableCard> CreateDeck() => new List<ScriptableCard>(
-        frontAlly.ingemonInfo.deck
-            .Concat(backAlly.ingemonInfo.deck));
 }

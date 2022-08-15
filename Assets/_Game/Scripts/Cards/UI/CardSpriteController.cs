@@ -1,5 +1,4 @@
 using System;
-using Cards;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +8,9 @@ public class CardSpriteController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI description;
     [SerializeField] private TextMeshProUGUI cost;
-    public ScriptableCard card { get; private set;  }
+    [SerializeField] private Image panel;
+    public Card card { get; private set;  }
+    public int cardId { get; private set;  }
     private Button btn;
 
     public void Start()
@@ -23,28 +24,13 @@ public class CardSpriteController : MonoBehaviour
         CombatEventSystem.Instance.PlayCard(card);
     }
 
-    public CardSpriteController Titled(string title)
-    {
-        this.title.SetText(title);
-        return this;
-    }
-
-    public CardSpriteController WithDescription(string description)
-    {
-        this.description.SetText(description);
-        return this;
-    }
-    
-    public CardSpriteController WithCost(int cost)
-    {
-        this.cost.SetText(cost.ToString());
-        return this;
-    }
-
-    public CardSpriteController Card(ScriptableCard card)
+    public void InitCardSprite(Card card)
     {
         this.card = card;
-        return this;
+        cardId = card.id;
+        title.SetText(card.info.cardName);
+        description.SetText(card.info.cardDescription);
+        cost.SetText(card.info.cost.ToString());
     }
 
     private void OnDestroy()

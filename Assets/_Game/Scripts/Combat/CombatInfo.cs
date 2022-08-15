@@ -10,9 +10,10 @@ public class CombatInfo
     public IngemonController backAlly;
     public EnemyController frontEnemy;
     public EnemyController backEnemy;
-    public List<ScriptableCard> drawDeck;
-    public List<ScriptableCard> discardDeck;
-    public List<ScriptableCard> hand;
+    public List<Card> enemyDeck;
+    public List<Card> drawDeck;
+    public List<Card> discardDeck;
+    public List<Card> hand;
     public int currentEnergy, maxEnergy;
     public Vector3 frontAllyPos, backAllyPos, frontEnemyPos, backEnemyPos;
 
@@ -29,8 +30,8 @@ public class CombatInfo
         backEnemyPos = frontEnemyPos + new Vector3(5, 0, 0);
         currentEnergy = 3;
         maxEnergy = 3;
-        hand = new List<ScriptableCard>();
-        discardDeck = new List<ScriptableCard>();
+        hand = new List<Card>();
+        discardDeck = new List<Card>();
     }
 
     public void Spawn()
@@ -41,14 +42,14 @@ public class CombatInfo
         backEnemy.Spawn(backEnemyPos);
     }
 
-    public bool IsPlayable(ScriptableCard card) => currentEnergy >= card.cost;
+    public bool IsPlayable(Card card) => currentEnergy >= card.info.cost;
 
-    public void PlayCard(ScriptableCard card)
+    public void PlayCard(Card card)
     {
         if (IsPlayable(card))
         {
-            SpendEnergy(card.cost);
-            card.PlayCard();
+            SpendEnergy(card.info.cost);
+            card.info.PlayCard();
             CombatEventSystem.Instance.DiscardCard(card);
         }
         else
@@ -128,13 +129,13 @@ public class CombatInfo
         }
     }
 
-    public void AddToHand(ScriptableCard card)
+    public void AddToHand(Card card)
     {
         hand.Add(card);
         CombatEventSystem.Instance.UpdateCardHand(card);
     }
 
-    public void Discard(ScriptableCard card)
+    public void Discard(Card card)
     {
         discardDeck.Add(card);
         hand.Remove(card);

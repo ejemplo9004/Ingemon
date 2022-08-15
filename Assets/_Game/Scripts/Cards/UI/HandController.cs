@@ -17,26 +17,23 @@ public class HandController : MonoBehaviour
         CombatEventSystem.Instance.OnCardDiscard += DiscardCard;
     }
 
-    private void RenderCard(ScriptableCard card)
+    private void RenderCard(Card card)
     {
         var cardRenderer = Instantiate(cardPrefab, gameObject.transform);
         CardSpriteController controller = cardRenderer.GetComponent<CardSpriteController>();
-        controller.Card(card)
-            .Titled(card.cardName)
-            .WithDescription(card.cardDescription)
-            .WithCost(card.cost);
+        controller.InitCardSprite(card);
         cardObjects.Add(cardRenderer);
     }
 
-    private void DiscardCard(ScriptableCard card)
+    private void DiscardCard(Card card)
     {
-        int pos = cardObjects.FindIndex(x => x.GetComponent<CardSpriteController>().card.Equals(card));
+        int pos = cardObjects.FindIndex(x => x.GetComponent<CardSpriteController>().cardId == card.id);
         GameObject c = cardObjects[pos];
         cardObjects.RemoveAt(pos);
         Destroy(c.gameObject);
     }
 
-    private void UpdateHand(List<ScriptableCard> hand)
+    private void UpdateHand(List<Card> hand)
     {
         foreach (Transform child in transform)
         {

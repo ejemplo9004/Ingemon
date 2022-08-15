@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Card
 {
-    public ScriptableCard cardInfo;
+    public ScriptableCard info;
     public int id;
+    public EntityController owner;
 
-    public Card(int id, ScriptableCard cardInfo)
+    public Card(int id, ScriptableCard info, EntityController owner)
     {
         this.id = id;
-        this.cardInfo = cardInfo;
+        this.info = info;
+        this.owner = owner;
     }
 
 }

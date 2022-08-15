@@ -33,7 +33,7 @@ public class AllyTurnState : TurnState
         manager.ChangeState(manager.enemyState);
     }
 
-    private void PlayCard(ScriptableCard card)
+    private void PlayCard(Card card)
     {
         manager.info.PlayCard(card);
     }
