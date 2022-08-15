@@ -8,23 +8,6 @@ public class CardCombatController: MonoBehaviour
 {
     public List<Card> combatCards;
     private int index;
-    public static CardCombatController Instance { get; private set; }
-    
-    #region Singleton
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
-    #endregion
 
     public (List<Card>, List<Card>) Init(IngemonController frontAlly, IngemonController backAlly,
         EnemyController frontEnemy, EnemyController backEnemy)
@@ -53,6 +36,7 @@ public class CardCombatController: MonoBehaviour
             combatCards.Add(newCard);
             enemyCards.Add(newCard);
         }
+        
         return (allyCards, enemyCards);
     }
 

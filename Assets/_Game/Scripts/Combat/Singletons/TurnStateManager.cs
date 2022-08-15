@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class TurnStateManager : MonoBehaviour
 {
-    public static TurnStateManager Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-    
     public TurnState currentState;
     public StartBattleState startState = new();
     public AllyTurnState allyState = new();

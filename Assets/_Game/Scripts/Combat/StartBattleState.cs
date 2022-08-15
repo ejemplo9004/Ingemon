@@ -22,11 +22,12 @@ public class StartBattleState : TurnState
     private IEnumerator SpawnIngemons(TurnStateManager manager)
     {
         Debug.Log("Spawming Ingemons");
-        new WaitForSeconds(2);
-        manager.info.Spawn();
-        new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
+        manager.info.SpawnAllys();
+        //yield return new WaitForSeconds(2);
         Debug.Log("Spawn Enemies");
-        new WaitForSeconds(2);
+        manager.info.SpawnEnemies();
+        //yield return new WaitForSeconds(2);
         Debug.Log("BuffsTime");
         manager.ChangeState(manager.allyState);
         yield return null;

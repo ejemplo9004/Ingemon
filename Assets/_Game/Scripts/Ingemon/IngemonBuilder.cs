@@ -9,7 +9,6 @@ public class IngemonBuilder{
     public IngemonBuilder()
     {
         // GET INGEMONSTER ID
-        Debug.Log("Encontrar un mejor ID");
         ingemon = new Ingemonster(System.DateTime.Now.ToString("MMddHHmmss"));
     }
 

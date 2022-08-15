@@ -9,18 +9,18 @@ public class AllyTurnState : TurnState
     public override void EnterState(TurnStateManager manager)
     {
         this.manager = manager;
+        CombatSingletonManager.Instance.eventManager.OnEndClicked += EndAllyTurn;
+        CombatSingletonManager.Instance.eventManager.OnCardPlayed += PlayCard;
         manager.info.ResetEnergy();
         manager.info.Draw(5);
-        CombatEventSystem.Instance.OnEndClicked += EndAllyTurn;
-        CombatEventSystem.Instance.OnCardPlayed += PlayCard;
     }
 
     public override void ExitState(TurnStateManager manager)
     {
         Debug.Log("Saliendo del Ally");
         manager.info.DiscardHand();
-        CombatEventSystem.Instance.OnEndClicked -= EndAllyTurn;
-        CombatEventSystem.Instance.OnCardPlayed -= PlayCard;
+        CombatSingletonManager.Instance.eventManager.OnEndClicked -= EndAllyTurn;
+        CombatSingletonManager.Instance.eventManager.OnCardPlayed -= PlayCard;
     }
 
     public override void UpdateState(TurnStateManager manager)
@@ -37,5 +37,4 @@ public class AllyTurnState : TurnState
     {
         manager.info.PlayCard(card);
     }
-
 }

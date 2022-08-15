@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cards;
@@ -5,24 +6,6 @@ using UnityEngine;
 
 public class CombatEventSystem : MonoBehaviour
 {
-    public static CombatEventSystem Instance { get; private set; }
-
-    #region Singleton
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
-    #endregion
-
     public delegate void OnEndButtonAction();
     public event OnEndButtonAction OnEndClicked;
 

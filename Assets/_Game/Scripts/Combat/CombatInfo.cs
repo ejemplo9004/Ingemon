@@ -34,10 +34,14 @@ public class CombatInfo
         discardDeck = new List<Card>();
     }
 
-    public void Spawn()
+    public void SpawnAllys()
     {
         frontAlly.Spawn(frontAllyPos);
         backAlly.Spawn(backAllyPos);
+    }
+
+    public void SpawnEnemies()
+    {
         frontEnemy.Spawn(frontEnemyPos);
         backEnemy.Spawn(backEnemyPos);
     }
@@ -50,7 +54,7 @@ public class CombatInfo
         {
             SpendEnergy(card.info.cost);
             card.info.PlayCard();
-            CombatEventSystem.Instance.DiscardCard(card);
+            CombatSingletonManager.Instance.eventManager.DiscardCard(card);
         }
         else
             Debug.Log("No enough energy");
@@ -59,13 +63,13 @@ public class CombatInfo
     public void SpendEnergy(int spent)
     {
         currentEnergy -= spent;
-        CombatEventSystem.Instance.ChangeEnergy();
+        CombatSingletonManager.Instance.eventManager.ChangeEnergy();
     }
 
     public void ResetEnergy()
     {
         currentEnergy = maxEnergy;
-        CombatEventSystem.Instance.ChangeEnergy();
+        CombatSingletonManager.Instance.eventManager.ChangeEnergy();
     }
 
     public void Draw(int draws)
@@ -131,8 +135,9 @@ public class CombatInfo
 
     public void AddToHand(Card card)
     {
+        Debug.Log($"Spawning Card {card.id} : {card.info.cardName}");
         hand.Add(card);
-        CombatEventSystem.Instance.UpdateCardHand(card);
+        CombatSingletonManager.Instance.eventManager.UpdateCardHand(card);
     }
 
     public void Discard(Card card)
@@ -148,6 +153,6 @@ public class CombatInfo
             Discard(hand[0]);
         }
 
-        CombatEventSystem.Instance.UpdateHand(hand);
+        CombatSingletonManager.Instance.eventManager.UpdateHand(hand);
     }
 }

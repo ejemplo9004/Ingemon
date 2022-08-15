@@ -51,10 +51,10 @@ public class CombatInicializer : MonoBehaviour
             .WithMaxHealth(100)
             .WithDeck(baseCollection);
         backEnemy.SetHealth();
-
+        
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy);
         (manager.info.drawDeck, manager.info.enemyDeck) =
-            CardCombatController.Instance.Init(frontAlly, backAlly, frontEnemy, backEnemy);
+            CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
         manager.info.ShuffleDeck();
     }
 }

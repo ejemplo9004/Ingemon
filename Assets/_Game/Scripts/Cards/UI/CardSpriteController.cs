@@ -21,7 +21,7 @@ public class CardSpriteController : MonoBehaviour
 
     public void PlayCard()
     {
-        CombatEventSystem.Instance.PlayCard(card);
+        CombatSingletonManager.Instance.eventManager.PlayCard(card);
     }
 
     public void InitCardSprite(Card card)

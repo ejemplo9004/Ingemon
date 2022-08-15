@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CombatSingletonManager : MonoBehaviour
 {
-    public CombatSingletonManager Instance;
+    public static CombatSingletonManager Instance;
     
     #region Singleton
 
@@ -24,7 +24,8 @@ public class CombatSingletonManager : MonoBehaviour
 
     public CombatEventSystem eventManager;
     public TurnStateManager turnManager;
+    public CardCombatController cardManager;
     public UICombatController uiManager;
-    
-    
+
+
 }
