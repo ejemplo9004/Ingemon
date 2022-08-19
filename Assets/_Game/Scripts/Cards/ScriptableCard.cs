@@ -24,6 +24,11 @@ namespace Cards
             }
         }
 
+        public void Target(Hellow target)
+        {
+            Debug.Log(target);
+        }
+
         public void DealDamage(int damage)
         {
             Debug.Log($"{damage} dealt to ");
@@ -34,12 +39,32 @@ namespace Cards
             Debug.Log($"{health} healed to ");
         }
 
+        public void TestoEvent(CombatInfo inf)
+        {
+            Debug.Log("Hello");
+        }
+
     }
 
     [System.Serializable]
     public class CardEvent
     {
         public UnityEvent action;
+        public EntityController target;
+    }
+    
+    public enum Targets{
+        Oneself,
+        Allys,
+        AllAllys,
+        OneEnemy,
+        AllEnemies,
+        All
+    }
+
+    public class Hellow : ScriptableObject
+    {
+        public int heloooo;
     }
 }
 

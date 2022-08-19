@@ -52,9 +52,10 @@ public class CombatInicializer : MonoBehaviour
             .WithDeck(baseCollection);
         backEnemy.SetHealth();
         
+        Debug.Log($"HOLA a todos {CombatSingletonManager.Instance.cardManager != null}");
+        
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy);
-        (manager.info.drawDeck, manager.info.enemyDeck) =
-            CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
-        manager.info.ShuffleDeck();
+        (manager.info.drawDeck, manager.info.enemyDeck) = CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
+        manager.info.handler.ShuffleDeck();
     }
 }

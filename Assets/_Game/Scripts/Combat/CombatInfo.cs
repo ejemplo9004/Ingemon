@@ -14,6 +14,7 @@ public class CombatInfo
     public List<Card> drawDeck;
     public List<Card> discardDeck;
     public List<Card> hand;
+    public HandHandler handler;
     public int currentEnergy, maxEnergy;
     public Vector3 frontAllyPos, backAllyPos, frontEnemyPos, backEnemyPos;
 
@@ -32,6 +33,7 @@ public class CombatInfo
         maxEnergy = 3;
         hand = new List<Card>();
         discardDeck = new List<Card>();
+        handler = new HandHandler(this);
     }
 
     public void SpawnAllys()
@@ -72,87 +74,5 @@ public class CombatInfo
         CombatSingletonManager.Instance.eventManager.ChangeEnergy();
     }
 
-    public void Draw(int draws)
-    {
-        for (int i = 0; i < draws; i++)
-        {
-            if (drawDeck.Count > 0)
-            {
-                if (hand.Count >= 10)
-                {
-                    discardDeck.Add(drawDeck[0]);
-                    drawDeck.RemoveAt(0);
-                }
-                else
-                {
-                    AddToHand(drawDeck[0]);
-                    drawDeck.RemoveAt(0);
-                }
-            }
-            else
-            {
-                FillDeck();
-                i--;
-                if (drawDeck.Count == 0)
-                {
-                    Debug.Log("La deck esta empty");
-                    return;
-                }
-            }
-        }
-    }
-
-
-    public void ShuffleDeck()
-    {
-        int n = drawDeck.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = Random.Range(0, n);
-            (drawDeck[k], drawDeck[n]) = (drawDeck[n], drawDeck[k]);
-        }
-    }
-
-    public void FillDeck()
-    {
-        while (discardDeck.Count > 0)
-        {
-            drawDeck.Add(discardDeck[0]);
-            discardDeck.RemoveAt(0);
-        }
-
-        ShuffleDeck();
-    }
-
-    public void LogDeck()
-    {
-        foreach (var card in drawDeck)
-        {
-            Debug.Log($"{card}");
-        }
-    }
-
-    public void AddToHand(Card card)
-    {
-        Debug.Log($"Spawning Card {card.id} : {card.info.cardName}");
-        hand.Add(card);
-        CombatSingletonManager.Instance.eventManager.UpdateCardHand(card);
-    }
-
-    public void Discard(Card card)
-    {
-        discardDeck.Add(card);
-        hand.Remove(card);
-    }
-
-    public void DiscardHand()
-    {
-        while (hand.Count > 0)
-        {
-            Discard(hand[0]);
-        }
-
-        CombatSingletonManager.Instance.eventManager.UpdateHand(hand);
-    }
+    
 }

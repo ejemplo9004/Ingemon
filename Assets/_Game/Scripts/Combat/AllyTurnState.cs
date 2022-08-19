@@ -12,13 +12,13 @@ public class AllyTurnState : TurnState
         CombatSingletonManager.Instance.eventManager.OnEndClicked += EndAllyTurn;
         CombatSingletonManager.Instance.eventManager.OnCardPlayed += PlayCard;
         manager.info.ResetEnergy();
-        manager.info.Draw(5);
+        manager.info.handler.Draw(5);
     }
 
     public override void ExitState(TurnStateManager manager)
     {
         Debug.Log("Saliendo del Ally");
-        manager.info.DiscardHand();
+        manager.info.handler.DiscardHand();
         CombatSingletonManager.Instance.eventManager.OnEndClicked -= EndAllyTurn;
         CombatSingletonManager.Instance.eventManager.OnCardPlayed -= PlayCard;
     }
