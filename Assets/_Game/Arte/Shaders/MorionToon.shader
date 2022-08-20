@@ -186,7 +186,7 @@ Shader "Morion/Toon"
 }
 /*ASEBEGIN
 Version=18935
-0;73.6;714.2;438.2;1610.038;477.9274;2.611273;True;False
+0;73.6;778.2;438;448.0621;88.00323;1;True;False
 Node;AmplifyShaderEditor.NormalVertexDataNode;3;-941.5533,467.8959;Inherit;False;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ObjSpaceLightDirHlpNode;11;-1025.786,290.8055;Inherit;False;1;0;FLOAT;0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.DotProductOpNode;4;-716.8362,384.5619;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0
@@ -207,4 +207,4 @@ WireConnection;5;0;1;0
 WireConnection;5;1;9;0
 WireConnection;0;2;5;0
 ASEEND*/
-//CHKSM=42C2EFAC0052E90D27E7EFDDFC168772614018A5
+//CHKSM=6DB27390F04CC5FEA0B9C153BEFB9DA132373D36
