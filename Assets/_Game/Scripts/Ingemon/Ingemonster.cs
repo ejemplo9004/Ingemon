@@ -7,7 +7,6 @@ using UnityEngine;
 public class Ingemonster
 {
     #region IngemonInfo
-
     public string name;
     public string id;
     public string phenotype;

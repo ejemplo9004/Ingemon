@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class EntityController : MonoBehaviour
@@ -14,16 +15,22 @@ public class EntityController : MonoBehaviour
         currentHealth = ingemonInfo.maxHealth;
     }
 
-    public void Spawn(Vector3 pos)
+    public void Spawn(Vector3 pos, string phenotype)
     {
         transform.position = pos;
-        Generate();
+        Generate(phenotype);
     }
 
     //Aqui usariamos el fenotipo para generar el ingemon.
-    public void Generate()
+    public void Generate(string phenotype)
     {
         ingemonMesh.SetActive(true);
+        if(phenotype != ""){
+            string[] feat = phenotype.Split("-");
+            ingemonMesh.GetComponent<MorionCambioPartes>().TransformarIngemon(Int32.Parse(feat[0]), Int32.Parse(feat[1]), Int32.Parse(feat[2]));
+            ingemonMesh.GetComponent<MorionCambioMascaras>().CambiarTexturas(Int32.Parse(feat[3]), Int32.Parse(feat[4]));
+            ingemonMesh.GetComponent<MorionCambioColores>().EstablecerColores(feat[5]);
+        }
     }
 
     public void GetDamaged(int health)

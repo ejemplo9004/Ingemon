@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CombatInfo
 {
+    public Inventory combatInventory;
     public IngemonController frontAlly;
     public IngemonController backAlly;
     public EnemyController frontEnemy;
@@ -21,12 +22,13 @@ public class CombatInfo
     public Vector3 frontAllyPos, backAllyPos, frontEnemyPos, backEnemyPos;
 
     public CombatInfo(IngemonController frontAlly, IngemonController backAlly,
-        EnemyController frontEnemy, EnemyController backEnemy)
+        EnemyController frontEnemy, EnemyController backEnemy, Inventory combatInventory)
     {
         this.frontAlly = frontAlly;
         this.backAlly = backAlly;
         this.frontEnemy = frontEnemy;
         this.backEnemy = backEnemy;
+        this.combatInventory = combatInventory;
         frontAllyPos = Vector3.zero;
         backAllyPos = frontAllyPos + new Vector3(5, 0, 0);
         frontEnemyPos = backAllyPos + new Vector3(0, 0, 10);
@@ -40,14 +42,14 @@ public class CombatInfo
 
     public void SpawnAllys()
     {
-        frontAlly.Spawn(frontAllyPos);
-        backAlly.Spawn(backAllyPos);
+        frontAlly.Spawn(frontAllyPos, combatInventory.Ingemones[0].phenotype);
+        backAlly.Spawn(backAllyPos, combatInventory.Ingemones[1].phenotype);
     }
 
     public void SpawnEnemies()
     {
-        frontEnemy.Spawn(frontEnemyPos);
-        backEnemy.Spawn(backEnemyPos);
+        frontEnemy.Spawn(frontEnemyPos, "");
+        backEnemy.Spawn(backEnemyPos, "");
     }
 
     public void PlayCard(Card card)
