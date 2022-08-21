@@ -7,6 +7,7 @@ using UnityEngine;
 public class CombatInicializer : MonoBehaviour
 {
     public TurnStateManager manager;
+    public Inventory combatInventory;
     private IngemonController frontAlly, backAlly;
     private EnemyController frontEnemy, backEnemy;
     public IngemonController baseIngemon;
@@ -54,7 +55,7 @@ public class CombatInicializer : MonoBehaviour
         
         Debug.Log($"HOLA a todos {CombatSingletonManager.Instance.cardManager != null}");
         
-        manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy);
+        manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy, combatInventory);
         (manager.info.drawDeck, manager.info.enemyDeck) = CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
         manager.info.handler.ShuffleDeck();
     }
