@@ -15,7 +15,9 @@ public class CombatInfo
     public List<Card> discardDeck;
     public List<Card> hand;
     public HandHandler handler;
-    public int currentEnergy, maxEnergy;
+    public EnergyHandler energizer;
+    public CardExecutioner executioner;
+    
     public Vector3 frontAllyPos, backAllyPos, frontEnemyPos, backEnemyPos;
 
     public CombatInfo(IngemonController frontAlly, IngemonController backAlly,
@@ -29,11 +31,11 @@ public class CombatInfo
         backAllyPos = frontAllyPos + new Vector3(5, 0, 0);
         frontEnemyPos = backAllyPos + new Vector3(0, 0, 10);
         backEnemyPos = frontEnemyPos + new Vector3(5, 0, 0);
-        currentEnergy = 3;
-        maxEnergy = 3;
+        energizer = new EnergyHandler(3);
         hand = new List<Card>();
         discardDeck = new List<Card>();
         handler = new HandHandler(this);
+        executioner = new CardExecutioner(this);
     }
 
     public void SpawnAllys()
@@ -48,13 +50,11 @@ public class CombatInfo
         backEnemy.Spawn(backEnemyPos);
     }
 
-    public bool IsPlayable(Card card) => currentEnergy >= card.info.cost;
-
     public void PlayCard(Card card)
     {
-        if (IsPlayable(card))
+        if (energizer.IsPlayable(card))
         {
-            SpendEnergy(card.info.cost);
+            energizer.SpendEnergy(card.info.cost);
             card.info.PlayCard();
             CombatSingletonManager.Instance.eventManager.DiscardCard(card);
         }
@@ -62,17 +62,9 @@ public class CombatInfo
             Debug.Log("No enough energy");
     }
 
-    public void SpendEnergy(int spent)
-    {
-        currentEnergy -= spent;
-        CombatSingletonManager.Instance.eventManager.ChangeEnergy();
-    }
 
-    public void ResetEnergy()
-    {
-        currentEnergy = maxEnergy;
-        CombatSingletonManager.Instance.eventManager.ChangeEnergy();
-    }
+
+
 
     
 }
