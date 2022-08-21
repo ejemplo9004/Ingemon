@@ -15,6 +15,8 @@ namespace Cards
         public IngemonRace race;
         public CardEvent[] actions;
 
+        private int target = 0;
+
 
         public void PlayCard()
         {
@@ -24,47 +26,44 @@ namespace Cards
             }
         }
 
-        public void Target(Hellow target)
+        public void SetTarget(int target)
         {
-            Debug.Log(target);
+            this.target = target;
         }
 
         public void DealDamage(int damage)
         {
-            Debug.Log($"{damage} dealt to ");
+            Debug.Log($"{damage} dealt to {(Targets)target}");
+            CombatSingletonManager.Instance.turnManager.info.executioner.DealDamage(damage, target);
         }
 
         public void Heal(int health)
         {
-            Debug.Log($"{health} healed to ");
+            Debug.Log($"{health} healed to {(Targets)target}");
+            CombatSingletonManager.Instance.turnManager.info.executioner.Heal(health, target);
         }
+
+        public void Draw(int cards)
+        {
+            Debug.Log($"Draw {cards} cards");
+            CombatSingletonManager.Instance.turnManager.info.executioner.Draw(cards);
+        }
+
+        public void Protect(int value)
+        {
+            Debug.Log($"You protect {value} damage");
+        }
+
 
         public void TestoEvent(CombatInfo inf)
         {
             Debug.Log("Hello");
         }
-
     }
 
     [System.Serializable]
     public class CardEvent
     {
         public UnityEvent action;
-        public EntityController target;
-    }
-    
-    public enum Targets{
-        Oneself,
-        Allys,
-        AllAllys,
-        OneEnemy,
-        AllEnemies,
-        All
-    }
-
-    public class Hellow : ScriptableObject
-    {
-        public int heloooo;
     }
 }
-

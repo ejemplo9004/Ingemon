@@ -35,11 +35,15 @@ public class CombatInicializer : MonoBehaviour
             .WithDeck(baseCollection);
         frontAlly.SetHealth();
         
+        IngemonSaver.SaveIngemonster(frontAlly.ingemonInfo);
+        
         backAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
         backAlly.ingemonInfo = new IngemonBuilder().WithName("Flagymon")
             .WithMaxHealth(100)
             .WithDeck(baseCollection);
         backAlly.SetHealth();
+        
+        IngemonSaver.SaveIngemonster(backAlly.ingemonInfo);
         
         frontEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         frontEnemy.ingemonInfo = new IngemonBuilder().WithName("Fishamon")

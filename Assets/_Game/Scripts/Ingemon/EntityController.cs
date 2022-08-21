@@ -7,7 +7,7 @@ public class EntityController : MonoBehaviour
 {
     public Ingemonster ingemonInfo { get; set; }
     [SerializeField] private GameObject ingemonMesh;
-    private int currentHealth;
+    public int currentHealth { get; private set;  }
     private List<Modifiers> status;
 
     public void SetHealth()
@@ -36,6 +36,7 @@ public class EntityController : MonoBehaviour
     public void GetDamaged(int health)
     {
         currentHealth = Mathf.Clamp(currentHealth - health, 0, currentHealth);
+        Debug.Log($"{ingemonInfo.name} has lost {health} health, now he has {currentHealth} health points");
     }
 
     public void GetHealed(int health)

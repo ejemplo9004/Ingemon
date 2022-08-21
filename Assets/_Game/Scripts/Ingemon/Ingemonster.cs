@@ -17,6 +17,7 @@ public class Ingemonster
     #region Deck
     public List<ScriptableCard> ingemonColection;
     public List<ScriptableCard> deck;
+    //Como serializar las cartas, aunque no tiene sentido serializarlas tampoco.
     #endregion
 
     public Ingemonster(string id)
