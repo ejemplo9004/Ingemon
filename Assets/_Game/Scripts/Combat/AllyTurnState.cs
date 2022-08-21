@@ -11,7 +11,7 @@ public class AllyTurnState : TurnState
         this.manager = manager;
         CombatSingletonManager.Instance.eventManager.OnEndClicked += EndAllyTurn;
         CombatSingletonManager.Instance.eventManager.OnCardPlayed += PlayCard;
-        manager.info.ResetEnergy();
+        manager.info.energizer.ResetEnergy();
         manager.info.handler.Draw(5);
     }
 

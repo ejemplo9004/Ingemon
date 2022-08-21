@@ -15,6 +15,10 @@ public class CombatEventSystem : MonoBehaviour
     public delegate void OnEnergyAction();
     public event OnEnergyAction OnEnergyChange;
 
+    public delegate void OnHealthChangeAction();
+
+    public event OnHealthChangeAction OnHealthChange;
+
     public delegate void OnCardChangeAction(Card card);
     public event OnCardChangeAction OnCardChange;
 
@@ -27,6 +31,8 @@ public class CombatEventSystem : MonoBehaviour
     public void EndTurnButton() => OnEndClicked?.Invoke();
 
     public void ChangeEnergy() => OnEnergyChange?.Invoke();
+
+    public void ChangeHealth() => OnHealthChange?.Invoke();
 
     public void UpdateCardHand(Card card) => OnCardChange?.Invoke(card);
 
