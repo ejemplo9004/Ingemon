@@ -12,36 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45600dc94538fb449798b75d1910704, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  ingemones:
-  - name: Carlos
-    id: 1
-    phenotype: 1-3-6-3-3-456
-    maxHealth: 10
-    ingemonColection: []
-    deck: []
-  - name: Alberto
-    id: 2
-    phenotype: 6-3-9-5-8-846
-    maxHealth: 10
-    ingemonColection: []
-    deck: []
-  - name: Juanita
-    id: 3
-    phenotype: 4-6-2-6-7-511
-    maxHealth: 10
-    ingemonColection: []
-    deck: []
-  - name: Carmensa
-    id: 4
-    phenotype: 2-2-5-1-3-777
-    maxHealth: 10
-    ingemonColection: []
-    deck: []
-  - name: Roberto
-    id: 5
-    phenotype: 8-9-7-4-5-104
-    maxHealth: 10
-    ingemonColection: []
-    deck: []
+  ingemones: []
   hasLimit: 0
   limit: 0

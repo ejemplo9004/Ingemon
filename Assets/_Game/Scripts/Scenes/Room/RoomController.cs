@@ -5,10 +5,11 @@ public class RoomController : GameplayScene
 {
     [SerializeField] private Inventory combatInventory;
     [SerializeField] private RoomUI gamePlaySceneUI;
+    [SerializeField] private GameObject combatController;
     private Room room;
 
     private void OnEnable() {
-        room = gameController.CurrentRun.currentRoom;
+        room = GameController.gameController.CurrentRun.currentRoom;
         ConfigureRoom(); 
     }
 
@@ -27,6 +28,9 @@ public class RoomController : GameplayScene
         {
             combatInventory.AddIngemon(ingemon);
         }
+        combatController.SetActive(true);
+        gamePlaySceneUI.ShowCombatCanvas(true);
+        CombatSingletonManager.Instance.turnManager.StartBattle();
     }
 
     public bool VerifyCombatInventory(){
@@ -38,9 +42,7 @@ public class RoomController : GameplayScene
             } 
         }
         gamePlaySceneUI.HideSelectionPanel();
-        gamePlaySceneUI.ShowSelectionCanvas(false);
-        gamePlaySceneUI.ShowCombatCanvas(true);
-        CombatSingletonManager.Instance.turnManager.StartBattle();
+        gamePlaySceneUI.ShowSelectionCanvas(false);     
         return true;
     }
 }

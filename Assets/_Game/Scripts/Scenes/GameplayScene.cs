@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GameplayScene : MonoBehaviour
 {
-    [SerializeField] protected GameController gameController;
     [SerializeField] protected Inventory runInventory;
     [SerializeField] protected List<Ingemonster> ingemonesSelected;
     

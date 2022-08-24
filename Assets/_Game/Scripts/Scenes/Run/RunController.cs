@@ -8,13 +8,13 @@ public class RunController : GameplayScene
     private Run run;
 
     private void OnEnable() {
-        run = gameController.CurrentRun;
+        run = GameController.gameController.CurrentRun;
         ConfigureRun();
     }
 
     private void ConfigureRun(){
         if(run.runCompleted){
-            gameController.LastRunPassed = true;
+            GameController.gameController.LastRunPassed = true;
             SceneChanger.ChangeScene(0);
         }
         runUI.ChangeBackGroundImage(run.Background);

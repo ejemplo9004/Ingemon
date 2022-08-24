@@ -30,21 +30,19 @@ public class CombatInicializer : MonoBehaviour
     private void SetIngemons()
     {
         frontAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
-        frontAlly.ingemonInfo = new IngemonBuilder().WithName("Karumon")
-            .WithMaxHealth(100)
+        frontAlly.ingemonInfo = new IngemonBuilder().WithName(combatInventory.Ingemones[0].name)
+            .WithMaxHealth(combatInventory.Ingemones[0].maxHealth)
+            .WithPhenotype(combatInventory.Ingemones[0].phenotype)
             .WithDeck(baseCollection);
         frontAlly.SetHealth();
         
-        IngemonSaver.SaveIngemonster(frontAlly.ingemonInfo);
-        
         backAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
-        backAlly.ingemonInfo = new IngemonBuilder().WithName("Flagymon")
-            .WithMaxHealth(100)
+        backAlly.ingemonInfo = new IngemonBuilder().WithName(combatInventory.Ingemones[1].name)
+            .WithMaxHealth(combatInventory.Ingemones[1].maxHealth)
+            .WithPhenotype(combatInventory.Ingemones[1].phenotype)
             .WithDeck(baseCollection);
         backAlly.SetHealth();
-        
-        IngemonSaver.SaveIngemonster(backAlly.ingemonInfo);
-        
+
         frontEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         frontEnemy.ingemonInfo = new IngemonBuilder().WithName("Fishamon")
             .WithMaxHealth(100)

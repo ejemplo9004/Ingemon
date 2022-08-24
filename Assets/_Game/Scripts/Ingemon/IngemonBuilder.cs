@@ -9,7 +9,7 @@ public class IngemonBuilder{
     public IngemonBuilder()
     {
         // GET INGEMONSTER ID
-        ingemon = new Ingemonster(System.DateTime.Now.ToString("MMddHHmmss"));
+        ingemon = new Ingemonster();
     }
 
     public IngemonBuilder WithName(string name)
