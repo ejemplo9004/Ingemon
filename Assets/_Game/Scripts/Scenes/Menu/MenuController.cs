@@ -3,14 +3,16 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private MenuUI menuUI;
-    [SerializeField] private GameController gameController;
 
     private void OnEnable() {
         ConfigureMenu();
     }
+    private void Start() {
+        
+    }
 
     private void ConfigureMenu(){
-        if(gameController.LastRunPassed){
+        if(GameController.gameController.LastRunPassed){
             menuUI.ShowRewardPanel();
         }
     }

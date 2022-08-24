@@ -1100,6 +1100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyText: {fileID: 1055040348}
+  frontEnemyHealth: {fileID: 0}
+  backEnemyHealth: {fileID: 0}
+  frontAllyHealth: {fileID: 0}
+  backAllyHealth: {fileID: 0}
 --- !u!4 &493083292
 Transform:
   m_ObjectHideFlags: 0
@@ -3354,7 +3358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1715397415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,7 +3681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec834ea29dc9d004fa78911526d5ccc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 11400000, guid: d5c68d858753ff4418fe3f14527eef93, type: 2}
   runInventory: {fileID: 11400000, guid: 50cdd311bd5de1741b4ae39c6ad93436, type: 2}
   ingemonesSelected:
   - name: 
@@ -3694,6 +3697,7 @@ MonoBehaviour:
     deck: []
   combatInventory: {fileID: 11400000, guid: a383b40d339fed645b2e32a117881961, type: 2}
   gamePlaySceneUI: {fileID: 453845191}
+  combatController: {fileID: 1715397414}
 --- !u!4 &1824343974
 Transform:
   m_ObjectHideFlags: 0

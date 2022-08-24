@@ -21,7 +21,6 @@ public class GameplaySceneUI : MonoBehaviour
     public void SelectIngemon(GameObject selectedImage){
         Ingemonster ingemon = selectedImage.GetComponent<IngemonSelector>().Ingemon;
         int index = preselectionImages.IndexOf(selectedIngemonImage);
-        Debug.Log(index);
         if(sceneController.AddIngemonToPreselection(ingemon, index)){
             selectedIngemonImage.GetComponent<IngemonSelector>().Ingemon = ingemon;
             selectedIngemonImage.GetComponentInChildren<Text>().text = ingemon.name;
