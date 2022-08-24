@@ -7,6 +7,7 @@ using UnityEngine;
 public class CombatInicializer : MonoBehaviour
 {
     public TurnStateManager manager;
+    public Inventory combatInventory;
     private IngemonController frontAlly, backAlly;
     private EnemyController frontEnemy, backEnemy;
     public IngemonController baseIngemon;
@@ -28,14 +29,16 @@ public class CombatInicializer : MonoBehaviour
     private void SetIngemons()
     {
         frontAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
-        frontAlly.ingemonInfo = new IngemonBuilder().WithName("Karumon")
-            .WithMaxHealth(100)
+        frontAlly.ingemonInfo = new IngemonBuilder().WithName(combatInventory.Ingemones[0].name)
+            .WithMaxHealth(combatInventory.Ingemones[0].maxHealth)
+            .WithPhenotype(combatInventory.Ingemones[0].phenotype)
             .WithDeck(baseCollection);
         frontAlly.SetHealth();
 
         backAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
-        backAlly.ingemonInfo = new IngemonBuilder().WithName("Flagymon")
-            .WithMaxHealth(100)
+        backAlly.ingemonInfo = new IngemonBuilder().WithName(combatInventory.Ingemones[1].name)
+            .WithMaxHealth(combatInventory.Ingemones[1].maxHealth)
+            .WithPhenotype(combatInventory.Ingemones[1].phenotype)
             .WithDeck(baseCollection);
         backAlly.SetHealth();
 
@@ -52,7 +55,7 @@ public class CombatInicializer : MonoBehaviour
         backEnemy.SetHealth();
 
         
-        manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy);
+        manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy, combatInventory);
         (manager.info.drawDeck, manager.info.enemyDeck) = CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
         manager.info.drawDeck = manager.info.handler.ShuffleDeck(manager.info.drawDeck);
         manager.info.enemyDeck = manager.info.handler.ShuffleDeck(manager.info.enemyDeck);
