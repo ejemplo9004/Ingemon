@@ -16,6 +16,12 @@ public class TurnStateManager : MonoBehaviour
     private void Start()
     {
         currentState = startState;
+    }
+
+    public void StartBattle(){
+        if(currentState == null){
+            currentState = startState;
+        }
         currentState.EnterState(this);
     }
 

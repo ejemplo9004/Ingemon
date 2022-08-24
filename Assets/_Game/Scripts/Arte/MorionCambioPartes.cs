@@ -31,6 +31,8 @@ public class MorionCambioPartes : MonoBehaviour
             manos[i].SetActive  (i == iManos);
             cuerpo[i].SetActive (i == iCuerpo);
         }
+
+        cadena = iCabeza.ToString() + "-" + iManos.ToString() + "-" + iCuerpo.ToString();
     }
 
     [ContextMenu("Aleatorizar")]
@@ -41,5 +43,12 @@ public class MorionCambioPartes : MonoBehaviour
         iCuerpo = Random.Range(0,10);
         AplicarCambios();
         mCambioMascaras.Aleatorizar();
+    }
+
+    public void TransformarIngemon(int _cabeza, int _manos, int _cuerpo){
+        iCabeza = _cabeza;
+        iManos = _manos;
+        iCuerpo = _cuerpo;
+        AplicarCambios();
     }
 }

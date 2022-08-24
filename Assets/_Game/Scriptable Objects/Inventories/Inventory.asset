@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45600dc94538fb449798b75d1910704, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  ingemones:
-  - {fileID: 1228658736259010642, guid: c6ae0e3b418a1d149aea40312ad4bb1e, type: 3}
-  - {fileID: 1228658736259010642, guid: 021b76342691ead44bf40b6767a9e035, type: 3}
-  - {fileID: 1228658736259010642, guid: 1078bfa158c8aa045a11d3609d711fe2, type: 3}
-  - {fileID: 1228658736259010642, guid: 94c98297e90b06f4a9eb0200bd5b04b5, type: 3}
-  - {fileID: 1228658736259010642, guid: 7bbf55c2d479ab44c9dfb87f6c962609, type: 3}
+  ingemones: []
+  hasLimit: 0
+  limit: 0

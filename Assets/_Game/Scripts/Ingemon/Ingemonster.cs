@@ -7,7 +7,6 @@ using UnityEngine;
 public class Ingemonster
 {
     #region IngemonInfo
-
     public string name;
     public string id;
     public string phenotype;
@@ -21,8 +20,12 @@ public class Ingemonster
     //Como serializar las cartas, aunque no tiene sentido serializarlas tampoco.
     #endregion
 
-    public Ingemonster(string id)
+    public Ingemonster(string id, string name, string phenotype)
     {
         this.id = id;
+        this.name = name;
+        this.phenotype = phenotype;
     }
+
+    public Ingemonster() { }
 }
