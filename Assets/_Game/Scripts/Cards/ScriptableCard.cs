@@ -15,11 +15,13 @@ namespace Cards
         public IngemonRace race;
         public CardEvent[] actions;
 
-        private int target = 0;
+        private int target = 1;
+        private EntityController owner;
 
 
-        public void PlayCard()
+        public void PlayCard(EntityController owner)
         {
+            this.owner = owner;
             foreach (CardEvent action in actions)
             {
                 action.action.Invoke();
@@ -34,30 +36,24 @@ namespace Cards
         public void DealDamage(int damage)
         {
             Debug.Log($"{damage} dealt to {(Targets)target}");
-            CombatSingletonManager.Instance.turnManager.info.executioner.DealDamage(damage, target);
+            CombatSingletonManager.Instance.turnManager.info.executioner.DealDamage(damage, target, owner);
         }
 
         public void Heal(int health)
         {
             Debug.Log($"{health} healed to {(Targets)target}");
-            CombatSingletonManager.Instance.turnManager.info.executioner.Heal(health, target);
+            CombatSingletonManager.Instance.turnManager.info.executioner.Heal(health, target, owner);
         }
 
         public void Draw(int cards)
         {
             Debug.Log($"Draw {cards} cards");
-            CombatSingletonManager.Instance.turnManager.info.executioner.Draw(cards);
+            CombatSingletonManager.Instance.turnManager.info.executioner.Draw(cards, owner);
         }
 
         public void Protect(int value)
         {
             Debug.Log($"You protect {value} damage");
-        }
-
-
-        public void TestoEvent(CombatInfo inf)
-        {
-            Debug.Log("Hello");
         }
     }
 

@@ -13,6 +13,7 @@ public class AllyTurnState : TurnState
         CombatSingletonManager.Instance.eventManager.OnCardPlayed += PlayCard;
         manager.info.energizer.ResetEnergy();
         manager.info.handler.Draw(5);
+        manager.info.enemies.PrepareTurn();
     }
 
     public override void ExitState(TurnStateManager manager)

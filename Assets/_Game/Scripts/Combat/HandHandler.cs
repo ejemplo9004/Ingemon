@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class HandHandler
 {
@@ -40,15 +41,17 @@ public class HandHandler
     }
 
 
-    public void ShuffleDeck()
+    public List<Card> ShuffleDeck(List<Card> deck)
     {
-        int n = info.drawDeck.Count;
+        int n = deck.Count;
         while (n > 1)
         {
             n--;
             int k = Random.Range(0, n);
-            (info.drawDeck[k], info.drawDeck[n]) = (info.drawDeck[n], info.drawDeck[k]);
+            (deck[k], deck[n]) = (deck[n], deck[k]);
         }
+
+        return deck;
     }
 
     public void FillDeck()
@@ -59,7 +62,7 @@ public class HandHandler
             info.discardDeck.RemoveAt(0);
         }
 
-        ShuffleDeck();
+        info.drawDeck = ShuffleDeck(info.drawDeck);
     }
 
     public void LogDeck()
@@ -72,7 +75,6 @@ public class HandHandler
 
     public void AddToHand(Card card)
     {
-        Debug.Log($"Spawning Card {card.id} : {card.info.cardName}");
         info.hand.Add(card);
         CombatSingletonManager.Instance.eventManager.UpdateCardHand(card);
     }

@@ -22,7 +22,8 @@ public class EnemyTurnState : TurnState
 
     private IEnumerator EnemyTurn(TurnStateManager manager)
     {
-        yield return new WaitForSeconds(5);
+        manager.info.enemies.PlayTurn();
+        yield return new WaitForSeconds(3);
         manager.ChangeState(manager.allyState);
         yield return null;
     }

@@ -17,6 +17,7 @@ public class CombatInfo
     public HandHandler handler;
     public EnergyHandler energizer;
     public CardExecutioner executioner;
+    public EnemyActions enemies;
     
     public Vector3 frontAllyPos, backAllyPos, frontEnemyPos, backEnemyPos;
 
@@ -36,6 +37,7 @@ public class CombatInfo
         discardDeck = new List<Card>();
         handler = new HandHandler(this);
         executioner = new CardExecutioner(this);
+        enemies = new EnemyActions(this);
     }
 
     public void SpawnAllys()
@@ -55,16 +57,11 @@ public class CombatInfo
         if (energizer.IsPlayable(card))
         {
             energizer.SpendEnergy(card.info.cost);
-            card.info.PlayCard();
+            card.info.PlayCard(card.owner);
             CombatSingletonManager.Instance.eventManager.DiscardCard(card);
         }
         else
             Debug.Log("No enough energy");
     }
 
-
-
-
-
-    
 }
