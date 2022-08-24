@@ -23,7 +23,6 @@ public class CombatInicializer : MonoBehaviour
             Debug.Log($"{card.cardName} added!");
             baseCollection.Add(card);
         }*/
-        Debug.Log($"EL TOTAL DE CARTAS ES {baseCollection.Count}");
         SetIngemons();
     }
 
@@ -35,7 +34,7 @@ public class CombatInicializer : MonoBehaviour
             .WithPhenotype(combatInventory.Ingemones[0].phenotype)
             .WithDeck(baseCollection);
         frontAlly.SetHealth();
-        
+
         backAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
         backAlly.ingemonInfo = new IngemonBuilder().WithName(combatInventory.Ingemones[1].name)
             .WithMaxHealth(combatInventory.Ingemones[1].maxHealth)
@@ -54,11 +53,11 @@ public class CombatInicializer : MonoBehaviour
             .WithMaxHealth(100)
             .WithDeck(baseCollection);
         backEnemy.SetHealth();
-        
-        Debug.Log($"HOLA a todos {CombatSingletonManager.Instance.cardManager != null}");
+
         
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy, combatInventory);
         (manager.info.drawDeck, manager.info.enemyDeck) = CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
-        manager.info.handler.ShuffleDeck();
+        manager.info.drawDeck = manager.info.handler.ShuffleDeck(manager.info.drawDeck);
+        manager.info.enemyDeck = manager.info.handler.ShuffleDeck(manager.info.enemyDeck);
     }
 }

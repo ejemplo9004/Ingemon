@@ -12,11 +12,9 @@ public class HandController : MonoBehaviour
     public void Awake()
     {
         cardObjects = new List<GameObject>();
-        Debug.Log($"Empezando a suscribirse");
         CombatSingletonManager.Instance.eventManager.OnCardChange += RenderCard;
         CombatSingletonManager.Instance.eventManager.OnHandUpdate += UpdateHand;
         CombatSingletonManager.Instance.eventManager.OnCardDiscard += DiscardCard;
-        Debug.Log($"Suscrito a eventos RenderCard");
     }
 
     private void RenderCard(Card card)

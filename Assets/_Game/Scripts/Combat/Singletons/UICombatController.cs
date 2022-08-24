@@ -13,7 +13,6 @@ public class UICombatController : MonoBehaviour
 
     public void Awake()
     {
-        Debug.Log($"Hellow There {this}");
         CombatSingletonManager.Instance.eventManager.OnEnergyChange += UpdateEnergyText;
         CombatSingletonManager.Instance.eventManager.OnHealthChange += UpdateHealthBars;
     }
