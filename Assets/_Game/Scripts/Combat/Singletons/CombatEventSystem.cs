@@ -13,18 +13,17 @@ public class CombatEventSystem : MonoBehaviour
     public event OnCardPlayedAction OnCardPlayed;
     public event OnCardPlayedAction OnValidCardPlayed;
 
-    public delegate void OnEnergyAction();
-    public event OnEnergyAction OnEnergyChange;
-
-    public delegate void OnHealthChangeAction();
-
-    public event OnHealthChangeAction OnHealthChange;
+    public delegate void OnUIChangeAction();
+    public event OnUIChangeAction OnEnergyChange;
+    public event OnUIChangeAction OnHealthChange;
+    public event OnUIChangeAction OnIntentionsChange;
 
     public delegate void OnCardChangeAction(Card card);
     public event OnCardChangeAction OnCardChange;
 
-    public delegate void OnHandUpdateAction(List<Card> cards);
-    public event OnHandUpdateAction OnHandUpdate;
+    public delegate void OnCardsAction(List<Card> cards);
+    public event OnCardsAction OnHandUpdate;
+    public event OnCardsAction OnEnemyIntentions;
 
     public delegate void OnCardDiscardAction(Card card);
     public event OnCardDiscardAction OnCardDiscard;
@@ -40,6 +39,9 @@ public class CombatEventSystem : MonoBehaviour
     public void UpdateHand(List<Card> cards) => OnHandUpdate?.Invoke(cards);
 
     public void DiscardCard(Card card) => OnCardDiscard?.Invoke(card);
+
+    public void EnemyIntentions(List<Card> cards) => OnEnemyIntentions?.Invoke(cards);
+    public void IntentionsClean() => OnIntentionsChange?.Invoke();
 
     public void PlayCard(Card card)
     {

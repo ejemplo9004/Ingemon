@@ -13,6 +13,7 @@ namespace Cards
         public string cardDescription;
         public int cost;
         public IngemonRace race;
+        public CardType type;
         public CardEvent[] actions;
 
         private int target = 1;

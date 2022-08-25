@@ -12,6 +12,7 @@ public class EnemyTurnState : TurnState
 
     public override void ExitState(TurnStateManager manager)
     {
+        CombatSingletonManager.Instance.eventManager.IntentionsClean();
         Debug.Log("Saliendo de turno enemigo");
     }
 

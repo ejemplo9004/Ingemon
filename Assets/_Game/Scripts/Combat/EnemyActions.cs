@@ -29,6 +29,7 @@ public class EnemyActions
             }
             enemyTurnPlays.Add(card);
         }
+        CombatSingletonManager.Instance.eventManager.EnemyIntentions(enemyTurnPlays);
     }
 
     //Encuentra la siguiente carta con costo menor al indicado.

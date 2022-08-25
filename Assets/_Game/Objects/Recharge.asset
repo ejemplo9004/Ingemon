@@ -17,6 +17,7 @@ MonoBehaviour:
   cardDescription: Draw 2
   cost: 1
   race: 0
+  type: 2
   actions:
   - action:
       m_PersistentCalls:

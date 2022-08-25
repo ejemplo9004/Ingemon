@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,12 +13,15 @@ public class UICombatController : MonoBehaviour
     [SerializeField] private Slider frontAllyHealth;
     [SerializeField] private Slider backAllyHealth;
     [SerializeField] private CardSpriteController bigCard;
+    [SerializeField] private IntentionsController intentions;
 
     public void Awake()
     {
         CombatSingletonManager.Instance.eventManager.OnEnergyChange += UpdateEnergyText;
         CombatSingletonManager.Instance.eventManager.OnHealthChange += UpdateHealthBars;
         CombatSingletonManager.Instance.eventManager.OnValidCardPlayed += ShowCard;
+        CombatSingletonManager.Instance.eventManager.OnEnemyIntentions += SetIntentions;
+        CombatSingletonManager.Instance.eventManager.OnIntentionsChange += CleanIntentions;
         SetHealthBars();
     }
 
@@ -50,10 +54,8 @@ public class UICombatController : MonoBehaviour
         StartCoroutine(ShowCardCoroutine(card));
     }
 
-    private void SetCard(Card card)
-    {
-        bigCard.InitCardSprite(card);
-    }
+    private void SetIntentions(List<Card> cards) => intentions.SetIntentions(cards);
+    private void CleanIntentions() => intentions.CleanIntentions();
 
     private IEnumerator ShowCardCoroutine(Card card)
     {
@@ -63,5 +65,18 @@ public class UICombatController : MonoBehaviour
         bigCard.gameObject.SetActive(false);
         yield return null;
     }
-    
+
+    private void SetCard(Card card)
+    {
+        bigCard.InitCardSprite(card);
+    }
+
+    private void OnDisable()
+    {
+        CombatSingletonManager.Instance.eventManager.OnEnergyChange -= UpdateEnergyText;
+        CombatSingletonManager.Instance.eventManager.OnHealthChange -= UpdateHealthBars;
+        CombatSingletonManager.Instance.eventManager.OnValidCardPlayed -= ShowCard;
+        CombatSingletonManager.Instance.eventManager.OnEnemyIntentions -= SetIntentions;
+        CombatSingletonManager.Instance.eventManager.OnIntentionsChange -= CleanIntentions;
+    }
 }

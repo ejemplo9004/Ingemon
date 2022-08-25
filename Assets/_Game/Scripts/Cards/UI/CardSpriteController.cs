@@ -44,8 +44,6 @@ public class CardSpriteController : MonoBehaviour
             {
                 panel.color = backColor;
             }
-
-            Debug.Log($"Owner is front? {card.owner.ingemonInfo.name}");
         }
     }
 
