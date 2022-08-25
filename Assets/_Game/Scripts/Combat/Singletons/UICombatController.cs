@@ -12,7 +12,7 @@ public class UICombatController : MonoBehaviour
     [SerializeField] private Slider backEnemyHealth;
     [SerializeField] private Slider frontAllyHealth;
     [SerializeField] private Slider backAllyHealth;
-    [SerializeField] private CardSpriteController bigCard;
+    [SerializeField] private BigCardController bigCard;
     [SerializeField] private IntentionsController intentions;
 
     public void Awake()
@@ -48,28 +48,10 @@ public class UICombatController : MonoBehaviour
         frontEnemyHealth.maxValue = info.frontEnemy.ingemonInfo.maxHealth;
         backEnemyHealth.maxValue = info.backEnemy.ingemonInfo.maxHealth;
     }
-
-    private void ShowCard(Card card)
-    {
-        StartCoroutine(ShowCardCoroutine(card));
-    }
-
+    
     private void SetIntentions(List<Card> cards) => intentions.SetIntentions(cards);
     private void CleanIntentions() => intentions.CleanIntentions();
-
-    private IEnumerator ShowCardCoroutine(Card card)
-    {
-        SetCard(card);
-        bigCard.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        bigCard.gameObject.SetActive(false);
-        yield return null;
-    }
-
-    private void SetCard(Card card)
-    {
-        bigCard.InitCardSprite(card);
-    }
+    private void ShowCard(Card card) => bigCard.AddToShow(card);
 
     private void OnDisable()
     {

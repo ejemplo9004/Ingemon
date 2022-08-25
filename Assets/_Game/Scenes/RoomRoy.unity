@@ -791,9 +791,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 7898983592032109718, guid: 26d91f206fc8a444bb314347198f260d, type: 3}
-  defense: {fileID: 2147754495399358913, guid: 5ee84a2ef5f7f4f44ad883d163d0ae36, type: 3}
-  buff: {fileID: 7274141888191235019, guid: c78a5490e44107848bfd5224ce6d47ee, type: 3}
-  debuff: {fileID: 8964123939602408073, guid: 1994f9d532002ca48b8fa449ec8f60c4, type: 3}
+  defense: {fileID: 8964123939602408073, guid: 1994f9d532002ca48b8fa449ec8f60c4, type: 3}
+  buff: {fileID: 2147754495399358913, guid: 5ee84a2ef5f7f4f44ad883d163d0ae36, type: 3}
+  debuff: {fileID: 7274141888191235019, guid: c78a5490e44107848bfd5224ce6d47ee, type: 3}
 --- !u!114 &271485237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,7 +1187,7 @@ MonoBehaviour:
   backEnemyHealth: {fileID: 2401975442050365986}
   frontAllyHealth: {fileID: 2401975441916165897}
   backAllyHealth: {fileID: 2401975442208448525}
-  bigCard: {fileID: 750836849}
+  bigCard: {fileID: 1593305293}
   intentions: {fileID: 271485236}
 --- !u!4 &493083292
 Transform:
@@ -3674,6 +3674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1593305290}
   - component: {fileID: 1593305292}
+  - component: {fileID: 1593305293}
   m_Layer: 5
   m_Name: PlayedCard
   m_TagString: Untagged
@@ -3710,6 +3711,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593305289}
   m_CullTransparentMesh: 1
+--- !u!114 &1593305293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593305289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de81bf7b1697435180e361877a2174b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bigCard: {fileID: 750836849}
+  duration: 1
 --- !u!1 &1642009867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,6 +3842,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37f40e178463a4a44abe16addaa7ffab, type: 2}
   - {fileID: 11400000, guid: 4517b21403036474fa7fcb7c208cd710, type: 2}
   - {fileID: 11400000, guid: e320de43dacd59f4788101d606a9b540, type: 2}
+  - {fileID: 11400000, guid: a924f4228143b3c43beac6fc2339ea45, type: 2}
 --- !u!114 &1715397416
 MonoBehaviour:
   m_ObjectHideFlags: 0

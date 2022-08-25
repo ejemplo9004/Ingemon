@@ -66,6 +66,7 @@ public class EnemyActions
         foreach (var card in enemyTurnPlays)
         {
             card.info.PlayCard(card.owner);
+            CombatSingletonManager.Instance.eventManager.ValidCardPlayed(card);
             discardEnemyDeck.Add(card);
         }
     }
