@@ -31,9 +31,9 @@ public class CombatInfo
         this.backEnemy = backEnemy;
         this.combatInventory = combatInventory;
         frontAllyPos = Vector3.zero;
-        backAllyPos = frontAllyPos + new Vector3(5, 0, 0);
-        frontEnemyPos = backAllyPos + new Vector3(0, 0, 10);
-        backEnemyPos = frontEnemyPos + new Vector3(5, 0, 0);
+        backAllyPos = frontAllyPos + new Vector3(2, 0, -2);
+        frontEnemyPos = frontAllyPos + new Vector3(-8, 0, 2);
+        backEnemyPos = frontAllyPos + new Vector3(-13, 0, -1);
         energizer = new EnergyHandler(3);
         hand = new List<Card>();
         discardDeck = new List<Card>();
@@ -60,6 +60,7 @@ public class CombatInfo
         {
             energizer.SpendEnergy(card.info.cost);
             card.info.PlayCard(card.owner);
+            CombatSingletonManager.Instance.eventManager.ValidCardPlayed(card);
             CombatSingletonManager.Instance.eventManager.DiscardCard(card);
         }
         else

@@ -22,7 +22,7 @@ public class CardCombatController: MonoBehaviour
             combatCards.Add(newCard);
             allyCards.Add(newCard);
         }
-        foreach (var newCard in backAlly.ingemonInfo.deck.Select(card => Card(card, frontAlly)))
+        foreach (var newCard in backAlly.ingemonInfo.deck.Select(card => Card(card, backAlly)))
         {
             combatCards.Add(newCard);
             allyCards.Add(newCard);

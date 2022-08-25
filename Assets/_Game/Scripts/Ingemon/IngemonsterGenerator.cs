@@ -15,7 +15,7 @@ public class IngemonsterGenerator : MonoBehaviour
 
     public void CreateIngemon(){
         string phenotype = partes.cadena + "-" + mascaras.iDorsos.ToString() + "-" + mascaras.iManchas.ToString() + "-" + colores.numeros;
-        ingemonster = new Ingemonster("0", ingemonName.text, phenotype);
+        ingemonster = new IngemonBuilder().WithName(ingemonName.text).WithPhenotype(phenotype).WithMaxHealth(100);
         inventory.AddIngemon(ingemonster);
     }
 }
