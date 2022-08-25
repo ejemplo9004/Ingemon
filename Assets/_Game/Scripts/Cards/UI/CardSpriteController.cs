@@ -12,11 +12,14 @@ public class CardSpriteController : MonoBehaviour
     public Card card { get; private set;  }
     public int cardId { get; private set;  }
     private Button btn;
+    private Color32 frontColor = new (67, 255, 0, 57);
+    private Color32 backColor = new (0, 112, 255, 57);
 
     public void Start()
     {
         btn = GetComponent<Button>();
-        btn.onClick.AddListener(PlayCard);
+        if(btn != null)
+            btn.onClick.AddListener(PlayCard);
     }
 
     public void PlayCard()
@@ -31,10 +34,24 @@ public class CardSpriteController : MonoBehaviour
         title.SetText(card.info.cardName);
         description.SetText(card.info.cardDescription);
         cost.SetText(card.info.cost.ToString());
+        if (panel != null)
+        {
+            if (card.owner == CombatSingletonManager.Instance.turnManager.info.frontAlly)
+            {
+                panel.color = frontColor;
+            }
+            else
+            {
+                panel.color = backColor;
+            }
+
+            Debug.Log($"Owner is front? {card.owner.ingemonInfo.name}");
+        }
     }
 
     private void OnDestroy()
     {
-        btn.onClick.RemoveListener(PlayCard);
+        if(btn != null)
+            btn.onClick.RemoveListener(PlayCard);
     }
 }

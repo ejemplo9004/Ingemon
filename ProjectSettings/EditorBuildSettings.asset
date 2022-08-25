@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/Run.unity
     guid: ecb891cc4fde0fd46b7a45e81ba16e70
   - enabled: 1
+    path: Assets/_Game/Scenes/RoomRoy.unity
+    guid: 749fd51fed3e46c46a45bad0f15ff375
+  - enabled: 0
     path: Assets/_Game/Scenes/Room.unity
     guid: b2445f5a87c9440429052e18e29ef8e1
   - enabled: 1

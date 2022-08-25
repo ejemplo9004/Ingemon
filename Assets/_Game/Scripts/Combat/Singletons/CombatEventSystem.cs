@@ -11,6 +11,7 @@ public class CombatEventSystem : MonoBehaviour
 
     public delegate void OnCardPlayedAction(Card card);
     public event OnCardPlayedAction OnCardPlayed;
+    public event OnCardPlayedAction OnValidCardPlayed;
 
     public delegate void OnEnergyAction();
     public event OnEnergyAction OnEnergyChange;
@@ -43,5 +44,10 @@ public class CombatEventSystem : MonoBehaviour
     public void PlayCard(Card card)
     {
         OnCardPlayed?.Invoke(card);
+    }
+
+    public void ValidCardPlayed(Card card)
+    {
+        OnValidCardPlayed?.Invoke(card);
     }
 }

@@ -55,6 +55,10 @@ namespace Cards
         {
             Debug.Log($"You protect {value} damage");
         }
+        
+        
+        
+        
     }
 
     [System.Serializable]
