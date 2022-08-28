@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class CardExecutioner
 {
     private CombatInfo info;
@@ -47,47 +46,57 @@ public class CardExecutioner
         switch ( (Targets) target )
         {
             case Targets.OneSelf:
-                targets.Add(owner);
+                AddTarget(targets, owner);
                 break;
             case Targets.Allys:
-                targets.Add(info.frontAlly);
-                targets.Add(info.backAlly);
+                AddTarget(targets, info.frontAlly);
+                AddTarget(targets, info.backAlly);
                 break;
             case Targets.BackAlly:
-                targets.Add(info.backAlly);
+                AddTarget(targets, info.backAlly);
                 break;
             case Targets.FrontAlly:
-                targets.Add(info.frontAlly);
+                AddTarget(targets, info.frontAlly);
                 break;
             case Targets.All:
-                targets.Add(info.frontAlly);
-                targets.Add(info.backAlly);
-                targets.Add(info.backEnemy);
-                targets.Add(info.frontEnemy);
+                AddTarget(targets, info.frontAlly);
+                AddTarget(targets, info.backAlly);
+                AddTarget(targets, info.backEnemy);
+                AddTarget(targets, info.frontEnemy);
                 break;
             case Targets.FrontEnemy:
-                targets.Add(info.frontEnemy);
+                if(!AddTarget(targets, info.frontEnemy))
+                    AddTarget(targets, info.backEnemy);
                 break;
             case Targets.BackEnemy:
-                targets.Add(info.backEnemy);
+                if(!AddTarget(targets, info.backEnemy))
+                    AddTarget(targets, info.frontEnemy);
                 break;
             case Targets.Enemies:
-                targets.Add(info.backEnemy);
-                targets.Add(info.frontEnemy);
+                AddTarget(targets, info.backEnemy);
+                AddTarget(targets, info.frontEnemy);
                 break;
             case Targets.AllButOneSelf:
                 if(owner != info.frontAlly)
-                    targets.Add(info.frontAlly);
+                    AddTarget(targets, info.frontAlly);
                 if(owner != info.backAlly)
-                    targets.Add(info.backAlly);
+                    AddTarget(targets, info.backAlly);
                 if(owner != info.frontEnemy)
-                    targets.Add(info.frontEnemy);
+                    AddTarget(targets, info.frontEnemy);
                 if(owner != info.backEnemy)
-                    targets.Add(info.backEnemy);
+                    AddTarget(targets, info.backEnemy);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(target), target, null);
         }
         return targets;
+    }
+
+    private bool AddTarget(List<EntityController> targets, EntityController ingemon)
+    {
+        if (ingemon.CheckDead()) return false;
+        targets.Add(ingemon);
+        return true;
+
     }
 }

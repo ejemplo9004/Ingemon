@@ -40,6 +40,7 @@ public class CombatInfo
         handler = new HandHandler(this);
         executioner = new CardExecutioner(this);
         enemies = new EnemyActions(this);
+        CombatSingletonManager.Instance.eventManager.OnIngemonDead += CheckEnd;
     }
 
     public void SpawnAllys()
@@ -65,6 +66,27 @@ public class CombatInfo
         }
         else
             Debug.Log("No enough energy");
+    }
+
+    public void PurgeCardsFromDeckAfterAnIngemonDie(EntityController ingemon)
+    {
+        drawDeck.RemoveAll(card => card.owner.Equals(ingemon));
+        hand.RemoveAll(card => card.owner.Equals(ingemon));
+        discardDeck.RemoveAll(card => card.owner.Equals(ingemon));
+        CombatSingletonManager.Instance.eventManager.UpdateHand(hand);
+    }
+
+    private void CheckEnd(EntityController dead)
+    {
+        if (frontAlly.CheckDead() && backAlly.CheckDead())
+        {
+            CombatSingletonManager.Instance.eventManager.FailedBattle();
+        }
+
+        if (frontEnemy.CheckDead() && backEnemy.CheckDead())
+        {
+            CombatSingletonManager.Instance.eventManager.WinBattle();
+        }
     }
 
 }

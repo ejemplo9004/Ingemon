@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,12 +15,16 @@ public class UICombatController : MonoBehaviour
 
     public void Awake()
     {
+        SetHealthBars();
+    }
+
+    public void OnEnable()
+    {
         CombatSingletonManager.Instance.eventManager.OnEnergyChange += UpdateEnergyText;
         CombatSingletonManager.Instance.eventManager.OnHealthChange += UpdateHealthBars;
         CombatSingletonManager.Instance.eventManager.OnValidCardPlayed += ShowCard;
         CombatSingletonManager.Instance.eventManager.OnEnemyIntentions += SetIntentions;
         CombatSingletonManager.Instance.eventManager.OnIntentionsChange += CleanIntentions;
-        SetHealthBars();
     }
 
     private void UpdateEnergyText()
@@ -48,7 +50,7 @@ public class UICombatController : MonoBehaviour
         frontEnemyHealth.maxValue = info.frontEnemy.ingemonInfo.maxHealth;
         backEnemyHealth.maxValue = info.backEnemy.ingemonInfo.maxHealth;
     }
-    
+
     private void SetIntentions(List<Card> cards) => intentions.SetIntentions(cards);
     private void CleanIntentions() => intentions.CleanIntentions();
     private void ShowCard(Card card) => bigCard.AddToShow(card);

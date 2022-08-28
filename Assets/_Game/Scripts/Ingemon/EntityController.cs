@@ -35,8 +35,14 @@ public class EntityController : MonoBehaviour
 
     public void GetDamaged(int health)
     {
+        health *= 2;
         currentHealth = Mathf.Clamp(currentHealth - health, 0, currentHealth);
-        Debug.Log($"{ingemonInfo.name} has lost {health} health, now he has {currentHealth} health points");
+        if (CheckDead())
+        {
+            CombatSingletonManager.Instance.eventManager.DeadIngemon(this);
+            CombatSingletonManager.Instance.turnManager.info.PurgeCardsFromDeckAfterAnIngemonDie(this);
+            DeadAnimation();
+        }
     }
 
     public void GetHealed(int health)
@@ -48,4 +54,12 @@ public class EntityController : MonoBehaviour
     {
         status.Add(mod);
     }
+
+    public bool CheckDead() => currentHealth <= 0;
+
+    public void DeadAnimation()
+    {
+        transform.Rotate(new Vector3(90,0,0), Space.Self);
+    }
+    
 }

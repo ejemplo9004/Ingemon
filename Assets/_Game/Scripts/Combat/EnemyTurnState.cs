@@ -29,4 +29,9 @@ public class EnemyTurnState : TurnState
         yield return null;
     }
 
+    private void CheckEnd(EntityController ingemon)
+    {
+        
+    }
+
 }
