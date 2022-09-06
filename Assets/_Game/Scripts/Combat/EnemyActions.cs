@@ -68,6 +68,7 @@ public class EnemyActions
             card.info.PlayCard(card.owner);
             CombatSingletonManager.Instance.eventManager.ValidCardPlayed(card);
             discardEnemyDeck.Add(card);
+            card.owner.TickBleed();
         }
     }
     

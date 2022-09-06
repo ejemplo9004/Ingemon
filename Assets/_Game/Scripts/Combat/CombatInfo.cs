@@ -63,6 +63,7 @@ public class CombatInfo
             card.info.PlayCard(card.owner);
             CombatSingletonManager.Instance.eventManager.ValidCardPlayed(card);
             CombatSingletonManager.Instance.eventManager.DiscardCard(card);
+            card.owner.TickBleed();
         }
         else
             Debug.Log("No enough energy");
@@ -88,5 +89,5 @@ public class CombatInfo
             CombatSingletonManager.Instance.eventManager.WinBattle();
         }
     }
-
+    
 }

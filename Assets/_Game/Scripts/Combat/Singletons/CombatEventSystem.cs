@@ -18,11 +18,15 @@ public class CombatEventSystem : MonoBehaviour
     public event OnUIChangeAction OnEnergyChange;
     public event OnUIChangeAction OnHealthChange;
     public event OnUIChangeAction OnIntentionsChange;
+    public event OnUIChangeAction OnProtectionChange;
 
     public void ChangeEnergy() => OnEnergyChange?.Invoke();
 
     public void ChangeHealth() => OnHealthChange?.Invoke();
+
     public void IntentionsClean() => OnIntentionsChange?.Invoke();
+
+    public void ChangeProtection() => OnProtectionChange?.Invoke();
 
     #endregion
 
@@ -31,6 +35,7 @@ public class CombatEventSystem : MonoBehaviour
     public delegate void OnCardPlayedAction(Card card);
 
     public event OnCardPlayedAction OnCardPlayed;
+
     public event OnCardPlayedAction OnValidCardPlayed;
 
 
@@ -41,6 +46,7 @@ public class CombatEventSystem : MonoBehaviour
     public delegate void OnCardsAction(List<Card> cards);
 
     public event OnCardsAction OnHandUpdate;
+
     public event OnCardsAction OnEnemyIntentions;
 
     public delegate void OnCardDiscardAction(Card card);
@@ -70,14 +76,19 @@ public class CombatEventSystem : MonoBehaviour
     #region IngemonEvents
 
     public delegate void OnIngemonDeadAction(EntityController ingemon);
+
     public event OnIngemonDeadAction OnIngemonDead;
 
     public delegate void OnEndBattleAction();
 
     public event OnEndBattleAction OnWinBattle;
+
     public event OnEndBattleAction OnFailBattle;
+
     public void DeadIngemon(EntityController ingemon) => OnIngemonDead?.Invoke(ingemon);
+
     public void WinBattle() => OnWinBattle?.Invoke();
+
     public void FailedBattle() => OnFailBattle?.Invoke();
 
     #endregion

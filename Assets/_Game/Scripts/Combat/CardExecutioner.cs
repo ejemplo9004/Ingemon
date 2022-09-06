@@ -29,10 +29,36 @@ public class CardExecutioner
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
     }
 
+    public void Protect(int protection, int target, EntityController owner)
+    {
+        foreach (var t in GetTargets(target, owner))
+        {
+            t.GetProtection(protection);
+        }
+        CombatSingletonManager.Instance.eventManager.ChangeProtection();
+    }
+
     public void Draw(int cards, EntityController owner)
     {
         if(owner.GetType() == typeof(IngemonController))
             info.handler.Draw(cards);
+    }
+
+    public void Poison(int damage, int duration, int target, EntityController owner)
+    {
+        foreach (var t in GetTargets(target, owner))
+        {
+            t.SetState(new Poison(damage, duration));
+        }
+        //CombatSingletonManager.Instance.eventManager.ChangeProtection();
+    }
+
+    public void Bleed(int damage, int duration, int target, EntityController owner)
+    {
+        foreach (var t in GetTargets(target, owner))
+        {
+            t.SetState(new Bleed(damage, duration));
+        }
     }
 
     public List<EntityController> GetTargets(int target, EntityController owner)
@@ -99,4 +125,6 @@ public class CardExecutioner
         return true;
 
     }
+
+
 }

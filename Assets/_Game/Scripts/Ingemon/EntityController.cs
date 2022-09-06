@@ -7,8 +7,10 @@ public class EntityController : MonoBehaviour
 {
     public Ingemonster ingemonInfo { get; set; }
     [SerializeField] private GameObject ingemonMesh;
-    public int currentHealth { get; private set;  }
-    private List<Modifiers> status;
+    public int currentHealth { get; private set; }
+    public int protection { get; set; }
+    private List<Poison> poisons = new();
+    private List<Bleed> bleeds = new();
 
     public void SetHealth()
     {
@@ -36,6 +38,22 @@ public class EntityController : MonoBehaviour
     public void GetDamaged(int health)
     {
         health *= 2;
+        if (health > protection)
+        {
+            health -= protection;
+            protection = 0;
+        }
+        else
+        {
+            protection -= health;
+            health = 0;
+        }
+        
+        GetDamageNoProtection(health);
+    }
+
+    public void GetDamageNoProtection(int health)
+    {
         currentHealth = Mathf.Clamp(currentHealth - health, 0, currentHealth);
         if (CheckDead())
         {
@@ -50,10 +68,48 @@ public class EntityController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + health, 0, currentHealth);
     }
 
-    public void GetStatus(Modifiers mod)
+    public void SetState(IngemonState state)
     {
-        status.Add(mod);
+        if(state.GetType() == typeof(Poison))
+            poisons.Add((Poison)state);
+        if(state.GetType() == typeof(Bleed))
+            bleeds.Add((Bleed)state);
     }
+
+    public void TickPoison()
+    {
+        for (int i = poisons.Count -1; i >= 0; i--)
+        {
+            if (poisons[i].Tick(this) == 0)
+            {
+                poisons.RemoveAt(i);
+            }
+        }
+    }
+    
+    public void TickBleed()
+    {
+        for (int i = bleeds.Count -1; i >= 0; i--)
+        {
+            if (bleeds[i].Tick(this) == 0)
+            {
+                bleeds.RemoveAt(i);
+            }
+        }
+    }
+    public void HealBleed()
+    {
+        for (int i = bleeds.Count -1; i >= 0; i--)
+        {
+            if (bleeds[i].DeniedTick() == 0)
+            {
+                bleeds.RemoveAt(i);
+            }
+        }
+    }
+
+    public void GetProtection(int protection) => this.protection += protection;
+    public void LoseProtection() => protection = 0;
 
     public bool CheckDead() => currentHealth <= 0;
 

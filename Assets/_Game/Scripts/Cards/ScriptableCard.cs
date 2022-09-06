@@ -17,6 +17,7 @@ namespace Cards
         public CardEvent[] actions;
 
         private int target = 1;
+        private int duration = 0;
         private EntityController owner;
 
 
@@ -29,32 +30,37 @@ namespace Cards
             }
         }
 
-        public void SetTarget(int target)
-        {
-            this.target = target;
-        }
+        public void SetTarget(int target) => this.target = target;
+        public void SetDuration(int duration) => this.duration = duration;
 
         public void DealDamage(int damage)
         {
-            Debug.Log($"{damage} dealt to {(Targets)target}");
             CombatSingletonManager.Instance.turnManager.info.executioner.DealDamage(damage, target, owner);
         }
 
         public void Heal(int health)
         {
-            Debug.Log($"{health} healed to {(Targets)target}");
             CombatSingletonManager.Instance.turnManager.info.executioner.Heal(health, target, owner);
         }
 
         public void Draw(int cards)
         {
-            Debug.Log($"Draw {cards} cards");
             CombatSingletonManager.Instance.turnManager.info.executioner.Draw(cards, owner);
         }
 
-        public void Protect(int value)
+        public void Protect(int protection)
         {
-            Debug.Log($"You protect {value} damage");
+            CombatSingletonManager.Instance.turnManager.info.executioner.Protect(protection, target, owner);
+        }
+        public void Poison(int damage)
+        {
+            CombatSingletonManager.Instance.turnManager.info.executioner.Poison(damage, duration, target, owner);
+            duration = 0;
+        }
+        public void Bleed(int damage)
+        {
+            CombatSingletonManager.Instance.turnManager.info.executioner.Bleed(damage, duration, target, owner);
+            duration = 0;
         }
         
         

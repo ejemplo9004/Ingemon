@@ -20,6 +20,7 @@ public class AllyTurnState : TurnState
     {
         Debug.Log("Saliendo del Ally");
         manager.info.handler.DiscardHand();
+        EndOfTurnEffects(manager);
         CombatSingletonManager.Instance.eventManager.OnEndClicked -= EndAllyTurn;
         CombatSingletonManager.Instance.eventManager.OnCardPlayed -= PlayCard;
     }
@@ -32,6 +33,16 @@ public class AllyTurnState : TurnState
     private void EndAllyTurn()
     {
         manager.ChangeState(manager.enemyState);
+    }
+
+    private void EndOfTurnEffects(TurnStateManager manager)
+    {
+        manager.info.frontEnemy.LoseProtection();
+        manager.info.backEnemy.LoseProtection();
+        manager.info.backAlly.HealBleed();
+        manager.info.frontAlly.HealBleed();
+        manager.info.backAlly.TickPoison();
+        manager.info.frontAlly.TickPoison();
     }
 
     private void PlayCard(Card card)

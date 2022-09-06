@@ -13,6 +13,7 @@ public class EnemyTurnState : TurnState
     public override void ExitState(TurnStateManager manager)
     {
         CombatSingletonManager.Instance.eventManager.IntentionsClean();
+        EndOfTurnEffects(manager);
         Debug.Log("Saliendo de turno enemigo");
     }
 
@@ -32,6 +33,16 @@ public class EnemyTurnState : TurnState
     private void CheckEnd(EntityController ingemon)
     {
         
+    }
+    
+    private void EndOfTurnEffects(TurnStateManager manager)
+    {
+        manager.info.frontAlly.LoseProtection();
+        manager.info.backAlly.LoseProtection();
+        manager.info.backEnemy.HealBleed();
+        manager.info.frontEnemy.HealBleed();
+        manager.info.backEnemy.TickPoison();
+        manager.info.frontEnemy.TickPoison();
     }
 
 }
