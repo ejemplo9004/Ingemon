@@ -441,6 +441,14 @@ MonoBehaviour:
   currentRun: {fileID: 11400000, guid: 8422caef496dcf945a6e9b514f9bdc57, type: 2}
   lastRunPassed: 0
   inventory: {fileID: 11400000, guid: ab97d61e95e58554daca5fd691efe6a2, type: 2}
+  baseCollection:
+  - {fileID: 11400000, guid: ae58fd33fcafddb41a04961a921ddf70, type: 2}
+  - {fileID: 11400000, guid: 6cedcb848dea5794a84b5cdf2391fcdd, type: 2}
+  - {fileID: 11400000, guid: a924f4228143b3c43beac6fc2339ea45, type: 2}
+  - {fileID: 11400000, guid: 4d4c48b1cbe47794aa02a5e92e0f68fa, type: 2}
+  - {fileID: 11400000, guid: 37f40e178463a4a44abe16addaa7ffab, type: 2}
+  - {fileID: 11400000, guid: 4517b21403036474fa7fcb7c208cd710, type: 2}
+  - {fileID: 11400000, guid: e320de43dacd59f4788101d606a9b540, type: 2}
 --- !u!4 &688116891
 Transform:
   m_ObjectHideFlags: 0

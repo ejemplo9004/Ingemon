@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Cards;
 
 public class RunUI : GameplaySceneUI
 {
@@ -34,8 +35,8 @@ public class RunUI : GameplaySceneUI
         roomPanel.SetActive(true);
     }
 
-    public void ShowRewardPanel(){
-        rewardPanel.SetActive(true);
+    public void ShowRewardPanel(bool state){
+        rewardPanel.SetActive(state);
     }
 
     public RoomButtonsController RoomButtons { get => roomButtons; set => roomButtons = value; }

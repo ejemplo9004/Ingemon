@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "Game Controller", menuName = "Ingemon/Game Controller")]
+using Cards;
 public class GameController : MonoBehaviour
 {
     #region Singleton
     public static GameController gameController;
 
     private void Awake() {
-        if(gameController != null){
+        if(gameController != null && gameController != this){
             DestroyImmediate(this.gameObject);
             return;
         }
@@ -20,6 +19,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private bool lastRunPassed;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private List<ScriptableCard> baseCollection;
 
     private void Start() {
         if(Persistence.persistence != null){
@@ -33,4 +33,5 @@ public class GameController : MonoBehaviour
 
     public Run CurrentRun { get => currentRun; }
     public bool LastRunPassed { get => lastRunPassed; set => lastRunPassed = value; }
+    public List<ScriptableCard> BaseCollection { get => baseCollection; set => baseCollection = value; }
 }
