@@ -16,7 +16,7 @@ public class RoomController : GameplayScene
     private void ConfigureRoom(){
         combatInventory.ClearInventory();
         gamePlaySceneUI.ChangeBackGroundImage(room.Background);
-        gamePlaySceneUI.FillIngemonsImages(runInventory);
+        gamePlaySceneUI.FillIngemonsImages(RunInventory);
         gamePlaySceneUI.ShowEnemyPanel();
     }
 

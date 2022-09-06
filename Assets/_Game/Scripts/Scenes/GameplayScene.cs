@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class GameplayScene : MonoBehaviour
 {
-    [SerializeField] protected Inventory runInventory;
+    [SerializeField] private Inventory runInventory;
     [SerializeField] protected List<Ingemonster> ingemonesSelected;
-    
+
 
     public bool AddIngemonToPreselection(Ingemonster ingemon, int index){
         if(ingemonesSelected.Contains(ingemon)){
@@ -15,5 +15,18 @@ public class GameplayScene : MonoBehaviour
         ingemonesSelected[index] = ingemon;
         return true;
     }
+
+    public bool RemoveIngemonFromPreselection(Ingemonster ingemon){
+        if(ingemonesSelected.Contains(ingemon)){
+            int index = ingemonesSelected.IndexOf(ingemon);
+            ingemonesSelected[index] = null;
+            Debug.Log("Eliminao");
+            return true;
+        }
+        Debug.Log("No existia el ingemon pa eliminar");
+        return false;
+    }
+
+    public Inventory RunInventory { get => runInventory; set => runInventory = value; }
 
 }

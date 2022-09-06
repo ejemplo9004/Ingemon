@@ -27,5 +27,14 @@ public class Ingemonster
         this.phenotype = phenotype;
     }
 
+    public Ingemonster(Ingemonster ingemon){
+        this.name = ingemon.name;
+        this.id = ingemon.id;
+        this.phenotype = ingemon.phenotype;
+        this.maxHealth = ingemon.maxHealth;
+        this.ingemonColection = ingemon.ingemonColection;
+        this.deck = ingemon.deck;
+    }
+
     public Ingemonster() { }
 }

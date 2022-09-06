@@ -16,4 +16,8 @@ public class Card
         this.owner = owner;
     }
 
+    public Card(ScriptableCard info){
+        this.info = info;
+    }
+
 }

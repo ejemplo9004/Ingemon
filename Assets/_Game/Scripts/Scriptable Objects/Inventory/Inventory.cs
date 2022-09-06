@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEditor;
 
 [CreateAssetMenu(fileName = "Inventory", menuName = "Ingemon/Inventory")]
@@ -12,26 +13,30 @@ public class Inventory : ScriptableObject
         if(!hasLimit){
             ingemones.Add(ingemon);
             Persistence.persistence.SaveIngemon(ingemones, ingemones.Count);
-            return;
+            return;            
         }
         else if(ingemones.Count == limit){
             Debug.Log("No se pueden asignar mas ingemones");
             return;
         }
-        ingemones.Add(ingemon);
+        Ingemonster ingemonCopy = new Ingemonster(ingemon);
+        ingemones.Add(ingemonCopy);
+        
     }
 
-    public void DeleteIngemon(Ingemonster ingemon){
+    public bool DeleteIngemon(Ingemonster ingemon){
         if(ingemones.Count == 0){
             Debug.Log("No hay ingemones para borrar.");
-            return;
+            return false;
         }
         if(ingemones.Contains(ingemon)){
             ingemones.Remove(ingemon);
             Debug.Log("Ingemon removido");
+            return true;
         }
         else{
             Debug.Log("No se encontro el Ingemon para borrar.");
+            return false;
         }
     }
 

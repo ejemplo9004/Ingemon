@@ -24,6 +24,25 @@ public class GameplaySceneUI : MonoBehaviour
         if(sceneController.AddIngemonToPreselection(ingemon, index)){
             selectedIngemonImage.GetComponent<IngemonSelector>().Ingemon = ingemon;
             selectedIngemonImage.GetComponentInChildren<Text>().text = ingemon.name;
+            SetNextPreselectionBox();
+        }
+    }
+
+    public void CleanPreselection(GameObject image){
+        sceneController.RemoveIngemonFromPreselection(image.GetComponent<IngemonSelector>().Ingemon);
+        image.GetComponent<IngemonSelector>().Ingemon = new Ingemonster();
+        image.GetComponentInChildren<Text>().text = "";
+        SetNextPreselectionBox();
+    }
+
+    private void SetNextPreselectionBox(){
+        foreach (GameObject image in preselectionImages)
+        {
+            Ingemonster imageIngemon = image.GetComponent<IngemonSelector>().Ingemon;
+            if(imageIngemon.name == "" || imageIngemon.name == null){
+                selectedIngemonImage = image;
+                return;
+            }
         }
     }
 
@@ -40,9 +59,7 @@ public class GameplaySceneUI : MonoBehaviour
     }
 
     public void SetSelectedIngemonImage(GameObject image){
-        selectedIngemonImage.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(false);
         selectedIngemonImage = image;
-        image.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(true);
     }
 
     public void ShowSelectionCanvas(bool show){
