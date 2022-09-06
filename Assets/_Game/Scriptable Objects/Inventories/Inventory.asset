@@ -12,6 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45600dc94538fb449798b75d1910704, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  ingemones: []
+  ingemones:
+  - name: "\xF1azo"
+    id: 
+    phenotype: 6-5-8-0-1-758
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
+  - name: psycho
+    id: 
+    phenotype: 5-9-0-9-2-691
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
+  - name: charizard
+    id: 
+    phenotype: 5-3-1-9-1-353
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
+  - name: emo
+    id: 
+    phenotype: 6-6-1-1-9-843
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
   hasLimit: 0
   limit: 0

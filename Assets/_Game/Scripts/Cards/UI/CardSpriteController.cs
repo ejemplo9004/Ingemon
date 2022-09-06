@@ -34,7 +34,7 @@ public class CardSpriteController : MonoBehaviour
         title.SetText(card.info.cardName);
         description.SetText(card.info.cardDescription);
         cost.SetText(card.info.cost.ToString());
-        if (panel != null)
+        if (panel != null && CombatSingletonManager.Instance != null)
         {
             if (card.owner == CombatSingletonManager.Instance.turnManager.info.frontAlly)
             {

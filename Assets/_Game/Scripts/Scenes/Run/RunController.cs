@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Cards;
 
 public class RunController : GameplayScene
 {
@@ -27,7 +28,7 @@ public class RunController : GameplayScene
         else{
             runUI.ShowRoomPanel();
             if(run.lastFightPassed){
-                runUI.ShowRewardPanel();
+                runUI.ShowRewardPanel(true);
             }
         }   
         runUI.RoomButtons.ToggleButton(run.currentRoomNumber, true);
@@ -39,7 +40,7 @@ public class RunController : GameplayScene
         }
         foreach (Ingemonster ingemon in ingemonesSelected)
         {
-            runInventory.AddIngemon(ingemon);
+            RunInventory.AddIngemon(ingemon);
         }
     }
 
@@ -54,6 +55,12 @@ public class RunController : GameplayScene
         runUI.HideSelectionPanel();
         runUI.ShowRoomPanel();
         return true;
+    }
+
+    public void AddReward(GameObject reward){
+        var rewardable = reward.GetComponent<IReward>();
+        rewardable.AddReward();
+        runUI.ShowRewardPanel(false);
     }
 
 }

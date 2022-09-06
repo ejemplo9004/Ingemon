@@ -23,6 +23,7 @@ public class CombatInicializer : MonoBehaviour
             Debug.Log($"{card.cardName} added!");
             baseCollection.Add(card);
         }*/
+        baseCollection = RunSingleton.Instance.runDeck.Deck;
         SetIngemons();
     }
 
