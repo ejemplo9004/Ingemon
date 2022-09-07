@@ -28,9 +28,12 @@ public class HandController : MonoBehaviour
     private void DiscardCard(Card card)
     {
         int pos = cardObjects.FindIndex(x => x.GetComponent<CardSpriteController>().cardId == card.id);
-        GameObject c = cardObjects[pos];
-        cardObjects.RemoveAt(pos);
-        Destroy(c.gameObject);
+        if (pos >= 0)
+        {
+            GameObject c = cardObjects[pos];
+            cardObjects.RemoveAt(pos);
+            Destroy(c.gameObject);
+        }
     }
 
     private void UpdateHand(List<Card> hand)

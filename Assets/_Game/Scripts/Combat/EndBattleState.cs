@@ -6,7 +6,7 @@ public class EndBattleState : TurnState
 {
     public override void EnterState(TurnStateManager manager)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Fin del combate");
     }
 
     public override void ExitState(TurnStateManager manager)
@@ -16,6 +16,6 @@ public class EndBattleState : TurnState
 
     public override void UpdateState(TurnStateManager manager)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

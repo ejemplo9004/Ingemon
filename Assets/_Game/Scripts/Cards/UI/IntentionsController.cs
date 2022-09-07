@@ -43,7 +43,6 @@ public class IntentionsController: MonoBehaviour
     public void CleanIntentions()
     {
         int count = intentions.Count;
-        Debug.Log($"Intentions : {count}");
         for (int i = count - 1; i >= 0; i--)
         {
             Destroy(intentions[i].gameObject);

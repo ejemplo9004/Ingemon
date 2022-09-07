@@ -25,8 +25,25 @@ public class EnemyTurnState : TurnState
     {
         manager.info.enemies.PlayTurn();
         yield return new WaitForSeconds(3);
-        manager.ChangeState(manager.allyState);
+        EndOfTurnEffects(manager);
+        if (manager.currentState == this)
+            manager.ChangeState(manager.allyState);
         yield return null;
+    }
+
+    private void CheckEnd(EntityController ingemon)
+    {
+        
+    }
+    
+    private void EndOfTurnEffects(TurnStateManager manager)
+    {
+        manager.info.frontAlly.LoseProtection();
+        manager.info.backAlly.LoseProtection();
+        manager.info.backEnemy.HealBleed();
+        manager.info.frontEnemy.HealBleed();
+        manager.info.backEnemy.TickPoison();
+        manager.info.frontEnemy.TickPoison();
     }
 
 }

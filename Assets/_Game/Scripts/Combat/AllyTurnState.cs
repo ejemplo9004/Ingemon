@@ -31,7 +31,19 @@ public class AllyTurnState : TurnState
 
     private void EndAllyTurn()
     {
-        manager.ChangeState(manager.enemyState);
+        EndOfTurnEffects(manager);
+        if (manager.currentState == this)
+            manager.ChangeState(manager.enemyState);
+    }
+
+    private void EndOfTurnEffects(TurnStateManager manager)
+    {
+        manager.info.frontEnemy.LoseProtection();
+        manager.info.backEnemy.LoseProtection();
+        manager.info.backAlly.HealBleed();
+        manager.info.frontAlly.HealBleed();
+        manager.info.backAlly.TickPoison();
+        manager.info.frontAlly.TickPoison();
     }
 
     private void PlayCard(Card card)
