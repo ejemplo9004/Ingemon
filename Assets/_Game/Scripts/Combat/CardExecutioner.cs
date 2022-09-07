@@ -79,10 +79,12 @@ public class CardExecutioner
                 AddTarget(targets, info.backAlly);
                 break;
             case Targets.BackAlly:
-                AddTarget(targets, info.backAlly);
+                if(!AddTarget(targets, info.backAlly))
+                    AddTarget(targets, info.frontAlly);
                 break;
             case Targets.FrontAlly:
-                AddTarget(targets, info.frontAlly);
+                if(!AddTarget(targets, info.frontAlly))
+                    AddTarget(targets, info.backAlly);
                 break;
             case Targets.All:
                 AddTarget(targets, info.frontAlly);

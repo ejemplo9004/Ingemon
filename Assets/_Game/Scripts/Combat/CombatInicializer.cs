@@ -54,22 +54,22 @@ public class CombatInicializer : MonoBehaviour
         }
 
         frontAlly.ingemonInfo = ingemones[0];
-        frontAlly.SetHealth();
+        frontAlly.SetUI(CombatIngemonEnum.FRONT_ALLY);
 
         backAlly.ingemonInfo = ingemones[1];
-        backAlly.SetHealth();
+        backAlly.SetUI(CombatIngemonEnum.BACK_ALLY);
 
         frontEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         frontEnemy.ingemonInfo = new IngemonBuilder().WithName("Fishamon")
             .WithMaxHealth(100)
             .WithDeck(baseCollection);
-        frontEnemy.SetHealth();
+        frontEnemy.SetUI(CombatIngemonEnum.FRONT_ENEMY);
 
         backEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         backEnemy.ingemonInfo = new IngemonBuilder().WithName("Corromon")
             .WithMaxHealth(100)
             .WithDeck(baseCollection);
-        backEnemy.SetHealth();
+        backEnemy.SetUI(CombatIngemonEnum.BACK_ENEMY);
 
         
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy, combatInventory);

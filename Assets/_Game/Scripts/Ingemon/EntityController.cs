@@ -11,10 +11,13 @@ public class EntityController : MonoBehaviour
     public int protection { get; set; }
     private List<Poison> poisons = new();
     private List<Bleed> bleeds = new();
+    private GameObject buffUI;
+    public CombatIngemonEnum position;
 
-    public void SetHealth()
+    public void SetUI(CombatIngemonEnum position)
     {
         currentHealth = ingemonInfo.maxHealth;
+        this.position = position;
     }
 
     public void Spawn(Vector3 pos, string phenotype)
@@ -60,6 +63,7 @@ public class EntityController : MonoBehaviour
             CombatSingletonManager.Instance.eventManager.DeadIngemon(this);
             CombatSingletonManager.Instance.turnManager.info.PurgeCardsFromDeckAfterAnIngemonDie(this);
             DeadAnimation();
+            CleanBuffs();
         }
     }
 
@@ -70,10 +74,25 @@ public class EntityController : MonoBehaviour
 
     public void SetState(IngemonState state)
     {
-        if(state.GetType() == typeof(Poison))
-            poisons.Add((Poison)state);
-        if(state.GetType() == typeof(Bleed))
-            bleeds.Add((Bleed)state);
+        switch (state.buffType)
+        {
+            case BuffsEnum.WEAK:
+                break;
+            case BuffsEnum.BUFFED:
+                break;
+            case BuffsEnum.POISON:
+                poisons.Add((Poison)state);
+                break;
+            case BuffsEnum.BLEED:
+                bleeds.Add((Bleed)state);
+                break;
+            case BuffsEnum.PROTECT:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        state.buffIcon = CombatSingletonManager.Instance.uiManager.ShowBuff(position, state.buffType).GetComponent<BuffUIController>();
+        state.SetBuffIcon();
     }
 
     public void TickPoison()
@@ -82,6 +101,8 @@ public class EntityController : MonoBehaviour
         {
             if (poisons[i].Tick(this) == 0)
             {
+                if(poisons.Count <= 0)
+                    return;
                 poisons.RemoveAt(i);
             }
         }
@@ -93,6 +114,8 @@ public class EntityController : MonoBehaviour
         {
             if (bleeds[i].Tick(this) == 0)
             {
+                if(bleeds.Count <= 0)
+                    return;
                 bleeds.RemoveAt(i);
             }
         }
@@ -103,10 +126,20 @@ public class EntityController : MonoBehaviour
         {
             if (bleeds[i].DeniedTick() == 0)
             {
+                if(bleeds.Count <= 0)
+                    return;
                 bleeds.RemoveAt(i);
             }
         }
     }
+
+    private void CleanBuffs()
+    {
+        poisons = new List<Poison>();
+        bleeds = new List<Bleed>();
+        CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
+    }
+    
 
     public void GetProtection(int protection) => this.protection += protection;
     public void LoseProtection() => protection = 0;

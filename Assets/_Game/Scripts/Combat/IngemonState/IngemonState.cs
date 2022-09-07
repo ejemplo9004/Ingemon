@@ -1,4 +1,7 @@
-﻿public interface IngemonState
+﻿public abstract class IngemonState
 {
-    public int Tick(EntityController target);
+    public BuffsEnum buffType;
+    public BuffUIController buffIcon;
+    public abstract int Tick(EntityController target);
+    public abstract void SetBuffIcon();
 }

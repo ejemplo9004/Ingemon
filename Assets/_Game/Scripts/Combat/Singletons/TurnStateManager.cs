@@ -42,13 +42,20 @@ public class TurnStateManager : MonoBehaviour
 
     public void WonBattle()
     {
+        Unsuscribe();
         ChangeState(winState);
-        
     }
 
     public void FailedBattle()
     {
+        Unsuscribe();
         ChangeState(failedState);
+    }
+
+    private void Unsuscribe()
+    {
+        CombatSingletonManager.Instance.eventManager.OnWinBattle -= WonBattle;
+        CombatSingletonManager.Instance.eventManager.OnFailBattle -= FailedBattle;
     }
 
 
