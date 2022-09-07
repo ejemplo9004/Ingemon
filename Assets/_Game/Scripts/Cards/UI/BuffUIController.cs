@@ -32,4 +32,14 @@ public class BuffUIController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void UpdateValue(int value)
+    {
+        this.value = value;
+        text.SetText(value.ToString());
+        if (value == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

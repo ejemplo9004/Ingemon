@@ -74,10 +74,10 @@ public class UICombatController : MonoBehaviour
         CombatSingletonManager.Instance.eventManager.OnIntentionsChange -= CleanIntentions;
     }
 
-    public GameObject ShowBuff(CombatIngemonEnum position, BuffsEnum buff)
+    public BuffUIController ShowBuff(CombatIngemonEnum position, BuffsEnum buff)
     {
         GameObject parent = GetBuffParentGameObject(position);
-        return Instantiate(GetBuffObject(buff), parent.transform);
+        return Instantiate(GetBuffObject(buff), parent.transform).GetComponent<BuffUIController>();
     }
 
     private GameObject GetBuffParentGameObject(CombatIngemonEnum position)

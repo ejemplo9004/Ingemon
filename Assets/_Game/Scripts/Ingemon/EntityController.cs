@@ -9,6 +9,7 @@ public class EntityController : MonoBehaviour
     [SerializeField] private GameObject ingemonMesh;
     public int currentHealth { get; private set; }
     public int protection { get; set; }
+    private BuffUIController protectIcon;
     private List<Poison> poisons = new();
     private List<Bleed> bleeds = new();
     private GameObject buffUI;
@@ -30,10 +31,13 @@ public class EntityController : MonoBehaviour
     public void Generate(string phenotype)
     {
         ingemonMesh.SetActive(true);
-        if(phenotype != ""){
+        if (phenotype != "")
+        {
             string[] feat = phenotype.Split("-");
-            ingemonMesh.GetComponent<MorionCambioPartes>().TransformarIngemon(Int32.Parse(feat[0]), Int32.Parse(feat[1]), Int32.Parse(feat[2]));
-            ingemonMesh.GetComponent<MorionCambioMascaras>().CambiarTexturas(Int32.Parse(feat[3]), Int32.Parse(feat[4]));
+            ingemonMesh.GetComponent<MorionCambioPartes>()
+                .TransformarIngemon(Int32.Parse(feat[0]), Int32.Parse(feat[1]), Int32.Parse(feat[2]));
+            ingemonMesh.GetComponent<MorionCambioMascaras>()
+                .CambiarTexturas(Int32.Parse(feat[3]), Int32.Parse(feat[4]));
             ingemonMesh.GetComponent<MorionCambioColores>().EstablecerColores(feat[5]);
         }
     }
@@ -45,13 +49,15 @@ public class EntityController : MonoBehaviour
         {
             health -= protection;
             protection = 0;
+            UpdateProtection();
         }
         else
         {
             protection -= health;
+            UpdateProtection();
             health = 0;
         }
-        
+
         GetDamageNoProtection(health);
     }
 
@@ -91,42 +97,44 @@ public class EntityController : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        state.buffIcon = CombatSingletonManager.Instance.uiManager.ShowBuff(position, state.buffType).GetComponent<BuffUIController>();
+
+        state.buffIcon = CombatSingletonManager.Instance.uiManager.ShowBuff(position, state.buffType);
         state.SetBuffIcon();
     }
 
     public void TickPoison()
     {
-        for (int i = poisons.Count -1; i >= 0; i--)
+        for (int i = poisons.Count - 1; i >= 0; i--)
         {
             if (poisons[i].Tick(this) == 0)
             {
-                if(poisons.Count <= 0)
+                if (poisons.Count <= 0)
                     return;
                 poisons.RemoveAt(i);
             }
         }
     }
-    
+
     public void TickBleed()
     {
-        for (int i = bleeds.Count -1; i >= 0; i--)
+        for (int i = bleeds.Count - 1; i >= 0; i--)
         {
             if (bleeds[i].Tick(this) == 0)
             {
-                if(bleeds.Count <= 0)
+                if (bleeds.Count <= 0)
                     return;
                 bleeds.RemoveAt(i);
             }
         }
     }
+
     public void HealBleed()
     {
-        for (int i = bleeds.Count -1; i >= 0; i--)
+        for (int i = bleeds.Count - 1; i >= 0; i--)
         {
             if (bleeds[i].DeniedTick() == 0)
             {
-                if(bleeds.Count <= 0)
+                if (bleeds.Count <= 0)
                     return;
                 bleeds.RemoveAt(i);
             }
@@ -139,16 +147,41 @@ public class EntityController : MonoBehaviour
         bleeds = new List<Bleed>();
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
     }
-    
 
-    public void GetProtection(int protection) => this.protection += protection;
-    public void LoseProtection() => protection = 0;
+
+    public void GetProtection(int protection)
+    {
+        this.protection += protection;
+        UpdateProtection();
+    }
+
+    public void LoseProtection()
+    {
+        protection = 0;
+        UpdateProtection();
+    }
+
+    private void UpdateProtection()
+    {
+        if (protectIcon == null)
+        {
+            if (protection > 0)
+            {
+                protectIcon = CombatSingletonManager.Instance.uiManager
+                    .ShowBuff(position, BuffsEnum.PROTECT);
+            }
+            else
+            {
+                return;
+            }
+        }
+        protectIcon.UpdateValue(protection);
+    }
 
     public bool CheckDead() => currentHealth <= 0;
 
     public void DeadAnimation()
     {
-        transform.Rotate(new Vector3(90,0,0), Space.Self);
+        transform.Rotate(new Vector3(90, 0, 0), Space.Self);
     }
-    
 }

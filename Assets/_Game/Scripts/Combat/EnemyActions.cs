@@ -21,7 +21,7 @@ public class EnemyActions
         enemyTurnPlays = new List<Card>();
         while (enemyEnergy > 0)
         {
-            Debug.Log($"Enemy energy {enemyEnergy}");
+            //Debug.Log($"Enemy energy {enemyEnergy}");
             Card card = FindNextCard(enemyEnergy);
             if (card == null)
             {
@@ -45,11 +45,11 @@ public class EnemyActions
             discardEnemyDeck = new List<Card>();
         }
         int index = 0;
-        Debug.Log($"El deck enemigo tiene {info.enemyDeck.Count}");
+        //Debug.Log($"El deck enemigo tiene {info.enemyDeck.Count}");
         while (info.enemyDeck[index].info.cost > cost )
         {
             index++;
-            Debug.Log($"Index : {index}");
+            //Debug.Log($"Index : {index}");
             if (index == info.enemyDeck.Count)
             {
                 return null;

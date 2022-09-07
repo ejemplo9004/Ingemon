@@ -22,7 +22,7 @@ public class Bleed : IngemonState
     {
         target.GetDamageNoProtection(damage);
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
-        Debug.Log($"{target.ingemonInfo.name} get bleeded for {damage} damage.");
+        //Debug.Log($"{target.ingemonInfo.name} get bleeded for {damage} damage.");
         remaining--;
         buffIcon.UpdateTimer(remaining);
         return remaining;

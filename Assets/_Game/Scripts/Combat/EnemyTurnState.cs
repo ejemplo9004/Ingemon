@@ -13,7 +13,6 @@ public class EnemyTurnState : TurnState
     public override void ExitState(TurnStateManager manager)
     {
         CombatSingletonManager.Instance.eventManager.IntentionsClean();
-        EndOfTurnEffects(manager);
         Debug.Log("Saliendo de turno enemigo");
     }
 
@@ -26,7 +25,9 @@ public class EnemyTurnState : TurnState
     {
         manager.info.enemies.PlayTurn();
         yield return new WaitForSeconds(3);
-        manager.ChangeState(manager.allyState);
+        EndOfTurnEffects(manager);
+        if (manager.currentState == this)
+            manager.ChangeState(manager.allyState);
         yield return null;
     }
 

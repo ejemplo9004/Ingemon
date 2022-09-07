@@ -8,7 +8,6 @@ public class TurnStateManager : MonoBehaviour
     public TurnState currentState;
     public StartBattleState startState = new();
     public AllyTurnState allyState = new();
-    public CardResolveState resolveState = new();
     public EnemyTurnState enemyState = new();
     public WinState winState = new();
     public FailedState failedState = new();

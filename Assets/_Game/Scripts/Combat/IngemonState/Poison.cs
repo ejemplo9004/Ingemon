@@ -23,7 +23,6 @@ public class Poison : IngemonState
     {
         target.GetDamageNoProtection(damage);
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
-        Debug.Log($"{target.ingemonInfo.name} {target.position} get poison for {damage} damage.");
         remaining--;
         buffIcon.UpdateTimer(remaining);
         return remaining;
