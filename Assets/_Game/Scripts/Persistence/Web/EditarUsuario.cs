@@ -26,7 +26,7 @@ public class EditarUsuario : MonoBehaviour
         datos[2] = inpPass2.text;
         datos[3] = inpJugadorEditar.text;
         datos[4] = inpNivelEditar.text;
-        StartCoroutine(servidor.ConsumirServicio("editar usuario", datos));
+        StartCoroutine(servidor.ConsumirServicio("editar usuario", datos, null));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);

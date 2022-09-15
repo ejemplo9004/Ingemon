@@ -37,7 +37,16 @@ MonoBehaviour:
     - pass2
     - jugador
     - nivel
+  - nombre: crear jugador
+    URL: crear_jugador.php
+    parametros:
+    - id_jugador
+    - oro
+    - xp
+    - grupo
+    - descripcion
   ocupado: 0
   respuesta:
-    codigo: 404
-    mensaje: Error
+    codigo: 208
+    mensaje: jugador creado correctamente
+    respuesta: 

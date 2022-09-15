@@ -1,0 +1,29 @@
+Códigos de respuesta:
+    200 : conectado correctamente
+    201 : usuario creado correctamente
+    202 : usuario existe en el sistema
+    203 : el usuario no existe
+    204 : usuario o contraseña incorrecta
+    205 : inicio de sesion correcto
+    206 : usuario editado con exito
+    207 : ingemon creado correctamente
+    208 : jugador creado correctamente
+
+    400 : error intentando conectar
+    401 : error intentando crear el usuario
+    402 : faltan datos para ejecutar la accion solicitada
+    403 : ya existe un usuario con ese nombre
+    404 : Error
+    405 : Ya hay un ingemon con este nombre y/o fenotipo
+    406 : error intentando crear el ingemon
+    407 : ya existe un jugador
+    408 : error al crear jugador
+
+
+Usuo de las funcionalidades:
+
+    check()
+    registro_usuario(nombre_usuario,pass,jugador,nivel)
+    verificar_usuario(usuario)
+    login(usuario,pass)
+    editar_usuario(nombre_usuario,pass,pass2,jugador,nivel)

@@ -24,7 +24,7 @@ public class Registro : MonoBehaviour
         datos[1] = inpPassRegistro.text;
         datos[2] = inpJugador.text;
         datos[3] = inpNivel.text;
-        StartCoroutine(servidor.ConsumirServicio("registrar usuario", datos));
+        StartCoroutine(servidor.ConsumirServicio("registrar usuario", datos, null));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 [CreateAssetMenu(fileName ="Servidor", menuName ="JuegoServidor", order = 1)]
 public class Servidor : ScriptableObject
@@ -10,7 +11,7 @@ public class Servidor : ScriptableObject
 
     public bool ocupado = false;
     public Respuesta respuesta;
-    public IEnumerator ConsumirServicio(string nombre, string[] datos)
+    public IEnumerator ConsumirServicio(string nombre, string[] datos, UnityAction e)
     {
         ocupado = true;
         WWWForm formulario = new WWWForm();
@@ -38,8 +39,10 @@ public class Servidor : ScriptableObject
         {
             Debug.Log(www.downloadHandler.text);
             respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
+            respuesta.LimpiarRespuesta();
         }
         ocupado = false;
+        e.Invoke();
     }
 }
 [System.Serializable]
@@ -55,11 +58,32 @@ public class Respuesta
 {
     public int codigo;
     public string mensaje;
+    public string respuesta; 
+
+    public void LimpiarRespuesta()
+    {
+        respuesta = respuesta.Replace('#', '"');
+    }
 
     public Respuesta()
     {
         codigo = 404;
         mensaje = "Error";
 
+    }
+}
+
+[System.Serializable]
+public class dbUsuario
+{
+    public int id;
+    public string usuario;
+    public string pass;
+    public int jugador;
+    public int nivel;
+
+    public static dbUsuario CreateFromJSON(string jsonString)
+    {
+        return JsonUtility.FromJson<dbUsuario>(jsonString);
     }
 }
