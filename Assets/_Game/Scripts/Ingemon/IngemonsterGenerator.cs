@@ -11,10 +11,11 @@ public class IngemonsterGenerator : MonoBehaviour
     [SerializeField] private MorionCambioMascaras mascaras;
     [SerializeField] private MorionCambioColores colores;
     [SerializeField] private GameObject ingemonModel;
+    [SerializeField] private Comprar comprar;
     private Ingemonster ingemonster;
     public int defaultHealth;
     private bool isInCreation;
-
+    
     public void CreateIngemon()
     {
         if (isInCreation)
@@ -37,6 +38,7 @@ public class IngemonsterGenerator : MonoBehaviour
         {
             string phenotype = partes.cadena + "-" + mascaras.iDorsos.ToString() + "-" + mascaras.iManchas.ToString() + "-" + colores.numeros;
             ingemonster = new IngemonBuilder().WithName(shopUI.IngemonName.text).WithPhenotype(phenotype).WithMaxHealth(defaultHealth);
+            comprar.comprarObjeto(playerEconomy.money);
             inventory.AddIngemon(ingemonster);
             shopUI.EnableIngemonName(false);
             ingemonModel.SetActive(false);

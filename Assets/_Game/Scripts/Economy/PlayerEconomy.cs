@@ -32,7 +32,7 @@ public class PlayerEconomy : ScriptableObject
         SetPlayerMoney(money + amount);
     }
 
-    private void SetPlayerMoney(int amount)
+    public void SetPlayerMoney(int amount)
     {
         money = amount;
         onMoneyChange.Invoke();

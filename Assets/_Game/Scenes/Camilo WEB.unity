@@ -2272,6 +2272,11 @@ MonoBehaviour:
     pass: 
     jugador: 0
     nivel: 0
+  jugador:
+    id_jugador: 0
+    oro: 0
+    xp: 0
+    grupo: 0
 --- !u!4 &626276274
 Transform:
   m_ObjectHideFlags: 0
@@ -2998,11 +3003,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c5f0e4b756bb645a13c0b1ff34ed83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usuarioLogeado: 0
+  jugadorActual:
+    id_jugador: 0
+    oro: 0
+    xp: 0
+    grupo: 0
+  playerEconomy: {fileID: 11400000, guid: e63d6a772053e6641a41d124af9bc568, type: 2}
   currentRun: {fileID: 0}
   lastRunPassed: 0
   inventory: {fileID: 0}
-  baseCollection: []
+  cardInventory: {fileID: 0}
 --- !u!4 &853453214
 Transform:
   m_ObjectHideFlags: 0

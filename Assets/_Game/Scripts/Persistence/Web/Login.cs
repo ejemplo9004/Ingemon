@@ -93,7 +93,7 @@ public class Login : MonoBehaviour
             case 209: //jugador encontrado
                 print(servidor.respuesta.mensaje);
                 jugador = dbJugador.CreateFromJSON(servidor.respuesta.respuesta);
-                GameController.gameController.jugadorActual = jugador;
+                GameController.gameController.AsignarJugador(jugador);
                 SceneManager.LoadScene(0);
                 break;
             case 404: // Error

@@ -48,6 +48,12 @@ MonoBehaviour:
     URL: buscar_jugador.php
     parametros:
     - id_jugador
+  - nombre: actualiza jugador
+    URL: actualiza_jugador.php
+    parametros:
+    - id_jugador
+    - oro2
+    - xp2
   ocupado: 1
   respuesta:
     codigo: 205

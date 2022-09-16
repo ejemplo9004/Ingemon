@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     }
     #endregion
     public dbJugador jugadorActual;
+    [SerializeField] private PlayerEconomy playerEconomy;
     [SerializeField] private Run currentRun;
 
     [SerializeField] private bool lastRunPassed;
@@ -31,7 +32,14 @@ public class GameController : MonoBehaviour
     public void SetRun(Run run){
         currentRun = run;
     }
+    public void AsignarJugador(dbJugador jugador)
+    {
+        
+        jugadorActual = jugador;
+        Debug.Log(jugadorActual);
+        playerEconomy.SetPlayerMoney(jugadorActual.oro);
 
+    }
     public Run CurrentRun { get => currentRun; }
     public bool LastRunPassed { get => lastRunPassed; set => lastRunPassed = value; }
     public CardInventory CardInventory { get => cardInventory; }
