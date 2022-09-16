@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   ingemones:
-  - name: "\xF1azo"
+  - name: rosita
     id: 
-    phenotype: 6-5-8-0-1-758
+    phenotype: 8-3-3-8-8-538
     maxHealth: 100
     ingemonColection: []
     deck: []
-  - name: psycho
+  - name: carlos
     id: 
-    phenotype: 5-9-0-9-2-691
+    phenotype: 8-5-9-5-2-333
     maxHealth: 100
     ingemonColection: []
     deck: []
-  - name: charizard
+  - name: aa
     id: 
-    phenotype: 5-3-1-9-1-353
+    phenotype: 0-2-7-8-7-786
     maxHealth: 100
     ingemonColection: []
     deck: []
-  - name: emo
+  - name: bbb
     id: 
-    phenotype: 6-6-1-1-9-843
+    phenotype: 8-1-1-7-8-985
     maxHealth: 100
     ingemonColection: []
     deck: []
