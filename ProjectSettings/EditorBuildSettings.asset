@@ -11,12 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/Run.unity
     guid: ecb891cc4fde0fd46b7a45e81ba16e70
-  - enabled: 0
-    path: Assets/_Game/Scenes/Room.unity
-    guid: 2cf83e418f81e5d4591c1e9d5760b0ce
   - enabled: 1
-    path: Assets/_Game/Scenes/Room1Roy.unity
-    guid: 57d87e31a63c7e7458e7af80870e7691
+    path: Assets/_Game/Scenes/Room.unity
+    guid: 469d4229473730646bb8aa3b59070490
   - enabled: 1
     path: Assets/_Game/Scenes/Pruebas/Morion Prueba.unity
     guid: 0d571824606c02a499661531d88ef7d0

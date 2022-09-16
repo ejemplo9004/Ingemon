@@ -22,7 +22,7 @@ public class RunSingleton : MonoBehaviour
     [SerializeField] private List<ScriptableCard> rewardCardPool;
 
     private void Start() {
-        runDeck = new RunDeck(GameController.gameController.BaseCollection);
+        runDeck = new RunDeck(GameController.gameController.CardInventory.BaseCollection);
     }
 
     public ScriptableCard AddCardReward(){
