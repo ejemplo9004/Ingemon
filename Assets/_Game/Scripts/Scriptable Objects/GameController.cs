@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     #endregion
+    public dbJugador jugadorActual;
     [SerializeField] private Run currentRun;
 
     [SerializeField] private bool lastRunPassed;

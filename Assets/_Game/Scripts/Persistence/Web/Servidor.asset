@@ -44,9 +44,12 @@ MonoBehaviour:
     - oro
     - xp
     - grupo
-    - descripcion
-  ocupado: 0
+  - nombre: buscar jugador
+    URL: buscar_jugador.php
+    parametros:
+    - id_jugador
+  ocupado: 1
   respuesta:
-    codigo: 208
-    mensaje: jugador creado correctamente
-    respuesta: 
+    codigo: 205
+    mensaje: inicio de sesion correcto
+    respuesta: '{"id":33,"usuario":"2","pass":"12","jugador":2,"nivel":2}'

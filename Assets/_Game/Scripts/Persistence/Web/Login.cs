@@ -11,6 +11,7 @@ public class Login : MonoBehaviour
     public InputField inpPass;
     public GameObject imLoading;
     public dbUsuario usuario;
+    public dbJugador jugador;
 
 
     public void iniciarSesion()
@@ -20,7 +21,7 @@ public class Login : MonoBehaviour
     IEnumerator Iniciar()
     {
         imLoading.SetActive(true);
-        string[] datos = new string[5];
+        string[] datos = new string[4];
         datos[0] = inpUsuario.text;
         datos[1] = inpPass.text;
         StartCoroutine(servidor.ConsumirServicio("login", datos, PosCargar));
@@ -30,8 +31,12 @@ public class Login : MonoBehaviour
         datos[1] = "0";
         datos[2] = "0";
         datos[3] = "0";
-        datos[4] = " ";
         StartCoroutine(servidor.ConsumirServicio("crear jugador", datos,PosCrear));
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => !servidor.ocupado);
+        imLoading.SetActive(false);
+        imLoading.SetActive(false);
+        StartCoroutine(servidor.ConsumirServicio("buscar jugador", datos, PosBuscar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
@@ -62,9 +67,8 @@ public class Login : MonoBehaviour
     {
         switch (servidor.respuesta.codigo)
         {
-            case 208: //usuario o contraseña incorrectos
+            case 208: //jugador creado correctamente
                 print(servidor.respuesta.mensaje);
-                SceneManager.LoadScene("juego");
                 break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");
@@ -73,9 +77,32 @@ public class Login : MonoBehaviour
                 print(servidor.respuesta.mensaje);
                 break;
             case 407: // jugador ya creado
-                print(servidor.respuesta.mensaje);
+                print(servidor.respuesta.mensaje);             
                 break;
             case 408: // error creando el jugador
+                print(servidor.respuesta.mensaje);
+                break;
+            default:
+                break;
+        }
+    }
+    void PosBuscar()
+    {
+        switch (servidor.respuesta.codigo)
+        {
+            case 209: //jugador encontrado
+                print(servidor.respuesta.mensaje);
+                jugador = dbJugador.CreateFromJSON(servidor.respuesta.respuesta);
+                GameController.gameController.jugadorActual = jugador;
+                SceneManager.LoadScene(0);
+                break;
+            case 404: // Error
+                print("Error, no se puede conectar con el servidor");
+                break;
+            case 402: // faltan datos para ejecutar la accion solicitada
+                print(servidor.respuesta.mensaje);
+                break;
+            case 409: // jugador no encontrado
                 print(servidor.respuesta.mensaje);
                 break;
             default:

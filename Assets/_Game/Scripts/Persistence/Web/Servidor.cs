@@ -87,3 +87,17 @@ public class dbUsuario
         return JsonUtility.FromJson<dbUsuario>(jsonString);
     }
 }
+
+[System.Serializable]
+public class dbJugador
+{
+    public int id_jugador;
+    public int oro;
+    public int xp;
+    public int grupo;
+
+    public static dbJugador CreateFromJSON(string jsonString)
+    {
+        return JsonUtility.FromJson<dbJugador>(jsonString);
+    }
+}
