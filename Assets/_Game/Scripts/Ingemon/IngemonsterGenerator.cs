@@ -38,6 +38,7 @@ public class IngemonsterGenerator : MonoBehaviour
         {
             string phenotype = partes.cadena + "-" + mascaras.iDorsos.ToString() + "-" + mascaras.iManchas.ToString() + "-" + colores.numeros;
             ingemonster = new IngemonBuilder().WithName(shopUI.IngemonName.text).WithPhenotype(phenotype).WithMaxHealth(defaultHealth);
+            comprar.ingemonNuevo = ingemonster;
             comprar.comprarObjeto(playerEconomy.money);
             inventory.AddIngemon(ingemonster);
             shopUI.EnableIngemonName(false);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class Login : MonoBehaviour
     public GameObject imLoading;
     public dbUsuario usuario;
     public dbJugador jugador;
+    private bool validUser;
 
 
     public void iniciarSesion()
@@ -36,9 +38,15 @@ public class Login : MonoBehaviour
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
         imLoading.SetActive(false);
-        StartCoroutine(servidor.ConsumirServicio("buscar jugador", datos, PosBuscar));
-        yield return new WaitForSeconds(0.5f);
-        yield return new WaitUntil(() => !servidor.ocupado);
+        if(validUser){
+            StartCoroutine(servidor.ConsumirServicio("buscar jugador", datos, PosBuscar));
+            yield return new WaitForSeconds(0.5f);
+            yield return new WaitUntil(() => !servidor.ocupado);
+            StartCoroutine(servidor.ConsumirServicio("buscar ingemon", datos,PosBuscarIngemon));
+            yield return new WaitForSeconds(0.5f);
+            yield return new WaitUntil(() => !servidor.ocupado);
+            validUser = false;
+        }      
         imLoading.SetActive(false);
         imLoading.SetActive(false);
     } 
@@ -46,11 +54,12 @@ public class Login : MonoBehaviour
     {
         switch (servidor.respuesta.codigo)
         {
-            case 204: //usuario o contraseña incorrectos
+            case 204: //usuario o contraseï¿½a incorrectos
                 print(servidor.respuesta.mensaje);
                 break;
             case 205: //inicio de sesion correcto
                 usuario = dbUsuario.CreateFromJSON(servidor.respuesta.respuesta);
+                validUser = true;
                 break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");
@@ -91,10 +100,10 @@ public class Login : MonoBehaviour
         switch (servidor.respuesta.codigo)
         {
             case 209: //jugador encontrado
-                print(servidor.respuesta.mensaje);
+                print(servidor.respuesta.respuesta);
                 jugador = dbJugador.CreateFromJSON(servidor.respuesta.respuesta);
                 GameController.gameController.AsignarJugador(jugador);
-                SceneManager.LoadScene(0);
+                // SceneManager.LoadScene(0);
                 break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");
@@ -103,6 +112,30 @@ public class Login : MonoBehaviour
                 print(servidor.respuesta.mensaje);
                 break;
             case 409: // jugador no encontrado
+                print(servidor.respuesta.mensaje);
+                break;
+            default:
+                break;
+        }
+    }
+
+    void PosBuscarIngemon()
+    {
+        switch (servidor.respuesta.codigo)
+        {
+            case 210: //ingemon encontrado
+                print(servidor.respuesta.mensaje);
+                List<string> ingemones = servidor.respuesta.respuesta.Split("!").ToList();
+                GameController.gameController.AsignarIngemones(ingemones);
+                SceneManager.LoadScene(0);
+                break;
+            case 404: // Error
+                print("Error, no se puede conectar con el servidor");
+                break;
+            case 402: // faltan datos para ejecutar la accion solicitada
+                print(servidor.respuesta.mensaje);
+                break;
+            case 410: // ingemones no encontrados
                 print(servidor.respuesta.mensaje);
                 break;
             default:

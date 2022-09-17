@@ -54,8 +54,19 @@ MonoBehaviour:
     - id_jugador
     - oro2
     - xp2
-  ocupado: 1
+  - nombre: guardar ingemon
+    URL: guardar_ingemon.php
+    parametros:
+    - name
+    - phenotype
+    - maxHealth
+    - id_jugador
+  - nombre: buscar ingemon
+    URL: buscar_ingemon.php
+    parametros:
+    - id_jugador
+  ocupado: 0
   respuesta:
-    codigo: 205
-    mensaje: inicio de sesion correcto
-    respuesta: '{"id":33,"usuario":"2","pass":"12","jugador":2,"nivel":2}'
+    codigo: 402
+    mensaje: faltan datos para ejecutr la accion solicitada
+    respuesta: 

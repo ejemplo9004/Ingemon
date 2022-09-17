@@ -40,6 +40,18 @@ public class GameController : MonoBehaviour
         playerEconomy.SetPlayerMoney(jugadorActual.oro);
 
     }
+
+    public void AsignarIngemones(List<string> ingemones)
+    {
+        List<Ingemonster> ingemonsters = new List<Ingemonster>();
+        Debug.Log(ingemones[0]);
+        for (int i = 0; i < ingemones.Count; i++)
+        {
+            ingemonsters.Add(JsonUtility.FromJson<Ingemonster>(ingemones[i]));
+        }
+
+        inventory.Ingemones = ingemonsters;
+    }
     public Run CurrentRun { get => currentRun; }
     public bool LastRunPassed { get => lastRunPassed; set => lastRunPassed = value; }
     public CardInventory CardInventory { get => cardInventory; }

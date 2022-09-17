@@ -9,6 +9,8 @@ public class Comprar : MonoBehaviour
     public Servidor servidor;
     public GameObject imLoading;
     public dbJugador jugador;
+    public Ingemonster ingemonNuevo;
+    private bool bought;
 
 
     public void comprarObjeto(int valorCompra)
@@ -25,6 +27,15 @@ public class Comprar : MonoBehaviour
         StartCoroutine(servidor.ConsumirServicio("actualiza jugador", datos, PosComprar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
+        yield return new WaitUntil(() => bought);
+        datos[0] = ingemonNuevo.name;
+        datos[1] = ingemonNuevo.phenotype;
+        datos[2] = ingemonNuevo.maxHealth.ToString();
+        datos[3] = GameController.gameController.jugadorActual.id_jugador.ToString();
+        StartCoroutine(servidor.ConsumirServicio("guardar ingemon", datos, PosIngemon));
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => !servidor.ocupado);
+        bought = false;
         imLoading.SetActive(false);
     }
 
@@ -34,6 +45,7 @@ public class Comprar : MonoBehaviour
         {
             case 209: //jugador editado correctamente 
                 print(servidor.respuesta.mensaje);
+                bought = true;
                 break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");
@@ -51,5 +63,29 @@ public class Comprar : MonoBehaviour
                 break;
         }
 
+    }
+    void PosIngemon()
+    {
+        switch (servidor.respuesta.codigo)
+        {
+            case 207: //ingemon guardado correctamente 
+                print(servidor.respuesta.mensaje);
+                break;
+            case 406: //error intentando crear ingemon 
+                print(servidor.respuesta.respuesta);
+                break;
+            case 405: // ya existe un ingemon con este fenotipo
+                print(servidor.respuesta.respuesta);
+                break;
+            case 404: // Error
+                print("Error, no se puede conectar con el servidor");
+                break;
+            case 402: // faltan datos para ejecutar la accion solicitada
+                print(servidor.respuesta.mensaje);
+                break;
+
+            default:
+                break;
+        }
     }
 }

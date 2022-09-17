@@ -19,4 +19,9 @@ public class MenuController : MonoBehaviour
             menuUI.ShowRewardPanel();
         }
     }
+
+    public void SetCurrentRun(Run run)
+    {
+        GameController.gameController.SetRun(run);
+    }
 }

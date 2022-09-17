@@ -24,7 +24,8 @@ public class Servidor : ScriptableObject
             }
         }
         for(int i = 0; i < s.parametros.Length; i++)
-        {   
+        {
+            Debug.Log(s.parametros[i]);
             formulario.AddField(s.parametros[i], datos[i]);
         }
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.URL, formulario);
