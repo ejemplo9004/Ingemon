@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -438,6 +438,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c5f0e4b756bb645a13c0b1ff34ed83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugadorActual:
+    id_jugador: 0
+    oro: 0
+    xp: 0
+    grupo: 0
+  playerEconomy: {fileID: 0}
   currentRun: {fileID: 11400000, guid: 8422caef496dcf945a6e9b514f9bdc57, type: 2}
   lastRunPassed: 0
   inventory: {fileID: 11400000, guid: ab97d61e95e58554daca5fd691efe6a2, type: 2}
@@ -1286,9 +1292,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: d5c68d858753ff4418fe3f14527eef93, type: 2}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: SetRun
+      - m_Target: {fileID: 765072172}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: SetCurrentRun
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 8422caef496dcf945a6e9b514f9bdc57, type: 2}
