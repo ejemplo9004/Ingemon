@@ -5,7 +5,7 @@ using UnityEngine;
 public class MorionCambioMascaras : MonoBehaviour
 {
     MorionCambioColores mColores;
-    [Header("Máscaras")]
+    [Header("Mï¿½scaras")]
     public Texture2D[]  manchas;
     public Texture2D[]  dorsos;
     public int          iManchas;

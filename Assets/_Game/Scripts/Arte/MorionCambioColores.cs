@@ -37,4 +37,9 @@ public class MorionCambioColores : MonoBehaviour
         numeros = Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();
         AplicarColores();
     }
+
+    public void EstablecerColores(string _numeros){
+        numeros = _numeros;
+        AplicarColores();
+    }
 }
