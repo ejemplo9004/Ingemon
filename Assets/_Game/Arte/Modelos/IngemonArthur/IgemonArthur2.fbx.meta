@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 2aae02e700273c24fa64f578800efa5d
+guid: 15761a053d125074b8d935575e1bed6d
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cuerpo
-    second: {fileID: 2100000, guid: c3438517b20578e418d10ad6328fa09e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: handone
-    second: {fileID: 2100000, guid: ff0823896a318cb40899430418447437, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: handtwo
-    second: {fileID: 2100000, guid: 029369dafa7b6974ab4ec8998aad8752, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: shoulder
-    second: {fileID: 2100000, guid: 2fb2f8a0a0bb04943a328b1156fa469b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: shouldertwo
-    second: {fileID: 2100000, guid: 40ddeb1a656e25e48a880ca7c823a71d, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
