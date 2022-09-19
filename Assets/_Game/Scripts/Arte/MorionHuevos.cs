@@ -11,6 +11,8 @@ public class MorionHuevos : MonoBehaviour
     MorionCambioColores mcColores;
     MorionCambioMascaras mcMascaras;
     public Texture2D[] manchas;
+
+    public GameObject ingemon;
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,5 +27,12 @@ public class MorionHuevos : MonoBehaviour
         mHuevo.SetColor("_ColorManchas", mcColores.m.GetColor("_ColorManchas"));
         mHuevo.SetTexture("_Fondo", manchas[mcMascaras.iManchas]);
         mHuevo.SetTextureOffset("_Fondo", Vector2.up * (mcMascaras.iDorsos / 10f));
+    }
+
+    public void VerHuevo(bool ver)
+    {
+        rendererHuevo.transform.parent.gameObject.SetActive(ver);
+        Actualizar();
+        ingemon.SetActive(!ver);
     }
 }

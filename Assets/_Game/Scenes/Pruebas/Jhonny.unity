@@ -1307,7 +1307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0.04761744, y: -0.5276805, z: 0.029624801, w: -0.8475897}
-  m_LocalPosition: {x: -2.971, y: 2.063, z: -0.837}
+  m_LocalPosition: {x: -3.82, y: 2.17, z: -1.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1424,6 +1424,7 @@ MonoBehaviour:
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   renderer: {fileID: 1288557265}
+  otrosRenderers: []
   m: {fileID: 0}
   numeros: 465
 --- !u!114 &1049159084
@@ -2701,6 +2702,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 855683df6ab55e045996dea9f10795e8, type: 3}
   - {fileID: 2800000, guid: 0ed4ad89c854c2347b306059907ecba0, type: 3}
   - {fileID: 2800000, guid: c97a20d66886cc2438f83ef58434ed54, type: 3}
+  ingemon: {fileID: 0}
 --- !u!1001 &5653606785279729376
 PrefabInstance:
   m_ObjectHideFlags: 0
