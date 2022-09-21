@@ -47,7 +47,7 @@ public class RunController : GameplayScene
     public bool VerifyRunInventory(){
         for (int i = 0; i < ingemonesSelected.Count; i++)
         {
-            if(ingemonesSelected[i] == null){
+            if(!ingemonesSelected[i].VerifyExistence()){
                 Debug.Log("No seleccionó los ingemones suficientes");
                 return false;
             } 

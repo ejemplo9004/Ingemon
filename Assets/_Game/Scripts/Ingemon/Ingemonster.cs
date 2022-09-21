@@ -20,6 +20,14 @@ public class Ingemonster
     //Como serializar las cartas, aunque no tiene sentido serializarlas tampoco.
     #endregion
 
+    public bool VerifyExistence()
+    {
+        if (name == "") return false;
+        if (id == "") return false;
+        if (phenotype == "") return false;
+        return true;
+    }
+
     public Ingemonster(string id, string name, string phenotype)
     {
         this.id = id;

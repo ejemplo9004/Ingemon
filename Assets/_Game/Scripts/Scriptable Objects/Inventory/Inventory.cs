@@ -12,7 +12,7 @@ public class Inventory : ScriptableObject
     public void AddIngemon(Ingemonster ingemon){
         if(!hasLimit){
             ingemones.Add(ingemon);
-            Persistence.persistence.SaveIngemon(ingemones, ingemones.Count);
+            //Persistence.persistence.SaveIngemon(ingemones, ingemones.Count);
             return;            
         }
         else if(ingemones.Count == limit){
