@@ -23,12 +23,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private CardInventory cardInventory;
 
-    private void Start() {
-        if(Persistence.persistence != null){
-            inventory.Ingemones = Persistence.persistence.LoadIngemon();
-        }
-    }
-
     public void SetRun(Run run){
         currentRun = run;
     }
@@ -55,4 +49,5 @@ public class GameController : MonoBehaviour
     public Run CurrentRun { get => currentRun; }
     public bool LastRunPassed { get => lastRunPassed; set => lastRunPassed = value; }
     public CardInventory CardInventory { get => cardInventory; }
+    public Inventory Inventory => inventory;
 }

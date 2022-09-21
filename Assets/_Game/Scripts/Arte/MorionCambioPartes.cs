@@ -10,6 +10,7 @@ public class MorionCambioPartes : MonoBehaviour
     public GameObject[] cabeza;
     public GameObject[] manos;
     public GameObject[] cuerpo;
+    public GameObject[] cuerpo2;
 
     public string cadena;
 
@@ -30,6 +31,10 @@ public class MorionCambioPartes : MonoBehaviour
             cabeza[i].SetActive (i == iCabeza);
             manos[i].SetActive  (i == iManos);
             cuerpo[i].SetActive (i == iCuerpo);
+            if (cuerpo2.Length > 0)
+            {
+                cuerpo2[i].SetActive(i == iCuerpo);
+            }
         }
 
         cadena = iCabeza.ToString() + "-" + iManos.ToString() + "-" + iCuerpo.ToString();

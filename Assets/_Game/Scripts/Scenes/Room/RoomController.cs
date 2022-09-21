@@ -36,7 +36,7 @@ public class RoomController : GameplayScene
     public bool VerifyCombatInventory(){
         for (int i = 0; i < ingemonesSelected.Count; i++)
         {
-            if(ingemonesSelected[i] == null){
+            if(!ingemonesSelected[i].VerifyExistence()){
                 Debug.Log("No seleccionó los ingemones suficientes");
                 return false;
             } 

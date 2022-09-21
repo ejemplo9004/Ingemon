@@ -137,6 +137,7 @@ public class Login : MonoBehaviour
                 break;
             case 410: // ingemones no encontrados
                 print(servidor.respuesta.mensaje);
+                SceneManager.LoadScene(3);
                 break;
             default:
                 break;

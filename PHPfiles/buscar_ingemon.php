@@ -14,7 +14,7 @@ try {
             $sql = "SELECT * FROM `ingemones` WHERE id_jugador = '".$id_jugador."';";
             $resultado = $conn->query($sql);
 
-            if ($resultado->num_rows > 0){
+            if ($resultado->num_rows > 4){
                 $textos = [];
                 $texto = "";
                 while ($row = $resultado->fetch_assoc()){
@@ -29,7 +29,7 @@ try {
                 $string_version = implode('!', $textos);
                 echo '{"codigo":210,"mensaje": "Ingemones encontrados correctamente","respuesta":"'.$string_version.'"}';
             }else {
-                echo '{"codigo":410,"mensaje": "El jugador no tiene ingemones,"respuesta":""}';
+                echo '{"codigo":410,"mensaje": "El jugador no tiene ingemones","respuesta":""}';
             }
 
         }else{
