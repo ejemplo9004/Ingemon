@@ -14,7 +14,7 @@ try {
             $sql = "SELECT * FROM `ingemones` WHERE id_jugador = '".$id_jugador."';";
             $resultado = $conn->query($sql);
 
-            if ($resultado->num_rows > 4){
+            if ($resultado->num_rows > 0){
                 $textos = [];
                 $texto = "";
                 while ($row = $resultado->fetch_assoc()){

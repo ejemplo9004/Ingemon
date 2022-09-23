@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class Comprar : MonoBehaviour
+public class Economia : MonoBehaviour
 {
     public Servidor servidor;
     public GameObject imLoading;
@@ -17,6 +14,23 @@ public class Comprar : MonoBehaviour
     {
         StartCoroutine(ComprarObjeto(valorCompra));
     }
+
+    public void AddMoney(int money)
+    {
+        StartCoroutine(AddMoneyDB(money));
+    }
+
+    IEnumerator AddMoneyDB(int money)
+    {
+        string[] datos = new string[4];
+        datos[0] = GameController.gameController.jugadorActual.id_jugador.ToString();
+        datos[1] = money.ToString();
+        datos[2] = GameController.gameController.jugadorActual.xp.ToString();
+        StartCoroutine(servidor.ConsumirServicio("actualiza jugador", datos, PosActualizar));
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => !servidor.ocupado);
+    }
+    
     IEnumerator ComprarObjeto(int valorCompra)
     {
         imLoading.SetActive(true);
@@ -24,7 +38,7 @@ public class Comprar : MonoBehaviour
         datos[0] = GameController.gameController.jugadorActual.id_jugador.ToString();
         datos[1] = valorCompra.ToString();
         datos[2] = GameController.gameController.jugadorActual.xp.ToString();
-        StartCoroutine(servidor.ConsumirServicio("actualiza jugador", datos, PosComprar));
+        StartCoroutine(servidor.ConsumirServicio("actualiza jugador", datos, PosActualizar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         yield return new WaitUntil(() => bought);
@@ -39,7 +53,7 @@ public class Comprar : MonoBehaviour
         imLoading.SetActive(false);
     }
 
-    public void PosComprar()
+    public void PosActualizar()
     {
         switch (servidor.respuesta.codigo)
         {

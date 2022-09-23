@@ -127,7 +127,14 @@ public class Login : MonoBehaviour
                 print(servidor.respuesta.mensaje);
                 List<string> ingemones = servidor.respuesta.respuesta.Split("!").ToList();
                 GameController.gameController.AsignarIngemones(ingemones);
-                SceneManager.LoadScene(0);
+                if (ingemones.Count < 4)
+                {
+                    SceneManager.LoadScene(3);
+                }
+                else
+                {
+                    SceneManager.LoadScene(0);
+                }
                 break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");

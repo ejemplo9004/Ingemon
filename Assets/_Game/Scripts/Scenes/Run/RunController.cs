@@ -10,14 +10,12 @@ public class RunController : GameplayScene
 
     private void OnEnable() {
         run = GameController.gameController.CurrentRun;
+        run.RestartValues();
         ConfigureRun();
     }
 
     private void ConfigureRun(){
-        if(run.runCompleted){
-            GameController.gameController.LastRunPassed = true;
-            SceneChanger.ChangeScene(0);
-        }
+        GameController.gameController.LastRunPassed = false;
         runUI.ChangeBackGroundImage(run.Background);
         if(!run.IngemonsWereSelected){
             runUI.FillIngemonsImages(inventory);
@@ -25,13 +23,6 @@ public class RunController : GameplayScene
             run.IngemonsWereSelected = true;
             run.runCompleted = false;
         }
-        else{
-            runUI.ShowRoomPanel();
-            if(run.lastFightPassed){
-                runUI.ShowRewardPanel(true);
-            }
-        }   
-        runUI.RoomButtons.ToggleButton(run.currentRoomNumber, true);
     }
 
     public void AddIngemonToRunInventory(){
@@ -42,6 +33,7 @@ public class RunController : GameplayScene
         {
             RunInventory.AddIngemon(ingemon);
         }
+        SceneChanger.ChangeScene(2);
     }
 
     public bool VerifyRunInventory(){
@@ -52,15 +44,6 @@ public class RunController : GameplayScene
                 return false;
             } 
         }
-        runUI.HideSelectionPanel();
-        runUI.ShowRoomPanel();
         return true;
     }
-
-    public void AddReward(GameObject reward){
-        var rewardable = reward.GetComponent<IReward>();
-        rewardable.AddReward();
-        runUI.ShowRewardPanel(false);
-    }
-
 }

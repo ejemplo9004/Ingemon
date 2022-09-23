@@ -9,7 +9,7 @@ public class Run : ScriptableObject
     public bool lastFightPassed;
     public bool runCompleted;
     public int currentRoomNumber;
-    [SerializeField] private float reward;
+    [SerializeField] private int reward;
     [SerializeField] private GameObject boss;
     [SerializeField] private Sprite background;
     [SerializeField] private bool ingemonsWereSelected;
@@ -36,6 +36,8 @@ public class Run : ScriptableObject
     public void RestartValues(){
         ingemonsWereSelected = false;
         currentRoomNumber = 0;
-        currentRoom = null;
+        //currentRoom = null;
     }
+
+    public int Reward => reward;
 }

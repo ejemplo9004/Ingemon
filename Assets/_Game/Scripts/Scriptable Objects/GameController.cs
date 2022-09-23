@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Cards;
+using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
     #region Singleton
@@ -22,23 +23,25 @@ public class GameController : MonoBehaviour
     [SerializeField] private bool lastRunPassed;
     [SerializeField] private Inventory inventory;
     [SerializeField] private CardInventory cardInventory;
+    private UnityEvent onWin = new UnityEvent();
+    private UnityEvent onFail = new UnityEvent();
+
+    private void Start()
+    {
+        inventory.Ingemones.Clear();
+    }
 
     public void SetRun(Run run){
         currentRun = run;
     }
     public void AsignarJugador(dbJugador jugador)
     {
-        
         jugadorActual = jugador;
-        Debug.Log(jugadorActual);
         playerEconomy.SetPlayerMoney(jugadorActual.oro);
-
     }
-
     public void AsignarIngemones(List<string> ingemones)
     {
         List<Ingemonster> ingemonsters = new List<Ingemonster>();
-        Debug.Log(ingemones[0]);
         for (int i = 0; i < ingemones.Count; i++)
         {
             ingemonsters.Add(JsonUtility.FromJson<Ingemonster>(ingemones[i]));
@@ -46,8 +49,21 @@ public class GameController : MonoBehaviour
 
         inventory.Ingemones = ingemonsters;
     }
+
+    public void WinBattle()
+    {
+        currentRun.lastFightPassed = true;
+        onWin.Invoke();
+    }
+
+    public void FailBattle()
+    {
+        onFail.Invoke();
+    }
     public Run CurrentRun { get => currentRun; }
     public bool LastRunPassed { get => lastRunPassed; set => lastRunPassed = value; }
     public CardInventory CardInventory { get => cardInventory; }
     public Inventory Inventory => inventory;
+    public UnityEvent OnWin => onWin;
+    public UnityEvent OnFail => onFail;
 }

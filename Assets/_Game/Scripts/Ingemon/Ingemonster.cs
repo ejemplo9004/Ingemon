@@ -34,6 +34,10 @@ public class Ingemonster
         this.name = name;
         this.phenotype = phenotype;
     }
+    public Ingemonster(string id)
+    {
+        this.id = id;
+    }
 
     public Ingemonster(Ingemonster ingemon){
         this.name = ingemon.name;

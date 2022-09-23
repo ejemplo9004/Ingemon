@@ -13,7 +13,7 @@ public class IngemonsterGenerator : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private PlayerEconomy playerEconomy;
     [SerializeField] private Economy gameEconomy;
-    [SerializeField] private Comprar comprar;
+    [SerializeField] private Economia economia;
     [SerializeField] private IngemonCreationVisuals ingemonCreationVisuals;
     [SerializeField] private float eggFadeDuration;
     [SerializeField] private float ingemonShowDuration;
@@ -29,12 +29,6 @@ public class IngemonsterGenerator : MonoBehaviour
         morionHuevosList = new List<GameObject>();
         GenerateEggs();
     }
-
-    private void Update()
-    {
-
-    }
-
     public void GenerateEggs()
     {
         int buttonIndex = 0;
@@ -88,8 +82,8 @@ public class IngemonsterGenerator : MonoBehaviour
             MorionCambioPartes partes = eggSelected.GetComponent<MorionCambioPartes>();
             string phenotype = partes.cadena + "-" + mascaras.iDorsos.ToString() + "-" + mascaras.iManchas.ToString() + "-" + colores.numeros;
             ingemonster = new IngemonBuilder().WithName(shopScene.shopUI.IngemonName.text).WithPhenotype(phenotype).WithMaxHealth(defaultHealth);
-            comprar.ingemonNuevo = ingemonster;
-            comprar.comprarObjeto(playerEconomy.money);
+            economia.ingemonNuevo = ingemonster;
+            economia.comprarObjeto(playerEconomy.money);
             inventory.AddIngemon(ingemonster);
             shopScene.shopUI.EnableIngemonName(false);
             isInCreation = false;
@@ -127,7 +121,7 @@ public class IngemonsterGenerator : MonoBehaviour
             return new Color(imageColor.r, imageColor.g, imageColor.b, 0f);
         }
 
-        return new Color(imageColor.r, imageColor.g, imageColor.b, 255f);
+        return new Color(imageColor.r, imageColor.g, imageColor.b, 1f);
     }
     public bool IsInCreation => isInCreation;
 }

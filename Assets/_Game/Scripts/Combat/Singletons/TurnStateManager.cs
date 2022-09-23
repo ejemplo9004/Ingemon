@@ -19,9 +19,7 @@ public class TurnStateManager : MonoBehaviour
     }
 
     public void StartBattle(){
-        if(currentState == null){
-            currentState = startState;
-        }
+        currentState = startState;
         currentState.EnterState(this);
         CombatSingletonManager.Instance.eventManager.OnWinBattle += WonBattle;
         CombatSingletonManager.Instance.eventManager.OnFailBattle += FailedBattle;
