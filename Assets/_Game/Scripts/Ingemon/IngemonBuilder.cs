@@ -6,12 +6,15 @@ using UnityEngine;
 public class IngemonBuilder{
 
     public Ingemonster ingemon;
+    public IngemonBuilder(string id)
+    {
+        ingemon = new Ingemonster(id);
+    }
     public IngemonBuilder()
     {
-        // GET INGEMONSTER ID
         ingemon = new Ingemonster();
     }
-
+    
     public IngemonBuilder WithName(string name)
     {
         ingemon.name = name;

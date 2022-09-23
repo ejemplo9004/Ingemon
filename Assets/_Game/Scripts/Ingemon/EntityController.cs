@@ -14,6 +14,7 @@ public class EntityController : MonoBehaviour
     private List<Bleed> bleeds = new();
     private GameObject buffUI;
     public CombatIngemonEnum position;
+    public float entityPosOffset = 9.2f;
 
     public void SetUI(CombatIngemonEnum position)
     {
@@ -21,17 +22,24 @@ public class EntityController : MonoBehaviour
         this.position = position;
     }
 
-    public void Spawn(Vector3 pos, string phenotype)
+    public void Spawn(Vector3 pos, Ingemonster ingemon, int room)
     {
-        transform.position = pos;
-        Generate(phenotype);
+        transform.position = pos + room * new Vector3(0, entityPosOffset, 0);
+        ingemonInfo = ingemon;
+        currentHealth = ingemon.maxHealth;
+        Generate(ingemon.phenotype);
+    }
+
+    public void DestroyIngemon()
+    {
+        ingemonMesh.SetActive(false);
     }
 
     //Aqui usariamos el fenotipo para generar el ingemon.
     public void Generate(string phenotype)
     {
         ingemonMesh.SetActive(true);
-        if (phenotype != "")
+        if (phenotype != null)
         {
             string[] feat = phenotype.Split("-");
             ingemonMesh.GetComponent<MorionCambioPartes>()

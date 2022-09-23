@@ -36,12 +36,12 @@ public class CombatInicializer : MonoBehaviour
         if (combatInventory != null)
         {
             Debug.Log(combatInventory.Ingemones[0]);
-            ingemones.Add(new IngemonBuilder().WithName(combatInventory.Ingemones[0].name)
+            ingemones.Add(new IngemonBuilder(combatInventory.Ingemones[0].id).WithName(combatInventory.Ingemones[0].name)
                 .WithMaxHealth(combatInventory.Ingemones[0].maxHealth)
                 .WithPhenotype(combatInventory.Ingemones[0].phenotype)
                 .WithDeck(baseCollection));
             
-            ingemones.Add(new IngemonBuilder().WithName(combatInventory.Ingemones[1].name)
+            ingemones.Add(new IngemonBuilder(combatInventory.Ingemones[1].id).WithName(combatInventory.Ingemones[1].name)
                 .WithMaxHealth(combatInventory.Ingemones[1].maxHealth)
                 .WithPhenotype(combatInventory.Ingemones[1].phenotype)
                 .WithDeck(baseCollection));
@@ -76,5 +76,10 @@ public class CombatInicializer : MonoBehaviour
         (manager.info.drawDeck, manager.info.enemyDeck) = CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
         manager.info.drawDeck = manager.info.handler.ShuffleDeck(manager.info.drawDeck);
         manager.info.enemyDeck = manager.info.handler.ShuffleDeck(manager.info.enemyDeck);
+    }
+
+    public void HackTheGame(int code)
+    {
+        manager.info.HackBattle(code);
     }
 }

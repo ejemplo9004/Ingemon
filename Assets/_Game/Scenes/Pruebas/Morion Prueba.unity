@@ -647,7 +647,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1737537037}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -722,7 +722,7 @@ RectTransform:
   m_Children:
   - {fileID: 480944145}
   m_Father: {fileID: 1737537037}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -910,7 +910,7 @@ RectTransform:
   m_Children:
   - {fileID: 139771474}
   m_Father: {fileID: 1737537037}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1142,8 +1142,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.5025024, y: -1.1388998}
-  m_SizeDelta: {x: -8.4091, y: -2.2778}
+  m_AnchoredPosition: {x: 1.5025024, y: -0.056459904}
+  m_SizeDelta: {x: -8.4091, y: -4.44267}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480944146
 MonoBehaviour:
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: ab97d61e95e58554daca5fd691efe6a2, type: 2}
   playerEconomy: {fileID: 11400000, guid: e63d6a772053e6641a41d124af9bc568, type: 2}
   gameEconomy: {fileID: 11400000, guid: 2ca69729fbc476e418455d4710657769, type: 2}
-  comprar: {fileID: 1207897097}
+  economia: {fileID: 1207897097}
   ingemonCreationVisuals: {fileID: 1772939060}
   eggFadeDuration: 3
   ingemonShowDuration: 0.5
@@ -1624,7 +1624,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1737537037}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6791,7 +6791,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 4.64
-  m_fontSizeMax: 72
+  m_fontSizeMax: 5
   m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -6822,7 +6822,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 11.161602, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.50375557, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7031,7 +7031,7 @@ RectTransform:
   m_Children:
   - {fileID: 1668802637}
   m_Father: {fileID: 1737537037}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -7153,7 +7153,7 @@ RectTransform:
   m_Children:
   - {fileID: 129003654}
   m_Father: {fileID: 1737537037}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -7485,7 +7485,7 @@ RectTransform:
   m_Children:
   - {fileID: 2049211911}
   m_Father: {fileID: 1737537037}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -8247,8 +8247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.8560181, y: 1.5186}
-  m_SizeDelta: {x: -3.712, y: -3.0372}
+  m_AnchoredPosition: {x: -1.8560181, y: -0.0000009536743}
+  m_SizeDelta: {x: -3.712, y: -0.00000095367}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1654817877
 MonoBehaviour:
@@ -8297,12 +8297,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 5
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 2
-  m_fontSizeMax: 72
+  m_fontSizeMax: 5
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -8658,13 +8658,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 194184431}
   - {fileID: 206474577}
   - {fileID: 291512976}
   - {fileID: 970854318}
   - {fileID: 981099852}
   - {fileID: 1131618328}
   - {fileID: 716346360}
-  - {fileID: 194184431}
   m_Father: {fileID: 336285541}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
