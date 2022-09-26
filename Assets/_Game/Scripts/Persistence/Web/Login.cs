@@ -114,8 +114,10 @@ public class Login : MonoBehaviour
         {
             case 210: //ingemon encontrado
                 print(servidor.respuesta.respuesta);
-                //List<string> ingemones = servidor.respuesta.respuesta
-                //GameController.gameController.AsignarIngemones(ingemones);
+                List<string> ingemones = servidor.respuesta.respuesta.Split("!").ToList();
+                ingemones.RemoveAt(ingemones.Count-1);
+                Debug.Log(ingemones.Count);
+                GameController.gameController.AsignarIngemones(ingemones);
                 SceneManager.LoadScene(0);
                 break;
             case 404: // Error

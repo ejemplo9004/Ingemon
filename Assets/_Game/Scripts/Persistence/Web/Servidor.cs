@@ -38,18 +38,9 @@ public class Servidor : ScriptableObject
         }
         else
         {
-            //Debug.Log(www.downloadHandler.text);
-            if(s.URL == "ingemon/buscaringemon") {
-                respuestaArray = JsonUtility.FromJson<RespuestaArray>(www.downloadHandler.text);
-                foreach (string str in respuestaArray.respuesta)
-                {
-                    Debug.Log(str);
-                }
-            } else
-            {
-                respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
-            }
-            
+            Debug.Log(www.downloadHandler.text);
+            respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
+            //Debug.Log(respuesta.respuesta);
         }
         ocupado = false;
         e.Invoke();
