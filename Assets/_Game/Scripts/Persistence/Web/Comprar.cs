@@ -8,7 +8,7 @@ public class Comprar : MonoBehaviour
 {
     public Servidor servidor;
     public GameObject imLoading;
-    public dbJugador jugador;
+    public dbUsuario usuario;
     public Ingemonster ingemonNuevo;
     private bool bought;
 
@@ -21,9 +21,8 @@ public class Comprar : MonoBehaviour
     {
         imLoading.SetActive(true);
         string[] datos = new string[4];
-        datos[0] = GameController.gameController.jugadorActual.id_jugador.ToString();
+        datos[0] = GameController.gameController.usuarioActual.id.ToString();
         datos[1] = valorCompra.ToString();
-        datos[2] = GameController.gameController.jugadorActual.xp.ToString();
         StartCoroutine(servidor.ConsumirServicio("actualiza jugador", datos, PosComprar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
@@ -31,7 +30,7 @@ public class Comprar : MonoBehaviour
         datos[0] = ingemonNuevo.name;
         datos[1] = ingemonNuevo.phenotype;
         datos[2] = ingemonNuevo.maxHealth.ToString();
-        datos[3] = GameController.gameController.jugadorActual.id_jugador.ToString();
+        datos[3] = GameController.gameController.usuarioActual.id.ToString();
         StartCoroutine(servidor.ConsumirServicio("guardar ingemon", datos, PosIngemon));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);

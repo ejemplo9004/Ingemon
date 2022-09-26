@@ -10,6 +10,7 @@ public class Servidor : ScriptableObject
     public Servicio[] servicios;
 
     public bool ocupado = false;
+    public RespuestaArray respuestaArray;
     public Respuesta respuesta;
     public IEnumerator ConsumirServicio(string nombre, string[] datos, UnityAction e)
     {
@@ -25,11 +26,10 @@ public class Servidor : ScriptableObject
         }
         for(int i = 0; i < s.parametros.Length; i++)
         {
-            Debug.Log(s.parametros[i]);
             formulario.AddField(s.parametros[i], datos[i]);
         }
+        Debug.Log(formulario);
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.URL, formulario);
-        Debug.Log(servidor + "/" + s.URL);
         yield return www.SendWebRequest();
 
         if(www.result != UnityWebRequest.Result.Success)
@@ -38,9 +38,18 @@ public class Servidor : ScriptableObject
         }
         else
         {
-            Debug.Log(www.downloadHandler.text);
-            respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
-            respuesta.LimpiarRespuesta();
+            //Debug.Log(www.downloadHandler.text);
+            if(s.URL == "ingemon/buscaringemon") {
+                respuestaArray = JsonUtility.FromJson<RespuestaArray>(www.downloadHandler.text);
+                foreach (string str in respuestaArray.respuesta)
+                {
+                    Debug.Log(str);
+                }
+            } else
+            {
+                respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
+            }
+            
         }
         ocupado = false;
         e.Invoke();
@@ -61,10 +70,6 @@ public class Respuesta
     public string mensaje;
     public string respuesta; 
 
-    public void LimpiarRespuesta()
-    {
-        respuesta = respuesta.Replace('#', '"');
-    }
 
     public Respuesta()
     {
@@ -75,30 +80,23 @@ public class Respuesta
 }
 
 [System.Serializable]
+public class RespuestaArray
+{
+    public int codigo;
+    public string mensaje;
+    public List<string> respuesta;
+}
+
+[System.Serializable]
 public class dbUsuario
 {
     public int id;
-    public string usuario;
-    public string pass;
-    public int jugador;
-    public int nivel;
+    public string name;
+    public string password;
+    public int gold;
 
     public static dbUsuario CreateFromJSON(string jsonString)
     {
         return JsonUtility.FromJson<dbUsuario>(jsonString);
-    }
-}
-
-[System.Serializable]
-public class dbJugador
-{
-    public int id_jugador;
-    public int oro;
-    public int xp;
-    public int grupo;
-
-    public static dbJugador CreateFromJSON(string jsonString)
-    {
-        return JsonUtility.FromJson<dbJugador>(jsonString);
     }
 }

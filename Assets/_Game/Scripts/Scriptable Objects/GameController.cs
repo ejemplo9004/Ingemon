@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     #endregion
-    public dbJugador jugadorActual;
+    public dbUsuario usuarioActual;
     [SerializeField] private PlayerEconomy playerEconomy;
     [SerializeField] private Run currentRun;
 
@@ -32,12 +32,11 @@ public class GameController : MonoBehaviour
     public void SetRun(Run run){
         currentRun = run;
     }
-    public void AsignarJugador(dbJugador jugador)
+    public void AsignarJugador(dbUsuario usuario)
     {
         
-        jugadorActual = jugador;
-        Debug.Log(jugadorActual);
-        playerEconomy.SetPlayerMoney(jugadorActual.oro);
+        usuarioActual = usuario;
+        playerEconomy.SetPlayerMoney(usuarioActual.gold);
 
     }
 
