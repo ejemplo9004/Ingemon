@@ -12,42 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814f02c254f0cb84caf4ef3ed59bc324, type: 3}
   m_Name: Servidor
   m_EditorClassIdentifier: 
-  servidor: http://localhost:3050
+  servidor: https://arquimedes.udea.edu.co:8091/ingemon
   servicios:
   - nombre: login
-    URL: api/buscarusuario
+    URL: login
     parametros:
     - name
     - password
-  - nombre: check
-    URL: check.php
-    parametros: []
   - nombre: registrar usuario
-    URL: api/crearusuario
+    URL: crearusuario
     parametros:
     - name
     - password
     - gold
-  - nombre: editar usuario
-    URL: editar_usuario.php
-    parametros: []
-  - nombre: crear jugador
-    URL: crear_jugador.php
-    parametros: []
-  - nombre: buscar jugador
-    URL: buscar_jugador.php
-    parametros: []
   - nombre: actualiza jugador
-    URL: actualiza_jugador.php
-    parametros: []
+    URL: comprar
+    parametros:
+    - id
+    - gold
   - nombre: guardar ingemon
-    URL: guardar_ingemon.php
-    parametros: []
+    URL: crearingemon
+    parametros:
+    - name
+    - phenotype
+    - maxHealth
+    - user_id
   - nombre: buscar ingemon
-    URL: ingemon/buscaringemon
+    URL: buscaringemon
     parametros:
     - user_id
   ocupado: 0
+  respuestaArray:
+    codigo: 210
+    mensaje: Ingemones encontrados correctamente
+    respuesta: []
   respuesta:
     codigo: 404
     mensaje: Error
