@@ -44,7 +44,10 @@ public class GameController : MonoBehaviour
         List<Ingemonster> ingemonsters = new List<Ingemonster>();
         for (int i = 0; i < ingemones.Count; i++)
         {
-            ingemonsters.Add(JsonUtility.FromJson<Ingemonster>(ingemones[i]));
+            Ingemonster inge = JsonUtility.FromJson<Ingemonster>(ingemones[i]);
+            inge.deck = cardInventory.BaseCollection;
+            ingemonsters.Add(inge);
+            Debug.Log(ingemones[i]);
         }
 
         inventory.Ingemones = ingemonsters;

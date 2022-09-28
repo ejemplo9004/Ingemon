@@ -4,7 +4,7 @@ using System.Linq;
 using Cards;
 using UnityEngine;
 
-public class CombatInicializer : MonoBehaviour
+public class RunCombatInitializer : MonoBehaviour
 {
     public TurnStateManager manager;
     public Inventory combatInventory;
@@ -20,10 +20,15 @@ public class CombatInicializer : MonoBehaviour
         SetIngemons();
     }
 
-    private void SetIngemons()
+    private void InstantiateIngemons()
     {
         frontAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
         backAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
+    }
+
+    private void SetIngemons()
+    {
+        InstantiateIngemons();
 
         List<Ingemonster> ingemones = new List<Ingemonster>();
         if (combatInventory != null)
@@ -52,6 +57,7 @@ public class CombatInicializer : MonoBehaviour
         backAlly.ingemonInfo = ingemones[1];
         backAlly.SetUI(CombatIngemonEnum.BACK_ALLY);
 
+        //Cambiar para agregar enemigos
         frontEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         frontEnemy.ingemonInfo = new IngemonBuilder().WithName("Fishamon")
             .WithMaxHealth(100)

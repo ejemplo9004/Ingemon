@@ -43,7 +43,7 @@ public class StartBattleState : TurnState
         Debug.Log("BuffsTime");
         CombatSingletonManager.Instance.uiManager.SetHealthBars();
         CombatSingletonManager.Instance.uiManager.UpdateHealthBars();
-        //FixDeck(manager);
+        FixDeck(manager);
         manager.ChangeState(manager.allyState);
         yield return null;
     }
