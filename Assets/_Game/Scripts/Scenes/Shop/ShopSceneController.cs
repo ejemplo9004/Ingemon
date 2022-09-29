@@ -11,7 +11,7 @@ public class ShopSceneController : MonoBehaviour
     {
         if (!ingemonGenerator.IsInCreation && !cardGenerator.IsInCreation && GameController.gameController.Inventory.Ingemones.Count >= 4)
         {
-            SceneChanger.ChangeScene(0);
+            SceneChanger.ChangeScene(Scenes.MENU);
         }
         else
         {

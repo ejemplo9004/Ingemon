@@ -25,7 +25,7 @@ public class WinState : EndBattleState
         {
             Debug.Log("Ganaste la run bro bro");
             GameController.gameController.LastRunPassed = true;
-            SceneChanger.ChangeScene(0);
+            SceneChanger.ChangeScene(Scenes.MENU);
         }
     }
     private void CheckRunState()
@@ -34,7 +34,7 @@ public class WinState : EndBattleState
         {
             Debug.Log("Perdiste la run bro :c");
             GameController.gameController.LastRunPassed = false;
-            SceneChanger.ChangeScene(0);
+            SceneChanger.ChangeScene(Scenes.MENU);
         }
     }
 }

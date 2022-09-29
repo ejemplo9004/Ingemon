@@ -23,7 +23,7 @@ public class FailedState : EndBattleState
         {
             Debug.Log("Perdiste la run bro :c");
             GameController.gameController.LastRunPassed = false;
-            SceneChanger.ChangeScene(0);
+            SceneChanger.ChangeScene(Scenes.MENU);
         }
     }
 }

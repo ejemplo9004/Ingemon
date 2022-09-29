@@ -103,7 +103,7 @@ public class Login : MonoBehaviour
                 print(servidor.respuesta.respuesta);
                 jugador = dbJugador.CreateFromJSON(servidor.respuesta.respuesta);
                 GameController.gameController.AsignarJugador(jugador);
-                // SceneManager.LoadScene(0);
+                // SceneManager.LoadScene((int)Scenes.MENU);
                 break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");
@@ -129,11 +129,11 @@ public class Login : MonoBehaviour
                 GameController.gameController.AsignarIngemones(ingemones);
                 if (ingemones.Count < 4)
                 {
-                    SceneManager.LoadScene(3);
+                    SceneManager.LoadScene((int)Scenes.SHOP);
                 }
                 else
                 {
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene((int)Scenes.MENU);
                 }
                 break;
             case 404: // Error
@@ -144,7 +144,7 @@ public class Login : MonoBehaviour
                 break;
             case 410: // ingemones no encontrados
                 print(servidor.respuesta.mensaje);
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene((int)Scenes.SHOP);
                 break;
             default:
                 break;
