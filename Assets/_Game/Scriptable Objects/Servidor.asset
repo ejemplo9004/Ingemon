@@ -12,61 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814f02c254f0cb84caf4ef3ed59bc324, type: 3}
   m_Name: Servidor
   m_EditorClassIdentifier: 
-  servidor: http://localhost/game_test
+  servidor: https://arquimedes.udea.edu.co:8091/ingemon
   servicios:
   - nombre: login
-    URL: login.php
+    URL: login
     parametros:
-    - nombre_usuario
-    - pass
-  - nombre: check
-    URL: check.php
-    parametros: []
+    - name
+    - password
   - nombre: registrar usuario
-    URL: registro_usuario.php
+    URL: crearusuario
     parametros:
-    - nombre_usuario
-    - pass
-    - jugador
-    - nivel
-  - nombre: editar usuario
-    URL: editar_usuario.php
-    parametros:
-    - nombre_usuario
-    - pass
-    - pass2
-    - jugador
-    - nivel
-  - nombre: crear jugador
-    URL: crear_jugador.php
-    parametros:
-    - id_jugador
-    - oro
-    - xp
-    - grupo
-  - nombre: buscar jugador
-    URL: buscar_jugador.php
-    parametros:
-    - id_jugador
+    - name
+    - password
+    - gold
   - nombre: actualiza jugador
-    URL: actualiza_jugador.php
+    URL: comprar
     parametros:
-    - id_jugador
-    - oro2
-    - xp2
+    - id
+    - gold
   - nombre: guardar ingemon
-    URL: guardar_ingemon.php
+    URL: crearingemon
     parametros:
     - name
     - phenotype
     - maxHealth
-    - id_jugador
+    - user_id
   - nombre: buscar ingemon
-    URL: buscar_ingemon.php
+    URL: buscaringemon
     parametros:
-    - id_jugador
+    - user_id
   ocupado: 0
+  respuestaArray:
+    codigo: 210
+    mensaje: Ingemones encontrados correctamente
+    respuesta: []
   respuesta:
-    codigo: 402
-    mensaje: faltan datos para ejecutr la accion solicitada
+    codigo: 404
+    mensaje: Error
     respuesta: 

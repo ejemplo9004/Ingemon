@@ -19,14 +19,19 @@ public class Registro : MonoBehaviour
     IEnumerator Registrar()
     {
         imLoading.SetActive(true);
-        string[] datos = new string[4];
+        string[] datos = new string[3];
         datos[0] = inpUsuarioRegistro.text;
         datos[1] = inpPassRegistro.text;
-        datos[2] = inpJugador.text;
-        datos[3] = inpNivel.text;
-        StartCoroutine(servidor.ConsumirServicio("registrar usuario", datos, null));
+        datos[2] = "0";
+        StartCoroutine(servidor.ConsumirServicio("registrar usuario", datos, posRegistro));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
     }
+
+    void posRegistro()
+    {
+
+    }
 }
+
