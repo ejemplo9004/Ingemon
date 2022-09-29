@@ -33,7 +33,7 @@ public class RunController : GameplayScene
         {
             RunInventory.AddIngemon(ingemon);
         }
-        SceneChanger.ChangeScene(2);
+        SceneChanger.ChangeScene(Scenes.ROOM);
     }
 
     public bool VerifyRunInventory(){

@@ -4,7 +4,7 @@ using System.Linq;
 using Cards;
 using UnityEngine;
 
-public class CombatInicializer : MonoBehaviour
+public class RunCombatInitializer : MonoBehaviour
 {
     public TurnStateManager manager;
     public Inventory combatInventory;
@@ -16,21 +16,19 @@ public class CombatInicializer : MonoBehaviour
 
     public void Awake()
     {
-        //Encontrar mejor manera de agregar las cartas.
-        /*ScriptableCard[] cards = Resources.FindObjectsOfTypeAll<ScriptableCard>();
-        foreach (var card in cards)
-        {
-            Debug.Log($"{card.cardName} added!");
-            baseCollection.Add(card);
-        }*/
         baseCollection = RunSingleton.Instance.runDeck.Deck;
         SetIngemons();
     }
 
-    private void SetIngemons()
+    private void InstantiateIngemons()
     {
         frontAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
         backAlly = Instantiate(baseIngemon, Vector3.zero, Quaternion.identity);
+    }
+
+    private void SetIngemons()
+    {
+        InstantiateIngemons();
 
         List<Ingemonster> ingemones = new List<Ingemonster>();
         if (combatInventory != null)
@@ -59,6 +57,7 @@ public class CombatInicializer : MonoBehaviour
         backAlly.ingemonInfo = ingemones[1];
         backAlly.SetUI(CombatIngemonEnum.BACK_ALLY);
 
+        //Cambiar para agregar enemigos
         frontEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         frontEnemy.ingemonInfo = new IngemonBuilder().WithName("Fishamon")
             .WithMaxHealth(100)
@@ -73,6 +72,11 @@ public class CombatInicializer : MonoBehaviour
 
         
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy, combatInventory);
+        SetCardsOnManagerInfo();
+    }
+
+    public void SetCardsOnManagerInfo()
+    {
         (manager.info.drawDeck, manager.info.enemyDeck) = CombatSingletonManager.Instance.cardManager.Init(frontAlly, backAlly, frontEnemy, backEnemy);
         manager.info.drawDeck = manager.info.handler.ShuffleDeck(manager.info.drawDeck);
         manager.info.enemyDeck = manager.info.handler.ShuffleDeck(manager.info.enemyDeck);

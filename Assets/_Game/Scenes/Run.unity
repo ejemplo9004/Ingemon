@@ -623,7 +623,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 261864845}
   m_HandleRect: {fileID: 261864844}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1889,6 +1889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   run: {fileID: 0}
+  enoughIngemones: 0
   runInventory: {fileID: 11400000, guid: 50cdd311bd5de1741b4ae39c6ad93436, type: 2}
   rewardCardPool:
   - {fileID: 11400000, guid: 3bb60a649e22c2a42a1c5755631e8b47, type: 2}
@@ -2789,7 +2790,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

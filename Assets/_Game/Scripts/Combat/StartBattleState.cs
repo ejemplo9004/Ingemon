@@ -17,7 +17,18 @@ public class StartBattleState : TurnState
 
     public override void UpdateState(TurnStateManager manager)
     {
-        
+    }
+
+    public void FixDeck(TurnStateManager manager)
+    {
+        (manager.info.drawDeck, manager.info.enemyDeck) =
+            CombatSingletonManager.Instance.cardManager.Init(
+                manager.info.frontAlly, 
+                manager.info.backAlly, 
+                manager.info.frontEnemy, 
+                manager.info.backEnemy);
+        manager.info.drawDeck = manager.info.handler.ShuffleDeck(manager.info.drawDeck);
+        manager.info.enemyDeck = manager.info.handler.ShuffleDeck(manager.info.enemyDeck);
     }
 
     private IEnumerator SpawnIngemons(TurnStateManager manager, int room)
@@ -32,6 +43,7 @@ public class StartBattleState : TurnState
         Debug.Log("BuffsTime");
         CombatSingletonManager.Instance.uiManager.SetHealthBars();
         CombatSingletonManager.Instance.uiManager.UpdateHealthBars();
+        FixDeck(manager);
         manager.ChangeState(manager.allyState);
         yield return null;
     }

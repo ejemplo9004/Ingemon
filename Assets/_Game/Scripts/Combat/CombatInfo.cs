@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Cards;
 using UnityEngine;
 
 public class CombatInfo
@@ -46,7 +43,9 @@ public class CombatInfo
     public void SpawnAllys(int room)
     {
         frontAlly.Spawn(frontAllyPos, combatInventory.Ingemones[0], room);
+        frontAlly.BattlePosition(true);
         backAlly.Spawn(backAllyPos, combatInventory.Ingemones[1], room);
+        backAlly.BattlePosition(true);
     }
 
     public void SpawnEnemies(int room)
