@@ -16,6 +16,8 @@ public class EntityController : MonoBehaviour
     public CombatIngemonEnum position;
     public float entityPosOffset = 9.2f;
 
+    private Animator animator;
+
     public void SetUI(CombatIngemonEnum position)
     {
         currentHealth = ingemonInfo.maxHealth;
@@ -28,6 +30,8 @@ public class EntityController : MonoBehaviour
         ingemonInfo = ingemon;
         currentHealth = ingemon.maxHealth;
         Generate(ingemon.phenotype);
+        animator = gameObject.GetComponentInChildren<Animator>();
+        animator?.SetBool(Parameters.COMBATE, true);
     }
 
     public void DestroyIngemon()
@@ -65,13 +69,14 @@ public class EntityController : MonoBehaviour
             UpdateProtection();
             health = 0;
         }
-
+        animator?.SetTrigger(Parameters.DANO);
         GetDamageNoProtection(health);
     }
 
     public void GetDamageNoProtection(int health)
     {
         currentHealth = Mathf.Clamp(currentHealth - health, 0, currentHealth);
+        
         if (CheckDead())
         {
             CombatSingletonManager.Instance.eventManager.DeadIngemon(this);
@@ -190,6 +195,16 @@ public class EntityController : MonoBehaviour
 
     public void DeadAnimation()
     {
-        transform.Rotate(new Vector3(90, 0, 0), Space.Self);
+        animator?.SetBool(Parameters.VIVO, false);
+    }
+
+    public void BattlePosition(bool state)
+    {
+        animator?.SetBool(Parameters.COMBATE, true);
+    }
+
+    public void AttackAnimation()
+    {
+        animator?.SetTrigger(Parameters.ATACANDO);
     }
 }

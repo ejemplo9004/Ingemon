@@ -43,7 +43,9 @@ public class CombatInfo
     public void SpawnAllys(int room)
     {
         frontAlly.Spawn(frontAllyPos, combatInventory.Ingemones[0], room);
+        frontAlly.BattlePosition(true);
         backAlly.Spawn(backAllyPos, combatInventory.Ingemones[1], room);
+        backAlly.BattlePosition(true);
     }
 
     public void SpawnEnemies(int room)

@@ -28,11 +28,6 @@ public class TurnStateManager : MonoBehaviour
     private void Update()
     {
         currentState.UpdateState(this);
-        if (info.frontAlly != null)
-        {
-            int g = info.frontAlly.ingemonInfo.deck.Count;
-            Debug.Log($"Estos son los ingemon : {g}");
-        }
     }
 
     public void ChangeState(TurnState newState)
