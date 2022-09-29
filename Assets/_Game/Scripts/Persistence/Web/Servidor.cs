@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
-[CreateAssetMenu(fileName ="Servidor", menuName ="JuegoServidor", order = 1)]
+
+[CreateAssetMenu(fileName = "Servidor", menuName = "JuegoServidor", order = 1)]
 public class Servidor : ScriptableObject
 {
     public string servidor;
     public Servicio[] servicios;
 
     public bool ocupado = false;
-    public RespuestaArray respuestaArray;
     public Respuesta respuesta;
+
     public IEnumerator ConsumirServicio(string nombre, string[] datos, UnityAction e)
     {
         ocupado = true;
@@ -24,16 +25,17 @@ public class Servidor : ScriptableObject
                 s = servicios[i];
             }
         }
-        
-        for(int i = 0; i < s.parametros.Length; i++)
+
+        for (int i = 0; i < s.parametros.Length; i++)
         {
             formulario.AddField(s.parametros[i], datos[i]);
         }
+
         Debug.Log(formulario);
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.URL, formulario);
         yield return www.SendWebRequest();
 
-        if(www.result != UnityWebRequest.Result.Success)
+        if (www.result != UnityWebRequest.Result.Success)
         {
             respuesta = new Respuesta();
         }
@@ -41,12 +43,13 @@ public class Servidor : ScriptableObject
         {
             Debug.Log(www.downloadHandler.text);
             respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
-            
         }
+
         ocupado = false;
         e.Invoke();
     }
 }
+
 [System.Serializable]
 public class Servicio
 {
@@ -60,23 +63,14 @@ public class Respuesta
 {
     public int codigo;
     public string mensaje;
-    public string respuesta; 
+    public string respuesta;
 
 
     public Respuesta()
     {
         codigo = 404;
         mensaje = "Error";
-
     }
-}
-
-[System.Serializable]
-public class RespuestaArray
-{
-    public int codigo;
-    public string mensaje;
-    public List<string> respuesta;
 }
 
 [System.Serializable]

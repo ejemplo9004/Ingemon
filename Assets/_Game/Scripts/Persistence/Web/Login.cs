@@ -61,53 +61,6 @@ public class Login : MonoBehaviour
                 break;
         }
     }
-    void PosCrear()
-    {
-        switch (servidor.respuesta.codigo)
-        {
-            case 208: //jugador creado correctamente
-                print(servidor.respuesta.mensaje);
-                break;
-            case 404: // Error
-                print("Error, no se puede conectar con el servidor");
-                break;
-            case 402: // faltan datos para ejecutar la accion solicitada
-                print(servidor.respuesta.mensaje);
-                break;
-            case 407: // jugador ya creado
-                print(servidor.respuesta.mensaje);             
-                break;
-            case 408: // error creando el jugador
-                print(servidor.respuesta.mensaje);
-                break;
-            default:
-                break;
-        }
-    }
-    void PosBuscar()
-    {
-        switch (servidor.respuesta.codigo)
-        {
-            case 209: //jugador encontrado
-                print(servidor.respuesta.respuesta);
-                jugador = dbJugador.CreateFromJSON(servidor.respuesta.respuesta);
-                GameController.gameController.AsignarJugador(jugador);
-                // SceneManager.LoadScene((int)Scenes.MENU);
-                break;
-            case 404: // Error
-                print("Error, no se puede conectar con el servidor");
-                break;
-            case 402: // faltan datos para ejecutar la accion solicitada
-                print(servidor.respuesta.mensaje);
-                break;
-            case 409: // jugador no encontrado
-                print(servidor.respuesta.mensaje);
-                break;
-            default:
-                break;
-        }
-    }
-
     void PosBuscarIngemon()
     {
         switch (servidor.respuesta.codigo)

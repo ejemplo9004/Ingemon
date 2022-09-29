@@ -22,7 +22,7 @@ public class Registro : MonoBehaviour
         string[] datos = new string[3];
         datos[0] = inpUsuarioRegistro.text;
         datos[1] = inpPassRegistro.text;
-        datos[2] = "0";
+        datos[2] = "150";
         StartCoroutine(servidor.ConsumirServicio("registrar usuario", datos, posRegistro));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
