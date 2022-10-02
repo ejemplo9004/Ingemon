@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45600dc94538fb449798b75d1910704, type: 3}
+  m_Name: Inventory
+  m_EditorClassIdentifier: 
+  ingemones:
+  - name: rosita
+    id: 
+    phenotype: 8-3-3-8-8-538
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
+  - name: carlos
+    id: 
+    phenotype: 8-5-9-5-2-333
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
+  - name: aa
+    id: 
+    phenotype: 0-2-7-8-7-786
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
+  - name: bbb
+    id: 
+    phenotype: 8-1-1-7-8-985
+    maxHealth: 100
+    ingemonColection: []
+    deck: []
+  hasLimit: 0
+  limit: 0

@@ -8,12 +8,17 @@ public class MorionCambioColores : MonoBehaviour
     public Gradient coloresManchas;
     public Gradient coloresDorsos;
     public Renderer renderer;
+    public MeshRenderer[] otrosRenderers;
     [HideInInspector]
     public Material m;
     public string   numeros = "234";
     void Awake()
     {
         m = renderer.material;
+        for (int i = 0; i < otrosRenderers.Length; i++)
+        {
+            otrosRenderers[i].material = m;
+        }
     }
 
     [ContextMenu("Aplicar Color")]
@@ -30,6 +35,11 @@ public class MorionCambioColores : MonoBehaviour
     public void AplicarColoresAleatorios()
     {
         numeros = Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();
+        AplicarColores();
+    }
+
+    public void EstablecerColores(string _numeros){
+        numeros = _numeros;
         AplicarColores();
     }
 }

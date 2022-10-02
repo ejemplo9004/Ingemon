@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814f02c254f0cb84caf4ef3ed59bc324, type: 3}
+  m_Name: Servidor
+  m_EditorClassIdentifier: 
+  servidor: http://localhost/game_test
+  servicios:
+  - nombre: login
+    URL: login.php
+    parametros:
+    - nombre_usuario
+    - pass
+  - nombre: check
+    URL: check.php
+    parametros: []
+  - nombre: registrar usuario
+    URL: registro_usuario.php
+    parametros:
+    - nombre_usuario
+    - pass
+    - jugador
+    - nivel
+  - nombre: editar usuario
+    URL: editar_usuario.php
+    parametros:
+    - nombre_usuario
+    - pass
+    - pass2
+    - jugador
+    - nivel
+  - nombre: crear jugador
+    URL: crear_jugador.php
+    parametros:
+    - id_jugador
+    - oro
+    - xp
+    - grupo
+  - nombre: buscar jugador
+    URL: buscar_jugador.php
+    parametros:
+    - id_jugador
+  - nombre: actualiza jugador
+    URL: actualiza_jugador.php
+    parametros:
+    - id_jugador
+    - oro2
+    - xp2
+  - nombre: guardar ingemon
+    URL: guardar_ingemon.php
+    parametros:
+    - name
+    - phenotype
+    - maxHealth
+    - id_jugador
+  - nombre: buscar ingemon
+    URL: buscar_ingemon.php
+    parametros:
+    - id_jugador
+  ocupado: 0
+  respuesta:
+    codigo: 402
+    mensaje: faltan datos para ejecutr la accion solicitada
+    respuesta: 
