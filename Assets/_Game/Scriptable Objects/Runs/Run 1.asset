@@ -17,6 +17,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7dfa7ced14e09fc4ab0ea026632ddc8b, type: 2}
   - {fileID: 11400000, guid: 0444a4780d19144438bf0cd6239607b5, type: 2}
   currentRoom: {fileID: 0}
+  lastFightPassed: 1
+  runCompleted: 0
+  currentRoomNumber: 0
   reward: 100
   boss: {fileID: 3909638985360245683, guid: 11b878e25174cf44ba9441974c3415bd, type: 3}
   background: {fileID: 21300000, guid: ef9809ff8bafd434382d393e07cbfead, type: 3}
+  ingemonsWereSelected: 1

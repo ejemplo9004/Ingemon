@@ -4,14 +4,6 @@ using Cards;
 
 public class RunUI : GameplaySceneUI
 {
-    [SerializeField] private GameObject roomPanel;
-    [SerializeField] private GameObject rewardPanel;
-    [SerializeField] private RoomButtonsController roomButtons;
-
-    /// <summary>
-    /// Rellena la pantalla con las imagenes necesarias para cada Ingemon del jugador, la idea es implementar el carrusel.
-    /// </summary>
-
     public void FillIngemonsImages(Inventory inventory){
         InstantiateImages(inventory);
         // Pendiente
@@ -30,15 +22,4 @@ public class RunUI : GameplaySceneUI
             button.onClick.AddListener(delegate { SelectIngemon(instance); });
         }
     }
-
-    public void ShowRoomPanel(){
-        roomPanel.SetActive(true);
-    }
-
-    public void ShowRewardPanel(bool state){
-        rewardPanel.SetActive(state);
-    }
-
-    public RoomButtonsController RoomButtons { get => roomButtons; set => roomButtons = value; }
-    
 }

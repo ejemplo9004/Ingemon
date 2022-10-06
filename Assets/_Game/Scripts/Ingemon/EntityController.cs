@@ -14,6 +14,9 @@ public class EntityController : MonoBehaviour
     private List<Bleed> bleeds = new();
     private GameObject buffUI;
     public CombatIngemonEnum position;
+    public float entityPosOffset = 9.2f;
+
+    private Animator animator;
 
     public void SetUI(CombatIngemonEnum position)
     {
@@ -21,17 +24,26 @@ public class EntityController : MonoBehaviour
         this.position = position;
     }
 
-    public void Spawn(Vector3 pos, string phenotype)
+    public void Spawn(Vector3 pos, Ingemonster ingemon, int room)
     {
-        transform.position = pos;
-        Generate(phenotype);
+        transform.position = pos + room * new Vector3(0, entityPosOffset, 0);
+        ingemonInfo = ingemon;
+        currentHealth = ingemon.maxHealth;
+        Generate(ingemon.phenotype);
+        animator = gameObject.GetComponentInChildren<Animator>();
+        animator?.SetBool(Parameters.COMBATE, true);
+    }
+
+    public void DestroyIngemon()
+    {
+        ingemonMesh.SetActive(false);
     }
 
     //Aqui usariamos el fenotipo para generar el ingemon.
     public void Generate(string phenotype)
     {
         ingemonMesh.SetActive(true);
-        if (phenotype != "")
+        if (phenotype != null)
         {
             string[] feat = phenotype.Split("-");
             ingemonMesh.GetComponent<MorionCambioPartes>()
@@ -57,13 +69,14 @@ public class EntityController : MonoBehaviour
             UpdateProtection();
             health = 0;
         }
-
+        animator?.SetTrigger(Parameters.DANO);
         GetDamageNoProtection(health);
     }
 
     public void GetDamageNoProtection(int health)
     {
         currentHealth = Mathf.Clamp(currentHealth - health, 0, currentHealth);
+        
         if (CheckDead())
         {
             CombatSingletonManager.Instance.eventManager.DeadIngemon(this);
@@ -182,6 +195,16 @@ public class EntityController : MonoBehaviour
 
     public void DeadAnimation()
     {
-        transform.Rotate(new Vector3(90, 0, 0), Space.Self);
+        animator?.SetBool(Parameters.VIVO, false);
+    }
+
+    public void BattlePosition(bool state)
+    {
+        animator?.SetBool(Parameters.COMBATE, true);
+    }
+
+    public void AttackAnimation()
+    {
+        animator?.SetTrigger(Parameters.ATACANDO);
     }
 }

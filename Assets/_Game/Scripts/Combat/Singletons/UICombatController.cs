@@ -43,7 +43,7 @@ public class UICombatController : MonoBehaviour
             $"{CombatSingletonManager.Instance.turnManager.info.energizer.currentEnergy}/{CombatSingletonManager.Instance.turnManager.info.energizer.maxEnergy}");
     }
 
-    private void UpdateHealthBars()
+    public void UpdateHealthBars()
     {
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
         frontAllyHealth.value = info.frontAlly.currentHealth;
@@ -52,7 +52,7 @@ public class UICombatController : MonoBehaviour
         backEnemyHealth.value = info.backEnemy.currentHealth;
     }
 
-    private void SetHealthBars()
+    public void SetHealthBars()
     {
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
         frontAllyHealth.maxValue = info.frontAlly.ingemonInfo.maxHealth;

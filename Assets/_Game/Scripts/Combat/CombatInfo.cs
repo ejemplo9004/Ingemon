@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Cards;
 using UnityEngine;
 
 public class CombatInfo
@@ -43,16 +40,30 @@ public class CombatInfo
         CombatSingletonManager.Instance.eventManager.OnIngemonDead += CheckEnd;
     }
 
-    public void SpawnAllys()
+    public void SpawnAllys(int room)
     {
-        frontAlly.Spawn(frontAllyPos, combatInventory.Ingemones[0].phenotype);
-        backAlly.Spawn(backAllyPos, combatInventory.Ingemones[1].phenotype);
+        frontAlly.Spawn(frontAllyPos, combatInventory.Ingemones[0], room);
+        frontAlly.BattlePosition(true);
+        backAlly.Spawn(backAllyPos, combatInventory.Ingemones[1], room);
+        backAlly.BattlePosition(true);
     }
 
-    public void SpawnEnemies()
+    public void SpawnEnemies(int room)
     {
-        frontEnemy.Spawn(frontEnemyPos, "");
-        backEnemy.Spawn(backEnemyPos, "");
+        frontEnemy.Spawn(frontEnemyPos, frontEnemy.ingemonInfo, room);
+        backEnemy.Spawn(backEnemyPos, backEnemy.ingemonInfo, room);
+    }
+
+    public void DestroyAllys()
+    {
+        frontAlly.DestroyIngemon();
+        backAlly.DestroyIngemon();
+    }
+
+    public void DestroyEnemies()
+    {
+        frontEnemy.DestroyIngemon();
+        backEnemy.DestroyIngemon();
     }
 
     public void PlayCard(Card card)
@@ -79,6 +90,7 @@ public class CombatInfo
 
     private void CheckEnd(EntityController dead)
     {
+        DeleteDeadIngemons();
         if (frontAlly.CheckDead() && backAlly.CheckDead())
         {
             CombatSingletonManager.Instance.eventManager.FailedBattle();
@@ -89,5 +101,42 @@ public class CombatInfo
             CombatSingletonManager.Instance.eventManager.WinBattle();
         }
     }
-    
+
+    private void DeleteDeadIngemons()
+    {
+        if (frontAlly.CheckDead())
+        {
+            RunSingleton.Instance.RunInventory.DeleteIngemon(frontAlly.ingemonInfo.phenotype);
+        }
+
+        if (backAlly.CheckDead())
+        {
+            RunSingleton.Instance.RunInventory.DeleteIngemon(backAlly.ingemonInfo.phenotype);
+        }
+    }
+
+    public void HackBattle(int code)
+    {
+        switch (code)
+        {
+            case 1:
+                CombatSingletonManager.Instance.eventManager.WinBattle();
+                break;
+            case 2:
+                RunSingleton.Instance.DeleteIngemonFromRun(frontAlly.ingemonInfo.phenotype);
+                CombatSingletonManager.Instance.eventManager.WinBattle();
+                break;
+            case 3:
+                RunSingleton.Instance.DeleteIngemonFromRun(backAlly.ingemonInfo.phenotype);
+                CombatSingletonManager.Instance.eventManager.WinBattle();
+                break;
+            case 4:
+                RunSingleton.Instance.DeleteIngemonFromRun(frontAlly.ingemonInfo.phenotype);
+                RunSingleton.Instance.DeleteIngemonFromRun(backAlly.ingemonInfo.phenotype);
+                CombatSingletonManager.Instance.eventManager.FailedBattle();
+                break;
+            default:
+                break;
+        }
+    }
 }

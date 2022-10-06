@@ -12,7 +12,7 @@ public class Inventory : ScriptableObject
     public void AddIngemon(Ingemonster ingemon){
         if(!hasLimit){
             ingemones.Add(ingemon);
-            Persistence.persistence.SaveIngemon(ingemones, ingemones.Count);
+            //Persistence.persistence.SaveIngemon(ingemones, ingemones.Count);
             return;            
         }
         else if(ingemones.Count == limit){
@@ -24,20 +24,23 @@ public class Inventory : ScriptableObject
         
     }
 
-    public bool DeleteIngemon(Ingemonster ingemon){
+    public bool DeleteIngemon(string ingemon){
         if(ingemones.Count == 0){
             Debug.Log("No hay ingemones para borrar.");
             return false;
         }
-        if(ingemones.Contains(ingemon)){
-            ingemones.Remove(ingemon);
-            Debug.Log("Ingemon removido");
-            return true;
+
+        foreach (Ingemonster ingemonster in ingemones)
+        {
+            if (ingemonster.phenotype.Equals(ingemon))
+            {
+                ingemones.Remove(ingemonster);
+                Debug.Log("Ingemon removido");
+                return true;
+            }
         }
-        else{
-            Debug.Log("No se encontro el Ingemon para borrar.");
-            return false;
-        }
+        Debug.Log("No se encontro el Ingemon para borrar.");
+        return false;
     }
 
     public void ClearInventory(){

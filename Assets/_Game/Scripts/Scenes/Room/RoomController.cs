@@ -6,20 +6,57 @@ public class RoomController : GameplayScene
     [SerializeField] private Inventory combatInventory;
     [SerializeField] private RoomUI gamePlaySceneUI;
     [SerializeField] private GameObject combatController;
-    private Room room;
-
-    private void OnEnable() {
-        room = GameController.gameController.CurrentRun.currentRoom;
-        ConfigureRoom(); 
+    [SerializeField] private RoomTransition roomTransition;
+    private List<CombatEventSystem.OnEndBattleAction> failActions = new List<CombatEventSystem.OnEndBattleAction>();
+    private void OnEnable()
+    {
+        ConfigureRoom(true); 
     }
-
-    private void ConfigureRoom(){
+    private void OnDisable()
+    {
+        SetWinListeners(false);
+        SetFailListeners(false);
+    }
+    private void SetWinListeners(bool enable)
+    {
+        if (enable)
+        {
+            CombatSingletonManager.Instance.eventManager.OnWinBattle += DisableCombatController;
+            return;
+        }
+        CombatSingletonManager.Instance.eventManager.OnWinBattle -= DisableCombatController;
+    }
+    private void SetFailListeners(bool enable)
+    {
+        if (enable)
+        {
+            failActions.Add(DisableCombatController);
+            failActions.Add(delegate { ConfigureRoom(true); });
+            foreach (CombatEventSystem.OnEndBattleAction action in failActions)
+            {
+                CombatSingletonManager.Instance.eventManager.OnFailBattle += action;
+            }
+            return;
+        }
+        foreach (CombatEventSystem.OnEndBattleAction action in failActions)
+        {
+            CombatSingletonManager.Instance.eventManager.OnFailBattle -= action;
+        }
+        failActions.Clear();
+    }
+    private void SetRoomListeners()
+    {
+        SetWinListeners(true);
+        SetFailListeners(true);
+        gamePlaySceneUI.SetWinListeners(true);
+        gamePlaySceneUI.SetFailListeners(true);
+    }
+    public void ConfigureRoom(bool firstConfigure){
         combatInventory.ClearInventory();
-        gamePlaySceneUI.ChangeBackGroundImage(room.Background);
-        gamePlaySceneUI.FillIngemonsImages(RunInventory);
+        gamePlaySceneUI.ShowSelectionCanvas(true);
+        if(firstConfigure) gamePlaySceneUI.FillIngemonsImages(RunInventory);
         gamePlaySceneUI.ShowEnemyPanel();
     }
-
     public void AddIngemonToCombatInventory(){
         if(!VerifyCombatInventory()){
             return;
@@ -30,13 +67,13 @@ public class RoomController : GameplayScene
         }
         combatController.SetActive(true);
         gamePlaySceneUI.ShowCombatCanvas(true);
+        SetRoomListeners();
         CombatSingletonManager.Instance.turnManager.StartBattle();
     }
-
     public bool VerifyCombatInventory(){
         for (int i = 0; i < ingemonesSelected.Count; i++)
         {
-            if(ingemonesSelected[i] == null){
+            if(!ingemonesSelected[i].VerifyExistence()){
                 Debug.Log("No seleccionó los ingemones suficientes");
                 return false;
             } 
@@ -44,5 +81,15 @@ public class RoomController : GameplayScene
         gamePlaySceneUI.HideSelectionPanel();
         gamePlaySceneUI.ShowSelectionCanvas(false);     
         return true;
+    }
+    private void DisableCombatController()
+    {
+        combatController.SetActive(false);
+    }
+    public void AddReward(GameObject reward){
+        var rewardable = reward.GetComponent<IReward>();
+        rewardable.AddReward();
+        gamePlaySceneUI.ShowRewardPanel(false);
+        roomTransition.StartRoomTransition();
     }
 }
