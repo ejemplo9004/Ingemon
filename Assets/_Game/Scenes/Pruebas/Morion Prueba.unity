@@ -7740,11 +7740,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   servidor: {fileID: 11400000, guid: 75d6f006d7a456943a6f3585f365a2bc, type: 2}
   imLoading: {fileID: 1492543319}
-  jugador:
-    id_jugador: 0
-    oro: 0
-    xp: 0
-    grupo: 0
+  usuario:
+    id: 0
+    name: 
+    password: 
+    gold: 0
   ingemonNuevo:
     name: 
     id: 
