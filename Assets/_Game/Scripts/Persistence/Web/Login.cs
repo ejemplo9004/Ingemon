@@ -25,12 +25,11 @@ public class Login : MonoBehaviour
         string[] datos = new string[4];
         datos[0] = inpUsuario.text;
         datos[1] = inpPass.text;
-        Logger.Instance.LogInfo($"Intentando Loguear {datos[0]}, {datos[1]}");
         StartCoroutine(servidor.ConsumirServicio("login", datos, PosCargar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
-        Logger.Instance.LogInfo($"Intentando Loguear {datos[0]}, {datos[1]}");
         if(validUser){
+            
             datos[0] = GameController.gameController.usuarioActual.id.ToString();
             StartCoroutine(servidor.ConsumirServicio("buscar ingemon", datos, PosBuscarIngemon));
             yield return new WaitForSeconds(0.5f);

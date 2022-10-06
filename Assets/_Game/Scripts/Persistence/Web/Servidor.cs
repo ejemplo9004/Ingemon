@@ -31,7 +31,6 @@ public class Servidor : ScriptableObject
             formulario.AddField(s.parametros[i], datos[i]);
         }
 
-        Logger.Instance.LogInfo($"Formulario: {s.nombre}, {s.parametros[0]}, {s.parametros[1]}, {s.URL}, ");
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.URL, formulario);
         Logger.Instance.LogInfo(servidor + "/" + s.URL);
         yield return www.SendWebRequest();
