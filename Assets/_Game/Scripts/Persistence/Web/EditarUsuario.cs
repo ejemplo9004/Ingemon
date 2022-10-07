@@ -26,9 +26,32 @@ public class EditarUsuario : MonoBehaviour
         datos[2] = inpPass2.text;
         datos[3] = inpJugadorEditar.text;
         datos[4] = inpNivelEditar.text;
-        StartCoroutine(servidor.ConsumirServicio("editar usuario", datos, null));
+        StartCoroutine(servidor.ConsumirServicio("editar usuario", datos, posEditar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
+    }
+
+    void posEditar()
+    {
+       
+           switch (servidor.respuesta.codigo)
+        {
+            case 206: //usuario editado correctamente
+                print(servidor.respuesta.mensaje);
+                break;
+            case 204: //usuario o contraseña incorrectos
+                print(servidor.respuesta.mensaje);
+                break;
+            case 404: // Error
+                print("Error, no se puede conectar con el servidor");
+                break;
+            case 402: // faltan datos para ejecutar la accion solicitada
+                print(servidor.respuesta.mensaje);
+                break;
+            default:
+                break;
+        
+    }
     }
 }

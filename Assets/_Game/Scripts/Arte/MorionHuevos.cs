@@ -29,10 +29,13 @@ public class MorionHuevos : MonoBehaviour
         mHuevo.SetTextureOffset("_Fondo", Vector2.up * (mcMascaras.iDorsos / 10f));
     }
 
-    public void VerHuevo(bool ver)
+    public void VerHuevo(bool ver, bool actualizar)
     {
         rendererHuevo.transform.parent.gameObject.SetActive(ver);
-        Actualizar();
+        if (actualizar)
+        {
+            Actualizar();
+        }
         ingemon.SetActive(!ver);
     }
 }

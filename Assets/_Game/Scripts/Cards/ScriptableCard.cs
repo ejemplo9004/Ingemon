@@ -36,6 +36,7 @@ namespace Cards
         public void DealDamage(int damage)
         {
             CombatSingletonManager.Instance.turnManager.info.executioner.DealDamage(damage, target, owner);
+            owner.AttackAnimation();
         }
 
         public void Heal(int health)
