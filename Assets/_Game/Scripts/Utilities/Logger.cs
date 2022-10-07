@@ -18,7 +18,7 @@ public class Logger : Singleton<Logger>
         {
             debugAreaText = GetComponent<TextMeshProUGUI>();
         }
-        if(enableDebug && permanent) DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
         debugAreaText.text = string.Empty;
     }
 
