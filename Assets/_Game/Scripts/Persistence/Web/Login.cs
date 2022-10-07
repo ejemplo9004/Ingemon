@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ public class Login : MonoBehaviour
     }
     IEnumerator Iniciar()
     {
+   
         imLoading.SetActive(true);
         string[] datos = new string[4];
         datos[0] = inpUsuario.text;
