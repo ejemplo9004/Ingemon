@@ -18,7 +18,26 @@ public class CartaUI : MonoBehaviour
     public Image imEquipoAliado;
     public Image imEquipoEnemigo;
 
+    public void PonerEnemigos(TipoObjetivo tipo)
+    {
+        imEquipoEnemigo.sprite = sprsEnemigos[(int)tipo];
+    }
+    public void PonerAliados(TipoObjetivo tipo)
+    {
+        imEquipoAliado.sprite = sprsAliados[(int)tipo];
+    }
 
+    public void CabiarColorBordes(int cual)
+    {
+        for (int i = 0; i < imBordes.Length; i++)
+        {
+            imBordes[i].color = coloresBordes[cual % coloresBordes.Length];
+        }
+    }
+    public void CabiarColorFondo(int cual)
+    {
+        imFondo.color = coloresFondos[cual % coloresBordes.Length];
+    }
 }
 
 [System.Serializable]
