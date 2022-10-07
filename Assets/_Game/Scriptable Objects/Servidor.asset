@@ -42,10 +42,6 @@ MonoBehaviour:
     parametros:
     - user_id
   ocupado: 0
-  respuestaArray:
-    codigo: 210
-    mensaje: Ingemones encontrados correctamente
-    respuesta: []
   respuesta:
     codigo: 404
     mensaje: Error

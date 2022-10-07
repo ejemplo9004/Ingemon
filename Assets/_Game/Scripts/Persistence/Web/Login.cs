@@ -29,6 +29,7 @@ public class Login : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         if(validUser){
+            
             datos[0] = GameController.gameController.usuarioActual.id.ToString();
             StartCoroutine(servidor.ConsumirServicio("buscar ingemon", datos, PosBuscarIngemon));
             yield return new WaitForSeconds(0.5f);
@@ -43,7 +44,8 @@ public class Login : MonoBehaviour
         switch (servidor.respuesta.codigo)
         {
             case 204: //usuario o contrase�a incorrectos
-                print(servidor.respuesta.mensaje);
+                Logger.Instance.LogInfo(servidor.respuesta.mensaje);
+                
                 break;
             case 205: //inicio de sesion correcto
                 usuario = dbUsuario.CreateFromJSON(servidor.respuesta.respuesta);
@@ -51,10 +53,11 @@ public class Login : MonoBehaviour
                 GameController.gameController.AsignarJugador(usuario);
                 break;
             case 404: // Error
-                print("Error, no se puede conectar con el servidor");
+                Logger.Instance.LogWarning("Error, no se puede conectar con el servidor");
+                Logger.Instance.LogWarning($"{servidor.respuesta.respuesta}");
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
-                print(servidor.respuesta.mensaje);
+                Logger.Instance.LogInfo(servidor.respuesta.mensaje);
                 break;
 
             default:
@@ -66,7 +69,7 @@ public class Login : MonoBehaviour
         switch (servidor.respuesta.codigo)
         {
             case 210: //ingemon encontrado
-                print(servidor.respuesta.respuesta);
+                Logger.Instance.LogInfo(servidor.respuesta.respuesta);
                 List<string> ingemones = servidor.respuesta.respuesta.Split("!").ToList();
                 ingemones.Remove("");
                 GameController.gameController.AsignarIngemones(ingemones);
@@ -80,14 +83,14 @@ public class Login : MonoBehaviour
                 }
                 break;
             case 404: // Error
-                print("Error, no se puede conectar con el servidor");
+                Logger.Instance.LogInfo("Error, no se puede conectar con el servidor");
                 SceneManager.LoadScene(0);
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
-                print(servidor.respuesta.mensaje);
+                Logger.Instance.LogInfo(servidor.respuesta.mensaje);
                 break;
             case 410: // ingemones no encontrados
-                print(servidor.respuesta.mensaje);
+                Logger.Instance.LogInfo(servidor.respuesta.mensaje);
                 SceneManager.LoadScene((int)Scenes.SHOP);
                 break;
             default:
@@ -95,5 +98,7 @@ public class Login : MonoBehaviour
                 break;
         }
     }
+    
+    
 }
 
