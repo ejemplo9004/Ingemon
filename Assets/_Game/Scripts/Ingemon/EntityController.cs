@@ -69,7 +69,6 @@ public class EntityController : MonoBehaviour
             UpdateProtection();
             health = 0;
         }
-        animator?.SetTrigger(Parameters.DANO);
         GetDamageNoProtection(health);
     }
 
@@ -206,5 +205,10 @@ public class EntityController : MonoBehaviour
     public void AttackAnimation()
     {
         animator?.SetTrigger(Parameters.ATACANDO);
+    }
+
+    public void DamageAnimation()
+    {
+        animator?.SetTrigger(Parameters.DANO);
     }
 }

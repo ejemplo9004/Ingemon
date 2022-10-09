@@ -13,10 +13,16 @@ public class CardExecutioner
 
     public void DealDamage(int damage, int target, EntityController owner)
     {
-        foreach (var t in GetTargets(target, owner))
+        List<EntityController> targets = GetTargets(target, owner);
+        foreach (var t in targets)
         {
             t.GetDamaged(damage);
         }
+        
+        CombatSingletonManager.Instance.anim.RequestAnAnimation(
+            new AnimationRequestBuilder(owner.position)
+                .WithTargets(targets));
+        
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
     }
 
