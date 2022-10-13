@@ -140,7 +140,7 @@ public class EntityController : MonoBehaviour
         }
     }
 
-    public void HealBleed()
+    public void HealBleedTick()
     {
         for (int i = bleeds.Count - 1; i >= 0; i--)
         {
@@ -153,6 +153,16 @@ public class EntityController : MonoBehaviour
         }
     }
 
+    public void CleanPoison()
+    {
+        poisons = new List<Poison>();
+        CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
+    }       
+    public void CleanBleed()
+    {
+        bleeds = new List<Bleed>();
+        CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
+    }    
     private void CleanBuffs()
     {
         poisons = new List<Poison>();
@@ -167,7 +177,7 @@ public class EntityController : MonoBehaviour
         UpdateProtection();
     }
 
-    public void LoseProtection()
+    public void ClearProtection()
     {
         protection = 0;
         UpdateProtection();

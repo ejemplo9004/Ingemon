@@ -38,10 +38,10 @@ public class EnemyTurnState : TurnState
     
     private void EndOfTurnEffects(TurnStateManager manager)
     {
-        manager.info.frontAlly.LoseProtection();
-        manager.info.backAlly.LoseProtection();
-        manager.info.backEnemy.HealBleed();
-        manager.info.frontEnemy.HealBleed();
+        manager.info.frontAlly.ClearProtection();
+        manager.info.backAlly.ClearProtection();
+        manager.info.backEnemy.HealBleedTick();
+        manager.info.frontEnemy.HealBleedTick();
         manager.info.backEnemy.TickPoison();
         manager.info.frontEnemy.TickPoison();
     }

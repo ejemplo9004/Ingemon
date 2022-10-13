@@ -8,12 +8,14 @@ namespace Cards
     [CreateAssetMenu(fileName = "Card", menuName = "Ingemon/Card", order = 1)]
     public class ScriptableCard : ScriptableObject
     {
+        [Header("Informacion de la carta")]
         public string id;
         public string cardName;
         public string cardDescription;
         public int cost;
         public IngemonRace race;
         public CardType type;
+        [TextDisplay("Targets:\n\tOneSelf = -4\n\tAllys = -3\n\tBackAlly = -2\n\tFrontAlly = -1\n\tAll = 0\n\tFrontEnemy = 1\n\tBackEnemy = 2\n\tEnemies = 3\n\tAllButOneSelf = 4")]
         public CardEvent[] actions;
 
         private int target = 1;
@@ -62,8 +64,20 @@ namespace Cards
             CombatSingletonManager.Instance.turnManager.info.executioner.Bleed(damage, duration, target, owner);
             duration = 0;
         }
-        
-        
+
+        public void HealPoison()
+        {
+            CombatSingletonManager.Instance.turnManager.info.executioner.HealPoison(target, owner);
+        }        
+        public void HealBleed()
+        {
+            CombatSingletonManager.Instance.turnManager.info.executioner.HealBleed(target, owner);
+        }
+
+        public void ClearProtection()
+        {
+            CombatSingletonManager.Instance.turnManager.info.executioner.ClearProtection(target, owner);
+        }
         
         
     }
