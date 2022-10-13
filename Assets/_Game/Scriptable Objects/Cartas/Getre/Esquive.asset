@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
-  m_Name: Scrach
+  m_Name: Esquive
   m_EditorClassIdentifier: 
-  id: 1
-  cardName: Scrach
-  cardDescription: Deal 5 Damage
-  cost: 1
+  id: 4
+  cardName: Esquive
+  cardDescription: Gana 5 de bloqueo.
+  cost: 0
   race: 2
-  type: 0
+  type: 1
   actions:
   - action:
       m_PersistentCalls:
@@ -29,14 +29,14 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: -4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: DealDamage
+          m_MethodName: Protect
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class UICombatController : MonoBehaviour
     [SerializeField] public GameObject backEnemyBUI;
     [SerializeField] public GameObject frontAllyBUI;
     [SerializeField] public GameObject backAllyBUI;
+    [SerializeField] public float animationTime = 0.5f;
     [SerializeField] private BigCardController bigCard;
     [SerializeField] private IntentionsController intentions;
 
@@ -46,10 +48,24 @@ public class UICombatController : MonoBehaviour
     public void UpdateHealthBars()
     {
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
-        frontAllyHealth.value = info.frontAlly.currentHealth;
-        backAllyHealth.value = info.backAlly.currentHealth;
-        frontEnemyHealth.value = info.frontEnemy.currentHealth;
-        backEnemyHealth.value = info.backEnemy.currentHealth;
+        StartCoroutine(UpdateHealthBar(frontAllyHealth, frontAllyHealth.value, info.frontAlly.currentHealth));
+        StartCoroutine(UpdateHealthBar(backAllyHealth, backAllyHealth.value, info.backAlly.currentHealth));
+        StartCoroutine(UpdateHealthBar(frontEnemyHealth, frontEnemyHealth.value, info.frontEnemy.currentHealth));
+        StartCoroutine(UpdateHealthBar(backEnemyHealth, backEnemyHealth.value, info.backEnemy.currentHealth));
+    }
+
+    private IEnumerator UpdateHealthBar(Slider healthbar, float old, float current)
+    {
+        float timePassed = 0;
+        while (timePassed <= animationTime)
+        {
+            healthbar.value = Mathf.Lerp(old, current, timePassed / animationTime);
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+
+        healthbar.value = current;
+        yield return null;
     }
 
     public void SetHealthBars()

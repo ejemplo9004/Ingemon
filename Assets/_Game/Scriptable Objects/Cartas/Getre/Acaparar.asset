@@ -10,21 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
-  m_Name: Scrach
+  m_Name: Acaparar
   m_EditorClassIdentifier: 
-  id: 1
-  cardName: Scrach
-  cardDescription: Deal 5 Damage
+  id: 14
+  cardName: Acaparar
+  cardDescription: Roba 4 cartas. descarta una aleatoria.
   cost: 1
   race: 2
-  type: 0
+  type: 2
   actions:
   - action:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: SetTarget
+          m_MethodName: Draw
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
+          m_MethodName: SetDamageModifier
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -36,12 +48,12 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: DealDamage
+          m_MethodName: Discard
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

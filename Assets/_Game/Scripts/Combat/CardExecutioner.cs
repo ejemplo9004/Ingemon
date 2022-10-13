@@ -11,11 +11,12 @@ public class CardExecutioner
         this.info = info;
     }
 
-    public void DealDamage(int damage, int target, EntityController owner)
+    public void DealDamage(int damage, int target, int baseBonus, EntityController owner, int modifier)
     {
         List<EntityController> targets = GetTargets(target, owner);
         foreach (var t in targets)
         {
+            damage = ModifyDamage(damage, modifier, baseBonus, t, owner);
             t.GetDamaged(damage);
         }
         
@@ -30,6 +31,7 @@ public class CardExecutioner
     {
         foreach (var t in GetTargets(target, owner))
         {
+            Debug.Log($"Curando a {t.position}");
             t.GetHealed(health);
         }
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
@@ -157,5 +159,57 @@ public class CardExecutioner
         targets.Add(ingemon);
         return true;
 
+    }
+
+    private int ModifyDamage(int damage, int modifier, int baseBonus, EntityController target, EntityController owner)
+    {
+        switch ((DamageModifiers) modifier)
+        {
+            case DamageModifiers.OwnerArmorEqualsDamage:
+                damage = owner.protection;
+                break;
+            case DamageModifiers.TargetPoisonBonus:
+                damage += target.IsPoisoned()? baseBonus: 0;
+                break;
+            case DamageModifiers.TargetBleedBonus:
+                damage += target.IsBleeding()? baseBonus: 0;
+                break;
+            case DamageModifiers.TargetPoisonOrBleedBonus:
+                damage += (target.IsBleeding() || target.IsPoisoned())? baseBonus: 0;
+                break;
+            case DamageModifiers.OwnerPoison:
+                damage += owner.IsPoisoned()? baseBonus: 0;
+                break;
+            case DamageModifiers.OwnerBleed:
+                damage += owner.IsBleeding()? baseBonus: 0;
+                break;
+            case DamageModifiers.OwnerPoisonOrBleed:
+                damage += (owner.IsBleeding() || owner.IsPoisoned())? baseBonus: 0;
+                break;
+            case DamageModifiers.OwnerArmorModifyDamage:
+                damage += owner.protection * baseBonus;
+                break;
+        }
+        return damage;
+    }
+
+    public void Discard(int cards, int modifier, EntityController owner)
+    {
+        if(owner.GetType() != typeof(IngemonController)) return;
+        switch ((DiscardModifiers) modifier)
+        {
+            case DiscardModifiers.DiscardRandom:
+                for (int i = 0; i < cards; i++)
+                {
+                    info.handler.DiscardRandom();
+                }
+                break;
+            case DiscardModifiers.DiscardExpensive:
+                for (int i = 0; i < cards; i++)
+                {
+                    info.handler.DiscardExpensive();
+                }
+                break;
+        }
     }
 }

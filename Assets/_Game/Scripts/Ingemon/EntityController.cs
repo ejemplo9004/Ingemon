@@ -87,7 +87,7 @@ public class EntityController : MonoBehaviour
 
     public void GetHealed(int health)
     {
-        currentHealth = Mathf.Clamp(currentHealth + health, 0, currentHealth);
+        currentHealth = Mathf.Clamp(currentHealth + health, 0, ingemonInfo.maxHealth);
     }
 
     public void SetState(IngemonState state)
@@ -114,6 +114,15 @@ public class EntityController : MonoBehaviour
         state.SetBuffIcon();
     }
 
+    public bool IsPoisoned()
+    {
+        return poisons.Count > 0;
+    }    
+    
+    public bool IsBleeding()
+    {
+        return bleeds.Count > 0;
+    }
     public void TickPoison()
     {
         for (int i = poisons.Count - 1; i >= 0; i--)
@@ -169,7 +178,7 @@ public class EntityController : MonoBehaviour
         bleeds = new List<Bleed>();
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
     }
-
+    
 
     public void GetProtection(int protection)
     {

@@ -29,6 +29,7 @@ public class StartBattleState : TurnState
                 manager.info.backEnemy);
         manager.info.drawDeck = manager.info.handler.ShuffleDeck(manager.info.drawDeck);
         manager.info.enemyDeck = manager.info.handler.ShuffleDeck(manager.info.enemyDeck);
+        manager.info.hand = new List<Card>();
     }
 
     private IEnumerator SpawnIngemons(TurnStateManager manager, int room)

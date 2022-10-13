@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: Card Inventory
   m_EditorClassIdentifier: 
   baseCollection:
-  - {fileID: 11400000, guid: ae58fd33fcafddb41a04961a921ddf70, type: 2}
-  - {fileID: 11400000, guid: 6cedcb848dea5794a84b5cdf2391fcdd, type: 2}
-  - {fileID: 11400000, guid: a924f4228143b3c43beac6fc2339ea45, type: 2}
-  - {fileID: 11400000, guid: 4d4c48b1cbe47794aa02a5e92e0f68fa, type: 2}
-  - {fileID: 11400000, guid: 37f40e178463a4a44abe16addaa7ffab, type: 2}
-  - {fileID: 11400000, guid: 4517b21403036474fa7fcb7c208cd710, type: 2}
-  - {fileID: 11400000, guid: e320de43dacd59f4788101d606a9b540, type: 2}
-  - {fileID: 11400000, guid: ad3e5f9d440947142bf70f2aa13ff9ff, type: 2}
-  - {fileID: 11400000, guid: 0edbb21d33878e34c8b2ce381f607f20, type: 2}
-  - {fileID: 11400000, guid: 458578357a2d42d43a3351515e93d13c, type: 2}
-  - {fileID: 11400000, guid: 775fd710e80350147b716de529c9da48, type: 2}
+  - {fileID: 11400000, guid: 23c10fba5b1145a4da4037d22dd1b15f, type: 2}
+  - {fileID: 11400000, guid: 1dd8a2f6a3e9ccb4fb535e2430292655, type: 2}
+  - {fileID: 11400000, guid: 41c652cb218ee1d469a6e5d45ed98fa3, type: 2}
+  - {fileID: 11400000, guid: e946c1ae92c3a744c859d5e580ea2976, type: 2}
+  - {fileID: 11400000, guid: 9f289bc5ba470744681ea3ee41231425, type: 2}
+  - {fileID: 11400000, guid: afd00b8be6637f94dbcbaa55d9d08ab1, type: 2}
+  - {fileID: 11400000, guid: 142d558e0fc2eb44fbb01466e9e7e72c, type: 2}
+  - {fileID: 11400000, guid: 186149e294ec82e49bf449725e72b176, type: 2}
+  - {fileID: 11400000, guid: 73f3b190d475436429dfce38dc1b2aec, type: 2}
+  - {fileID: 11400000, guid: 8306a890cad433c4e81c1e9a80b98f93, type: 2}
+  - {fileID: 11400000, guid: 33fc631c2a663e946a2ce5b663149985, type: 2}
+  - {fileID: 11400000, guid: 449972e4b8d9ab9489a9b768eedf4818, type: 2}
+  - {fileID: 11400000, guid: 0f53645e2d53e954490a56331978ad87, type: 2}
+  - {fileID: 11400000, guid: dde170945db2f24458ad574b2f5f61d1, type: 2}
+  - {fileID: 11400000, guid: b817a2d25f3630843af39d93ba4a0d7e, type: 2}
+  - {fileID: 11400000, guid: 2cf040109e64de64f9151f5d4c54e228, type: 2}
   allCards:
   - {fileID: 11400000, guid: 3bb60a649e22c2a42a1c5755631e8b47, type: 2}
