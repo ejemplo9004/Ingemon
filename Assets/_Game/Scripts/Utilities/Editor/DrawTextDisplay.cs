@@ -4,11 +4,11 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(TextDisplayAttribute))]
-public class DrawTextDisplay : DecoratorDrawer
+public class DrawTextDisplay : PropertyDrawer
 {
     private const float Padding = 20f;
     private float height = 0f;
-    public override float GetHeight()
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         TextDisplayAttribute textDisplay = attribute as TextDisplayAttribute;
         GUIStyle style = EditorStyles.helpBox;
@@ -22,15 +22,13 @@ public class DrawTextDisplay : DecoratorDrawer
         return height + Padding;
     }
 
-    public override void OnGUI(Rect position)
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         TextDisplayAttribute textDisplay = attribute as TextDisplayAttribute;
 
         position.height = height;
         position.y += Padding * 0.5f;
         
-        EditorGUI.HelpBox(position, textDisplay.Text, MessageType.None);
-        
-        //GUI.Box(new Rect(position.xMin, position.yMin+4, position.width, 3 ),GUIContent.none);
+        EditorGUI.HelpBox(position, textDisplay.Text, MessageType.Info);
     }
 }

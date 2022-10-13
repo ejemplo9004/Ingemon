@@ -15,9 +15,16 @@ namespace Cards
         public int cost;
         public IngemonRace race;
         public CardType type;
-        [TextDisplay("Targets:\n\tOneSelf = -4\n\tAllys = -3\n\tBackAlly = -2\n\tFrontAlly = -1\n\tAll = 0\n\tFrontEnemy = 1\n\tBackEnemy = 2\n\tEnemies = 3\n\tAllButOneSelf = 4")]
+
         public CardEvent[] actions;
 
+        //Esta seccion es un poco rara, pero sirve para mostrar info en el inspector.
+        [TextDisplay("Targets:\t\t\tIndex\n\tOneSelf \t-4\n\tAllys \t\t-3\n\tBackAlly \t-2\n\tFrontAlly \t-1\n\t" +
+                     "All \t\t 0\n\tFrontEnemy \t 1\n\tBackEnemy \t 2\n\tEnemies \t 3\n\tAllButOneSelf \t 4")]
+        public int[] TargetInstructions = new int[1];
+        [TextDisplay("Modifiers:\n\t1. Armadura")]
+        //public int[] DamagesModifiersInstructions = new int[1];
+        
         private int target = 1;
         private int duration = 0;
         private EntityController owner;
