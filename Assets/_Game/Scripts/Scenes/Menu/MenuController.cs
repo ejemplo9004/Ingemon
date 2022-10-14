@@ -17,11 +17,14 @@ public class MenuController : MonoBehaviour
             menuUI.ShowRewardPanel("Has ganado: " + GameController.gameController.CurrentRun.Reward);
             playerEconomy.AddMoney(GameController.gameController.CurrentRun.Reward);
             economyDB.AddMoney(playerEconomy.money);
+            //aca setear fecha de juego
         }
     }
 
     public void SetCurrentRun(Run run)
     {
+        //aca revisar si ya jugo
         GameController.gameController.SetRun(run);
+        SceneChanger.ChangeScene(2);
     }
 }

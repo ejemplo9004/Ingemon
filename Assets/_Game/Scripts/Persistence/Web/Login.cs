@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ public class Login : MonoBehaviour
     }
     IEnumerator Iniciar()
     {
+   
         imLoading.SetActive(true);
         string[] datos = new string[4];
         datos[0] = inpUsuario.text;
@@ -29,7 +31,6 @@ public class Login : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         if(validUser){
-            
             datos[0] = GameController.gameController.usuarioActual.id.ToString();
             StartCoroutine(servidor.ConsumirServicio("buscar ingemon", datos, PosBuscarIngemon));
             yield return new WaitForSeconds(0.5f);
@@ -45,12 +46,12 @@ public class Login : MonoBehaviour
         {
             case 204: //usuario o contrase�a incorrectos
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
-                
                 break;
             case 205: //inicio de sesion correcto
                 usuario = dbUsuario.CreateFromJSON(servidor.respuesta.respuesta);
                 validUser = true;
                 GameController.gameController.AsignarJugador(usuario);
+                Debug.Log("usuario melo");
                 break;
             case 404: // Error
                 Logger.Instance.LogWarning("Error, no se puede conectar con el servidor");
