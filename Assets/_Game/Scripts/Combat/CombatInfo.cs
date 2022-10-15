@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -112,6 +113,23 @@ public class CombatInfo
         if (backAlly.CheckDead())
         {
             RunSingleton.Instance.RunInventory.DeleteIngemon(backAlly.ingemonInfo.phenotype);
+        }
+    }
+
+    public EntityController GetIngemon(CombatIngemonPosition ingemon)
+    {
+        switch (ingemon)
+        {
+            case CombatIngemonPosition.FRONT_ALLY:
+                return frontAlly;
+            case CombatIngemonPosition.BACK_ALLY:
+                return backAlly;
+            case CombatIngemonPosition.FRONT_ENEMY:
+                return frontEnemy;
+            case CombatIngemonPosition.BACK_ENEMY:
+                return backEnemy;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(ingemon), ingemon, null);
         }
     }
 

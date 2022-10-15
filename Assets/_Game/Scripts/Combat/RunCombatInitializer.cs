@@ -52,23 +52,23 @@ public class RunCombatInitializer : MonoBehaviour
         }
 
         frontAlly.ingemonInfo = ingemones[0];
-        frontAlly.SetUI(CombatIngemonEnum.FRONT_ALLY);
+        frontAlly.SetUI(CombatIngemonPosition.FRONT_ALLY);
 
         backAlly.ingemonInfo = ingemones[1];
-        backAlly.SetUI(CombatIngemonEnum.BACK_ALLY);
+        backAlly.SetUI(CombatIngemonPosition.BACK_ALLY);
 
         //Cambiar para agregar enemigos
         frontEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         frontEnemy.ingemonInfo = new IngemonBuilder().WithName("Fishamon")
             .WithMaxHealth(100)
             .WithDeck(baseCollection);
-        frontEnemy.SetUI(CombatIngemonEnum.FRONT_ENEMY);
+        frontEnemy.SetUI(CombatIngemonPosition.FRONT_ENEMY);
 
         backEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
         backEnemy.ingemonInfo = new IngemonBuilder().WithName("Corromon")
             .WithMaxHealth(100)
             .WithDeck(baseCollection);
-        backEnemy.SetUI(CombatIngemonEnum.BACK_ENEMY);
+        backEnemy.SetUI(CombatIngemonPosition.BACK_ENEMY);
 
         
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy, combatInventory);

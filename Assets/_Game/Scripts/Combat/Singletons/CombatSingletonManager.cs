@@ -26,6 +26,7 @@ public class CombatSingletonManager : MonoBehaviour
     public TurnStateManager turnManager;
     public CardCombatController cardManager;
     public UICombatController uiManager;
+    public AnimationExecuter anim;
 
 
 }

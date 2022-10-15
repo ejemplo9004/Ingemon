@@ -18,9 +18,9 @@ public class BuffUIController : MonoBehaviour
     {
         this.timer = timer;
         this.value = value;
-        text.SetText(value.ToString());
+        text.SetText(value != 0? value.ToString() : "");
         maxHeight = background.rectTransform.sizeDelta.y;
-        timerUnit = maxHeight / timer;
+        timerUnit = (timer != -1)? maxHeight / timer : maxHeight;
     }
 
     public void UpdateTimer(int timer)

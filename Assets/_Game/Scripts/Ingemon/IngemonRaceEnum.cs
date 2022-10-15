@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum IngemonRace
 {
-    GOBLIN,
-    GNOME,
-    GREMLIN,
-    IMP
+    GENU,
+    GEDO,
+    GETRE,
+    GECU
 }

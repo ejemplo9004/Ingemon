@@ -1,4 +1,4 @@
-﻿public enum CombatIngemonEnum
+﻿public enum CombatIngemonPosition
 {
     FRONT_ALLY,
     BACK_ALLY,
