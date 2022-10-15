@@ -49,7 +49,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MascaraDorsal:
+<<<<<<< HEAD
         m_Texture: {fileID: 2800000, guid: 4d8aa9f72b94828459b5340ed93f2fbf, type: 3}
+=======
+        m_Texture: {fileID: 2800000, guid: 6b4afbe754452b244b18c7a759b1c5b6, type: 3}
+>>>>>>> Mallama
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MascaraFijos:
@@ -57,7 +61,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MascaraManchas:
+<<<<<<< HEAD
         m_Texture: {fileID: 2800000, guid: 13466c068c6da8741975be7322fd0107, type: 3}
+=======
+        m_Texture: {fileID: 2800000, guid: 19fffb29320303a48a130ae3678c5452, type: 3}
+>>>>>>> Mallama
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -102,7 +110,12 @@ Material:
     m_Colors:
     - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _ColorDorso: {r: 0.8018868, g: 0.688262, b: 0.5855287, a: 1}
+<<<<<<< HEAD
     - _ColorManchas: {r: 0.21698111, g: 0.1017387, b: 0.039711624, a: 1}
     - _ColorPiel: {r: 0.9433962, g: 0.9291563, b: 0.9426845, a: 1}
+=======
+    - _ColorManchas: {r: 0.2924528, g: 0.105945155, b: 0.28916305, a: 1}
+    - _ColorPiel: {r: 0.5121574, g: 0.6509434, b: 0.5508909, a: 1}
+>>>>>>> Mallama
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
