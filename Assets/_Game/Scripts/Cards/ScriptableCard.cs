@@ -100,6 +100,13 @@ namespace Cards
         {
             CombatSingletonManager.Instance.turnManager.info.executioner.Discard(cards, modifier, owner);
         }
+
+        public void SetState(int value)
+        {
+            CombatSingletonManager.Instance.turnManager.info.executioner.SetState(value, duration, modifier, target, owner);
+            duration = 0;
+            modifier = 0;
+        }
         
         
     }

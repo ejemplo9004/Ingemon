@@ -8,6 +8,10 @@ public class EnemyTurnState : TurnState
     {
         Debug.Log("End Turn bitch");
         manager.StartCoroutine(EnemyTurn(manager));
+        manager.info.frontEnemy.TickStates(BuffTimings.EnemyStartTurn);
+        manager.info.backEnemy.TickStates(BuffTimings.EnemyStartTurn);
+        manager.info.backAlly.TickStates(BuffTimings.EnemyStartTurn);
+        manager.info.frontAlly.TickStates(BuffTimings.EnemyStartTurn);
     }
 
     public override void ExitState(TurnStateManager manager)
@@ -38,6 +42,10 @@ public class EnemyTurnState : TurnState
     
     private void EndOfTurnEffects(TurnStateManager manager)
     {
+        manager.info.frontEnemy.TickStates(BuffTimings.EnemyEndTurn);
+        manager.info.backEnemy.TickStates(BuffTimings.EnemyEndTurn);
+        manager.info.backAlly.TickStates(BuffTimings.EnemyEndTurn);
+        manager.info.frontAlly.TickStates(BuffTimings.EnemyEndTurn);
         manager.info.frontAlly.ClearProtection();
         manager.info.backAlly.ClearProtection();
         manager.info.backEnemy.HealBleedTick();

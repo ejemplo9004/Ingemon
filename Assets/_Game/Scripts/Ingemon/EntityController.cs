@@ -12,13 +12,14 @@ public class EntityController : MonoBehaviour
     private BuffUIController protectIcon;
     private List<Poison> poisons = new();
     private List<Bleed> bleeds = new();
+    private List<IngemonState> otherStates = new();
     private GameObject buffUI;
-    public CombatIngemonEnum position;
+    public CombatIngemonPosition position;
     public float entityPosOffset = 9.2f;
 
     private Animator animator;
 
-    public void SetUI(CombatIngemonEnum position)
+    public void SetUI(CombatIngemonPosition position)
     {
         currentHealth = ingemonInfo.maxHealth;
         this.position = position;
@@ -69,13 +70,14 @@ public class EntityController : MonoBehaviour
             UpdateProtection();
             health = 0;
         }
+
         GetDamageNoProtection(health);
     }
 
     public void GetDamageNoProtection(int health)
     {
         currentHealth = Mathf.Clamp(currentHealth - health, 0, currentHealth);
-        
+
         if (CheckDead())
         {
             CombatSingletonManager.Instance.eventManager.DeadIngemon(this);
@@ -94,17 +96,26 @@ public class EntityController : MonoBehaviour
     {
         switch (state.buffType)
         {
-            case BuffsEnum.WEAK:
+            case BuffsEnum.Weak:
                 break;
-            case BuffsEnum.BUFFED:
+            case BuffsEnum.Buffed:
                 break;
-            case BuffsEnum.POISON:
+            case BuffsEnum.Poison:
                 poisons.Add((Poison)state);
                 break;
-            case BuffsEnum.BLEED:
+            case BuffsEnum.Bleed:
                 bleeds.Add((Bleed)state);
                 break;
-            case BuffsEnum.PROTECT:
+            case BuffsEnum.Protect:
+                break;
+            case BuffsEnum.PermanentProtection:
+                otherStates.Add((PermanentProtection) state);
+                break;
+            case BuffsEnum.StartProtection:
+                otherStates.Add((StartProtection) state);
+                break;
+            case BuffsEnum.PartnerProtection:
+                otherStates.Add((PartnerProtection) state);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -117,12 +128,13 @@ public class EntityController : MonoBehaviour
     public bool IsPoisoned()
     {
         return poisons.Count > 0;
-    }    
-    
+    }
+
     public bool IsBleeding()
     {
         return bleeds.Count > 0;
     }
+
     public void TickPoison()
     {
         for (int i = poisons.Count - 1; i >= 0; i--)
@@ -166,24 +178,45 @@ public class EntityController : MonoBehaviour
     {
         poisons = new List<Poison>();
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
-    }       
+    }
+
     public void CleanBleed()
     {
         bleeds = new List<Bleed>();
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
-    }    
+    }
+
     private void CleanBuffs()
     {
         poisons = new List<Poison>();
         bleeds = new List<Bleed>();
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
     }
-    
+
 
     public void GetProtection(int protection)
     {
         this.protection += protection;
         UpdateProtection();
+    }
+
+    public void EndTurnClearProtection()
+    {
+        for (int i = 0; i < otherStates.Count; i++)
+        {
+            if (otherStates[i].GetType() == typeof(PermanentProtection))
+            {
+                if (otherStates[i].Tick(this) == 0)
+                {
+                    if (otherStates.Count > 0)
+                    {
+                        otherStates.RemoveAt(i);
+                    }
+                }
+                return;
+            }
+        }
+        ClearProtection();
     }
 
     public void ClearProtection()
@@ -199,13 +232,14 @@ public class EntityController : MonoBehaviour
             if (protection > 0)
             {
                 protectIcon = CombatSingletonManager.Instance.uiManager
-                    .ShowBuff(position, BuffsEnum.PROTECT);
+                    .ShowBuff(position, BuffsEnum.Protect);
             }
             else
             {
                 return;
             }
         }
+
         protectIcon.UpdateValue(protection);
     }
 
@@ -229,5 +263,41 @@ public class EntityController : MonoBehaviour
     public void DamageAnimation()
     {
         animator?.SetTrigger(Parameters.DANO);
+    }
+
+    public void TickStates(BuffTimings timings)
+    {
+        for (int i = 0; i < otherStates.Count; i++)
+        {
+            if (!otherStates[i].timings.Contains(timings)) continue;
+            if (otherStates[i].Tick(this) != 0) continue;
+            if (otherStates.Count > 0)
+            {
+                otherStates.RemoveAt(i);
+            }
+        }
+    }
+
+    public bool IsBuffedWith(BuffsEnum buff)
+    {
+        foreach (IngemonState state in otherStates)
+        {
+            if (state.buffType == buff)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void UpdateState(BuffsEnum state, int value)
+    {
+        IngemonState s = otherStates.Find(n => n.buffType == state);
+        if (s is IUpdatableState)
+        {
+            IUpdatableState u = (IUpdatableState)s;
+            u.UpdateState(value);
+        }
     }
 }

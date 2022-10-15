@@ -2,45 +2,45 @@
 
 public class AnimationRequest
 {
-    public List<CombatIngemonEnum> attackers { get; }
-    public List<CombatIngemonEnum> targets { get; }
+    public List<CombatIngemonPosition> attackers { get; }
+    public List<CombatIngemonPosition> targets { get; }
 
-    public AnimationRequest(CombatIngemonEnum attacker, CombatIngemonEnum target)
+    public AnimationRequest(CombatIngemonPosition attacker, CombatIngemonPosition target)
     {
-        attackers = new List<CombatIngemonEnum> { attacker };
-        targets = new List<CombatIngemonEnum> { target };
+        attackers = new List<CombatIngemonPosition> { attacker };
+        targets = new List<CombatIngemonPosition> { target };
     }
 
-    public AnimationRequest(List<CombatIngemonEnum> attackers, List<CombatIngemonEnum> targets)
+    public AnimationRequest(List<CombatIngemonPosition> attackers, List<CombatIngemonPosition> targets)
     {
-        this.attackers = new List<CombatIngemonEnum>();
-        this.targets = new List<CombatIngemonEnum>();
+        this.attackers = new List<CombatIngemonPosition>();
+        this.targets = new List<CombatIngemonPosition>();
         this.attackers.AddRange(attackers);
         this.targets.AddRange(targets);
     }
 
-    public AnimationRequest(CombatIngemonEnum actor)
+    public AnimationRequest(CombatIngemonPosition actor)
     {
-        attackers = new List<CombatIngemonEnum> { actor };
-        targets = new List<CombatIngemonEnum>();
+        attackers = new List<CombatIngemonPosition> { actor };
+        targets = new List<CombatIngemonPosition>();
     }
 
-    public List<CombatIngemonEnum> GetActors()
+    public List<CombatIngemonPosition> GetActors()
     {
-        List<CombatIngemonEnum> actors = new List<CombatIngemonEnum>();
+        List<CombatIngemonPosition> actors = new List<CombatIngemonPosition>();
         actors.AddRange(attackers);
         actors.AddRange(targets);
         return actors;
     }
 
-    public bool IsActor(CombatIngemonEnum ingemon)
+    public bool IsActor(CombatIngemonPosition ingemon)
     {
         return attackers.Contains(ingemon) || targets.Contains(ingemon);
     }
 
-    public bool AreActors(List<CombatIngemonEnum> ingemones)
+    public bool AreActors(List<CombatIngemonPosition> ingemones)
     {
-        foreach (CombatIngemonEnum ingemon in ingemones)
+        foreach (CombatIngemonPosition ingemon in ingemones)
         {
             if (IsActor(ingemon))
             {
@@ -53,13 +53,13 @@ public class AnimationRequest
 
     public void ExecuteAnimation(CombatInfo info)
     {
-        foreach (CombatIngemonEnum attacker in attackers)
+        foreach (CombatIngemonPosition attacker in attackers)
         {
             EntityController ingemon = info.GetIngemon(attacker);
             ingemon.AttackAnimation();
         }
         
-        foreach (CombatIngemonEnum target in targets)
+        foreach (CombatIngemonPosition target in targets)
         {
             EntityController ingemon = info.GetIngemon(target);
             ingemon.DamageAnimation();

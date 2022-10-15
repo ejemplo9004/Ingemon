@@ -2321,6 +2321,9 @@ MonoBehaviour:
   bleedPrefab: {fileID: 6256361786935087261, guid: 43fd900e8090167488cee6dcd17c020e, type: 3}
   poisonPrefab: {fileID: 7133323309572249864, guid: c41b87d8323c5d8498a67f90b08f637d, type: 3}
   protectionPrefab: {fileID: 807703273262397379, guid: e6eaec7359da54442bf99f8fa92a2087, type: 3}
+  partnerProtectionPrefab: {fileID: 807703273262397379, guid: 4311d59e6e0079348a065013333a4c2c, type: 3}
+  permanentProtectionPrefab: {fileID: 807703273262397379, guid: 4954181252d0cc1468e1c4f22134a922, type: 3}
+  startProtectionPrefab: {fileID: 807703273262397379, guid: a4a5206bf81762f438dd111c34534fd1, type: 3}
 --- !u!4 &493083292
 Transform:
   m_ObjectHideFlags: 0

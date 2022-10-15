@@ -116,17 +116,17 @@ public class CombatInfo
         }
     }
 
-    public EntityController GetIngemon(CombatIngemonEnum ingemon)
+    public EntityController GetIngemon(CombatIngemonPosition ingemon)
     {
         switch (ingemon)
         {
-            case CombatIngemonEnum.FRONT_ALLY:
+            case CombatIngemonPosition.FRONT_ALLY:
                 return frontAlly;
-            case CombatIngemonEnum.BACK_ALLY:
+            case CombatIngemonPosition.BACK_ALLY:
                 return backAlly;
-            case CombatIngemonEnum.FRONT_ENEMY:
+            case CombatIngemonPosition.FRONT_ENEMY:
                 return frontEnemy;
-            case CombatIngemonEnum.BACK_ENEMY:
+            case CombatIngemonPosition.BACK_ENEMY:
                 return backEnemy;
             default:
                 throw new ArgumentOutOfRangeException(nameof(ingemon), ingemon, null);

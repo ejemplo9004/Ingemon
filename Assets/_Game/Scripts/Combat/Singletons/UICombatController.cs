@@ -23,7 +23,10 @@ public class UICombatController : MonoBehaviour
 
     public GameObject bleedPrefab;
     public GameObject poisonPrefab;
-    public GameObject protectionPrefab;
+    public GameObject protectionPrefab;    
+    public GameObject partnerProtectionPrefab;
+    public GameObject permanentProtectionPrefab;
+    public GameObject startProtectionPrefab;
 
     public void Awake()
     {
@@ -90,20 +93,20 @@ public class UICombatController : MonoBehaviour
         CombatSingletonManager.Instance.eventManager.OnIntentionsChange -= CleanIntentions;
     }
 
-    public BuffUIController ShowBuff(CombatIngemonEnum position, BuffsEnum buff)
+    public BuffUIController ShowBuff(CombatIngemonPosition position, BuffsEnum buff)
     {
         GameObject parent = GetBuffParentGameObject(position);
         return Instantiate(GetBuffObject(buff), parent.transform).GetComponent<BuffUIController>();
     }
 
-    private GameObject GetBuffParentGameObject(CombatIngemonEnum position)
+    private GameObject GetBuffParentGameObject(CombatIngemonPosition position)
     {
         return position switch
         {
-            CombatIngemonEnum.FRONT_ALLY => frontAllyBUI,
-            CombatIngemonEnum.BACK_ALLY => backAllyBUI,
-            CombatIngemonEnum.FRONT_ENEMY => frontEnemyBUI,
-            CombatIngemonEnum.BACK_ENEMY => backEnemyBUI,
+            CombatIngemonPosition.FRONT_ALLY => frontAllyBUI,
+            CombatIngemonPosition.BACK_ALLY => backAllyBUI,
+            CombatIngemonPosition.FRONT_ENEMY => frontEnemyBUI,
+            CombatIngemonPosition.BACK_ENEMY => backEnemyBUI,
             _ => throw new ArgumentOutOfRangeException(nameof(position), position, null)
         };
     }
@@ -112,16 +115,19 @@ public class UICombatController : MonoBehaviour
     {
         return buff switch
         {
-            BuffsEnum.WEAK => null,
-            BuffsEnum.BUFFED => null,
-            BuffsEnum.POISON => poisonPrefab,
-            BuffsEnum.BLEED => bleedPrefab,
-            BuffsEnum.PROTECT => protectionPrefab,
+            BuffsEnum.Weak => null,
+            BuffsEnum.Buffed => null,
+            BuffsEnum.Poison => poisonPrefab,
+            BuffsEnum.Bleed => bleedPrefab,
+            BuffsEnum.Protect => protectionPrefab,
+            BuffsEnum.PermanentProtection => permanentProtectionPrefab,
+            BuffsEnum.StartProtection => startProtectionPrefab,
+            BuffsEnum.PartnerProtection => partnerProtectionPrefab,
             _ => throw new ArgumentOutOfRangeException(nameof(buff), buff, null)
         };
     }
 
-    public void CleanBuffs(CombatIngemonEnum position)
+    public void CleanBuffs(CombatIngemonPosition position)
     {
         Transform parent = GetBuffParentGameObject(position).transform;
         foreach (Transform child in parent)

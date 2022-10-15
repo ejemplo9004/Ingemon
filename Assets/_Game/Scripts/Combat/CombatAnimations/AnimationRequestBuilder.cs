@@ -4,28 +4,28 @@ public class AnimationRequestBuilder
 {
     public AnimationRequest request;
 
-    public AnimationRequestBuilder(CombatIngemonEnum mainActor)
+    public AnimationRequestBuilder(CombatIngemonPosition mainActor)
     {
         request = new AnimationRequest(mainActor);
     }
 
-    public AnimationRequestBuilder WithAlly(CombatIngemonEnum actor)
+    public AnimationRequestBuilder WithAlly(CombatIngemonPosition actor)
     {
         if(!request.IsActor(actor))
             request.attackers.Add(actor);
         return this;
     }
     
-    public AnimationRequestBuilder WithTarget(CombatIngemonEnum actor)
+    public AnimationRequestBuilder WithTarget(CombatIngemonPosition actor)
     {
         if(!request.IsActor(actor))
             request.targets.Add(actor);
         return this;
     }
 
-    public AnimationRequestBuilder WithTargets(List<CombatIngemonEnum> actors)
+    public AnimationRequestBuilder WithTargets(List<CombatIngemonPosition> actors)
     {
-        foreach (CombatIngemonEnum actor in actors)
+        foreach (CombatIngemonPosition actor in actors)
         {
             if(!request.IsActor(actor))
                 request.targets.Add(actor);
