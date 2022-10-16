@@ -18,8 +18,8 @@ public class CardSpriteController : MonoBehaviour
     public void Start()
     {
         btn = GetComponent<Button>();
-        if(btn != null)
-            btn.onClick.AddListener(PlayCard);
+        // if(btn != null)
+        //     btn.onClick.AddListener(PlayCard);
     }
 
     public void PlayCard()
