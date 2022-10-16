@@ -8,6 +8,7 @@ public class RunCombatInitializer : MonoBehaviour
 {
     public TurnStateManager manager;
     public Inventory combatInventory;
+    public EnemiesInventory enemiesInventory;
     private IngemonController frontAlly, backAlly;
     private EnemyController frontEnemy, backEnemy;
     public IngemonController baseIngemon;
@@ -59,17 +60,11 @@ public class RunCombatInitializer : MonoBehaviour
 
         //Cambiar para agregar enemigos
         frontEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
-        frontEnemy.ingemonInfo = new IngemonBuilder().WithName("Fishamon")
-            .WithMaxHealth(100)
-            .WithPhenotype("1-3-6-3-3-465-0")
-            .WithDeck(baseCollection);
+        frontEnemy.ingemonInfo = enemiesInventory.GetEnemy();
         frontEnemy.SetUI(CombatIngemonPosition.FRONT_ENEMY);
 
         backEnemy = Instantiate(baseEnemy, Vector3.zero, Quaternion.identity);
-        backEnemy.ingemonInfo = new IngemonBuilder().WithName("Corromon")
-            .WithMaxHealth(100)
-            .WithPhenotype("1-3-6-3-3-465-2")
-            .WithDeck(baseCollection);
+        backEnemy.ingemonInfo = enemiesInventory.GetEnemy();
         backEnemy.SetUI(CombatIngemonPosition.BACK_ENEMY);
 
         

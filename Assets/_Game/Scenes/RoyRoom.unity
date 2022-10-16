@@ -6357,6 +6357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 339542464}
   combatInventory: {fileID: 11400000, guid: a383b40d339fed645b2e32a117881961, type: 2}
+  enemiesInventory: {fileID: 11400000, guid: e638c26801a205346aad0539372857b1, type: 2}
   baseIngemon: {fileID: 9200937568189223229, guid: 8fff597cc7b4a324b851103ce53fc0cf, type: 3}
   baseEnemy: {fileID: 160889370172640829, guid: fe2903287e09f07478f3f80066569bc3, type: 3}
   baseCollection: []
