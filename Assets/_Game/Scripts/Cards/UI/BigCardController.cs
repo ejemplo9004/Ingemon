@@ -25,7 +25,7 @@ public class BigCardController : MonoBehaviour
         StartCoroutine(ShowCardsCoroutine());
     }
 
-    private void SetCard(Card card)
+    public void SetCard(Card card)
     {
         bigCard.InitCardSprite(card);
     }

@@ -641,7 +641,6 @@ MonoBehaviour:
   safeDistance: 125
   cardController: {fileID: 2913433610667949250}
   canvasGroup: {fileID: -4013433238604569718}
-  rt: {fileID: 0}
 --- !u!225 &-4013433238604569718
 CanvasGroup:
   m_ObjectHideFlags: 0
