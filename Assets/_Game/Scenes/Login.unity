@@ -732,7 +732,7 @@ RectTransform:
   m_Children:
   - {fileID: 969983058}
   m_Father: {fileID: 373192317}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1687,9 +1687,9 @@ RectTransform:
   - {fileID: 177992347}
   - {fileID: 1401448886}
   - {fileID: 1444663660}
-  - {fileID: 209125448}
   - {fileID: 2124034725}
   - {fileID: 241242176}
+  - {fileID: 209125448}
   m_Father: {fileID: 335660897}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3002,7 +3002,6 @@ GameObject:
   - component: {fileID: 626276276}
   - component: {fileID: 626276277}
   - component: {fileID: 626276278}
-  - component: {fileID: 626276279}
   m_Layer: 0
   m_Name: Controlador
   m_TagString: Untagged
@@ -3115,19 +3114,6 @@ MonoBehaviour:
   imlogin: {fileID: 249896997}
   imRegistro: {fileID: 1873022966}
   imEditar: {fileID: 576587061}
---- !u!114 &626276279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626276272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebfe224e75c38f468f5388ff5c75835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  servidor: {fileID: 11400000, guid: 75d6f006d7a456943a6f3585f365a2bc, type: 2}
 --- !u!1 &629700390
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,6 +3739,7 @@ GameObject:
   - component: {fileID: 853453214}
   - component: {fileID: 853453213}
   - component: {fileID: 853453215}
+  - component: {fileID: 853453216}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3809,6 +3796,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea703f46aa64a6a4db274314e96dac1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &853453216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853453212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebfe224e75c38f468f5388ff5c75835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  servidor: {fileID: 11400000, guid: 75d6f006d7a456943a6f3585f365a2bc, type: 2}
+  frases: []
 --- !u!1 &873777724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5147,7 +5148,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 626276279}
+      - m_Target: {fileID: 853453216}
         m_TargetAssemblyTypeName: ObtenerFrases, Assembly-CSharp
         m_MethodName: buscarFrases
         m_Mode: 1

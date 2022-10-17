@@ -7,6 +7,8 @@ using UnityEngine;
 public class ObtenerFrases : MonoBehaviour
 {
     public Servidor servidor;
+    public List<string> frases;
+
     public void buscarFrases()
     {
         StartCoroutine(buscar());
@@ -33,6 +35,7 @@ public class ObtenerFrases : MonoBehaviour
                 { 
                     JsonString = JObject.Parse(frases[i]);
                     Debug.Log(JsonString["content"]);
+                    frases.Add((JsonString["content"]).ToString());
                 }
                 //Debug.Log(frases[2].Split('"')[5]);
                 break;
