@@ -87,26 +87,26 @@ public class Login : MonoBehaviour
                 GameController.gameController.AsignarIngemones(ingemones);
                 if (ingemones.Count < 4)
                 {
-                    SceneManager.LoadScene((int)Scenes.SHOP);
+                    MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 }
                 else
                 {
-                    SceneManager.LoadScene((int)Scenes.MENU);
+                    MorionSceneManager.LoadScene((int)Scenes.MENU);
                 }
                 break;
             case 404: // Error
                 Logger.Instance.LogInfo("Error, no se puede conectar con el servidor");
-                SceneManager.LoadScene(0);
+                MorionSceneManager.LoadScene(0);
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
                 break;
             case 410: // ingemones no encontrados
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
-                SceneManager.LoadScene((int)Scenes.SHOP);
+                MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 break;
             default:
-                SceneManager.LoadScene(0);
+                MorionSceneManager.LoadScene(0);
                 break;
         }
     }

@@ -7,7 +7,19 @@ using UnityEngine;
 public class ObtenerFrases : MonoBehaviour
 {
     public Servidor servidor;
-    public List<string> frases;
+    public List<string> frasesF;
+
+    public static ObtenerFrases singleton;
+
+    private void Awake()
+    {
+        singleton = this;
+    }
+
+    private void Start()
+    {
+        buscarFrases();
+    }
 
     public void buscarFrases()
     {
@@ -16,6 +28,7 @@ public class ObtenerFrases : MonoBehaviour
 
     IEnumerator buscar()
     {
+        yield return new WaitForSeconds(1);
         string[] datos = new string[1];
         StartCoroutine(servidor.ConsumirServicio("buscar frases",datos, posBuscar));
         yield return new WaitForSeconds(0.5f);
@@ -30,14 +43,15 @@ public class ObtenerFrases : MonoBehaviour
                 List<string> frases = servidor.respuesta.respuesta.Split("!").ToList();
                 frases.Remove("");
                 var JsonString =  JObject.Parse(frases[0]);
-                Debug.Log(JsonString["content"]);
-                for (int i = 1; i < frases.Count; i++)
+                //Debug.Log(JsonString["content"]);
+                for (int i = 0; i < frases.Count; i++)
                 { 
                     JsonString = JObject.Parse(frases[i]);
-                    Debug.Log(JsonString["content"]);
-                    frases.Add((JsonString["content"]).ToString());
+                    //Debug.Log(JsonString["content"]);
+                    frasesF.Add((JsonString["content"]).ToString());
                 }
                 //Debug.Log(frases[2].Split('"')[5]);
+                //frases = 
                 break;
             case 404: // Error
                 Logger.Instance.LogWarning("Error, no se puede conectar con el servidor");
