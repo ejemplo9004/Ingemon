@@ -17,7 +17,18 @@ public class Login : MonoBehaviour
 
     public void iniciarSesion()
     {
-        StartCoroutine(Iniciar());
+        if (inpUsuario.text =="" || inpPass.text == "")
+        {
+            if (Mensajes.singleton != null)
+            {
+                Mensajes.singleton.Popup("Todos los datos son Obligatorios");
+            }
+        }
+        else
+        {
+            StartCoroutine(Iniciar());
+        }
+        
     }
     IEnumerator Iniciar()
     {

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Game/Scenes/Camilo WEB.unity
+    path: Assets/_Game/Scenes/Login.unity
     guid: 127dece402d94484fbd0966c45e699de
   - enabled: 1
     path: Assets/_Game/Scenes/Menu.unity

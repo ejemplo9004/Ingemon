@@ -5,16 +5,37 @@ using UnityEngine.UI;
 
 public class Registro : MonoBehaviour
 {
-    public Servidor servidor;
-    public InputField inpUsuarioRegistro;
-    public InputField inpPassRegistro;
-    public InputField inpJugador;
-    public InputField inpNivel;
-    public GameObject imLoading;
+    public Servidor     servidor;
+    public Text         txtMensaje;
+    public InputField   inpUsuarioRegistro;
+    public InputField   inpPassRegistro;
+    public InputField   inpPassRegistro2;
+    public InputField   inpJugador;
+    public InputField   inpNivel;
+    public GameObject   imLoading;
 
     public void registrarUsuario()
     {
-        StartCoroutine(Registrar());
+        if (inpUsuarioRegistro.text == "" || inpPassRegistro.text == "" || inpPassRegistro2.text == "")
+        {
+            //txtMensaje.text = "Todos los datos son Obligatorios";
+            if (Mensajes.singleton != null)
+            {
+                Mensajes.singleton.Popup("Todos los datos son Obligatorios");
+            }
+        }
+        if (inpPassRegistro.text == inpPassRegistro2.text)
+        {
+            StartCoroutine(Registrar());
+        }
+        else
+        {
+            //txtMensaje.text = "Las contraseñas no coinciden";
+            if (Mensajes.singleton != null)
+            {
+                Mensajes.singleton.Popup("Las contraseñas no coinciden");
+            }
+        }
     }
     IEnumerator Registrar()
     {
