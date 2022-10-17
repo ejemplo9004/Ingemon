@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcd682c813543fcb47549ba7d8ec390, type: 3}
+  m_Name: BasicGetre
+  m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 11400000, guid: afd00b8be6637f94dbcbaa55d9d08ab1, type: 2}
+  - {fileID: 11400000, guid: 142d558e0fc2eb44fbb01466e9e7e72c, type: 2}
+  - {fileID: 11400000, guid: e946c1ae92c3a744c859d5e580ea2976, type: 2}
+  - {fileID: 11400000, guid: 41c652cb218ee1d469a6e5d45ed98fa3, type: 2}
+  - {fileID: 11400000, guid: 8306a890cad433c4e81c1e9a80b98f93, type: 2}
+  - {fileID: 11400000, guid: b817a2d25f3630843af39d93ba4a0d7e, type: 2}
