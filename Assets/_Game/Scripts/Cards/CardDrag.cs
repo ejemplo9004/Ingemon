@@ -22,11 +22,12 @@ public class CardDrag : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        originalPosition = transform.position;
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        originalPosition = transform.position;
         offset = transform.position - Input.mousePosition;
     }
 

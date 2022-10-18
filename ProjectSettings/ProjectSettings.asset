@@ -155,7 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.Ingemon
+    Android: com.Ingenia.Ingemon
     iPhone: com.DefaultCompany.Ingemon
   buildNumber:
     Standalone: 0
