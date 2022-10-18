@@ -7,10 +7,9 @@ public class RenderCreator : MonoBehaviour
     [SerializeField] private List<RenderTexture> textures;
     [SerializeField] private List<Camera> cameras;
     [SerializeField] private List<RawImage> images;
-    public Rect size;
+    public Vector2 size;
     private void Start()
     {
-        size = images[0].gameObject.GetComponent<RectTransform>().rect;
         textures = new List<RenderTexture>();
         CreateTextures();
         AssignTexturesToCameras();
@@ -29,7 +28,7 @@ public class RenderCreator : MonoBehaviour
     {
         for (int i = 0; i < cameras.Count; i++)
         {
-            RenderTexture render = new RenderTexture(Mathf.RoundToInt(size.width), Mathf.RoundToInt(size.height), 16, RenderTextureFormat.ARGB32);
+            RenderTexture render = new RenderTexture(Mathf.CeilToInt(size.x), Mathf.CeilToInt(size.y), 16, RenderTextureFormat.ARGB32);
             render.name = "RT" + i;
             render.Create();
             textures.Add(render);

@@ -1364,4 +1364,5 @@ MonoBehaviour:
   container: {fileID: 5181458579062311679}
   scrollbar: {fileID: 5181458579292898528}
   ingemonInventory: {fileID: 11400000, guid: ab97d61e95e58554daca5fd691efe6a2, type: 2}
-  transitionTime: 0.5
+  renderCreator: {fileID: 0}
+  transitionTime: 1.7

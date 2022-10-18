@@ -29,7 +29,7 @@ public class IngemonScrollRect : MonoBehaviour
 
     private void SetContainerSize()
     {
-        float elementsWidht = content.GetComponent<RectTransform>().rect.width;
+        float elementsWidht = GetComponentInParent<RectTransform>().rect.width;
         container.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, gridNumber * elementsWidht);
     }
 

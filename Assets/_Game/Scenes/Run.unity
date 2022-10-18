@@ -639,8 +639,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 261864845}
   m_HandleRect: {fileID: 261864844}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.99888766
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -952,7 +952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000014359816}
+  m_AnchoredPosition: {x: 0, y: 0.00037877265}
   m_SizeDelta: {x: 0, y: 259.5103}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &626170391
@@ -1844,7 +1844,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1155117425}
-  - component: {fileID: 1155117426}
   - component: {fileID: 1155117424}
   m_Layer: 0
   m_Name: Run Controller
@@ -1908,23 +1907,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1155117426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155117423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233ac56f0278470409ba780396907fa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  run: {fileID: 0}
-  enoughIngemones: 0
-  runInventory: {fileID: 11400000, guid: 50cdd311bd5de1741b4ae39c6ad93436, type: 2}
-  rewardCardPool:
-  - {fileID: 11400000, guid: 3bb60a649e22c2a42a1c5755631e8b47, type: 2}
 --- !u!1 &1156579039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2730,55 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!1 &1601801171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601801173}
+  - component: {fileID: 1601801172}
+  m_Layer: 0
+  m_Name: Run Singleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1601801172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601801171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233ac56f0278470409ba780396907fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  run: {fileID: 0}
+  enoughIngemones: 0
+  runInventory: {fileID: 11400000, guid: 50cdd311bd5de1741b4ae39c6ad93436, type: 2}
+  rewardCardPool:
+  - {fileID: 11400000, guid: 3bb60a649e22c2a42a1c5755631e8b47, type: 2}
+--- !u!4 &1601801173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601801171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 812.9213, y: 253.27576, z: -5.351677}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614431102
 GameObject:
   m_ObjectHideFlags: 0

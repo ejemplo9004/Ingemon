@@ -12,6 +12,7 @@ public class RunSingleton : MonoBehaviour
     private void Awake() {
         if(Instance != null && Instance != this){
             DestroyImmediate(this.gameObject);
+            return;
         }
         Instance = this;
 
