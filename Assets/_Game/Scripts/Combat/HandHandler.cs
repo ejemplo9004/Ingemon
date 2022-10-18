@@ -83,6 +83,7 @@ public class HandHandler
     {
         info.discardDeck.Add(card);
         info.hand.Remove(card);
+        CombatSingletonManager.Instance.eventManager.UpdateHand(info.hand);
     }
 
     public void DiscardHand()
@@ -91,7 +92,43 @@ public class HandHandler
         {
             Discard(info.hand[0]);
         }
+    }
 
-        CombatSingletonManager.Instance.eventManager.UpdateHand(info.hand);
+    public void DiscardRandom()
+    {
+        int n = info.hand.Count - 1;
+        if(n < 0) return;
+        
+        int rand = Random.Range(0, n);
+        Discard(info.hand[rand]);
+    }
+
+    public void DiscardExpensive()
+    {
+        int n = info.hand.Count - 1;
+        if(n < 0) return;
+
+        int mostExpensive = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            int m = info.hand[i].info.cost;
+            int x = info.hand[mostExpensive].info.cost;
+            if (m >= x)
+            {
+                if (m > x)
+                {
+                    mostExpensive = m;
+                }
+                else
+                {
+                    if (Random.Range(0, 1) == 1)
+                    {
+                        mostExpensive = m;
+                    }
+                }
+            }
+        }
+        
+        Discard(info.hand[mostExpensive]);
     }
 }

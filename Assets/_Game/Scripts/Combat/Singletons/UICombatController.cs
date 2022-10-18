@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,13 +16,17 @@ public class UICombatController : MonoBehaviour
     [SerializeField] public GameObject backEnemyBUI;
     [SerializeField] public GameObject frontAllyBUI;
     [SerializeField] public GameObject backAllyBUI;
+    [SerializeField] public float animationTime = 0.5f;
     [SerializeField] private BigCardController bigCard;
     [SerializeField] private IntentionsController intentions;
 
 
     public GameObject bleedPrefab;
     public GameObject poisonPrefab;
-    public GameObject protectionPrefab;
+    public GameObject protectionPrefab;    
+    public GameObject partnerProtectionPrefab;
+    public GameObject permanentProtectionPrefab;
+    public GameObject startProtectionPrefab;
 
     public void Awake()
     {
@@ -46,10 +51,24 @@ public class UICombatController : MonoBehaviour
     public void UpdateHealthBars()
     {
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
-        frontAllyHealth.value = info.frontAlly.currentHealth;
-        backAllyHealth.value = info.backAlly.currentHealth;
-        frontEnemyHealth.value = info.frontEnemy.currentHealth;
-        backEnemyHealth.value = info.backEnemy.currentHealth;
+        StartCoroutine(UpdateHealthBar(frontAllyHealth, frontAllyHealth.value, info.frontAlly.currentHealth));
+        StartCoroutine(UpdateHealthBar(backAllyHealth, backAllyHealth.value, info.backAlly.currentHealth));
+        StartCoroutine(UpdateHealthBar(frontEnemyHealth, frontEnemyHealth.value, info.frontEnemy.currentHealth));
+        StartCoroutine(UpdateHealthBar(backEnemyHealth, backEnemyHealth.value, info.backEnemy.currentHealth));
+    }
+
+    private IEnumerator UpdateHealthBar(Slider healthbar, float old, float current)
+    {
+        float timePassed = 0;
+        while (timePassed <= animationTime)
+        {
+            healthbar.value = Mathf.Lerp(old, current, timePassed / animationTime);
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+
+        healthbar.value = current;
+        yield return null;
     }
 
     public void SetHealthBars()
@@ -74,20 +93,20 @@ public class UICombatController : MonoBehaviour
         CombatSingletonManager.Instance.eventManager.OnIntentionsChange -= CleanIntentions;
     }
 
-    public BuffUIController ShowBuff(CombatIngemonEnum position, BuffsEnum buff)
+    public BuffUIController ShowBuff(CombatIngemonPosition position, BuffsEnum buff)
     {
         GameObject parent = GetBuffParentGameObject(position);
         return Instantiate(GetBuffObject(buff), parent.transform).GetComponent<BuffUIController>();
     }
 
-    private GameObject GetBuffParentGameObject(CombatIngemonEnum position)
+    private GameObject GetBuffParentGameObject(CombatIngemonPosition position)
     {
         return position switch
         {
-            CombatIngemonEnum.FRONT_ALLY => frontAllyBUI,
-            CombatIngemonEnum.BACK_ALLY => backAllyBUI,
-            CombatIngemonEnum.FRONT_ENEMY => frontEnemyBUI,
-            CombatIngemonEnum.BACK_ENEMY => backEnemyBUI,
+            CombatIngemonPosition.FRONT_ALLY => frontAllyBUI,
+            CombatIngemonPosition.BACK_ALLY => backAllyBUI,
+            CombatIngemonPosition.FRONT_ENEMY => frontEnemyBUI,
+            CombatIngemonPosition.BACK_ENEMY => backEnemyBUI,
             _ => throw new ArgumentOutOfRangeException(nameof(position), position, null)
         };
     }
@@ -96,16 +115,19 @@ public class UICombatController : MonoBehaviour
     {
         return buff switch
         {
-            BuffsEnum.WEAK => null,
-            BuffsEnum.BUFFED => null,
-            BuffsEnum.POISON => poisonPrefab,
-            BuffsEnum.BLEED => bleedPrefab,
-            BuffsEnum.PROTECT => protectionPrefab,
+            BuffsEnum.Weak => null,
+            BuffsEnum.Buffed => null,
+            BuffsEnum.Poison => poisonPrefab,
+            BuffsEnum.Bleed => bleedPrefab,
+            BuffsEnum.Protect => protectionPrefab,
+            BuffsEnum.PermanentProtection => permanentProtectionPrefab,
+            BuffsEnum.StartProtection => startProtectionPrefab,
+            BuffsEnum.PartnerProtection => partnerProtectionPrefab,
             _ => throw new ArgumentOutOfRangeException(nameof(buff), buff, null)
         };
     }
 
-    public void CleanBuffs(CombatIngemonEnum position)
+    public void CleanBuffs(CombatIngemonPosition position)
     {
         Transform parent = GetBuffParentGameObject(position).transform;
         foreach (Transform child in parent)

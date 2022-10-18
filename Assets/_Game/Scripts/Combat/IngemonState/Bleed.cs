@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 public class Bleed : IngemonState
 {
-    public int damage { get; set; }
-    public int duration { get; set; }
+    private int damage;
     private int remaining;
 
-    public Bleed(int damage, int duration)
+    public Bleed(int damage, int duration, BuffTimings timing)
     {
         this.damage = damage;
         this.duration = duration;
         remaining = duration;
-        buffType = BuffsEnum.BLEED;
+        buffType = BuffsEnum.Bleed;
+        timings = new List<BuffTimings> {timing};
     }
     
     public override void SetBuffIcon()
@@ -22,7 +23,6 @@ public class Bleed : IngemonState
     {
         target.GetDamageNoProtection(damage);
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
-        //Debug.Log($"{target.ingemonInfo.name} get bleeded for {damage} damage.");
         remaining--;
         buffIcon.UpdateTimer(remaining);
         return remaining;

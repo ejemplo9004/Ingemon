@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,22 @@ public class Login : MonoBehaviour
 
     public void iniciarSesion()
     {
-        StartCoroutine(Iniciar());
+        if (inpUsuario.text =="" || inpPass.text == "")
+        {
+            if (Mensajes.singleton != null)
+            {
+                Mensajes.singleton.Popup("Todos los datos son Obligatorios");
+            }
+        }
+        else
+        {
+            StartCoroutine(Iniciar());
+        }
+        
     }
     IEnumerator Iniciar()
     {
+   
         imLoading.SetActive(true);
         string[] datos = new string[4];
         datos[0] = inpUsuario.text;
@@ -29,7 +42,6 @@ public class Login : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         if(validUser){
-            
             datos[0] = GameController.gameController.usuarioActual.id.ToString();
             StartCoroutine(servidor.ConsumirServicio("buscar ingemon", datos, PosBuscarIngemon));
             yield return new WaitForSeconds(0.5f);
@@ -45,12 +57,12 @@ public class Login : MonoBehaviour
         {
             case 204: //usuario o contrase�a incorrectos
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
-                
                 break;
             case 205: //inicio de sesion correcto
                 usuario = dbUsuario.CreateFromJSON(servidor.respuesta.respuesta);
                 validUser = true;
                 GameController.gameController.AsignarJugador(usuario);
+                Debug.Log("usuario melo");
                 break;
             case 404: // Error
                 Logger.Instance.LogWarning("Error, no se puede conectar con el servidor");
@@ -75,26 +87,26 @@ public class Login : MonoBehaviour
                 GameController.gameController.AsignarIngemones(ingemones);
                 if (ingemones.Count < 4)
                 {
-                    SceneManager.LoadScene((int)Scenes.SHOP);
+                    MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 }
                 else
                 {
-                    SceneManager.LoadScene((int)Scenes.MENU);
+                    MorionSceneManager.LoadScene((int)Scenes.MENU);
                 }
                 break;
             case 404: // Error
                 Logger.Instance.LogInfo("Error, no se puede conectar con el servidor");
-                SceneManager.LoadScene(0);
+                MorionSceneManager.LoadScene(0);
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
                 break;
             case 410: // ingemones no encontrados
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
-                SceneManager.LoadScene((int)Scenes.SHOP);
+                MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 break;
             default:
-                SceneManager.LoadScene(0);
+                MorionSceneManager.LoadScene(0);
                 break;
         }
     }
