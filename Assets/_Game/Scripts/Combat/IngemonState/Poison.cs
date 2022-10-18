@@ -1,17 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Poison : IngemonState
 {
-    public int duration { set; get; }
     private int remaining;
-    public int damage { set; get; }
+    private int damage;
 
-    public Poison(int damage, int duration)
+    public Poison(int damage, int duration, BuffTimings timing)
     {
         this.damage = damage;
         this.duration = duration;
         remaining = duration;
-        buffType = BuffsEnum.POISON;
+        buffType = BuffsEnum.Poison;
+        timings = new List<BuffTimings> {timing};
     }
 
     public override void SetBuffIcon()

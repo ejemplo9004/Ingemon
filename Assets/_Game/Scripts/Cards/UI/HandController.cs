@@ -9,12 +9,19 @@ public class HandController : MonoBehaviour
     [SerializeField] private GameObject cardPrefab;
     private List<GameObject> cardObjects;
 
-    public void Awake()
+    public void OnEnable()
     {
         cardObjects = new List<GameObject>();
         CombatSingletonManager.Instance.eventManager.OnCardChange += RenderCard;
         CombatSingletonManager.Instance.eventManager.OnHandUpdate += UpdateHand;
         CombatSingletonManager.Instance.eventManager.OnCardDiscard += DiscardCard;
+    }    
+    public void OnDisable()
+    {
+        cardObjects = null;
+        CombatSingletonManager.Instance.eventManager.OnCardChange -= RenderCard;
+        CombatSingletonManager.Instance.eventManager.OnHandUpdate -= UpdateHand;
+        CombatSingletonManager.Instance.eventManager.OnCardDiscard -= DiscardCard;
     }
 
     private void RenderCard(Card card)
