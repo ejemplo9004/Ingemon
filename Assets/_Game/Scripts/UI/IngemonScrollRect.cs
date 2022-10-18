@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class IngemonScrollRect : MonoBehaviour
 {
@@ -10,10 +9,12 @@ public class IngemonScrollRect : MonoBehaviour
     [SerializeField] private RectTransform container;
     [SerializeField] private Scrollbar scrollbar;
     [SerializeField] private Inventory ingemonInventory;
+    [SerializeField] private RenderCreator renderCreator;
     private List<IngemonContainer> ingemonContainers;
     private int gridNumber;
     private float currentValue;
     private float delta;
+    private int rawImageCounter;
 
     public float transitionTime;
 
@@ -21,7 +22,7 @@ public class IngemonScrollRect : MonoBehaviour
     {
         ingemonContainers = new List<IngemonContainer>();
         gridNumber = Mathf.CeilToInt(ingemonInventory.Ingemones.Count / 6f);
-        delta = gridNumber > 0 ? 1f / (gridNumber - 1) : 0;
+        delta = gridNumber > 1 ? 1f / (gridNumber - 1) : 0;
         SetContainerSize();
         InstantiateGrid();
     }
@@ -37,18 +38,18 @@ public class IngemonScrollRect : MonoBehaviour
         for (int i = 0; i < gridNumber; i++)
         {
             GameObject copy = Instantiate(content, container);
+            copy.GetComponent<IngemonContainer>().IngemonScrollRect1 = gameObject;
             ingemonContainers.Add(copy.GetComponent<IngemonContainer>());
         }
     }
 
-    private void FillIngemons()
+    public void FillImages(List<RawImage> rawImages)
     {
-        for (int i = 0; i < ingemonContainers.Count; i++)
+        rawImageCounter++;
+        renderCreator.AddImages(rawImages);
+        if (rawImageCounter == ingemonContainers.Count)
         {
-            if (i*6 + 6 < ingemonContainers.Count)
-            {
-                
-            }
+            renderCreator.gameObject.SetActive(true);
         }
     }
 
@@ -67,24 +68,24 @@ public class IngemonScrollRect : MonoBehaviour
 
     private IEnumerator MakeTransition(bool right, float nextValue)
     {
-        if (transitionTime >= 1) transitionTime = 0.99f;
-        float changeFraction = delta * transitionTime * Time.deltaTime;
+        float changeFraction = transitionTime * Time.deltaTime;
         if (right)
         {
             for (float i = currentValue; i < nextValue; i += changeFraction)
             {
                 scrollbar.value = i;
+                yield return new WaitForEndOfFrame();
             }
-
         }
         else
         {
             for (float i = currentValue; i > nextValue; i -= changeFraction)
             {
                 scrollbar.value = i;
+                yield return new WaitForEndOfFrame();
             }
         }
-
+        scrollbar.value = nextValue;
         currentValue = nextValue;
         yield return new WaitForEndOfFrame();
 
