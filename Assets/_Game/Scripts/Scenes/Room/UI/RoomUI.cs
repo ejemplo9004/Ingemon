@@ -12,8 +12,11 @@ public class RoomUI : GameplaySceneUI
 
     private void OnDisable()
     {
-        SetWinListeners(false);
-        SetFailListeners(false);
+        if (CombatSingletonManager.Instance != null)
+        {
+            SetWinListeners(false);
+            SetFailListeners(false);
+        }
     }
 
     public void FillIngemonsImages(Inventory inventory){

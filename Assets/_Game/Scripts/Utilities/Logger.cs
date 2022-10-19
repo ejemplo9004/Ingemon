@@ -18,7 +18,7 @@ public class Logger : Singleton<Logger>
         {
             debugAreaText = GetComponent<TextMeshProUGUI>();
         }
-        if(enableDebug && permanent) DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
         debugAreaText.text = string.Empty;
     }
 
@@ -36,6 +36,10 @@ public class Logger : Singleton<Logger>
 
     public void LogInfo(string message)
     {
+        if (Mensajes.singleton != null)
+        {
+            //Mensajes.singleton.Popup(message);
+        }
         ClearLines();
 
         debugAreaText.text += $"<color=\"green\">{DateTime.Now.ToString("HH:mm:ss.fff")} {message}</color>\n";
@@ -43,6 +47,10 @@ public class Logger : Singleton<Logger>
 
     public void LogError(string message)
     {
+        if (Mensajes.singleton != null)
+        {
+            Mensajes.singleton.Popup(message);
+        }
         ClearLines();
         debugAreaText.text += $"<color=\"red\">{DateTime.Now.ToString("HH:mm:ss.fff")} {message}</color>\n";
     }
@@ -50,6 +58,11 @@ public class Logger : Singleton<Logger>
     public void LogWarning(string message)
     {
         ClearLines();
+
+        if (Mensajes.singleton != null)
+        {
+            Mensajes.singleton.Popup(message);
+        }
         debugAreaText.text += $"<color=\"yellow\">{DateTime.Now.ToString("HH:mm:ss.fff")} {message}</color>\n";
     }
 

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -93,12 +95,12 @@ public class CombatInfo
         DeleteDeadIngemons();
         if (frontAlly.CheckDead() && backAlly.CheckDead())
         {
-            CombatSingletonManager.Instance.eventManager.FailedBattle();
+            dead.StartCoroutine(CallFail());
         }
 
         if (frontEnemy.CheckDead() && backEnemy.CheckDead())
         {
-            CombatSingletonManager.Instance.eventManager.WinBattle();
+            dead.StartCoroutine(CallWin());
         }
     }
 
@@ -113,6 +115,40 @@ public class CombatInfo
         {
             RunSingleton.Instance.RunInventory.DeleteIngemon(backAlly.ingemonInfo.phenotype);
         }
+    }
+
+    public EntityController GetIngemon(CombatIngemonPosition ingemon)
+    {
+        switch (ingemon)
+        {
+            case CombatIngemonPosition.FRONT_ALLY:
+                return frontAlly;
+            case CombatIngemonPosition.BACK_ALLY:
+                return backAlly;
+            case CombatIngemonPosition.FRONT_ENEMY:
+                return frontEnemy;
+            case CombatIngemonPosition.BACK_ENEMY:
+                return backEnemy;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(ingemon), ingemon, null);
+        }
+    }
+
+    private IEnumerator CallWin()
+    {
+        Debug.Log("Winning");
+        handler.DiscardHand();
+        yield return new WaitForSeconds(2f);
+        CombatSingletonManager.Instance.eventManager.WinBattle();
+        Debug.Log("Winning no more");
+        yield return null;
+    }    
+    
+    private IEnumerator CallFail()
+    {
+        yield return new WaitForSeconds(2f);
+        CombatSingletonManager.Instance.eventManager.FailedBattle();
+        yield return null;
     }
 
     public void HackBattle(int code)

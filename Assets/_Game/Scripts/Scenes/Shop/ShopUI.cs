@@ -78,7 +78,7 @@ public class ShopUI : MonoBehaviour
         buyButtons[index].onClick.AddListener(delegate { method(); });
     }
 
-    public void RemoveButtonListeners(Action method, int index)
+    public void RemoveButtonListeners(int index)
     {
         buyButtons[index].onClick.RemoveAllListeners();
     }

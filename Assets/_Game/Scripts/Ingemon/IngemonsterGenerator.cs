@@ -21,12 +21,15 @@ public class IngemonsterGenerator : MonoBehaviour
     public int defaultHealth;
     private bool isInCreation;
     private List<GameObject> morionHuevosList;
+    private List<int> morionHuevosRaza;
     private GameObject eggSelected;
     [SerializeField] private Vector3 ingemonSelectedPosition;
     [SerializeField] private Camera ingemonSelectedCamera;
+    private int eggIndex;
     private void Start()
     {
         morionHuevosList = new List<GameObject>();
+        morionHuevosRaza = new List<int>();
         GenerateEggs();
     }
     public void GenerateEggs()
@@ -36,11 +39,12 @@ public class IngemonsterGenerator : MonoBehaviour
         {
             foreach (GameObject egg in morionHuevosList)
             {
-                shopScene.shopUI.RemoveButtonListeners(delegate{CreateIngemon(egg);}, buttonIndex);
+                shopScene.shopUI.RemoveButtonListeners(buttonIndex);
                 buttonIndex++;
                 Destroy(egg);
             }
             morionHuevosList.Clear();
+            morionHuevosRaza.Clear();
             eggSelected = null;
         }
         for (int i = 0; i < 4; i++)
@@ -50,16 +54,17 @@ public class IngemonsterGenerator : MonoBehaviour
             eggCopy.GetComponent<MorionCambioPartes>().Aleatorizar();
             eggCopy.GetComponent<MorionHuevos>().VerHuevo(true, true);
             morionHuevosList.Add(eggCopy);
+            morionHuevosRaza.Add(index);
         }
 
         buttonIndex = 0;
         foreach (GameObject huevo in morionHuevosList)  
         {
-            shopScene.shopUI.AddButtonListeners(delegate{CreateIngemon(huevo);}, buttonIndex);
+            shopScene.shopUI.AddButtonListeners(delegate{CreateIngemon(huevo, morionHuevosRaza[morionHuevosList.IndexOf(huevo)]);}, buttonIndex);
             buttonIndex++;
         }
     }
-    public void CreateIngemon(GameObject ingemon)
+    public void CreateIngemon(GameObject ingemon, int raza)
     {
         if (isInCreation)
         {
@@ -69,6 +74,7 @@ public class IngemonsterGenerator : MonoBehaviour
         if (playerEconomy.VerifyBuy(ingemonCost))
         {
             eggSelected = ingemon;
+            eggIndex = raza;
             shopScene.shopUI.EnableBornUI(true);
             StartCoroutine(IngemonBorn());
         }
@@ -80,7 +86,7 @@ public class IngemonsterGenerator : MonoBehaviour
             MorionCambioColores colores = eggSelected.GetComponent<MorionCambioColores>();
             MorionCambioMascaras mascaras = eggSelected.GetComponent<MorionCambioMascaras>();
             MorionCambioPartes partes = eggSelected.GetComponent<MorionCambioPartes>();
-            string phenotype = partes.cadena + "-" + mascaras.iDorsos.ToString() + "-" + mascaras.iManchas.ToString() + "-" + colores.numeros;
+            string phenotype = partes.cadena + "-" + mascaras.iDorsos + "-" + mascaras.iManchas + "-" + colores.numeros + "-" + eggIndex;
             ingemonster = new IngemonBuilder().WithName(shopScene.shopUI.IngemonName.text).WithPhenotype(phenotype).WithMaxHealth(defaultHealth);
             economia.ingemonNuevo = ingemonster;
             economia.comprarObjeto(playerEconomy.money);

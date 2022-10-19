@@ -1,8 +1,11 @@
 public enum BuffsEnum
 {
-    WEAK,
-    BUFFED,
-    POISON,
-    BLEED,
-    PROTECT
+    Weak,
+    Buffed,
+    Poison,
+    Bleed,
+    Protect,
+    PermanentProtection,
+    StartProtection,
+    PartnerProtection
 }

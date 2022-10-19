@@ -41,8 +41,14 @@ MonoBehaviour:
     URL: buscaringemon
     parametros:
     - user_id
+  - nombre: buscar frases
+    URL: buscarfrases
+    parametros: []
   ocupado: 0
   respuesta:
-    codigo: 404
-    mensaje: Error
-    respuesta: 
+    codigo: 211
+    mensaje: frases encontradas correctamente
+    respuesta: "{\"id\":1,\"content\":\"Hola\",\"createdAt\":\"2022-10-14T19:23:09.000Z\",\"updatedAt\":\"2022-10-14T19:23:09.000Z\"}!{\"id\":2,\"content\":\"Buenas
+      \",\"createdAt\":\"2022-10-14T19:35:24.000Z\",\"updatedAt\":\"2022-10-14T19:35:24.000Z\"}!{\"id\":3,\"content\":\"El
+      mundo est\xE1 cambiando, lo siento en el agua, lo siento en la tierra, lo huelo
+      en el aire. (B\xE1rbol)\",\"createdAt\":\"2022-10-14T19:36:13.000Z\",\"updatedAt\":\"2022-10-14T19:36:13.000Z\"}!"
