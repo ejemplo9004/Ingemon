@@ -29,7 +29,7 @@ namespace Cards
         [TextDisplay("Modifiers:\n\t1. Discard Random Card\n\t2. Discard Most Expensive")]
         public int[] DiscardModifiersInstructions = new int[1];
         
-        private int target = 1;
+        public int target { get; private set;  } = 1;
         private int duration = 0;
         private int modifier = 0;
         private int damageBonus = 0;

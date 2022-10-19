@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -146,7 +146,7 @@ TextureImporter:
         height: 555
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 365, y: 241, z: 364, w: 208}
+      border: {x: 356, y: 176, z: 357, w: 179}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -167,7 +167,7 @@ TextureImporter:
         height: 554
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 403, y: 272, z: 405, w: 134}
+      border: {x: 253, y: 251, z: 259, w: 252}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -188,7 +188,7 @@ TextureImporter:
         height: 555
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 225, y: 241, z: 216, w: 139}
+      border: {x: 223, y: 162, z: 213, w: 154}
       outline: []
       physicsShape: []
       tessellationDetail: 0

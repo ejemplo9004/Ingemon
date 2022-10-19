@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,8 +15,11 @@ public class RoomController : GameplayScene
     }
     private void OnDisable()
     {
-        SetWinListeners(false);
-        SetFailListeners(false);
+        if (CombatSingletonManager.Instance != null)
+        {
+            SetWinListeners(false);
+            SetFailListeners(false);
+        }
     }
     private void SetWinListeners(bool enable)
     {
@@ -44,12 +48,15 @@ public class RoomController : GameplayScene
         }
         failActions.Clear();
     }
-    private void SetRoomListeners()
+    private IEnumerator SetRoomListeners()
     {
+        yield return new WaitUntil(() => CombatSingletonManager.Instance != null);
+        Debug.Log("CombatSingletonManager.Instance");
         SetWinListeners(true);
         SetFailListeners(true);
         gamePlaySceneUI.SetWinListeners(true);
         gamePlaySceneUI.SetFailListeners(true);
+        CombatSingletonManager.Instance.turnManager.StartBattle();
     }
     public void ConfigureRoom(bool firstConfigure){
         combatInventory.ClearInventory();
@@ -67,8 +74,7 @@ public class RoomController : GameplayScene
         }
         combatController.SetActive(true);
         gamePlaySceneUI.ShowCombatCanvas(true);
-        SetRoomListeners();
-        CombatSingletonManager.Instance.turnManager.StartBattle();
+        StartCoroutine(SetRoomListeners());
     }
     public bool VerifyCombatInventory(){
         for (int i = 0; i < ingemonesSelected.Count; i++)
