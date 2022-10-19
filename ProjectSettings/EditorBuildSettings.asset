@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/Run.unity
     guid: ecb891cc4fde0fd46b7a45e81ba16e70
   - enabled: 1
-    path: "Assets/_Game/Scenes/GabrielRoom\xE7.unity"
+    path: Assets/_Game/Scenes/Room.unity
     guid: 757dad9206b6b77448df2b06b8bfc05c
   - enabled: 1
     path: Assets/_Game/Scenes/Tienda.unity

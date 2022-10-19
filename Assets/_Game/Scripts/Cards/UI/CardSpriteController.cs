@@ -58,7 +58,6 @@ public class CardSpriteController : MonoBehaviour
     {
         if(!(allyTarget && enemyTarget)) return;
         bool isFrontAllyOwner = card.owner == CombatSingletonManager.Instance.turnManager.info.frontAlly;
-        Debug.Log(option);
         if (option == -4){
             option = isFrontAllyOwner? -1 : -2;
         }
