@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public static void ChangeScene(int scene){
-        SceneManager.LoadScene(scene);
+        MorionSceneManager.LoadScene(scene);
     }
 
     public static void ChangeScene(Scenes scene)
     {
-        SceneManager.LoadScene((int)scene);
+        MorionSceneManager.LoadScene((int)scene);
+    }
+    public static void CambiarEscena(string scene)
+    {
+        MorionSceneManager.LoadScene(scene);
     }
 
     public void Salir()

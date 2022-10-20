@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EntityController : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> ingemonPrefabs;
     public Ingemonster ingemonInfo { get; set; }
     [SerializeField] private GameObject ingemonMesh;
     public int currentHealth { get; private set; }
@@ -43,10 +44,11 @@ public class EntityController : MonoBehaviour
     //Aqui usariamos el fenotipo para generar el ingemon.
     public void Generate(string phenotype)
     {
-        ingemonMesh.SetActive(true);
         if (phenotype != null)
         {
             string[] feat = phenotype.Split("-");
+            ingemonMesh = feat.Length == 7 ? ingemonPrefabs[Int32.Parse(feat[6])] : ingemonPrefabs[0];
+            ingemonMesh.SetActive(true);
             ingemonMesh.GetComponent<MorionCambioPartes>()
                 .TransformarIngemon(Int32.Parse(feat[0]), Int32.Parse(feat[1]), Int32.Parse(feat[2]));
             ingemonMesh.GetComponent<MorionCambioMascaras>()

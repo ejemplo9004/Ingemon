@@ -12,11 +12,13 @@ public class UICombatController : MonoBehaviour
     [SerializeField] private Slider backEnemyHealth;
     [SerializeField] private Slider frontAllyHealth;
     [SerializeField] private Slider backAllyHealth;
+    [SerializeField] private GameObject cardInfoPanel;
     [SerializeField] public GameObject frontEnemyBUI;
     [SerializeField] public GameObject backEnemyBUI;
     [SerializeField] public GameObject frontAllyBUI;
     [SerializeField] public GameObject backAllyBUI;
     [SerializeField] public float animationTime = 0.5f;
+    [SerializeField] private CardInfoController cardInfo;
     [SerializeField] private BigCardController bigCard;
     [SerializeField] private IntentionsController intentions;
 
@@ -46,6 +48,10 @@ public class UICombatController : MonoBehaviour
     {
         energyText.SetText(
             $"{CombatSingletonManager.Instance.turnManager.info.energizer.currentEnergy}/{CombatSingletonManager.Instance.turnManager.info.energizer.maxEnergy}");
+    }
+    public void UpdateCardInfo(Card card)
+    {
+        cardInfo.SetInfo(card);
     }
 
     public void UpdateHealthBars()
@@ -83,6 +89,7 @@ public class UICombatController : MonoBehaviour
     private void SetIntentions(List<Card> cards) => intentions.SetIntentions(cards);
     private void CleanIntentions() => intentions.CleanIntentions();
     private void ShowCard(Card card) => bigCard.AddToShow(card);
+    public void ShowCardInfo(bool value) => cardInfoPanel.SetActive(value);
 
     private void OnDisable()
     {
