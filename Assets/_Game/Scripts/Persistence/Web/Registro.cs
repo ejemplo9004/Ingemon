@@ -30,10 +30,10 @@ public class Registro : MonoBehaviour
         }
         else
         {
-            //txtMensaje.text = "Las contraseñas no coinciden";
+            //txtMensaje.text = "Las contraseï¿½as no coinciden";
             if (Mensajes.singleton != null)
             {
-                Mensajes.singleton.Popup("Las contraseñas no coinciden");
+                Mensajes.singleton.Popup("Las contraseï¿½as no coinciden");
             }
         }
     }
@@ -48,11 +48,13 @@ public class Registro : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
+        if(servidor.respuesta.codigo == 201)
+            Mensajes.singleton.Popup("Usuario Registrado Exitosamente");
     }
 
     void posRegistro()
     {
-
+        
     }
 }
 
