@@ -13,6 +13,7 @@ namespace Cards
         public string cardName;
         public string cardDescription;
         public int cost;
+        public Sprite sprite;
         public IngemonRace race;
         public CardType type;
 
