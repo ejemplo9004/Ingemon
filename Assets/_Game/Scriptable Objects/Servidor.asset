@@ -44,11 +44,12 @@ MonoBehaviour:
   - nombre: buscar frases
     URL: buscarfrases
     parametros: []
+  - nombre: user vr
+    URL: uservr
+    parametros:
+    - name
   ocupado: 0
   respuesta:
-    codigo: 211
-    mensaje: frases encontradas correctamente
-    respuesta: "{\"id\":1,\"content\":\"Hola\",\"createdAt\":\"2022-10-14T19:23:09.000Z\",\"updatedAt\":\"2022-10-14T19:23:09.000Z\"}!{\"id\":2,\"content\":\"Buenas
-      \",\"createdAt\":\"2022-10-14T19:35:24.000Z\",\"updatedAt\":\"2022-10-14T19:35:24.000Z\"}!{\"id\":3,\"content\":\"El
-      mundo est\xE1 cambiando, lo siento en el agua, lo siento en la tierra, lo huelo
-      en el aire. (B\xE1rbol)\",\"createdAt\":\"2022-10-14T19:36:13.000Z\",\"updatedAt\":\"2022-10-14T19:36:13.000Z\"}!"
+    codigo: 205
+    mensaje: Login correcto
+    respuesta: '{"id":16,"name":"test","password":"$2a$10$2./arfUcZUptQbK6roecIuHzZOoejXsMT1IZl04TEPInIcq0uDs2W","gold":880,"createdAt":"2022-10-11T12:50:44.000Z","updatedAt":"2022-10-11T13:34:04.000Z"}'
