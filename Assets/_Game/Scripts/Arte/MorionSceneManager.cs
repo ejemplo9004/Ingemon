@@ -10,6 +10,7 @@ public class MorionSceneManager : MonoBehaviour
 
     static Animator _anim;
     static UnityEngine.UI.Text _texto;
+    public AudioSource audioS;
     private void Awake()
     {
         if (_anim == null)
@@ -57,6 +58,7 @@ public class MorionSceneManager : MonoBehaviour
             _texto.text = ObtenerFrases.singleton.frasesF[Random.Range(0, ObtenerFrases.singleton.frasesF.Count)];
         }
         yield return new WaitForSeconds(1.5f);
+        audioS.Play();
         SceneManager.LoadScene(esce);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(esce);
         while (!asyncLoad.isDone)
