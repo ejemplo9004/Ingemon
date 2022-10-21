@@ -30,10 +30,10 @@ public class Registro : MonoBehaviour
         }
         else
         {
-            //txtMensaje.text = "Las contraseñas no coinciden";
+            //txtMensaje.text = "Las contraseï¿½as no coinciden";
             if (Mensajes.singleton != null)
             {
-                Mensajes.singleton.Popup("Las contraseñas no coinciden");
+                Mensajes.singleton.Popup("Las contraseï¿½as no coinciden");
             }
         }
     }
@@ -42,17 +42,19 @@ public class Registro : MonoBehaviour
         imLoading.SetActive(true);
         string[] datos = new string[3];
         datos[0] = inpUsuarioRegistro.text;
-        datos[1] = inpPassRegistro.text;
+        datos[1] = inpPassRegistro.text.Cifrar();
         datos[2] = "150";
         StartCoroutine(servidor.ConsumirServicio("registrar usuario", datos, posRegistro));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
+        if(servidor.respuesta.codigo == 201)
+            Mensajes.singleton.Popup("Usuario Registrado Exitosamente");
     }
 
     void posRegistro()
     {
-
+        
     }
 }
 
