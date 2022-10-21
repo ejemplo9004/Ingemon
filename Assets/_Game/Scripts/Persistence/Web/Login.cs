@@ -37,7 +37,7 @@ public class Login : MonoBehaviour
         imLoading.SetActive(true);
         string[] datos = new string[4];
         datos[0] = inpUsuario.text;
-        datos[1] = inpPass.text;
+        datos[1] = inpPass.text.Cifrar();
         StartCoroutine(servidor.ConsumirServicio("login", datos, PosCargar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
