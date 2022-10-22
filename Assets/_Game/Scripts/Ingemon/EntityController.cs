@@ -59,7 +59,7 @@ public class EntityController : MonoBehaviour
 
     public void GetDamaged(int health)
     {
-        health *= 2;
+        health *= CombatSingletonManager.Instance.damageMultiplier;
         if (health > protection)
         {
             health -= protection;
