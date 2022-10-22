@@ -959,7 +959,7 @@ MonoBehaviour:
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:
-    fastMode: 0
+    fastMode: 1
     keepAlpha: 0
   fog:
     enabled: 1
@@ -7942,7 +7942,7 @@ MonoBehaviour:
   m_Path: {fileID: 1869546269}
   m_UpdateMethod: 0
   m_PositionUnits: 1
-  m_Speed: 0.56
+  m_Speed: 0.3
   m_Position: 0
 --- !u!114 &1419368759
 MonoBehaviour:
