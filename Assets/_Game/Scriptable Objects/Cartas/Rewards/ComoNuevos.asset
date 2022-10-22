@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
-  m_Name: BuscaYDescarta
+  m_Name: ComoNuevos
   m_EditorClassIdentifier: 
-  id: 215
-  cardName: Busca y Descarta.
-  cardDescription: Roba 6 cartas, descarta las 2 mas caras.
-  cost: 2
-  sprite: {fileID: 1419585342, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
-  race: 2
+  id: 401
+  cardName: Como nuevos
+  cardDescription: Ambos se curan de sangrados y venenos.
+  cost: 0
+  sprite: {fileID: -1847791457, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
+  race: 4
   type: 2
   actions:
   - action:
@@ -25,36 +25,36 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: Draw
+          m_MethodName: SetTarget
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 6
+            m_IntArgument: -3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: SetDamageModifier
-          m_Mode: 3
+          m_MethodName: HealBleed
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: Discard
-          m_Mode: 3
+          m_MethodName: HealPoison
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
