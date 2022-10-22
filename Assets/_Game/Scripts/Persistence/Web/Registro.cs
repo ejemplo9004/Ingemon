@@ -14,6 +14,11 @@ public class Registro : MonoBehaviour
     public InputField   inpNivel;
     public GameObject   imLoading;
 
+    [Header("Login")]
+    public InputField   inpLoginJugador;
+    public GameObject   goLogin;
+    public GameObject   goRegistrar;
+
     public void registrarUsuario()
     {
         if (inpUsuarioRegistro.text == "" || inpPassRegistro.text == "" || inpPassRegistro2.text == "")
@@ -49,7 +54,12 @@ public class Registro : MonoBehaviour
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
         if(servidor.respuesta.codigo == 201)
+        {
             Mensajes.singleton.Popup("Usuario Registrado Exitosamente");
+            inpLoginJugador.text = inpUsuarioRegistro.text;
+            goRegistrar.SetActive(false);
+            goLogin.SetActive(true);
+        }
     }
 
     void posRegistro()

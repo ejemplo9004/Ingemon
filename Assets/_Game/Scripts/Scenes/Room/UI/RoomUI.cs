@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RoomUI : GameplaySceneUI
 {
@@ -24,7 +25,7 @@ public class RoomUI : GameplaySceneUI
 
         for (int i = 0; i < inventory.Ingemones.Count; i++){
             ingemonsImages[i].GetComponent<IngemonSelector>().Ingemon = inventory.Ingemones[i];
-            ingemonsImages[i].GetComponentInChildren<Text>().text = inventory.Ingemones[i].name;
+            ingemonsImages[i].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Ingemones[i].name;
         }
     }
 
@@ -77,6 +78,7 @@ public class RoomUI : GameplaySceneUI
             GameObject instance = Instantiate(imagePrefab, parent: imagePrefabParent.transform);
             ingemonsImages.Add(instance);
             Button button = instance.GetComponent<Button>();
+            print("cry");
             button.onClick.AddListener(delegate { SelectIngemon(instance); });
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameplaySceneUI : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GameplaySceneUI : MonoBehaviour
         int index = preselectionImages.IndexOf(selectedIngemonImage);
         if(sceneController.AddIngemonToPreselection(ingemon, index)){
             selectedIngemonImage.GetComponent<IngemonSelector>().Ingemon = ingemon;
-            selectedIngemonImage.GetComponentInChildren<Text>().text = ingemon.name;
+            selectedIngemonImage.GetComponentInChildren<TextMeshProUGUI>().text = ingemon.name;
             SetNextPreselectionBox();
         }
     }
@@ -31,7 +32,7 @@ public class GameplaySceneUI : MonoBehaviour
     public void CleanPreselection(GameObject image){
         sceneController.RemoveIngemonFromPreselection(image.GetComponent<IngemonSelector>().Ingemon);
         image.GetComponent<IngemonSelector>().Ingemon = new Ingemonster();
-        image.GetComponentInChildren<Text>().text = "";
+        image.GetComponentInChildren<TextMeshProUGUI>().text = "";
         SetNextPreselectionBox();
     }
 
