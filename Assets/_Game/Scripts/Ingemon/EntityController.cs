@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EntityController : MonoBehaviour
 {
@@ -20,6 +21,13 @@ public class EntityController : MonoBehaviour
 
     private Animator animator;
 
+    [Header("Acciones")]
+    public UnityEvent eCurado;
+    public UnityEvent eSpawn;
+    public UnityEvent eDañado;
+    public UnityEvent eEnvenenado;
+    public UnityEvent eEscudo;
+
     public void SetUI(CombatIngemonPosition position)
     {
         currentHealth = ingemonInfo.maxHealth;
@@ -34,6 +42,7 @@ public class EntityController : MonoBehaviour
         Generate(ingemon.phenotype);
         animator = gameObject.GetComponentInChildren<Animator>();
         animator?.SetBool(Parameters.COMBATE, true);
+        eSpawn.Invoke();
     }
 
     public void DestroyIngemon()
@@ -65,6 +74,7 @@ public class EntityController : MonoBehaviour
             health -= protection;
             protection = 0;
             UpdateProtection();
+            eDañado.Invoke();
         }
         else
         {
@@ -87,11 +97,16 @@ public class EntityController : MonoBehaviour
             DeadAnimation();
             CleanBuffs();
         }
+        else
+        {
+            eDañado.Invoke();
+        }
     }
 
     public void GetHealed(int health)
     {
         currentHealth = Mathf.Clamp(currentHealth + health, 0, ingemonInfo.maxHealth);
+        eCurado.Invoke();
     }
 
     public void SetState(IngemonState state)
@@ -104,6 +119,7 @@ public class EntityController : MonoBehaviour
                 break;
             case BuffsEnum.Poison:
                 poisons.Add((Poison)state);
+                eEnvenenado.Invoke();
                 break;
             case BuffsEnum.Bleed:
                 bleeds.Add((Bleed)state);
@@ -112,12 +128,15 @@ public class EntityController : MonoBehaviour
                 break;
             case BuffsEnum.PermanentProtection:
                 otherStates.Add((PermanentProtection) state);
+                eEscudo.Invoke();
                 break;
             case BuffsEnum.StartProtection:
                 otherStates.Add((StartProtection) state);
+                eEscudo.Invoke();
                 break;
             case BuffsEnum.PartnerProtection:
                 otherStates.Add((PartnerProtection) state);
+                eEscudo.Invoke();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -201,6 +220,7 @@ public class EntityController : MonoBehaviour
     {
         this.protection += protection;
         UpdateProtection();
+
     }
 
     public void EndTurnClearProtection()
