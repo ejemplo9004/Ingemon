@@ -10,51 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
-  m_Name: BuscaYDescarta
+  m_Name: DobleAtaque
   m_EditorClassIdentifier: 
-  id: 215
-  cardName: Busca y Descarta.
-  cardDescription: Roba 6 cartas, descarta las 2 mas caras.
-  cost: 2
-  sprite: {fileID: 1419585342, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
-  race: 2
-  type: 2
+  id: 406
+  cardName: Doble Ataque
+  cardDescription: "Atacan a los enemigos por 8 de da\xF1o"
+  cost: 1
+  sprite: {fileID: -1653015479, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
+  race: 4
+  type: 0
   actions:
   - action:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: Draw
+          m_MethodName: SetTarget
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 6
+            m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: SetDamageModifier
+          m_MethodName: DealDamage
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000}
-          m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: Discard
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

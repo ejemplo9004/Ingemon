@@ -1509,6 +1509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b4f65af044b034f81d8a0625bf7197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  servidor: {fileID: 11400000, guid: 75d6f006d7a456943a6f3585f365a2bc, type: 2}
   ingemonGenerator: {fileID: 605613111}
   cardGenerator: {fileID: 605613113}
   shopUI: {fileID: 1928131587}
