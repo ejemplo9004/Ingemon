@@ -16,6 +16,7 @@ MonoBehaviour:
   cardName: Muro impenetrable
   cardDescription: No pierdes tu bloqueo al finalizar turnos.
   cost: 3
+  sprite: {fileID: 929245971, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3
   type: 2
   actions:

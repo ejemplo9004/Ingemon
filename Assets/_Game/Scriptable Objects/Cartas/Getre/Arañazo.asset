@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
   m_Name: "Ara\xF1azo"
   m_EditorClassIdentifier: 
-  id: 8
+  id: 208
   cardName: "Ara\xF1azo"
   cardDescription: "Haz 5 de da\xF1o, Causa 1 de da\xF1o de sangrado por 3 veces."
   cost: 1
+  sprite: {fileID: -100412385, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
   type: 0
   actions:
@@ -60,3 +61,4 @@ MonoBehaviour:
           m_CallState: 2
   TargetInstructions: 00000000
   DamagesModifiersInstructions: 00000000
+  DiscardModifiersInstructions: 00000000
