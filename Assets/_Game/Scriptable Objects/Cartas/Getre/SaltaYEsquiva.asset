@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
   m_Name: SaltaYEsquiva
   m_EditorClassIdentifier: 
-  id: 13
-  cardName: Salto y esquiva
+  id: 213
+  cardName: Salta y esquiva
   cardDescription: "Todos los ataques que vayan hacia a ti golpean a tu compa\xF1ero
     por un turno."
   cost: 1
-  race: 0
+  sprite: {fileID: -919306158, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
+  race: 2
   type: 2
   actions:
   - action:

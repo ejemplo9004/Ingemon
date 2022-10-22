@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
   m_Name: Golpe
   m_EditorClassIdentifier: 
-  id: 6
+  id: 206
   cardName: Golpe
   cardDescription: "Haz 6 de da\xF1o."
   cost: 1
+  sprite: {fileID: 993831712, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
   type: 0
   actions:
@@ -36,3 +37,4 @@ MonoBehaviour:
           m_CallState: 2
   TargetInstructions: 00000000
   DamagesModifiersInstructions: 00000000
+  DiscardModifiersInstructions: 00000000

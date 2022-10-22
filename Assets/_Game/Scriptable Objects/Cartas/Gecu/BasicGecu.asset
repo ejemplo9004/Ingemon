@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcd682c813543fcb47549ba7d8ec390, type: 3}
+  m_Name: BasicGecu
+  m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 11400000, guid: 73eb2dd62fbcd914e9d7c9fb8385821d, type: 2}
+  - {fileID: 11400000, guid: 9daf55ca75530f047a3d5e466146ba30, type: 2}
+  - {fileID: 11400000, guid: 863b89eb7c949674b84a525f2153842c, type: 2}
+  - {fileID: 11400000, guid: 1205dadc02600ab4cbcb630a23e8dab7, type: 2}
+  - {fileID: 11400000, guid: 9295ffe46f4ccc440a315fd851f2a919, type: 2}
+  - {fileID: 11400000, guid: 8c1fa7f23bff164478c2cceda002190e, type: 2}
