@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6bf4a001393486f9fb60d2748f9f467, type: 3}
-  m_Name: Corromon
+  m_Name: Dribbler
   m_EditorClassIdentifier: 
-  EnemyName: Corromon
-  health: 52
+  EnemyName: Dribbler
+  health: 55
   phenotype: 5-4-7-5-9-351-2
-  cardSet: {fileID: 11400000, guid: d18cac1622bbfbf438e48c6b025acd0f, type: 2}
+  cardSet: {fileID: 11400000, guid: dad7d8f62c7c5fc4aa6bb22409f10640, type: 2}
