@@ -6,7 +6,22 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Accesorios
+    second: {fileID: 2100000, guid: 7e24b182dc6e3564da50e5f8ab478031, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cuernos
+    second: {fileID: 2100000, guid: 6448355624e42ea44b790429966fbb45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cuerpo
+    second: {fileID: 2100000, guid: 9aae5c84f84066f48a15b203d2404bca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
