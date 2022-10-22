@@ -26,7 +26,7 @@ public class ShopSceneController : MonoBehaviour
         {
             if (Mensajes.singleton != null)
             {
-                Mensajes.singleton.Popup("Debe poseer al menos 4 Ingemones");
+                Mensajes.singleton.Popup("Debes poseer al menos 4 Ingemones");
             }
         }
         else
