@@ -10,7 +10,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private Economy gameEconomy;
     [SerializeField] private TMP_InputField ingemonName;
     [SerializeField] private TMP_Text coinsText;
-    [SerializeField] private TMP_Text priceText;
+    [SerializeField] private List<TMP_Text> priceTexts;
     [SerializeField] private List<Button> buyButtons;
     [SerializeField] private GameObject eggsImage;
     [SerializeField] private GameObject ingemonImage;
@@ -42,7 +42,7 @@ public class ShopUI : MonoBehaviour
 
     public void ChangeCoinsInUI(int coins)
     {
-        coinsText.text = "Coins: " + coins;
+        coinsText.text = "Monedas: " + coins;
     }
 
     public void SetItemPrice(string item)
@@ -54,10 +54,14 @@ public class ShopUI : MonoBehaviour
         switch (item)
         {
             case "Ingemon":
-                priceText.text = "precio: " + gameEconomy.GetItemCost("Ingemon").ToString() + " monedas";
+                foreach (TMP_Text text in priceTexts)
+                {
+                    text.text = "$ " + gameEconomy.GetItemCost("Ingemon");
+                }
                 break;
             case "Card":
-                priceText.text = "precio: " + gameEconomy.GetItemCost("Card").ToString() + " monedas";
+                //Pendiente
+                //priceText.text = "precio: " + gameEconomy.GetItemCost("Card").ToString() + " monedas";
                 break;
             default:
                 break;

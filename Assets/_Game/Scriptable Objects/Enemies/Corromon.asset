@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Corromon
   m_EditorClassIdentifier: 
   EnemyName: Corromon
-  health: 100
+  health: 52
   phenotype: 5-4-7-5-9-351-2
   cardSet: {fileID: 11400000, guid: d18cac1622bbfbf438e48c6b025acd0f, type: 2}

@@ -11,6 +11,7 @@ public class MorionSceneManager : MonoBehaviour
     static Animator _anim;
     static UnityEngine.UI.Text _texto;
     public AudioSource audioS;
+    public int FPS = 30;
     private void Awake()
     {
         if (_anim == null)
@@ -24,6 +25,9 @@ public class MorionSceneManager : MonoBehaviour
         {
             DestroyImmediate(gameObject);
         }
+
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = FPS;
     }
     [ContextMenu("Carga De Prueba")]
     public void CambiarEscenaEnsayo()
