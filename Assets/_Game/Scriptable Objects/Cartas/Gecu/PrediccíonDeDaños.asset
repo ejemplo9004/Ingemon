@@ -16,6 +16,7 @@ MonoBehaviour:
   cardName: "Predicc\xEDon de da\xF1os"
   cardDescription: Gana 4 de bloqueo al comenzar cada turno.
   cost: 2
+  sprite: {fileID: -437816321, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3
   type: 2
   actions:

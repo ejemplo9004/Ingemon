@@ -177,7 +177,7 @@ public class CardExecutioner
     {
         if (CombatSingletonManager.Instance.turnManager.currentState.GetType() == typeof(EnemyTurnState))
         {
-            if (target != 4 && target != -4)
+            if (target < 4 && target > -4)
                 target = -target;
         }
 
@@ -284,6 +284,26 @@ public class CardExecutioner
                     AddTarget(targets, info.frontEnemy);
                 if (owner != info.backEnemy)
                     AddTarget(targets, info.backEnemy);
+                break;
+            case Targets.Partner:
+                if (owner.position == CombatIngemonPosition.FRONT_ALLY)
+                {
+                    AddTarget(targets, info.backAlly);
+                }
+                else
+                {
+                    AddTarget(targets, info.frontAlly);
+                }
+                break;
+            case Targets.EnemyPartner:
+                if (owner.position == CombatIngemonPosition.FRONT_ENEMY)
+                {
+                    AddTarget(targets, info.backEnemy);
+                }
+                else
+                {
+                    AddTarget(targets, info.frontEnemy);
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(target), target, null);

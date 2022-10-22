@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
   m_Name: Proteccion
   m_EditorClassIdentifier: 
-  id: 7
+  id: 207
   cardName: "Protecci\xF3n"
   cardDescription: Gana 7 de bloqueo.
   cost: 1
+  sprite: {fileID: -1592550922, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
   type: 1
   actions:
@@ -48,3 +49,4 @@ MonoBehaviour:
           m_CallState: 2
   TargetInstructions: 00000000
   DamagesModifiersInstructions: 00000000
+  DiscardModifiersInstructions: 00000000

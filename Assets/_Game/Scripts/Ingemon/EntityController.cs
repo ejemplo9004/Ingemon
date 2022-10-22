@@ -59,7 +59,7 @@ public class EntityController : MonoBehaviour
 
     public void GetDamaged(int health)
     {
-        health *= 2;
+        health *= CombatSingletonManager.Instance.damageMultiplier;
         if (health > protection)
         {
             health -= protection;
@@ -141,6 +141,7 @@ public class EntityController : MonoBehaviour
     {
         for (int i = poisons.Count - 1; i >= 0; i--)
         {
+            if(currentHealth <= 0 ) return;
             if (poisons[i].Tick(this) == 0)
             {
                 if (poisons.Count <= 0)
