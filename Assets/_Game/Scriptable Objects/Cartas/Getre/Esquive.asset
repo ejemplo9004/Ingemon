@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117022acbb8ce634eaaedd64b361c322, type: 3}
   m_Name: Esquive
   m_EditorClassIdentifier: 
-  id: 4
+  id: 204
   cardName: Esquive
   cardDescription: Gana 5 de bloqueo.
   cost: 0
+  sprite: {fileID: -1935565772, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
   type: 1
   actions:
@@ -48,3 +49,4 @@ MonoBehaviour:
           m_CallState: 2
   TargetInstructions: 00000000
   DamagesModifiersInstructions: 00000000
+  DiscardModifiersInstructions: 00000000
