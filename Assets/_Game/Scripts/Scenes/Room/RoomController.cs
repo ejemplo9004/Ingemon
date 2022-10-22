@@ -98,4 +98,8 @@ public class RoomController : GameplayScene
         gamePlaySceneUI.ShowRewardPanel(false);
         roomTransition.StartRoomTransition();
     }
+
+    public void ExitRun(){
+        SceneChanger.ChangeScene(Scenes.MENU);
+    }
 }
