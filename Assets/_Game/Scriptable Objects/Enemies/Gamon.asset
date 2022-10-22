@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6bf4a001393486f9fb60d2748f9f467, type: 3}
-  m_Name: Corromon
+  m_Name: Gamon
   m_EditorClassIdentifier: 
-  EnemyName: Corromon
-  health: 52
-  phenotype: 5-4-7-5-9-351-2
-  cardSet: {fileID: 11400000, guid: d18cac1622bbfbf438e48c6b025acd0f, type: 2}
+  EnemyName: Gamon
+  health: 51
+  phenotype: 1-1-7-8-6-895-0
+  cardSet: {fileID: 11400000, guid: f96d6b806520c98478e0c225effbb937, type: 2}

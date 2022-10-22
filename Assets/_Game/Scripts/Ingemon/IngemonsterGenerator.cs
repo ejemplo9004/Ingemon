@@ -18,7 +18,7 @@ public class IngemonsterGenerator : MonoBehaviour
     [SerializeField] private float eggFadeDuration;
     [SerializeField] private float ingemonShowDuration;
     private Ingemonster ingemonster;
-    public int defaultHealth;
+    [SerializeField] public Vector2Int healthRange;
     private bool isInCreation;
     private List<GameObject> morionHuevosList;
     private List<int> morionHuevosRaza;
@@ -87,6 +87,7 @@ public class IngemonsterGenerator : MonoBehaviour
             MorionCambioMascaras mascaras = eggSelected.GetComponent<MorionCambioMascaras>();
             MorionCambioPartes partes = eggSelected.GetComponent<MorionCambioPartes>();
             string phenotype = partes.cadena + "-" + mascaras.iDorsos + "-" + mascaras.iManchas + "-" + colores.numeros + "-" + eggIndex;
+            int defaultHealth = Random.Range(healthRange.x, healthRange.y);
             ingemonster = new IngemonBuilder().WithName(shopScene.shopUI.IngemonName.text).WithPhenotype(phenotype).WithMaxHealth(defaultHealth);
             economia.ingemonNuevo = ingemonster;
             economia.comprarObjeto(playerEconomy.money);
