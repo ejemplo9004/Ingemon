@@ -10,8 +10,10 @@ public class CardSpriteController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cost;
     [SerializeField] private Image costPanel;
     [SerializeField] private Image panel;
+    [SerializeField] private Image frame;
     [SerializeField] private Image allyTarget;
     [SerializeField] private Image enemyTarget;
+    [SerializeField] private Image icon;
     public Sprite[] targets;
     public Card card { get; private set;  }
     public int cardId { get; private set;  }
@@ -38,18 +40,17 @@ public class CardSpriteController : MonoBehaviour
         title.SetText(card.info.cardName);
         description.SetText(card.info.cardDescription);
         cost.SetText(card.info.cost.ToString());
+        icon.sprite = card.info.sprite;
         SetTargetSprites(card.info.target);
         if (panel != null && CombatSingletonManager.Instance != null)
         {
             if (card.owner == CombatSingletonManager.Instance.turnManager.info.frontAlly)
             {
-                panel.color = frontColor;
-                costPanel.color = frontColor;
+                frame.color = frontColor;
             }
             else
             {
-                panel.color = backColor;
-                costPanel.color = backColor;
+                frame.color = backColor;
             }
         }
     }
