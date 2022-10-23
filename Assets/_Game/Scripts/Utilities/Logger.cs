@@ -63,6 +63,7 @@ public class Logger : Singleton<Logger>
         {
             Mensajes.singleton.Popup(message);
         }
+        Mensajes.singleton.Popup(message);
         debugAreaText.text += $"<color=\"yellow\">{DateTime.Now.ToString("HH:mm:ss.fff")} {message}</color>\n";
     }
 
