@@ -208,10 +208,14 @@ public class EntityController : MonoBehaviour
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
     }
 
-    private void CleanBuffs()
+    public void CleanBuffs()
     {
+        poisons.ForEach(p => p.Clear());
+        bleeds.ForEach(b => b.Clear());
+        otherStates.ForEach(s => s.Clear());
         poisons = new List<Poison>();
         bleeds = new List<Bleed>();
+        otherStates = new List<IngemonState>();
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
     }
 

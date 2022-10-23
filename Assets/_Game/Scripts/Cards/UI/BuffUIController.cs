@@ -29,7 +29,7 @@ public class BuffUIController : MonoBehaviour
         background.rectTransform.sizeDelta = new Vector2(background.rectTransform.sizeDelta.x, timer * timerUnit);
         if (timer == 0)
         {
-            Destroy(gameObject);
+            Clear();
         }
     }
 
@@ -39,7 +39,12 @@ public class BuffUIController : MonoBehaviour
         text.SetText(value.ToString());
         if (value == 0)
         {
-            Destroy(gameObject);
+            Clear();
         }
+    }
+
+    public void Clear()
+    {
+        Destroy(gameObject);
     }
 }
