@@ -27,6 +27,7 @@ public class CombatSingletonManager : MonoBehaviour
     public CardCombatController cardManager;
     public UICombatController uiManager;
     public AnimationExecuter anim;
+    public int damageMultiplier = 1;
 
 
 }

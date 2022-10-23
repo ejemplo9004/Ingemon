@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
         playerEconomy.SetPlayerMoney(usuarioActual.gold);
 
     }
+
     public void AsignarIngemones(List<string> ingemones)
     {
         List<Ingemonster> ingemonsters = new List<Ingemonster>();

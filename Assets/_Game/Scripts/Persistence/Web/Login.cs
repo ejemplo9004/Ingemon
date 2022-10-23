@@ -8,13 +8,28 @@ using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
-    public Servidor servidor;
-    public InputField inpUsuario;
-    public InputField inpPass;
-    public GameObject imLoading;
-    public dbUsuario usuario;
-    private bool validUser;
+    public Servidor     servidor;
+    public InputField   inpUsuario;
+    public InputField   inpPass;
+    public GameObject   imLoading;
+    public dbUsuario    usuario;
+    private bool        validUser;
+    public Toggle       tMantener;
 
+    private void Start()
+    {
+        string us = PlayerPrefs.GetString("usuario", "");
+        string ps = PlayerPrefs.GetString("pass", "");
+        if (!us.Equals(""))
+        {
+            inpUsuario.text = us;
+        }
+        if (!ps.Equals(""))
+        {
+            inpPass.text = ps;
+            iniciarSesion();
+        }
+    }
 
     public void iniciarSesion()
     {
@@ -63,6 +78,11 @@ public class Login : MonoBehaviour
                 validUser = true;
                 GameController.gameController.AsignarJugador(usuario);
                 Debug.Log("usuario melo");
+                if (tMantener.isOn)
+                {
+                    PlayerPrefs.SetString("usuario", inpUsuario.text);
+                    PlayerPrefs.SetString("pass", inpPass.text);
+                }
                 break;
             case 404: // Error
                 Logger.Instance.LogWarning("Error, no se puede conectar con el servidor");
@@ -95,7 +115,7 @@ public class Login : MonoBehaviour
                 }
                 break;
             case 404: // Error
-                Logger.Instance.LogInfo("Error, no se puede conectar con el servidor");
+                Mensajes.singleton.Popup("Error, no se puede conectar con el servidor");
                 MorionSceneManager.LoadScene(0);
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada

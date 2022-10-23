@@ -7,5 +7,6 @@ public enum IngemonRace
     GENU,
     GEDO,
     GETRE,
-    GECU
+    GECU,
+    OTHER
 }

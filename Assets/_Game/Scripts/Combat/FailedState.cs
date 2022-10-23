@@ -13,6 +13,10 @@ public class FailedState : EndBattleState
     private void DestroyEntities(TurnStateManager manager)
     {
         Debug.Log("Borrando ingemones del campo");
+        manager.info.frontAlly.CleanBuffs();
+        manager.info.backAlly.CleanBuffs();
+        manager.info.frontEnemy.CleanBuffs();
+        manager.info.backEnemy.CleanBuffs();
         manager.info.DestroyAllys();
         manager.info.DestroyEnemies();
     }

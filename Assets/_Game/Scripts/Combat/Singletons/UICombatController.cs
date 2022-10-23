@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +12,12 @@ public class UICombatController : MonoBehaviour
     [SerializeField] private Slider backEnemyHealth;
     [SerializeField] private Slider frontAllyHealth;
     [SerializeField] private Slider backAllyHealth;
+    [SerializeField] private TextMeshProUGUI frontAllyTextHealth;
+    [SerializeField] private TextMeshProUGUI backAllyTextHealth;
+    [SerializeField] private TextMeshProUGUI frontEnemyTextHealth;
+    [SerializeField] private TextMeshProUGUI backEnemyTextHealth;
+    [SerializeField] private TextMeshProUGUI frontAllyName;
+    [SerializeField] private TextMeshProUGUI backAllyName;
     [SerializeField] private GameObject cardInfoPanel;
     [SerializeField] public GameObject frontEnemyBUI;
     [SerializeField] public GameObject backEnemyBUI;
@@ -33,6 +39,7 @@ public class UICombatController : MonoBehaviour
     public void Awake()
     {
         SetHealthBars();
+        SetNames();
     }
 
     public void OnEnable()
@@ -57,6 +64,10 @@ public class UICombatController : MonoBehaviour
     public void UpdateHealthBars()
     {
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
+        frontAllyTextHealth.text = info.frontAlly.currentHealth.ToString() + " / " + info.frontAlly.ingemonInfo.maxHealth.ToString();
+        backAllyTextHealth.text = info.backAlly.currentHealth.ToString() + " / " + info.backAlly.ingemonInfo.maxHealth.ToString();
+        frontEnemyTextHealth.text = info.frontEnemy.currentHealth.ToString() + " / " + info.frontEnemy.ingemonInfo.maxHealth.ToString();
+        backEnemyTextHealth.text = info.backEnemy.currentHealth.ToString() + " / " + info.backEnemy.ingemonInfo.maxHealth.ToString();
         StartCoroutine(UpdateHealthBar(frontAllyHealth, frontAllyHealth.value, info.frontAlly.currentHealth));
         StartCoroutine(UpdateHealthBar(backAllyHealth, backAllyHealth.value, info.backAlly.currentHealth));
         StartCoroutine(UpdateHealthBar(frontEnemyHealth, frontEnemyHealth.value, info.frontEnemy.currentHealth));
@@ -84,6 +95,14 @@ public class UICombatController : MonoBehaviour
         backAllyHealth.maxValue = info.backAlly.ingemonInfo.maxHealth;
         frontEnemyHealth.maxValue = info.frontEnemy.ingemonInfo.maxHealth;
         backEnemyHealth.maxValue = info.backEnemy.ingemonInfo.maxHealth;
+    }
+
+    public void SetNames()
+    {
+        if(!(frontAllyName && backAllyName)) return;
+        CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
+        frontAllyName.text = info.frontAlly.ingemonInfo.name;
+        backAllyName.text = info.backAlly.ingemonInfo.name;
     }
 
     private void SetIntentions(List<Card> cards) => intentions.SetIntentions(cards);

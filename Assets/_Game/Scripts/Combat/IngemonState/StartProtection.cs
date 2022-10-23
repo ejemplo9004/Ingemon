@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class StartProtection : IngemonState, IUpdatableState
 {
@@ -27,6 +28,12 @@ public class StartProtection : IngemonState, IUpdatableState
         remaining--;
         buffIcon.UpdateTimer(remaining);
         return remaining;
+    }
+
+    public override void Clear()
+    {
+        timings = null;
+        buffIcon.Clear();
     }
 
     public void UpdateState(int value)

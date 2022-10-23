@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Busca y Descarta.
   cardDescription: Roba 6 cartas, descarta las 2 mas caras.
   cost: 2
-  sprite: {fileID: 734918304, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
+  sprite: {fileID: 1419585342, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
   race: 2
   type: 2
   actions:
