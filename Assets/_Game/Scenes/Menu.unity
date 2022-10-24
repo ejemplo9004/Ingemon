@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1185390903220546419, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1185390903220546419, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
       propertyPath: m_AnchorMax.x
@@ -411,8 +411,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1719858264}
-  - {fileID: 9104344}
   - {fileID: 1187490836}
+  - {fileID: 9104344}
   - {fileID: 347131211}
   - {fileID: 1658105295}
   - {fileID: 39641527}
@@ -1711,8 +1711,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.06819916, y: 0}
+  m_SizeDelta: {x: -23.2643, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1132715366
 MonoBehaviour:
@@ -1736,10 +1736,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 980af978464eacd4aad3adadb32046d8, type: 3}
-    m_FontSize: 25
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1747,7 +1747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Run 1
+  m_Text: Torre Principiante
 --- !u!222 &1132715367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1773,7 +1773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1185390903220546419, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1185390903220546419, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1917,7 +1917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8561278275712794335, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
       propertyPath: m_Text
-      value: Inventario
+      value: Ingemones
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
@@ -3088,7 +3088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5181458580614248706, guid: 0f8028fbd420e104ab2bab1c210a5796, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 39.3
+      value: 39.30005
       objectReference: {fileID: 0}
     - target: {fileID: 5181458580614248706, guid: 0f8028fbd420e104ab2bab1c210a5796, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3433,42 +3433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: btnRuns
       objectReference: {fileID: 0}
-    - target: {fileID: 4016422206489852153, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459640527251298303, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459640527251298303, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5459640527251298303, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1338530766}
-    - target: {fileID: 5459640527251298303, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459640527251298303, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleRunsPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459640527251298303, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuUI, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459640527251298303, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561278275712794335, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
-      propertyPath: m_Text
-      value: Runs
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f7d0879a709cc144aa1560157210a26, type: 3}
 --- !u!224 &1719858264 stripped
