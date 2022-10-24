@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Antidoto
   m_EditorClassIdentifier: 
   id: 7
-  cardName: Antidoto
-  cardDescription: "Cura tus venenos y de tu compa\xF1ero"
+  cardName: "Ant\xEDdoto"
+  cardDescription: Cura los venenos de todos los aliados.
+  cardPhrase: "La estructura de datos se refiere a c\xF3mo est\xE1n organizados los
+    datos y c\xF3mo se pueden administrar."
   cost: 0
   sprite: {fileID: -1590031147, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0

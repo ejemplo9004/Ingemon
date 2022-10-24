@@ -15,7 +15,10 @@ MonoBehaviour:
   id: 208
   cardName: "Ara\xF1azo"
   cardDescription: "Haz 5 de da\xF1o, Causa 1 de da\xF1o de sangrado por 3 veces."
-  cost: 1
+  cardPhrase: "El Metaverso es un universo virtual que habitamos gracias a una serie
+    de dispositivos y tecnolog\xEDas que nos permiten navegar e interactuar con sus
+    elementos."
+  cost: 0
   sprite: {fileID: -100412385, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
   type: 0

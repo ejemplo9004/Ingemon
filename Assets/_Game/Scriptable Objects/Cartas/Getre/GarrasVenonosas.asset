@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 210
   cardName: Garras venenosas
-  cardDescription: "Haz 2 de da\xF1o, causa 2 de veneno por 4 turnos."
+  cardDescription: "Haz 2 de da\xF1o. Causa 2 de veneno por 4 turnos."
+  cardPhrase: Se conoce como servidor a una computadora que almacena datos, archivos
+    y aplicaciones a los que se puede acceder de manera remota.
   cost: 1
   sprite: {fileID: 177096452, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

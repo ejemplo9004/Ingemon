@@ -15,6 +15,9 @@ MonoBehaviour:
   id: 200
   cardName: Golpe Rapido
   cardDescription: "Haz 5 de da\xF1o."
+  cardPhrase: "Machine Learning o aprendizaje autom\xE1tico es la capacidad que poseen
+    las m\xE1quinas para aprender a partir de datos repetitivos, en algo tan simple
+    como puede ser un like, una b\xFAsqueda o una interacci\xF3n."
   cost: 0
   sprite: {fileID: 659568140, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 105
   cardName: Cornazo
-  cardDescription: "Haz 5 de da\xF1o, causa 2 de sangrado 2 veces"
+  cardDescription: "Haz 5 de da\xF1o. Causa 2 de sangrado por 2 turnos."
+  cardPhrase: "El Deep Learning se fundamenta en el funcionamiento del sistema neurol\xF3gico
+    del humano, es decir, imita la forma en que los humanos obtienen ciertos tipos
+    de informaci\xF3n."
   cost: 1
   sprite: {fileID: -658764259, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 1

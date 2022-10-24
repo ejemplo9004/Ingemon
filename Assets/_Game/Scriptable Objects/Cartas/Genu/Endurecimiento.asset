@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 10
   cardName: Endurecimiento
-  cardDescription: Gana 5 de proteccion. Roba dos cartas.
+  cardDescription: "Gana 5 de protecci\xF3n. Roba 2 cartas."
+  cardPhrase: "El Frontend es lo que el usuario puede ver, es la interfaz con la
+    que interact\xFAa. El objetivo de un desarrollador de esta \xE1rea, es crear
+    la estructura y el dise\xF1o de un sitio web, trabajando de la mano con los dise\xF1adores
+    de interfaz y experiencia de usuario"
   cost: 1
   sprite: {fileID: 2136764, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0

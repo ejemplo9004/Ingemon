@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: TerminoLaDefensa
   m_EditorClassIdentifier: 
   id: 314
-  cardName: Termino la defensa.
-  cardDescription: "Haz da\xF1o igual a tu bloqueo, pierde tu bloqueo."
+  cardName: Indefendible
+  cardDescription: "Haz da\xF1o igual a tu bloqueo actual. Pierde tu bloqueo."
+  cardPhrase: "La inteligencia artificial es, en ciencias de la computaci\xF3n, la
+    disciplina que intenta replicar y desarrollar la inteligencia y sus procesos
+    impl\xEDcitos a trav\xE9s de computadoras."
   cost: 1
   sprite: {fileID: -492182188, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3

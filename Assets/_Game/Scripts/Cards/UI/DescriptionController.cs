@@ -12,12 +12,15 @@ public class DescriptionController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI description;
     [SerializeField] private TextMeshProUGUI typeText;
     [SerializeField] private Image typeIcon;
+    public Button btnPlayCard;
 
     public void SetDescription(Card card)
     {
         title.text = card.info.cardName;
         description.text = card.info.cardPhrase;
         typeText.text = cardTypeString(card.info.type);
+        typeIcon.sprite = card.info.sprite;
+        btnPlayCard.onClick.AddListener(() => card.info.PlayCard(card.owner));
     }
     public string cardTypeString(CardType ct){
         switch (ct){

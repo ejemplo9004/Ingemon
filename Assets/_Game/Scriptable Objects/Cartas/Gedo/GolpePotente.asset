@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: GolpePotente
   m_EditorClassIdentifier: 
   id: 109
-  cardName: Golpe potente.
-  cardDescription: "Haz 6 de da\xF1o, Haz 3 de da\xF1o al oponete de atras"
+  cardName: Salpicadura
+  cardDescription: "Haz 6 de da\xF1o. Haz 3 de da\xF1o al oponente trasero."
+  cardPhrase: "El d\xEDa del programador se celebra el 13 de septiembre (d\xEDa 256
+    del a\xF1o), porque con un c\xF3digo de 8 bits se pueden representar 256 caracteres
+    diferentes (1 byte)."
   cost: 1
   sprite: {fileID: -789345845, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 1

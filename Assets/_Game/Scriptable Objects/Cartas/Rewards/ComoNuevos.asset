@@ -15,6 +15,10 @@ MonoBehaviour:
   id: 401
   cardName: Como nuevos
   cardDescription: Ambos se curan de sangrados y venenos.
+  cardPhrase: "Denominamos Big Data a la gesti\xF3n y an\xE1lisis de enormes vol\xFAmenes
+    de datos que no pueden ser tratados de manera convencional, ya que superan los
+    l\xEDmites y capacidades de las herramientas de software habitualmente utilizadas
+    para la captura, gesti\xF3n y procesamiento de datos. "
   cost: 0
   sprite: {fileID: -1847791457, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 4

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: SaltaYEsquiva
   m_EditorClassIdentifier: 
   id: 213
-  cardName: Salta y esquiva
-  cardDescription: "Todos los ataques que vayan hacia a ti golpean a tu compa\xF1ero
-    por un turno."
+  cardName: "\xA1Prot\xE9geme!"
+  cardDescription: Todos los ataques dirigidos a ti golpean a tu aliado por 1 turno.
+  cardPhrase: "El desarrollador Backend es el encargado de hacer la conexi\xF3n del
+    servidor con la base de datos y el sitio web."
   cost: 1
   sprite: {fileID: -919306158, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

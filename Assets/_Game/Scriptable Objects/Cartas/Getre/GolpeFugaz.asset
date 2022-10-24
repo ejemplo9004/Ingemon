@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: GolpeFugaz
   m_EditorClassIdentifier: 
   id: 203
-  cardName: Golpe Fugaz
+  cardName: Golpe fugaz
   cardDescription: "Haz 2 de da\xF1o. Roba 1 carta."
+  cardPhrase: "Los criptactivos son activos custodiados y transferidos en sistemas
+    digitales, los cuales utilizan tecnolog\xEDa criptogr\xE1fica avanzada para garantizar
+    la integridad del sistema."
   cost: 0
   sprite: {fileID: -797829547, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
