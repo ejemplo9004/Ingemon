@@ -15,6 +15,8 @@ MonoBehaviour:
   id: 212
   cardName: "Recuperaci\xF3n"
   cardDescription: Roba 2 cartas. Recupera 4 de salud.
+  cardPhrase: Un sistema operativo es el intermediario entre el usuario y el hardware,
+    brinda seguridad y protege los programas y archivos del ordenador.
   cost: 1
   sprite: {fileID: 1312188504, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

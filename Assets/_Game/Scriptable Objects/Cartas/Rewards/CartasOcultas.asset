@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 400
   cardName: Cartas ocultas
-  cardDescription: Roba 3 cartas
+  cardDescription: Roba 3 cartas.
+  cardPhrase: Un sistema operativo es el intermediario entre el usuario y el hardware,
+    brinda seguridad y protege los programas y archivos del ordenador.
   cost: 0
   sprite: {fileID: -1292467351, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
   race: 4
