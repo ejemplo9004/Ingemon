@@ -6,9 +6,15 @@ using UnityEngine;
 public class HandController : MonoBehaviour
 {
     [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private float duration = 1;
     private List<GameObject> cardObjects;
+    private Queue<Card> incomingCards;
+    private bool isDrawing;
+    private WaitForSeconds wait;
     public void OnEnable()
     {
+        incomingCards = new Queue<Card>();
+        wait = new WaitForSeconds(duration);
         cardObjects = new List<GameObject>();
         CombatSingletonManager.Instance.eventManager.OnCardChange += RenderCard;
         CombatSingletonManager.Instance.eventManager.OnHandUpdate += UpdateHand;
@@ -28,6 +34,26 @@ public class HandController : MonoBehaviour
         CardSpriteController controller = cardRenderer.GetComponent<CardSpriteController>();
         controller.InitCardSprite(card);
         cardObjects.Add(cardRenderer);
+    }
+
+    private void AddCard(Card card)
+    {
+        incomingCards.Enqueue(card);
+        if(isDrawing) return;
+        StartCoroutine(DrawCardCoroutine());
+    }
+
+    private IEnumerator DrawCardCoroutine()
+    {
+        isDrawing = true;
+        while (incomingCards.Count > 0)
+        {
+            //AnimateCard(incomingCards.Dequeue())
+            yield return wait;
+        }
+
+        isDrawing = false;
+        yield return null;
     }
 
     private void DiscardCard(Card card)
