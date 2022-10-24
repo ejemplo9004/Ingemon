@@ -123,6 +123,7 @@ public class Login : MonoBehaviour
                 break;
             case 410: // ingemones no encontrados
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
+                GameController.gameController.firstTime = true;
                 MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 break;
             default:
