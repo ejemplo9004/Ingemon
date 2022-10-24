@@ -44,4 +44,11 @@ public class BigCardController : MonoBehaviour
         isRunning = false;
         yield return null;
     }
+
+    private void OnDisable()
+    {
+        StopCoroutine(ShowCardsCoroutine());
+        isRunning = false;
+        showQueue.Clear();
+    }
 }

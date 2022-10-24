@@ -8,4 +8,5 @@ public abstract class IngemonState
     public int duration { set; get; }
     public abstract void SetBuffIcon();
     public abstract int Tick(EntityController target);
+    public abstract void Clear();
 }

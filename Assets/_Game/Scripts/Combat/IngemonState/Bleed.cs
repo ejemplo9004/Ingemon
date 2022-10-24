@@ -28,6 +28,11 @@ public class Bleed : IngemonState
         return remaining;
     }
 
+    public override void Clear()
+    {
+        buffIcon.Clear();
+    }
+
     public int DeniedTick()
     {
         remaining--;

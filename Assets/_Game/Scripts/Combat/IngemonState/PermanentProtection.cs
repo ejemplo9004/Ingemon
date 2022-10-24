@@ -24,4 +24,9 @@ public class PermanentProtection : IngemonState
         buffIcon.UpdateTimer(remaining);
         return remaining;
     }
+
+    public override void Clear()
+    {
+        buffIcon.Clear();
+    }
 }

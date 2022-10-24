@@ -122,7 +122,9 @@ public class UICombatController : MonoBehaviour
     public BuffUIController ShowBuff(CombatIngemonPosition position, BuffsEnum buff)
     {
         GameObject parent = GetBuffParentGameObject(position);
-        return Instantiate(GetBuffObject(buff), parent.transform).GetComponent<BuffUIController>();
+        var bui = Instantiate(GetBuffObject(buff), parent.transform).GetComponent<BuffUIController>();
+        bui.buffType = buff;
+        return bui;
     }
 
     private GameObject GetBuffParentGameObject(CombatIngemonPosition position)
@@ -159,6 +161,15 @@ public class UICombatController : MonoBehaviour
         foreach (Transform child in parent)
         {
             Destroy(child.gameObject);
+        }
+    }    
+    public void CleanBuffsOfType(CombatIngemonPosition position, BuffsEnum buff)
+    {
+        Transform parent = GetBuffParentGameObject(position).transform;
+        foreach (Transform child in parent)
+        {
+            if(child.gameObject.GetComponent<BuffUIController>().buffType == buff)
+                Destroy(child.gameObject);
         }
     }
 }
