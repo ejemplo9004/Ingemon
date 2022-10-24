@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GolpeRapido
   m_EditorClassIdentifier: 
   id: 200
-  cardName: GolpeRapido
+  cardName: Golpe Rapido
   cardDescription: "Haz 5 de da\xF1o."
   cost: 0
   sprite: {fileID: 659568140, guid: dba2bb206b43c8346b904feba80217cc, type: 3}

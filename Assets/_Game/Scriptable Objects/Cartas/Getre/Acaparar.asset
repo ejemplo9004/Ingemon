@@ -37,7 +37,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: SetDamageModifier
+          m_MethodName: SetCardModifier
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
