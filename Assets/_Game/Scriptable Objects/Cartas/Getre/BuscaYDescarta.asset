@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BuscaYDescarta
   m_EditorClassIdentifier: 
   id: 215
-  cardName: Busca y Descarta.
-  cardDescription: Roba 6 cartas, descarta las 2 mas caras.
+  cardName: "Carro\xF1ero"
+  cardDescription: "Roba 6 cartas. Descarta las 2 m\xE1s caras."
+  cardPhrase: "La estructura de datos se refiere a c\xF3mo est\xE1n organizados los
+    datos y c\xF3mo se pueden administrar."
   cost: 2
   sprite: {fileID: 1419585342, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
   race: 2

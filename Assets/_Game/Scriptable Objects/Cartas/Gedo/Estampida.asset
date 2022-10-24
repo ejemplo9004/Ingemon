@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 102
   cardName: Estampida
-  cardDescription: "Haz 4 de da\xF1os a ambos oponentes."
+  cardDescription: "Haz 4 de da\xF1os a todos los oponentes."
+  cardPhrase: "El Deep Learning se fundamenta en el funcionamiento del sistema neurol\xF3gico
+    del humano, es decir, imita la forma en que los humanos obtienen ciertos tipos
+    de informaci\xF3n."
   cost: 0
   sprite: {fileID: 965800327, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

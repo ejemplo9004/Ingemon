@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 20+
   cardName: Golpe triple
-  cardDescription: "Haz 2 de da\xF1o, tres veces."
+  cardDescription: "Haz 2 de da\xF1o tres veces."
+  cardPhrase: "Bitcoin es una moneda virtual o un medio de intercambio electr\xF3nico
+    que sirve para adquirir productos y servicios como cualquier otra moneda."
   cost: 1
   sprite: {fileID: 360254178, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

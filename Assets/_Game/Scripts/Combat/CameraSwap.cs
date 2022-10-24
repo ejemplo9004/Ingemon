@@ -26,7 +26,7 @@ public class CameraSwap : MonoBehaviour
         
     }
     IEnumerator ChangePath(){
-        yield return new WaitForSeconds(Random.Range(15,20));
+        yield return new WaitForSeconds(Random.Range(18,20));
         cart.m_Path = paths[Random.Range(0, paths.Length)];
         StartCoroutine(ChangePath());
     }

@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Regerar
   m_EditorClassIdentifier: 
   id: 1
-  cardName: Regerar
-  cardDescription: "Cura a tu compa\xF1ero 5 de salud. Roba 1 carta"
+  cardName: Regenerar
+  cardDescription: Cura 5 de salud a tu aliado. Roba 1 carta.
+  cardPhrase: "El d\xEDa del programador se celebra el 13 de septiembre (d\xEDa 256
+    del a\xF1o), porque con un c\xF3digo de 8 bits se pueden representar 256 caracteres
+    diferentes (1 byte)."
   cost: 0
   sprite: {fileID: -925486044, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0

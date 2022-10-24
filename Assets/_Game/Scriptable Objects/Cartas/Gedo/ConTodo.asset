@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: ConTodo
   m_EditorClassIdentifier: 
   id: 101
-  cardName: Con todo
-  cardDescription: "Haz 8 de da\xF1o, pierde todo el bloqueo."
+  cardName: "\xA1Con toda!"
+  cardDescription: "Haz 8 de da\xF1o. Pierde todo tu bloqueo."
+  cardPhrase: "Data Science consiste en la extracci\xF3n de informaci\xF3n y conocimientos
+    de grandes vol\xFAmenes de datos recolectados por un negocio."
   cost: 0
   sprite: {fileID: -535158163, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

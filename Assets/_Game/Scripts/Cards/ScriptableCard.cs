@@ -11,7 +11,10 @@ namespace Cards
         [Header("Informacion de la carta")]
         public string id;
         public string cardName;
+        [TextArea(5,5)]
         public string cardDescription;
+        [TextArea(8,12)]
+        public string cardPhrase;
         public int cost;
         public Sprite sprite;
         public IngemonRace race;

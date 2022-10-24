@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: TiroMultiple
   m_EditorClassIdentifier: 
   id: 310
-  cardName: Tiro multiple
-  cardDescription: "Haz 5 de da\xF1o a ambos oponentes."
+  cardName: "Tiro m\xFAltiple"
+  cardDescription: "Haz 5 de da\xF1o a todos los oponentes."
+  cardPhrase: "Un sistema operativo es el conjunto de programas que permite manejar
+    la memoria del disco, medios de almacenamiento de informaci\xF3n y los diferentes
+    recursos de la computadora."
   cost: 1
   sprite: {fileID: 1251626545, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3
