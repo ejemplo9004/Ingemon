@@ -12,10 +12,13 @@ public class Dummy : MonoBehaviour, IDragHandler
     public float speed;
     public void Awake()
     {
+
     }
     public void Update()
     {
+
     }
+
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition + offset;
