@@ -50,6 +50,6 @@ MonoBehaviour:
     - name
   ocupado: 0
   respuesta:
-    codigo: 205
-    mensaje: Login correcto
-    respuesta: '{"id":16,"name":"test","password":"$2a$10$2./arfUcZUptQbK6roecIuHzZOoejXsMT1IZl04TEPInIcq0uDs2W","gold":880,"createdAt":"2022-10-11T12:50:44.000Z","updatedAt":"2022-10-11T13:34:04.000Z"}'
+    codigo: 404
+    mensaje: Error
+    respuesta: 
