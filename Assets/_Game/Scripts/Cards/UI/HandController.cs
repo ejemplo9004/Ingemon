@@ -13,9 +13,6 @@ public class HandController : MonoBehaviour
         CombatSingletonManager.Instance.eventManager.OnCardChange += RenderCard;
         CombatSingletonManager.Instance.eventManager.OnHandUpdate += UpdateHand;
         CombatSingletonManager.Instance.eventManager.OnCardDiscard += DiscardCard;
-        foreach (GameObject card in cardObjects){
-            LeanTween.moveLocalY(card,1f,.25f).setEase(LeanTweenType.punch);
-        }
     }
     public void OnDisable()
     {
