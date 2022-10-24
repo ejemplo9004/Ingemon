@@ -12,6 +12,7 @@ namespace Cards
         public string id;
         public string cardName;
         public string cardDescription;
+        public string cardPhrase;
         public int cost;
         public Sprite sprite;
         public IngemonRace race;
