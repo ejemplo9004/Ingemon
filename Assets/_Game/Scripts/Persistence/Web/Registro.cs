@@ -64,7 +64,12 @@ public class Registro : MonoBehaviour
 
     void posRegistro()
     {
-        
+        switch (servidor.respuesta.codigo)
+        {
+            case 203:
+                Mensajes.singleton.Popup("Este nombre de usuario ya está registrado");
+                break;
+        }
     }
 }
 

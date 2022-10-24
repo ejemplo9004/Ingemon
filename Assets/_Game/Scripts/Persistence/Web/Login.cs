@@ -72,6 +72,10 @@ public class Login : MonoBehaviour
         {
             case 204: //usuario o contrase�a incorrectos
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
+                if (Mensajes.singleton != null)
+                {
+                    Mensajes.singleton.Popup("Usuario o contraseña incorrecto");
+                }
                 break;
             case 205: //inicio de sesion correcto
                 usuario = dbUsuario.CreateFromJSON(servidor.respuesta.respuesta);
@@ -85,8 +89,7 @@ public class Login : MonoBehaviour
                 }
                 break;
             case 404: // Error
-                Logger.Instance.LogWarning("Error, no se puede conectar con el servidor");
-                Logger.Instance.LogWarning($"{servidor.respuesta.respuesta}");
+                Mensajes.singleton.Popup("Error en el servidor");
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
