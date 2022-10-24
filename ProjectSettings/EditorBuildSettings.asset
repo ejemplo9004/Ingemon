@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/Run.unity
     guid: ecb891cc4fde0fd46b7a45e81ba16e70
   - enabled: 1
-    path: Assets/_Game/Scenes/Room 1.unity
-    guid: 5e7497a015a8a4d45a0fd65ca1ca5dcb
+    path: Assets/_Game/Scenes/Room.unity
+    guid: 91811a232c0613b42a2124aed48f5aeb
   - enabled: 1
     path: Assets/_Game/Scenes/Tienda.unity
     guid: 0d571824606c02a499661531d88ef7d0
   - enabled: 0
-    path: Assets/_Game/Scenes/Room.unity
-    guid: 91811a232c0613b42a2124aed48f5aeb
+    path: Assets/_Game/Scenes/Room 1.unity
+    guid: 5e7497a015a8a4d45a0fd65ca1ca5dcb
   m_configObjects: {}
