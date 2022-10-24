@@ -13,7 +13,7 @@ public class EndBattleState : TurnState
 
     public override void ExitState(TurnStateManager manager)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void UpdateState(TurnStateManager manager)

@@ -30,7 +30,6 @@ public class Bleed : IngemonState
 
     public override void Clear()
     {
-        timings = null;
         buffIcon.Clear();
     }
 

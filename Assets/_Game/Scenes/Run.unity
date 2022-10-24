@@ -847,7 +847,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 261864844}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99958897
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1438,7 +1438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00013204587}
+  m_AnchoredPosition: {x: 0, y: -0.00003374677}
   m_SizeDelta: {x: 0, y: 259.5103}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &626170391
@@ -3651,7 +3651,11 @@ MonoBehaviour:
   enoughIngemones: 0
   runInventory: {fileID: 11400000, guid: 50cdd311bd5de1741b4ae39c6ad93436, type: 2}
   rewardCardPool:
-  - {fileID: 11400000, guid: 3bb60a649e22c2a42a1c5755631e8b47, type: 2}
+  - {fileID: 11400000, guid: 8b26456a16f62304f82a96fe1b0f0f7d, type: 2}
+  - {fileID: 11400000, guid: 40170bde4a8cb4d4a8e17110fb9ed602, type: 2}
+  - {fileID: 11400000, guid: 3322b0da0ea01414da7266c205ee81b0, type: 2}
+  - {fileID: 11400000, guid: 55d57111b574d2f4e9c8a5bd303a40c3, type: 2}
+  - {fileID: 11400000, guid: 4948f04cfd58126468075b7f4f928195, type: 2}
 --- !u!4 &1601801173
 Transform:
   m_ObjectHideFlags: 0

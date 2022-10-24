@@ -32,7 +32,6 @@ public class StartProtection : IngemonState, IUpdatableState
 
     public override void Clear()
     {
-        timings = null;
         buffIcon.Clear();
     }
 

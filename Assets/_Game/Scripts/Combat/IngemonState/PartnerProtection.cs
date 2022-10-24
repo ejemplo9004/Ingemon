@@ -27,7 +27,6 @@ public class PartnerProtection : IngemonState
 
     public override void Clear()
     {
-        timings = null;
         buffIcon.Clear();
     }
 }

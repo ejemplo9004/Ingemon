@@ -9,6 +9,7 @@ public class BuffUIController : MonoBehaviour
 {
     public int timer { get; set; }
     public int value { get; set; }
+    public BuffsEnum buffType { get; set; }
     private float maxHeight;
     private float timerUnit;
     [SerializeField] private Image background;
@@ -45,6 +46,7 @@ public class BuffUIController : MonoBehaviour
 
     public void Clear()
     {
-        Destroy(gameObject);
+        if(gameObject != null)
+            Destroy(gameObject);
     }
 }
