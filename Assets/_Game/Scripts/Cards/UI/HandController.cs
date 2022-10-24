@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Cards;
 using UnityEngine;
-
 public class HandController : MonoBehaviour
 {
     [SerializeField] private GameObject cardPrefab;
     private List<GameObject> cardObjects;
-
     public void OnEnable()
     {
         cardObjects = new List<GameObject>();
         CombatSingletonManager.Instance.eventManager.OnCardChange += RenderCard;
         CombatSingletonManager.Instance.eventManager.OnHandUpdate += UpdateHand;
         CombatSingletonManager.Instance.eventManager.OnCardDiscard += DiscardCard;
-    }    
+        foreach (GameObject card in cardObjects){
+            LeanTween.moveLocalY(card,1f,.25f).setEase(LeanTweenType.punch);
+        }
+    }
     public void OnDisable()
     {
         cardObjects = null;
