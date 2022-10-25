@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: TripleTiroParabolico
   m_EditorClassIdentifier: 
   id: 211
-  cardName: Triple tiro parabolico
-  cardDescription: "Haz 3 de da\xF1o 3 veces al oponente de atras."
+  cardName: "Triple tiro parab\xF3lico"
+  cardDescription: "Haz 3 de da\xF1o 3 veces al oponente de atr\xE1s."
+  cardPhrase: "El Frontend es lo que el usuario puede ver, es la interfaz con la
+    que interact\xFAa. El objetivo de un desarrollador de esta \xE1rea, es crear
+    la estructura y el dise\xF1o de un sitio web, trabajando de la mano con los dise\xF1adores
+    de interfaz y experiencia de usuario."
   cost: 1
   sprite: {fileID: 1192846973, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

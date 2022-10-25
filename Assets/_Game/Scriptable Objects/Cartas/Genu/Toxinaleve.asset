@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Toxinaleve
   m_EditorClassIdentifier: 
   id: 2
-  cardName: Toxina Leve
+  cardName: "Toxina d\xE9bil"
   cardDescription: Causa 2 de veneno por 3 turnos
+  cardPhrase: "Un sistema operativo es el conjunto de programas que permite manejar
+    la memoria del disco, medios de almacenamiento de informaci\xF3n y los diferentes
+    recursos de la computadora."
   cost: 0
   sprite: {fileID: 1028970669, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0

@@ -15,6 +15,9 @@ MonoBehaviour:
   id: 406
   cardName: Doble Ataque
   cardDescription: "Atacan a los enemigos por 8 de da\xF1o"
+  cardPhrase: "Los criptactivos son activos custodiados y transferidos en sistemas
+    digitales, los cuales utilizan tecnolog\xEDa criptogr\xE1fica avanzada para garantizar
+    la integridad del sistema."
   cost: 1
   sprite: {fileID: -1653015479, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
   race: 4

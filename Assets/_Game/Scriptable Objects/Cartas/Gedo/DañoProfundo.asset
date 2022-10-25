@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: "Da\xF1oProfundo"
   m_EditorClassIdentifier: 
   id: 117
-  cardName: "Da\xF1o profundo."
-  cardDescription: "Haz 12 de da\xF1o a todos los ingemon con sangrados."
+  cardName: "Da\xF1o profundo"
+  cardDescription: "Haz 12 de da\xF1o a todos los ingemones con sangrados."
+  cardPhrase: "El desarrollador Backend es el encargado de hacer la conexi\xF3n del
+    servidor con la base de datos y el sitio web."
   cost: 2
   sprite: {fileID: -936503682, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 1

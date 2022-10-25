@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: PasoRapido
   m_EditorClassIdentifier: 
   id: 202
-  cardName: Paso Rapido
+  cardName: "Paso R\xE1pido"
   cardDescription: Gana 4 de bloqueo. Roba 1 carta.
+  cardPhrase: "El Internet de las cosas (IoT) es el proceso que permite conectar
+    elementos f\xEDsicos cotidianos al Internet desde objetos dom\xE9sticos comunes,
+    como las bombillas de luz, hasta recursos para la atenci\xF3n de la salud, como
+    los dispositivos m\xE9dicos."
   cost: 0
   sprite: {fileID: -1180453946, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
@@ -42,7 +46,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

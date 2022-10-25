@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 216
   cardName: Golpe de gravedad
-  cardDescription: "Haz 10 de da\xF1o, 3 de da\xF1o extra si el oponente sufre sangrado
-    o veneno."
+  cardDescription: "Haz 10 de da\xF1o o 13 si el oponente sufre sangrado o veneno."
+  cardPhrase: "La estructura de datos se refiere a c\xF3mo est\xE1n organizados los
+    datos y c\xF3mo se pueden administrar."
   cost: 2
   sprite: {fileID: -105414253, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
@@ -26,7 +27,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: SetDamageModifier
+          m_MethodName: SetCardModifier
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

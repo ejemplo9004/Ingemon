@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: "Predicc\xEDonDeDa\xF1os"
   m_EditorClassIdentifier: 
   id: 416
-  cardName: "Predicc\xEDon de da\xF1os"
+  cardName: "Predicci\xF3n de da\xF1os"
   cardDescription: Gana 4 de bloqueo al comenzar cada turno.
+  cardPhrase: "Los criptactivos son activos custodiados y transferidos en sistemas
+    digitales, los cuales utilizan tecnolog\xEDa criptogr\xE1fica avanzada para garantizar
+    la integridad del sistema."
   cost: 2
   sprite: {fileID: -437816321, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3

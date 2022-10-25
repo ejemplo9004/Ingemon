@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private bool lastRunPassed;
     [SerializeField] private Inventory inventory;
     [SerializeField] private CardInventory cardInventory;
+    public bool firstTime = false;
     private UnityEvent onWin = new UnityEvent();
     private UnityEvent onFail = new UnityEvent();
 

@@ -15,6 +15,10 @@ MonoBehaviour:
   id: 407
   cardName: "Recuperaci\xF3n Avanzada"
   cardDescription: Ambos recuperan 8 de salud.
+  cardPhrase: "El Frontend es lo que el usuario puede ver, es la interfaz con la
+    que interact\xFAa. El objetivo de un desarrollador de esta \xE1rea, es crear
+    la estructura y el dise\xF1o de un sitio web, trabajando de la mano con los dise\xF1adores
+    de interfaz y experiencia de usuario."
   cost: 1
   sprite: {fileID: -1638365823, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
   race: 4

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: ProteccionEficiente
   m_EditorClassIdentifier: 
   id: 300
-  cardName: "Protecci\xF3n eficiente"
+  cardName: "Protecci\xF3n ingenieril"
   cardDescription: Gana 7 de bloqueo.
+  cardPhrase: "Un BIT, en inform\xE1tica y otras disciplinas, son la unidad m\xEDnima
+    de informaci\xF3n que puede tener solo dos valores: cero o uno."
   cost: 0
   sprite: {fileID: -1678917000, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3

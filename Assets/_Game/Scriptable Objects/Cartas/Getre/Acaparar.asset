@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 214
   cardName: Acaparar
-  cardDescription: Roba 4 cartas. descarta una aleatoria.
+  cardDescription: Roba 4 cartas. Descarta una aleatoria.
+  cardPhrase: "Blockchain es una cadena de bloques en la nube encargada de contener
+    una base de datos p\xFAblica y distribuida en la que se registran de forma segura
+    las transacciones que se van realizando en la red."
   cost: 1
   sprite: {fileID: 1331451019, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2
@@ -25,19 +28,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: Draw
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 4
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000}
-          m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: SetDamageModifier
+          m_MethodName: SetCardModifier
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -55,6 +46,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
+          m_MethodName: Draw
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

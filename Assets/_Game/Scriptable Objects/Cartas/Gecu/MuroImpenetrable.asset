@@ -15,7 +15,9 @@ MonoBehaviour:
   id: 420
   cardName: Muro impenetrable
   cardDescription: No pierdes tu bloqueo al finalizar turnos.
-  cost: 3
+  cardPhrase: "La estructura de datos se refiere a c\xF3mo est\xE1n organizados los
+    datos y c\xF3mo se pueden administrar."
+  cost: 2
   sprite: {fileID: 929245971, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3
   type: 2
