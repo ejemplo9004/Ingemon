@@ -56,7 +56,7 @@ public class EntityController : MonoBehaviour
         if (phenotype != null)
         {
             string[] feat = phenotype.Split("-");
-            ingemonMesh = feat.Length == 7 ? ingemonPrefabs[Int32.Parse(feat[6])] : ingemonPrefabs[0];
+            ingemonMesh = feat.Length == 8 ? ingemonPrefabs[Int32.Parse(feat[6])] : ingemonPrefabs[0];
             ingemonMesh.SetActive(true);
             ingemonMesh.GetComponent<MorionCambioPartes>()
                 .TransformarIngemon(Int32.Parse(feat[0]), Int32.Parse(feat[1]), Int32.Parse(feat[2]));

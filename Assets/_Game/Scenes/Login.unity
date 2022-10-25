@@ -4014,6 +4014,19 @@ MonoBehaviour:
   lastRunPassed: 0
   inventory: {fileID: 11400000, guid: ab97d61e95e58554daca5fd691efe6a2, type: 2}
   cardInventory: {fileID: 11400000, guid: 13fcf4f8b6e637949b35baf08f117b3a, type: 2}
+  cardSet1:
+  - {fileID: 11400000, guid: f96d6b806520c98478e0c225effbb937, type: 2}
+  - {fileID: 11400000, guid: bf7d5ea9cf1bd994db177c3c60f39663, type: 2}
+  cardSet2:
+  - {fileID: 11400000, guid: 83fed81ed7cacab419f02354bf7d3da1, type: 2}
+  - {fileID: 11400000, guid: dad7d8f62c7c5fc4aa6bb22409f10640, type: 2}
+  cardSet3:
+  - {fileID: 11400000, guid: fae6adc2f298ac24a83fb190043da3a1, type: 2}
+  - {fileID: 11400000, guid: d18cac1622bbfbf438e48c6b025acd0f, type: 2}
+  cardSet4:
+  - {fileID: 11400000, guid: 937538710fb2654449b302bf4fca6d79, type: 2}
+  - {fileID: 11400000, guid: 3b85b599e3b08144281ca985b0b20d31, type: 2}
+  firstTime: 0
 --- !u!4 &853453214
 Transform:
   m_ObjectHideFlags: 0

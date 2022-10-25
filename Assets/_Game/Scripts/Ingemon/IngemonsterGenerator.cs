@@ -86,7 +86,26 @@ public class IngemonsterGenerator : MonoBehaviour
             MorionCambioColores colores = eggSelected.GetComponent<MorionCambioColores>();
             MorionCambioMascaras mascaras = eggSelected.GetComponent<MorionCambioMascaras>();
             MorionCambioPartes partes = eggSelected.GetComponent<MorionCambioPartes>();
-            string phenotype = partes.cadena + "-" + mascaras.iDorsos + "-" + mascaras.iManchas + "-" + colores.numeros + "-" + eggIndex;
+            int deck = 0;
+            switch (eggIndex)
+            {
+                case 0:
+                    deck = Random.Range(0, GameController.gameController.CardSet1.Count);
+                    break;
+                case 1:
+                    deck = Random.Range(0, GameController.gameController.CardSet2.Count);
+                    break;
+                case 2:
+                    deck = Random.Range(0, GameController.gameController.CardSet3.Count);
+                    break;
+                case 3:
+                    deck = Random.Range(0, GameController.gameController.CardSet4.Count);
+                    break;
+                default:
+                    break;
+            }
+
+            string phenotype = partes.cadena + "-" + mascaras.iDorsos + "-" + mascaras.iManchas + "-" + colores.numeros + "-" + eggIndex + "-" + deck;
             int defaultHealth = Random.Range(healthRange.x, healthRange.y);
             ingemonster = new IngemonBuilder().WithName(shopScene.shopUI.IngemonName.text).WithPhenotype(phenotype).WithMaxHealth(defaultHealth);
             economia.ingemonNuevo = ingemonster;
