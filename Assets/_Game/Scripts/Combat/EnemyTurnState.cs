@@ -27,8 +27,8 @@ public class EnemyTurnState : TurnState
 
     private IEnumerator EnemyTurn(TurnStateManager manager)
     {
-        manager.info.enemies.PlayTurn();
-        yield return new WaitForSeconds(3);
+        int cardsPlayed = manager.info.enemies.PlayTurn();
+        yield return new WaitForSeconds(cardsPlayed * 1.5f);
         EndOfTurnEffects(manager);
         if (manager.currentState == this)
             manager.ChangeState(manager.allyState);

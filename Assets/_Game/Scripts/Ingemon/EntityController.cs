@@ -292,6 +292,11 @@ public class EntityController : MonoBehaviour
         animator?.SetTrigger(Parameters.DANO);
     }
 
+    public void MagicAnimation()
+    {
+        animator?.SetTrigger(Parameters.MAGIA);
+    }
+
     public void TickStates(BuffTimings timings)
     {
         for (int i = 0; i < otherStates.Count; i++)
