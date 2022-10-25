@@ -7,6 +7,7 @@ public class RenderCreator : MonoBehaviour
     [SerializeField] private List<RenderTexture> textures;
     [SerializeField] private List<Camera> cameras;
     [SerializeField] private List<RawImage> images;
+    public bool texturesInstantiated;
     public Vector2 size;
     private void Start()
     {
@@ -41,9 +42,11 @@ public class RenderCreator : MonoBehaviour
         {
             cameras[i].targetTexture = textures[i];
         }
+
+        texturesInstantiated = true;
     }
 
-    private void AssignTexturesToImages()
+    public void AssignTexturesToImages()
     {
         for (int i = 0; i < cameras.Count; i++)
         {
@@ -60,6 +63,10 @@ public class RenderCreator : MonoBehaviour
         }
     }
 
+    public void CleanRawImages()
+    {
+        images.Clear();
+    }
     public void AddImages(List<RawImage> rawImages)
     {
         foreach (RawImage rawImage in rawImages)
