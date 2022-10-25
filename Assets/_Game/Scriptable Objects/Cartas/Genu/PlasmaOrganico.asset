@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: PlasmaOrganico
   m_EditorClassIdentifier: 
   id: 8
-  cardName: Plasma organico
-  cardDescription: "Cura tus sangrados y de tu compa\xF1ero"
+  cardName: "Plasma org\xE1nico"
+  cardDescription: Cura los sangrados de todos los aliados.
+  cardPhrase: "El Metaverso es un universo virtual que habitamos gracias a una serie
+    de dispositivos y tecnolog\xEDas que nos permiten navegar e interactuar con sus
+    elementos."
   cost: 1
   sprite: {fileID: -1792465604, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0

@@ -1573,6 +1573,7 @@ MonoBehaviour:
   - {fileID: 4125424619558206316, guid: 8388b416ea0313c41be943753236d40b, type: 3}
   - {fileID: 5653606786164570835, guid: 6515a1755ffc41c4491bb69ba8611e37, type: 3}
   - {fileID: 2038706812022621983, guid: 974bb01420811aa469e8b3506eea61dd, type: 3}
+  - {fileID: 834375844714200091, guid: 72cd447352d34f3419fdcf3b047c4ad3, type: 3}
   eggsPositions:
   - {x: -4.36, y: 0, z: -1.29}
   - {x: -1.93, y: 0, z: -1.29}
@@ -1586,7 +1587,7 @@ MonoBehaviour:
   ingemonCreationVisuals: {fileID: 1772939060}
   eggFadeDuration: 3
   ingemonShowDuration: 0.5
-  defaultHealth: 100
+  healthRange: {x: 45, y: 55}
   ingemonSelectedPosition: {x: -15, y: 0, z: 0}
   ingemonSelectedCamera: {fileID: 627370555}
 --- !u!4 &605613112

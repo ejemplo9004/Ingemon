@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: SoloAtaque
   m_EditorClassIdentifier: 
   id: 107
-  cardName: Solo ataque
+  cardName: Sin defensas
   cardDescription: "Haz 9 de da\xF1o, 1 menos por cada bloqueo que tengas."
+  cardPhrase: "Bitcoin es una moneda virtual o un medio de intercambio electr\xF3nico
+    que sirve para adquirir productos y servicios como cualquier otra moneda."
   cost: 1
   sprite: {fileID: 1121597067, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 1

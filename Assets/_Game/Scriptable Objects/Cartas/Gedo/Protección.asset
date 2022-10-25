@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 104
   cardName: "Protecci\xF3n"
-  cardDescription: Gana 7 de bloqueo
+  cardDescription: Gana 7 de bloqueo.
+  cardPhrase: "El Internet de las cosas (IoT) es el proceso que permite conectar
+    elementos f\xEDsicos cotidianos al Internet desde objetos dom\xE9sticos comunes,
+    como las bombillas de luz, hasta recursos para la atenci\xF3n de la salud, como
+    los dispositivos m\xE9dicos."
   cost: 1
   sprite: {fileID: -1592550922, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 1

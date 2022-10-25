@@ -70,6 +70,22 @@ public class CardSpriteController : MonoBehaviour
         }
         return 0;
     }
+    public int SetTypeOption()
+    {
+        CardType ct = card.info.type;
+        switch (ct){
+            case CardType.ATTACK:
+                return 0;
+            case CardType.DEFENSE:
+                return 1;
+            case CardType.DEBUFF:
+                return 2;
+            case CardType.BUFF:
+                return 3;          
+            default:
+                return 0;
+        }
+    }
     public int SetBreedOption()
     {
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
@@ -97,15 +113,13 @@ public class CardSpriteController : MonoBehaviour
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
         int owner = SetOwnerOption();
         int breed = SetBreedOption();
-        frame.color = colorByOwner[owner];
+        int type = SetTypeOption();
+        frame.color = colorByOwner[type];
+        panel.color = colorByBreed[type];
         if (isBigCard)
         {
-            divisor.color = colorByOwner[owner];
-            typePanel.color = colorByBreed[breed];
-        }
-        else
-        {
-            panel.color = colorByBreed[breed];
+            //divisor.color = colorByBreed[type];
+            typePanel.color = colorByBreed[type];
         }
     }
     public void SetTargetSprites(int option)

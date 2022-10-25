@@ -34,7 +34,6 @@ public class Servidor : ScriptableObject
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.URL, formulario);
         Logger.Instance.LogInfo(servidor + "/" + s.URL);
         yield return www.SendWebRequest();
-
         if (www.result != UnityWebRequest.Result.Success)
         {
             respuesta = new Respuesta();

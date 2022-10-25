@@ -15,6 +15,9 @@ MonoBehaviour:
   id: 315
   cardName: "Muro de contenci\xF3n"
   cardDescription: Gana 15 de bloqueo.
+  cardPhrase: "Blockchain es una cadena de bloques en la nube encargada de contener
+    una base de datos p\xFAblica y distribuida en la que se registran de forma segura
+    las transacciones que se van realizando en la red."
   cost: 2
   sprite: {fileID: 472144492, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3

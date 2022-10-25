@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   cardName: Golpe
-  cardDescription: "Haz 6 de da\xF1o"
+  cardDescription: "Haz 6 de da\xF1o."
+  cardPhrase: Se conoce como servidor a una computadora que almacena datos, archivos
+    y aplicaciones a los que se puede acceder de manera remota.
   cost: 1
   sprite: {fileID: 993831712, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0
