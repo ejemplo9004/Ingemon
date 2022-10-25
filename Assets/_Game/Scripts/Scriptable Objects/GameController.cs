@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     #region Singleton
     public static GameController gameController;
-
+    public int ss = 0;
     private void Awake() {
         if(gameController != null && gameController != this){
             DestroyImmediate(this.gameObject);
@@ -66,6 +66,15 @@ public class GameController : MonoBehaviour
     public void FailBattle()
     {
         onFail.Invoke();
+    }
+        void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ScreenCapture.CaptureScreenshot("Tutorial"+ss.ToString()+".png", 1);
+            ss++;
+            print("nice" + ss.ToString());
+        }
     }
     public Run CurrentRun { get => currentRun; }
     public bool LastRunPassed { get => lastRunPassed; set => lastRunPassed = value; }
