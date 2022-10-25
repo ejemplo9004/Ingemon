@@ -19,12 +19,19 @@ public class GameplaySceneUI : MonoBehaviour
     [SerializeField] protected List<GameObject> preselectionImages;
     [SerializeField] protected GameObject selectionCanvas;
 
-    public void SelectIngemon(GameObject selectedImage){
+    public void SelectIngemon(GameObject selectedImage, bool room){
         Ingemonster ingemon = selectedImage.GetComponent<IngemonSelector>().Ingemon;
         int index = preselectionImages.IndexOf(selectedIngemonImage);
         if(sceneController.AddIngemonToPreselection(ingemon, index)){
             selectedIngemonImage.GetComponent<IngemonSelector>().Ingemon = ingemon;
             selectedIngemonImage.GetComponentInChildren<TextMeshProUGUI>().text = ingemon.name;
+            
+            if (!room)
+            {
+                selectedIngemonImage.GetComponentInChildren<RawImage>().texture =
+                    selectedImage.GetComponentInChildren<RawImage>().texture;
+            }
+            
             SetNextPreselectionBox();
         }
     }

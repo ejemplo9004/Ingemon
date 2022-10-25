@@ -10,6 +10,7 @@ public class IngemonSpawner : MonoBehaviour
     public Vector3 startPosition;
     public float positionOffset;
     private float lastPosition;
+    public bool inRun;
 
     private void Start()
     {
@@ -32,6 +33,10 @@ public class IngemonSpawner : MonoBehaviour
             lastPosition += positionOffset;
         }
         renderCreator.Cameras = cameras;
+        if (inRun)
+        {
+            renderCreator.gameObject.SetActive(true);
+        }
     }
 
     private void Generate(GameObject copy, string[] feat)

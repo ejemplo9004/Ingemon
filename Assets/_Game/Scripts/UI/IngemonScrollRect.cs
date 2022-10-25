@@ -23,22 +23,17 @@ public class IngemonScrollRect : MonoBehaviour
         ingemonContainers = new List<IngemonContainer>();
         gridNumber = Mathf.CeilToInt(ingemonInventory.Ingemones.Count / 6f);
         delta = gridNumber > 1 ? 1f / (gridNumber - 1) : 0;
-        SetContainerSize();
         InstantiateGrid();
     }
-
-    private void SetContainerSize()
-    {
-        float elementsWidht = GetComponentInParent<RectTransform>().rect.width;
-        container.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, gridNumber * elementsWidht);
-    }
-
     private void InstantiateGrid()
     {
         for (int i = 0; i < gridNumber; i++)
         {
             GameObject copy = Instantiate(content, container);
             copy.GetComponent<IngemonContainer>().IngemonScrollRect1 = gameObject;
+            Rect elementsRect = GetComponentInParent<RectTransform>().rect;
+            copy.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, elementsRect.width);
+            copy.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, elementsRect.height);
             ingemonContainers.Add(copy.GetComponent<IngemonContainer>());
         }
     }
@@ -74,7 +69,7 @@ public class IngemonScrollRect : MonoBehaviour
             for (float i = currentValue; i < nextValue; i += changeFraction)
             {
                 scrollbar.value = i;
-                yield return new WaitForEndOfFrame();
+                yield return null;
             }
         }
         else
@@ -82,7 +77,7 @@ public class IngemonScrollRect : MonoBehaviour
             for (float i = currentValue; i > nextValue; i -= changeFraction)
             {
                 scrollbar.value = i;
-                yield return new WaitForEndOfFrame();
+                yield return null;
             }
         }
         scrollbar.value = nextValue;

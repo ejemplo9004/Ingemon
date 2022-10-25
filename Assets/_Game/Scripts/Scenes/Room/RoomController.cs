@@ -11,6 +11,7 @@ public class RoomController : GameplayScene
     private List<CombatEventSystem.OnEndBattleAction> failActions = new List<CombatEventSystem.OnEndBattleAction>();
     private void OnEnable()
     {
+        Debug.Log("oe");
         ConfigureRoom(true); 
     }
     private void OnDisable()
@@ -51,7 +52,6 @@ public class RoomController : GameplayScene
     private IEnumerator SetRoomListeners()
     {
         yield return new WaitUntil(() => CombatSingletonManager.Instance != null);
-        Debug.Log("CombatSingletonManager.Instance");
         SetWinListeners(true);
         SetFailListeners(true);
         gamePlaySceneUI.SetWinListeners(true);
