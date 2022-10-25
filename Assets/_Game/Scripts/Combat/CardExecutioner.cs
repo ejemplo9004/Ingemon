@@ -34,7 +34,7 @@ public class CardExecutioner
             Debug.Log($"Curando a {t.position}");
             t.GetHealed(health);
         }
-
+        owner.MagicAnimation();
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
     }
 
@@ -44,7 +44,7 @@ public class CardExecutioner
         {
             t.GetProtection(protection);
         }
-
+        owner.MagicAnimation();
         CombatSingletonManager.Instance.eventManager.ChangeProtection();
     }
 
@@ -81,6 +81,7 @@ public class CardExecutioner
         {
             t.CleanPoison();
         }
+        owner.MagicAnimation();
     }
 
     public void Bleed(int damage, int duration, int target, EntityController owner)
@@ -132,6 +133,7 @@ public class CardExecutioner
                     throw new ArgumentOutOfRangeException(nameof(modifier), modifier, null);
             }
         }
+        owner.MagicAnimation();
     }
 
     public void SetState(int value, int duration, int modifier, int target, EntityController owner)
@@ -171,6 +173,7 @@ public class CardExecutioner
         {
             t.CleanBleed();
         }
+        owner.MagicAnimation();
     }
 
     public List<EntityController> GetTargets(int target, EntityController owner)
