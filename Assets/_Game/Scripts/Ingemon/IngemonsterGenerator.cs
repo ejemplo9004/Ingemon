@@ -18,7 +18,7 @@ public class IngemonsterGenerator : MonoBehaviour
     [SerializeField] private float eggFadeDuration;
     [SerializeField] private float ingemonShowDuration;
     private Ingemonster ingemonster;
-    [SerializeField] public Vector2Int healthRange;
+    [SerializeField] public Vector2Int healthRange = new Vector2Int(45,55);
     private bool isInCreation;
     private List<GameObject> morionHuevosList;
     private List<int> morionHuevosRaza;

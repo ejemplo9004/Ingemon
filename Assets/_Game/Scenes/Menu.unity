@@ -967,6 +967,7 @@ MonoBehaviour:
   lastRunPassed: 0
   inventory: {fileID: 11400000, guid: ab97d61e95e58554daca5fd691efe6a2, type: 2}
   cardInventory: {fileID: 11400000, guid: 13fcf4f8b6e637949b35baf08f117b3a, type: 2}
+  firstTime: 0
 --- !u!4 &688116891
 Transform:
   m_ObjectHideFlags: 0
@@ -2615,6 +2616,7 @@ MonoBehaviour:
   - {fileID: 7411365421195942606, guid: 78b91c7496751e64fad031e1adc548dc, type: 3}
   - {fileID: 5889942329451084517, guid: 544574bd1c6164443ae1a676e17c2bd3, type: 3}
   - {fileID: 7955807325866780505, guid: 483903f10bc246d4f954a984450a215e, type: 3}
+  - {fileID: 834375844714200091, guid: 1c8d2a4d68ae71e4e9d4d78945dfc852, type: 3}
   renderCreator: {fileID: 539241599}
   startPosition: {x: 50, y: 0, z: 0}
   positionOffset: 15
