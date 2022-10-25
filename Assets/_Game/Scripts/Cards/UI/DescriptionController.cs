@@ -20,8 +20,14 @@ public class DescriptionController : MonoBehaviour
         description.text = card.info.cardPhrase;
         typeText.text = cardTypeString(card.info.type);
         typeIcon.sprite = card.info.sprite;
-        btnPlayCard.onClick.AddListener(() => card.info.PlayCard(card.owner));
+        btnPlayCard.onClick.AddListener(() => CombatSingletonManager.Instance.eventManager.PlayCard(card));
     }
+
+    private void OnDisable()
+    {
+        btnPlayCard.onClick.RemoveAllListeners();
+    }
+
     public string cardTypeString(CardType ct){
         switch (ct){
             case CardType.ATTACK:
