@@ -8,6 +8,7 @@ public class RoomUI : GameplaySceneUI
     [SerializeField] private GameObject enemyPanel;
     [SerializeField] private GameObject combatCanvas;
     [SerializeField] private GameObject rewardPanel;
+    [SerializeField] private GameObject tutorialPanel;
     private List<CombatEventSystem.OnEndBattleAction> winActions = new List<CombatEventSystem.OnEndBattleAction>();
     private List<CombatEventSystem.OnEndBattleAction> failActions = new List<CombatEventSystem.OnEndBattleAction>();
 
