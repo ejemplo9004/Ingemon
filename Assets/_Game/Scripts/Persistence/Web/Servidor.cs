@@ -36,6 +36,7 @@ public class Servidor : ScriptableObject
         yield return www.SendWebRequest();
         if (www.result != UnityWebRequest.Result.Success)
         {
+            Debug.Log("loco que");
             respuesta = new Respuesta();
         }
         else
