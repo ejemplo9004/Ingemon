@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BuscaYDescarta
   m_EditorClassIdentifier: 
   id: 215
-  cardName: Busca y Descarta.
-  cardDescription: Roba 6 cartas, descarta las 2 mas caras.
+  cardName: "Carro\xF1ero"
+  cardDescription: "Descarta tus 2 cartas m\xE1s caras. Roba 5 cartas."
+  cardPhrase: "La estructura de datos se refiere a c\xF3mo est\xE1n organizados los
+    datos y c\xF3mo se pueden administrar."
   cost: 2
   sprite: {fileID: 1419585342, guid: 38084f3d9ecd78244978548cc73b0d50, type: 3}
   race: 2
@@ -25,19 +27,19 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: Draw
+          m_MethodName: SetTarget
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 6
+            m_IntArgument: -4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 11400000}
           m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
-          m_MethodName: SetDamageModifier
+          m_MethodName: SetCardModifier
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -55,6 +57,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: Cards.ScriptableCard, Assembly-CSharp
+          m_MethodName: Draw
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

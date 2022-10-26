@@ -9,6 +9,7 @@ public class BuffUIController : MonoBehaviour
 {
     public int timer { get; set; }
     public int value { get; set; }
+    public BuffsEnum buffType { get; set; }
     private float maxHeight;
     private float timerUnit;
     [SerializeField] private Image background;
@@ -29,7 +30,7 @@ public class BuffUIController : MonoBehaviour
         background.rectTransform.sizeDelta = new Vector2(background.rectTransform.sizeDelta.x, timer * timerUnit);
         if (timer == 0)
         {
-            Destroy(gameObject);
+            Clear();
         }
     }
 
@@ -39,7 +40,13 @@ public class BuffUIController : MonoBehaviour
         text.SetText(value.ToString());
         if (value == 0)
         {
-            Destroy(gameObject);
+            Clear();
         }
+    }
+
+    public void Clear()
+    {
+        if(gameObject != null)
+            Destroy(gameObject);
     }
 }

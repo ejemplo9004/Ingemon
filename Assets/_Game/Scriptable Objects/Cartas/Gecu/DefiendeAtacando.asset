@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: DefiendeAtacando
   m_EditorClassIdentifier: 
   id: 311
-  cardName: Defiende atacando
-  cardDescription: "Haz 5 de da\xF1o, gana 5 de bloqueo."
+  cardName: Ataque cubierto
+  cardDescription: "Haz 5 de da\xF1o. Gana 5 de bloqueo."
+  cardPhrase: "La ciberseguridad se compone de pr\xE1cticas que protegen sistemas,
+    redes y programas contra ataques digitales."
   cost: 1
   sprite: {fileID: 1681716989, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3

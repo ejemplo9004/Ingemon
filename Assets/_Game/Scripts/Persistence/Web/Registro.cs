@@ -38,7 +38,7 @@ public class Registro : MonoBehaviour
             //txtMensaje.text = "Las contrase�as no coinciden";
             if (Mensajes.singleton != null)
             {
-                Mensajes.singleton.Popup("Las contrase�as no coinciden");
+                Mensajes.singleton.Popup("Las contraseñas no coinciden");
             }
         }
     }
@@ -58,7 +58,12 @@ public class Registro : MonoBehaviour
 
     void posRegistro()
     {
-        
+        switch (servidor.respuesta.codigo)
+        {
+            case 203:
+                Mensajes.singleton.Popup("Este nombre de usuario ya está registrado");
+                break;
+        }
     }
 }
 

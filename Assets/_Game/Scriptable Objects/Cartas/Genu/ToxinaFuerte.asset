@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: ToxinaFuerte
   m_EditorClassIdentifier: 
   id: 18
-  cardName: Toxina fuerte
-  cardDescription: Causa 7 de veneno por 2 turnos
+  cardName: "Toxina ca\xFAstica"
+  cardDescription: Causa 7 de veneno por 2 turnos.
+  cardPhrase: "Un BIT, en inform\xE1tica y otras disciplinas, son la unidad m\xEDnima
+    de informaci\xF3n que puede tener solo dos valores: cero o uno."
   cost: 2
   sprite: {fileID: -1676016967, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0

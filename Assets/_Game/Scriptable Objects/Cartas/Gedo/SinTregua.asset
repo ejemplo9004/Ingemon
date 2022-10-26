@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 106
   cardName: Sin tregua
-  cardDescription: "Haz 4 de da\xF1o, si el objetivo tiene sangrado haz 10."
+  cardDescription: "Haz 4 de da\xF1o o 10 si el objetivo tiene sangrado."
+  cardPhrase: "El Deep Learning se fundamenta en el funcionamiento del sistema neurol\xF3gico
+    del humano, es decir, imita la forma en que los humanos obtienen ciertos tipos
+    de informaci\xF3n."
   cost: 1
   sprite: {fileID: -1489899139, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 1

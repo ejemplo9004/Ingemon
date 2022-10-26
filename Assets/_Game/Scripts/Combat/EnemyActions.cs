@@ -61,15 +61,19 @@ public class EnemyActions
         return card;
     }
 
-    public void PlayTurn()
+    public int PlayTurn()
     {
+        int n = 0;
         foreach (var card in enemyTurnPlays)
         {
             card.info.PlayCard(card.owner);
             CombatSingletonManager.Instance.eventManager.ValidCardPlayed(card);
             discardEnemyDeck.Add(card);
             card.owner.TickBleed();
+            n++;
         }
+
+        return n;
     }
     
     

@@ -15,6 +15,9 @@ MonoBehaviour:
   id: 206
   cardName: Golpe
   cardDescription: "Haz 6 de da\xF1o."
+  cardPhrase: "El VPS (Virtual Private Server) se refiere a un servidor virtual alojado
+    en una m\xE1quina f\xEDsica, lo que permite alojar un sitio web u otra aplicaci\xF3n
+    de forma exclusiva."
   cost: 1
   sprite: {fileID: 993831712, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

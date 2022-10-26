@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   cardName: Zona verde
-  cardDescription: Causa 2 de veneno por 2 turnos a ambos enemigos.
+  cardDescription: Causa 2 de veneno por 2 turnos a todos los enemigos.
+  cardPhrase: "La finalidad de la ciencia de datos es encontrar tendencias y patrones
+    que sean \xFAtiles para la toma de decisiones estrat\xE9gicas."
   cost: 0
   sprite: {fileID: -1789945173, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 0

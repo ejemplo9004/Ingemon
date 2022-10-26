@@ -15,6 +15,8 @@ MonoBehaviour:
   id: 204
   cardName: Esquive
   cardDescription: Gana 5 de bloqueo.
+  cardPhrase: "La ciberseguridad se compone de pr\xE1cticas que protegen sistemas,
+    redes y programas contra ataques digitales."
   cost: 0
   sprite: {fileID: -1935565772, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 2

@@ -56,7 +56,7 @@ public class EntityController : MonoBehaviour
         if (phenotype != null)
         {
             string[] feat = phenotype.Split("-");
-            ingemonMesh = feat.Length == 7 ? ingemonPrefabs[Int32.Parse(feat[6])] : ingemonPrefabs[0];
+            ingemonMesh = feat.Length == 8 ? ingemonPrefabs[Int32.Parse(feat[6])] : ingemonPrefabs[0];
             ingemonMesh.SetActive(true);
             ingemonMesh.GetComponent<MorionCambioPartes>()
                 .TransformarIngemon(Int32.Parse(feat[0]), Int32.Parse(feat[1]), Int32.Parse(feat[2]));
@@ -198,20 +198,24 @@ public class EntityController : MonoBehaviour
 
     public void CleanPoison()
     {
-        poisons = new List<Poison>();
-        CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
+        poisons.Clear();
+        CombatSingletonManager.Instance.uiManager.CleanBuffsOfType(position, BuffsEnum.Poison);
     }
 
     public void CleanBleed()
     {
-        bleeds = new List<Bleed>();
-        CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
+        bleeds.Clear();
+        CombatSingletonManager.Instance.uiManager.CleanBuffsOfType(position, BuffsEnum.Bleed);
     }
 
-    private void CleanBuffs()
+    public void CleanBuffs()
     {
-        poisons = new List<Poison>();
-        bleeds = new List<Bleed>();
+        poisons.ForEach(p => p.Clear());
+        bleeds.ForEach(b => b.Clear());
+        otherStates.ForEach(s => s.Clear());
+        poisons.Clear();
+        bleeds.Clear();
+        otherStates.Clear();
         CombatSingletonManager.Instance.uiManager.CleanBuffs(position);
     }
 
@@ -286,6 +290,11 @@ public class EntityController : MonoBehaviour
     public void DamageAnimation()
     {
         animator?.SetTrigger(Parameters.DANO);
+    }
+
+    public void MagicAnimation()
+    {
+        animator?.SetTrigger(Parameters.MAGIA);
     }
 
     public void TickStates(BuffTimings timings)
