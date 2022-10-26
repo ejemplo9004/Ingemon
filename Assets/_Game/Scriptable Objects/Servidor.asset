@@ -44,12 +44,8 @@ MonoBehaviour:
   - nombre: buscar frases
     URL: buscarfrases
     parametros: []
-  - nombre: user vr
-    URL: uservr
-    parametros:
-    - name
   ocupado: 0
   respuesta:
-    codigo: 404
-    mensaje: Error
-    respuesta: 
+    codigo: 210
+    mensaje: Ingemones encontrados correctamente
+    respuesta: '{"id":112,"name":"Bonito","phenotype":"0-1-1-8-3-009-0","maxHealth":100,"user_id":128,"createdAt":"2022-10-21T19:55:47.000Z","updatedAt":"2022-10-21T19:55:47.000Z"}!{"id":113,"name":"Dientes","phenotype":"9-2-0-9-3-479-0","maxHealth":100,"user_id":128,"createdAt":"2022-10-21T19:55:57.000Z","updatedAt":"2022-10-21T19:55:57.000Z"}!{"id":114,"name":"Sucio","phenotype":"8-0-2-8-2-164-2","maxHealth":100,"user_id":128,"createdAt":"2022-10-21T19:56:10.000Z","updatedAt":"2022-10-21T19:56:10.000Z"}!{"id":115,"name":"Infinito","phenotype":"2-1-4-7-8-943-2","maxHealth":100,"user_id":128,"createdAt":"2022-10-21T19:56:20.000Z","updatedAt":"2022-10-21T19:56:20.000Z"}!{"id":134,"name":"Volcanico","phenotype":"7-6-4-8-2-434-2","maxHealth":100,"user_id":128,"createdAt":"2022-10-22T02:40:49.000Z","updatedAt":"2022-10-22T02:40:49.000Z"}!'
