@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class TutorialController : MonoBehaviour
     public GameObject[] slides;
     public int actualSlide = 0;
 
-    public void Start()
+    public void OnEnable()
     {
         back.onClick.AddListener(() => moveSlide(-1));
         forward.onClick.AddListener(() => moveSlide(1));
@@ -36,6 +37,12 @@ public class TutorialController : MonoBehaviour
                 LeanTween.scale(slides[actualSlide], Vector3.one, .15f).setEaseOutBounce().setDelay(.05f);
                 LeanTween.moveLocalX(oldSlide,0,0f);
             });
+    }
+
+    public void OnDisable()
+    {
+        back.onClick.RemoveAllListeners();
+        forward.onClick.RemoveAllListeners();
     }
 }
 

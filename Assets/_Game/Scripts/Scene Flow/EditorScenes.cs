@@ -8,7 +8,4 @@ public enum EditorScenes
     RoomRoy,
     Run,
     Tienda,
-    RunGiloc,
-    RoomGiloc,
-    MenuGiloc
 }

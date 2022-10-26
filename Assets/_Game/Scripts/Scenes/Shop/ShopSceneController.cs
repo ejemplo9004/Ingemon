@@ -41,6 +41,7 @@ public class ShopSceneController : MonoBehaviour
         {
             int count = 4 - GameController.gameController.Inventory.Ingemones.Count;
             Mensajes.singleton.Popup("Para empezar a jugar debes comprar " + count + " Ingemones, presiona alguno de los botones de 'Comprar' para hacerlo");
+            GameController.gameController.firstTime = true;
         }
     }
 
