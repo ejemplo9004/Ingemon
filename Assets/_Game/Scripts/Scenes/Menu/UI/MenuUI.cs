@@ -6,6 +6,7 @@ public class MenuUI : MonoBehaviour
 {
     [SerializeField] private GameObject runsPanel;
     [SerializeField] private GameObject rewardPanel;
+    [SerializeField] private GameObject accountPanel;
     [SerializeField] private Text rewardText;
     [SerializeField] private Text titleText;
     [SerializeField] private float fadeRewardTime;
@@ -24,6 +25,15 @@ public class MenuUI : MonoBehaviour
         rewardPanel.SetActive(true);
         rewardText.text = text;
         StartCoroutine(FadeRewardPanel());
+    }
+
+    public void ToggleAccountPanel(){
+        if(accountPanel.activeInHierarchy){
+            accountPanel.SetActive(false);
+        }
+        else{
+            accountPanel.SetActive(true);
+        }
     }
 
     private IEnumerator FadeRewardPanel()
