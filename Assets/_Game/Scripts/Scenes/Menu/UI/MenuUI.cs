@@ -7,7 +7,9 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private GameObject runsPanel;
     [SerializeField] private GameObject rewardPanel;
     [SerializeField] private Text rewardText;
+    [SerializeField] private Text titleText;
     [SerializeField] private float fadeRewardTime;
+    [SerializeField] private float timeToBeginToFade;
 
     public void ToggleRunsPanel(){
         if(runsPanel.activeInHierarchy){
@@ -26,6 +28,7 @@ public class MenuUI : MonoBehaviour
 
     private IEnumerator FadeRewardPanel()
     {
+        yield return new WaitForSeconds(timeToBeginToFade);
         Image panel = rewardPanel.GetComponent<Image>();
         Color panelStartColor = panel.color;
         Color panelEndColor = new Color(panelStartColor.r, panelStartColor.g, panelStartColor.b, 0f);
@@ -36,6 +39,7 @@ public class MenuUI : MonoBehaviour
             float normalizedTime = i / fadeRewardTime;
             panel.color = Color.Lerp(panelStartColor, panelEndColor, normalizedTime);
             rewardText.color = Color.Lerp(textStartColor, textEndColor, normalizedTime);
+            titleText.color = Color.Lerp(textStartColor, textEndColor, normalizedTime);
             yield return null;
         }
         rewardPanel.SetActive(false);

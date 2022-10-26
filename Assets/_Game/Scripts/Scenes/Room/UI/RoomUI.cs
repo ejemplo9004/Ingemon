@@ -8,6 +8,7 @@ public class RoomUI : GameplaySceneUI
     [SerializeField] private GameObject enemyPanel;
     [SerializeField] private GameObject combatCanvas;
     [SerializeField] private GameObject rewardPanel;
+    [SerializeField] private GameObject tutorialPanel;
     private List<CombatEventSystem.OnEndBattleAction> winActions = new List<CombatEventSystem.OnEndBattleAction>();
     private List<CombatEventSystem.OnEndBattleAction> failActions = new List<CombatEventSystem.OnEndBattleAction>();
 
@@ -78,7 +79,7 @@ public class RoomUI : GameplaySceneUI
             GameObject instance = Instantiate(imagePrefab, parent: imagePrefabParent.transform);
             ingemonsImages.Add(instance);
             Button button = instance.GetComponent<Button>();
-            button.onClick.AddListener(delegate { SelectIngemon(instance); });
+            button.onClick.AddListener(delegate { SelectIngemon(instance, true); });
         }
     }
 

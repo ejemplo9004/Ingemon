@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefensaEnEquipo
   m_EditorClassIdentifier: 
   id: 317
-  cardName: Me pongo la 10
+  cardName: Muro de Escudos
   cardDescription: Todos los aliados ganan 10 de bloqueo.
   cardPhrase: "Blockchain es una cadena de bloques en la nube encargada de contener
     una base de datos p\xFAblica y distribuida en la que se registran de forma segura

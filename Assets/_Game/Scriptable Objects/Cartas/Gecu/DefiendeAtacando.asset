@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefiendeAtacando
   m_EditorClassIdentifier: 
   id: 311
-  cardName: Tira y afloja
+  cardName: Ataque cubierto
   cardDescription: "Haz 5 de da\xF1o. Gana 5 de bloqueo."
   cardPhrase: "La ciberseguridad se compone de pr\xE1cticas que protegen sistemas,
     redes y programas contra ataques digitales."

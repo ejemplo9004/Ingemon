@@ -53,13 +53,7 @@ public class Registro : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
-        if(servidor.respuesta.codigo == 201)
-        {
-            Mensajes.singleton.Popup("Usuario Registrado Exitosamente");
-            inpLoginJugador.text = inpUsuarioRegistro.text;
-            goRegistrar.SetActive(false);
-            goLogin.SetActive(true);
-        }
+        Mensajes.singleton.Popup("Usuario creado exitosamente");
     }
 
     void posRegistro()
