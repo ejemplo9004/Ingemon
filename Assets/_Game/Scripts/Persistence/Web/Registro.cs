@@ -53,13 +53,15 @@ public class Registro : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
-        Mensajes.singleton.Popup("Usuario creado exitosamente");
     }
 
     void posRegistro()
     {
         switch (servidor.respuesta.codigo)
         {
+            case 201:
+                Mensajes.singleton.Popup("Usuario creado correctamente");
+                break;
             case 203:
                 Mensajes.singleton.Popup("Este nombre de usuario ya está registrado");
                 break;

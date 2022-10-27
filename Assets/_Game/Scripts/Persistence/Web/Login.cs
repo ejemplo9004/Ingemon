@@ -70,7 +70,7 @@ public class Login : MonoBehaviour
     {
         switch (servidor.respuesta.codigo)
         {
-            case 204: //usuario o contrase�a incorrectos
+            case 204: //usuario o contraseña incorrectos
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
                 if (Mensajes.singleton != null)
                 {
