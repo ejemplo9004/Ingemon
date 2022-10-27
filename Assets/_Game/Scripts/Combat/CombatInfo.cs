@@ -175,4 +175,9 @@ public class CombatInfo
                 break;
         }
     }
+    
+    public void WinNow()
+    {
+        CombatSingletonManager.Instance.eventManager.WinBattle();
+    }
 }

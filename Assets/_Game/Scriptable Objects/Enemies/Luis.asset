@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Luis
   health: 50
-  phenotype: 9-8-7-6-5-432-1
+  phenotype: 9-8-7-6-5-432-1-0
   cardSet: {fileID: 11400000, guid: d18cac1622bbfbf438e48c6b025acd0f, type: 2}

@@ -6,11 +6,10 @@ public class TutorialActivator: MonoBehaviour
     [SerializeField] private GameObject tutorialObject;
     private void Start()
     {
-        if (GameController.gameController.firstTime)
+        if (PlayerPrefs.GetInt("FirstTime", 1) == 1)
         {
             tutorialObject.SetActive(true);
+            PlayerPrefs.SetInt("FirstTime", 0);
         }
-
-        GameController.gameController.firstTime = false;
     }
 }

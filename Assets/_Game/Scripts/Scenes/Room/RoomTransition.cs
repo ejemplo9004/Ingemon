@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomTransition : MonoBehaviour
 {
-    [SerializeField] private GameObject roomModel;
+    [SerializeField] private List<GameObject> roomModels;
     [SerializeField] private Transform roomModelReference; // Para saber la posicion que ocupa en escena el primer room
     [SerializeField] private float rotationMultiplier = 60f;
     [SerializeField] private Vector3 roomPosOffset = new Vector3(0, 9.2f, 0);
@@ -45,7 +45,7 @@ public class RoomTransition : MonoBehaviour
     private void RoomGeneration()
     {
         float rotationAmount = Random.Range(0, 6);
-        GameObject roomCopy = Instantiate(roomModel, roomModelReference.position + roomPosOffset, Quaternion.Euler(0, rotationMultiplier * rotationAmount, 0));
+        GameObject roomCopy = Instantiate(roomModels[Random.Range(0, roomModels.Count)], roomModelReference.position + roomPosOffset, Quaternion.Euler(0, rotationMultiplier * rotationAmount, 0));
         roomModelReference = roomCopy.transform;
     }
 

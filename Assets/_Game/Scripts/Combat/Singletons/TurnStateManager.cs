@@ -54,6 +54,10 @@ public class TurnStateManager : MonoBehaviour
         CombatSingletonManager.Instance.eventManager.OnWinBattle -= WonBattle;
         CombatSingletonManager.Instance.eventManager.OnFailBattle -= FailedBattle;
     }
-
+    [ContextMenu("WinNow")]
+    public void WinNow()
+    {
+        info.WinNow();
+    }
 
 }
