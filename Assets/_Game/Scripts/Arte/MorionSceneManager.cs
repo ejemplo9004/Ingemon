@@ -71,7 +71,7 @@ public class MorionSceneManager : MonoBehaviour
         }
         _anim.SetBool("Cargando", false);
         yield return new WaitForSeconds(2.5f);
-        _texto.text = "";
+        //_texto.text = "";
     }
 
 
