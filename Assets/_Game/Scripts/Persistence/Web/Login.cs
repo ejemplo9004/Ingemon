@@ -89,7 +89,7 @@ public class Login : MonoBehaviour
                 }
                 break;
             case 404: // Error
-                Mensajes.singleton.Popup("Error en el servidor");
+                Mensajes.singleton.Popup("Error de conexión");
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
