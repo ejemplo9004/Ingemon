@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Gamon
   health: 51
-  phenotype: 1-1-7-8-6-895-0
+  phenotype: 1-1-7-8-6-895-0-0
   cardSet: {fileID: 11400000, guid: f96d6b806520c98478e0c225effbb937, type: 2}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Lucigon
   health: 47
-  phenotype: 1-2-7-2-6-114-0
+  phenotype: 1-2-7-2-6-114-0-0
   cardSet: {fileID: 11400000, guid: bf7d5ea9cf1bd994db177c3c60f39663, type: 2}

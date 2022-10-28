@@ -89,7 +89,7 @@ public class Login : MonoBehaviour
                 }
                 break;
             case 404: // Error
-                Mensajes.singleton.Popup("Error en el servidor");
+                Mensajes.singleton.Popup("Error de conexión");
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
@@ -122,11 +122,10 @@ public class Login : MonoBehaviour
                 MorionSceneManager.LoadScene(0);
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
-                Logger.Instance.LogInfo(servidor.respuesta.mensaje);
                 break;
             case 410: // ingemones no encontrados
-                Logger.Instance.LogInfo(servidor.respuesta.mensaje);
-                GameController.gameController.firstTime = true;
+                //GameController.gameController.firstTime = true;
+                PlayerPrefs.SetInt("FirstTime", 1);
                 MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 break;
             default:

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Fishamon
   health: 50
-  phenotype: 1-2-3-5-6-895-1
+  phenotype: 1-2-3-5-6-895-1-0
   cardSet: {fileID: 11400000, guid: fae6adc2f298ac24a83fb190043da3a1, type: 2}

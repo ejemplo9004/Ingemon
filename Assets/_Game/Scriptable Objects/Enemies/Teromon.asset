@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Teromon
   health: 54
-  phenotype: 6-5-9-4-2-551-1
+  phenotype: 6-5-9-4-2-551-1-0
   cardSet: {fileID: 11400000, guid: 5b4fa812a193f93449e82323dabfaf48, type: 2}

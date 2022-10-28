@@ -55,6 +55,19 @@ MonoBehaviour:
     - user_id
   ocupado: 0
   respuesta:
-    codigo: 210
-    mensaje: Ingemones encontrados correctamente
-    respuesta: '{"id":128,"name":"Carlos","phenotype":"8-5-9-4-4-352-1","maxHealth":100,"user_id":140,"createdAt":"2022-10-22T00:18:35.000Z","updatedAt":"2022-10-22T00:18:35.000Z"}!{"id":148,"name":"furrito","phenotype":"2-1-9-6-1-741-2","maxHealth":100,"user_id":140,"createdAt":"2022-10-22T14:40:43.000Z","updatedAt":"2022-10-22T14:40:43.000Z"}!{"id":149,"name":"tribu","phenotype":"6-6-8-6-2-080-1","maxHealth":100,"user_id":140,"createdAt":"2022-10-22T14:42:20.000Z","updatedAt":"2022-10-22T14:42:20.000Z"}!{"id":150,"name":"mazo","phenotype":"8-9-9-1-8-559-1","maxHealth":100,"user_id":140,"createdAt":"2022-10-22T14:42:29.000Z","updatedAt":"2022-10-22T14:42:29.000Z"}!{"id":151,"name":"honguito","phenotype":"5-1-3-8-1-707-0","maxHealth":100,"user_id":140,"createdAt":"2022-10-22T14:42:39.000Z","updatedAt":"2022-10-22T14:42:39.000Z"}!{"id":169,"name":"chingawat","phenotype":"2-3-2-0-2-411-0","maxHealth":0,"user_id":140,"createdAt":"2022-10-24T18:46:40.000Z","updatedAt":"2022-10-24T18:46:40.000Z"}!{"id":170,"name":"fungi","phenotype":"7-2-9-7-2-088-0","maxHealth":0,"user_id":140,"createdAt":"2022-10-24T18:46:52.000Z","updatedAt":"2022-10-24T18:46:52.000Z"}!{"id":185,"name":"alien","phenotype":"1-4-3-6-5-148-2-1","maxHealth":51,"user_id":140,"createdAt":"2022-10-25T20:02:27.000Z","updatedAt":"2022-10-25T20:02:27.000Z"}!'
+    codigo: 211
+    mensaje: frases encontradas correctamente
+    respuesta: "{\"id\":3,\"content\":\"El mundo est\xE1 cambiando, lo siento en
+      el agua, lo siento en la tierra, lo huelo en el aire. (B\xE1rbol)\",\"createdAt\":\"2022-10-14T19:36:13.000Z\",\"updatedAt\":\"2022-10-14T19:36:13.000Z\"}!{\"id\":4,\"content\":\"Queremos
+      ser el aliado de todos en el camino a la transformaci\xF3n digital. Construimos
+      soluciones.\",\"createdAt\":\"2022-10-26T05:17:21.000Z\",\"updatedAt\":\"2022-10-26T05:17:21.000Z\"}!{\"id\":5,\"content\":\"TIC
+      a la medida de las necesidades del mundo 4.0 desde nuestras l\xEDneas de trabajo:
+      FORMACI\xD3N VIRTUAL, PRODUCCI\xD3N DE CONTENIDOS, DESARROLLO DE SOFTWARE,
+      SOPORTE T\xC9CNICO Y ACAD\xC9MICO, BIENESTAR VIRTUAL.\",\"createdAt\":\"2022-10-26T05:17:45.000Z\",\"updatedAt\":\"2022-10-26T05:17:45.000Z\"}!{\"id\":6,\"content\":\"Si
+      quieres conocer m\xE1s de lo que hacemos te invitamos a visitar nuestra p\xE1gina
+      web. Ingenia.udea.edu.co \",\"createdAt\":\"2022-10-26T05:18:33.000Z\",\"updatedAt\":\"2022-10-26T05:18:33.000Z\"}!{\"id\":7,\"content\":\"Somos
+      Ingeni@ - unidad estrat\xE9gica de la Facultad de Ingenier\xEDa de la Universidad
+      de Antioquia\",\"createdAt\":\"2022-10-26T05:19:12.000Z\",\"updatedAt\":\"2022-10-26T05:19:12.000Z\"}!{\"id\":8,\"content\":\"Nos
+      dedicamos a la creaci\xF3n de soluciones TIC para todas las organizaciones
+      que quieren innovar y sumarse al mundo 4.0 #JuntosLoHacemosPosible\",\"createdAt\":\"2022-10-26T05:19:31.000Z\",\"updatedAt\":\"2022-10-26T05:19:31.000Z\"}!{\"id\":9,\"content\":\"Este
+      videojuego est\xE1 en construcci\xF3n \",\"createdAt\":\"2022-10-26T23:17:26.000Z\",\"updatedAt\":\"2022-10-26T23:17:26.000Z\"}!"

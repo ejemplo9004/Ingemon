@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Unamon
   health: 52
-  phenotype: 1-2-3-4-5-678-2
+  phenotype: 1-2-3-4-5-678-2-0
   cardSet: {fileID: 11400000, guid: ef41288f812d48f4fbcab05fcbe39799, type: 2}
