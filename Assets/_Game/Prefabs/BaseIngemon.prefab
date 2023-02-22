@@ -124,7 +124,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  "eDa\xF1ado":
+  eDanado:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9211209987699349665}

@@ -24,7 +24,7 @@ public class EntityController : MonoBehaviour
     [Header("Acciones")]
     public UnityEvent eCurado;
     public UnityEvent eSpawn;
-    public UnityEvent eDañado;
+    public UnityEvent eDanado;
     public UnityEvent eEnvenenado;
     public UnityEvent eEscudo;
 
@@ -66,24 +66,23 @@ public class EntityController : MonoBehaviour
         }
     }
 
-    public void GetDamaged(int health)
+    public void GetDamaged(int quantity)
     {
-        health *= CombatSingletonManager.Instance.damageMultiplier;
-        if (health > protection)
+        quantity *= CombatSingletonManager.Instance.damageMultiplier;
+        if (quantity > protection)
         {
-            health -= protection;
+            quantity -= protection;
             protection = 0;
             UpdateProtection();
-            eDañado.Invoke();
         }
         else
         {
-            protection -= health;
+            protection -= quantity;
             UpdateProtection();
-            health = 0;
+            quantity = 0;
         }
 
-        GetDamageNoProtection(health);
+        GetDamageNoProtection(quantity);
     }
 
     public void GetDamageNoProtection(int health)
@@ -99,7 +98,7 @@ public class EntityController : MonoBehaviour
         }
         else
         {
-            eDañado.Invoke();
+            eDanado.Invoke();
         }
     }
 
