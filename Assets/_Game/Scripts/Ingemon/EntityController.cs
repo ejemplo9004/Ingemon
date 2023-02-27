@@ -88,11 +88,12 @@ public class EntityController : MonoBehaviour
     public void GetDamageNoProtection(int health)
     {
         currentHealth = Mathf.Clamp(currentHealth - health, 0, currentHealth);
+        CombatSingletonManager.Instance.eventManager.ChangeHealth();
 
         if (CheckDead())
         {
             CombatSingletonManager.Instance.eventManager.DeadIngemon(this);
-            CombatSingletonManager.Instance.turnManager.info.PurgeCardsFromDeckAfterAnIngemonDie(this);
+            CombatSingletonManager.Instance.turnManager.info.deadController.AddDeadIngemon(this);
             DeadAnimation();
             CleanBuffs();
         }

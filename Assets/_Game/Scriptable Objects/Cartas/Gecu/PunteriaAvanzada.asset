@@ -20,7 +20,7 @@ MonoBehaviour:
     l\xEDmites y capacidades de las herramientas de software habitualmente utilizadas
     para la captura, gesti\xF3n y procesamiento de datos."
   cost: 1
-  sprite: {fileID: 993831712, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
+  sprite: {fileID: -1847791457, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 3
   type: 0
   actions:

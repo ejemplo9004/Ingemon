@@ -53,7 +53,7 @@ public class HandController : MonoBehaviour
         while (incomingCards.Count > 0)
         {
             Card card = incomingCards.Dequeue();
-            var empty = Instantiate(emptyCard, transform);
+            GameObject empty = Instantiate(emptyCard, transform);
             var cardRenderer = Instantiate(cardPrefab, spawnPosition);
             CardSpriteController controller = cardRenderer.GetComponent<CardSpriteController>();
             controller.InitCardSprite(card);
@@ -61,9 +61,8 @@ public class HandController : MonoBehaviour
             cardRenderer.transform.SetParent(empty.transform);
             
             LeanTween.moveLocalX(cardRenderer,0f, animationTime).setEase(lt).setOnComplete(() => {
-                cardRenderer.transform.SetParent(transform);
+                cardRenderer.transform.SetParent(transform); 
                 Destroy(empty);});
-            
             cardObjects.Add(cardRenderer);
             yield return wait;
         }

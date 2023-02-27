@@ -18,6 +18,7 @@ public class CombatInfo
     public EnergyHandler energizer;
     public CardExecutioner executioner;
     public EnemyActions enemies;
+    public DeadController deadController;
     
     public Vector3 frontAllyPos, backAllyPos, frontEnemyPos, backEnemyPos;
 
@@ -39,6 +40,7 @@ public class CombatInfo
         handler = new HandHandler(this);
         executioner = new CardExecutioner(this);
         enemies = new EnemyActions(this);
+        deadController = new DeadController();
         CombatSingletonManager.Instance.eventManager.OnIngemonDead += CheckEnd;
     }
 
@@ -76,6 +78,7 @@ public class CombatInfo
             card.info.PlayCard(card.owner);
             CombatSingletonManager.Instance.eventManager.ValidCardPlayed(card);
             CombatSingletonManager.Instance.eventManager.DiscardCard(card);
+            handler.Discard(card);
             card.owner.TickBleed();
         }
         else

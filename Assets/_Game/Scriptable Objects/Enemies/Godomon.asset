@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Godomon
   m_EditorClassIdentifier: 
   EnemyName: Godomon
-  health: 5
+  health: 51
   phenotype: 4-2-6-7-5-466-3-0
   cardSet: {fileID: 11400000, guid: bcb78a569322bfd4db854bd1a2234b03, type: 2}

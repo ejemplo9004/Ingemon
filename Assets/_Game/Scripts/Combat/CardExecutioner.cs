@@ -25,6 +25,7 @@ public class CardExecutioner
                 .WithTargets(targets));
 
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
+        CombatSingletonManager.Instance.turnManager.info.deadController.LetIngemonDie();
     }
 
     public void Heal(int health, int target, EntityController owner)

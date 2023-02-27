@@ -46,6 +46,7 @@ public class EnemyTurnState : TurnState
         manager.info.frontEnemy.HealBleedTick();
         manager.info.backEnemy.TickPoison();
         manager.info.frontEnemy.TickPoison();
+        manager.info.deadController.LetIngemonDie();
     }
 
 }
