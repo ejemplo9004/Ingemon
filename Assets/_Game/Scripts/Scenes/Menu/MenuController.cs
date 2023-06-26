@@ -3,7 +3,7 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private MenuUI menuUI;
-    [SerializeField] private Economia economyDB;
+    [SerializeField] private PlayerMoney playerMoney;
     [SerializeField] private PlayerEconomy playerEconomy;
 
     private void OnEnable() {
@@ -16,7 +16,7 @@ public class MenuController : MonoBehaviour
         if(GameController.gameController.LastRunPassed){
             menuUI.ShowRewardPanel("Has ganado: " + GameController.gameController.CurrentRun.Reward + " monedas");
             playerEconomy.AddMoney(GameController.gameController.CurrentRun.Reward);
-            economyDB.AddMoney(playerEconomy.money);
+            StartCoroutine(playerMoney.AddMoneyCoroutine(playerEconomy.money, false));
             //aca setear fecha de juego
         }
     }

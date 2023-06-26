@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6906b63774c58424fa8ee4e9abe22d0f, type: 3}
   m_Name: Player Economy
   m_EditorClassIdentifier: 
-  money: 970
+  money: 0
   errorCost: -1
   onMoneyChange:
     m_PersistentCalls:
