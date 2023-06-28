@@ -86,10 +86,12 @@ public class Login : MonoBehaviour
                 {
                     PlayerPrefs.SetString("usuario", inpUsuario.text);
                     PlayerPrefs.SetString("pass", inpPass.text);
+                    Debug.Log("locoo2");
                 }
                 break;
             case 404: // Error
                 Mensajes.singleton.Popup("Error de conexión");
+                Debug.Log("locoo5");
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
@@ -120,11 +122,14 @@ public class Login : MonoBehaviour
             case 404: // Error
                 Mensajes.singleton.Popup("Error, no se puede conectar con el servidor");
                 MorionSceneManager.LoadScene(0);
+                Debug.Log(servidor.respuesta.mensaje);
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
+                Debug.Log("locoo");
                 break;
             case 410: // ingemones no encontrados
                 //GameController.gameController.firstTime = true;
+                Debug.Log("locoo4");
                 PlayerPrefs.SetInt("FirstTime", 1);
                 MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 break;

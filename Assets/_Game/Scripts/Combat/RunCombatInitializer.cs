@@ -17,7 +17,7 @@ public class RunCombatInitializer : MonoBehaviour
 
     public void Awake()
     {
-        baseCollection = RunSingleton.Instance.runDeck.Deck;
+        //baseCollection = RunSingleton.Instance.runDeck.Deck;
         SetIngemons();
     }
 
@@ -35,15 +35,16 @@ public class RunCombatInitializer : MonoBehaviour
         if (combatInventory != null)
         {
             Debug.Log(combatInventory.Ingemones[0]);
-            ingemones.Add(new IngemonBuilder(combatInventory.Ingemones[0].id).WithName(combatInventory.Ingemones[0].name)
+            ingemones.Add(new IngemonBuilder(combatInventory.Ingemones[0].id)
+                .WithName(combatInventory.Ingemones[0].name)
                 .WithMaxHealth(combatInventory.Ingemones[0].maxHealth)
-                .WithPhenotype(combatInventory.Ingemones[0].phenotype)
-                .WithDeck(baseCollection));
+                .WithPhenotype(combatInventory.Ingemones[0].phenotype));
+                //.WithDeck(baseCollection));
             
             ingemones.Add(new IngemonBuilder(combatInventory.Ingemones[1].id).WithName(combatInventory.Ingemones[1].name)
                 .WithMaxHealth(combatInventory.Ingemones[1].maxHealth)
-                .WithPhenotype(combatInventory.Ingemones[1].phenotype)
-                .WithDeck(baseCollection));
+                .WithPhenotype(combatInventory.Ingemones[1].phenotype));
+                //.WithDeck(baseCollection));
         }
         else
         {

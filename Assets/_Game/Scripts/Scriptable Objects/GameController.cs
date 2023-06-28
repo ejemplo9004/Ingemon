@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cards;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -33,6 +34,7 @@ public class GameController : MonoBehaviour
     public bool firstTime = false;
     private UnityEvent onWin = new UnityEvent();
     private UnityEvent onFail = new UnityEvent();
+    private Dictionary<ScriptableCard, int> userCardsAmount = new Dictionary<ScriptableCard, int>();
 
     private void Start()
     {
@@ -139,4 +141,6 @@ public class GameController : MonoBehaviour
     public List<CardSet> CardSet3 => cardSet3;
 
     public List<CardSet> CardSet4 => cardSet4;
+
+    public Dictionary<ScriptableCard, int> UserCardsAmount => userCardsAmount;
 }
