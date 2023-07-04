@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopFacade : MonoBehaviour
@@ -17,5 +18,10 @@ public class ShopFacade : MonoBehaviour
         {
             StartCoroutine(cardShop.BuyCardSetCourutine(cardSet));
         }
+    }
+    
+    public void BuyCardSet(List<CardSet> cardSets)
+    {
+        cardShop.BuyDefaultCards(cardSets);
     }
 }

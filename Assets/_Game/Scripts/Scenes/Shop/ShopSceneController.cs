@@ -8,10 +8,12 @@ public class ShopSceneController : MonoBehaviour
     public Servidor servidor;
     [SerializeField] private IngemonsterGenerator ingemonGenerator;
     [SerializeField] private CardGenerator cardGenerator;
+    [SerializeField] private ShopFacade shop;
     public ShopUI shopUI;
 
     private void Start()
     {
+        AddDefaultCardToUser();
         CheckIngemonCount();
     }
 
@@ -53,7 +55,14 @@ public class ShopSceneController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
     }
-    
+
+    private void AddDefaultCardToUser()
+    {
+        if (PlayerPrefs.GetInt("FirstTime") == 1)
+        {
+            shop.BuyCardSet(GameController.gameController.CardInventory.DefaultCardSets);
+        }
+    } 
     
     void PosBuscarIngemon()
     {

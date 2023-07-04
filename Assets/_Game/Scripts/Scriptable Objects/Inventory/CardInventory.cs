@@ -5,20 +5,21 @@ using Cards;
 [CreateAssetMenu(fileName = "Deck Inventory", menuName = "Ingemon/Deck Inventory")]
 public class CardInventory : ScriptableObject
 {
-    [SerializeField] private List<ScriptableCard> baseCollection;
+    [SerializeField] private List<ScriptableCard> playerCards;
     [SerializeField] private List<ScriptableCard> allCards;
+    [SerializeField] private List<CardSet> defaultCardSets;
 
     public void AddCard(ScriptableCard card)
     {
-        baseCollection.Add(card);
+        playerCards.Add(card);
     }
 
     public void RemoveCard(ScriptableCard card)
     {
-        if (baseCollection.Contains(card))
+        if (playerCards.Contains(card))
         {
-            int index = baseCollection.IndexOf(card);
-            baseCollection.RemoveAt(index);
+            int index = playerCards.IndexOf(card);
+            playerCards.RemoveAt(index);
         }
     }
 
@@ -28,6 +29,7 @@ public class CardInventory : ScriptableObject
         return allCards[index];
     }
 
-    public List<ScriptableCard> BaseCollection => baseCollection;
+    public List<ScriptableCard> PlayerCards => playerCards;
     public List<ScriptableCard> AllCards => allCards;
+    public List<CardSet> DefaultCardSets => defaultCardSets;
 }

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Login : MonoBehaviour
@@ -14,6 +13,7 @@ public class Login : MonoBehaviour
     public GameObject   imLoading;
     public dbUsuario    usuario;
     private bool        validUser;
+    private bool        hasCard;
     public Toggle       tMantener;
 
     private void Start()
@@ -58,6 +58,9 @@ public class Login : MonoBehaviour
         yield return new WaitUntil(() => !servidor.ocupado);
         if(validUser){
             datos[0] = GameController.gameController.usuarioActual.id.ToString();
+            StartCoroutine(servidor.ConsumirServicio("buscar cartas usuario", datos, PostSearchPlayerCards));
+            yield return new WaitForSeconds(0.5f);
+            yield return new WaitUntil(() => !servidor.ocupado);
             StartCoroutine(servidor.ConsumirServicio("buscar ingemon", datos, PosBuscarIngemon));
             yield return new WaitForSeconds(0.5f);
             yield return new WaitUntil(() => !servidor.ocupado);
@@ -105,10 +108,11 @@ public class Login : MonoBehaviour
         {
             case 210: //ingemon encontrado
                 Logger.Instance.LogInfo(servidor.respuesta.respuesta);
+                PlayerPrefs.SetInt("FirstTime", hasCard ? 0 : 1);
                 List<string> ingemones = servidor.respuesta.respuesta.Split("!").ToList();
                 ingemones.Remove("");
                 GameController.gameController.AsignarIngemones(ingemones);
-                if (ingemones.Count < 4)
+                if (ingemones.Count < 4 || !hasCard)
                 {
                     MorionSceneManager.LoadScene((int)Scenes.SHOP);
                 }
@@ -133,7 +137,19 @@ public class Login : MonoBehaviour
                 break;
         }
     }
-    
-    
+
+    private void PostSearchPlayerCards()
+    {
+        switch (servidor.respuesta.codigo)
+        {
+            case 214: //user cards found
+                Debug.Log(servidor.respuesta.respuesta);
+                hasCard = servidor.respuesta.respuesta.Length > 0;
+                break;
+            case 410:
+                hasCard = false;
+                break;
+        }
+    }
 }
 

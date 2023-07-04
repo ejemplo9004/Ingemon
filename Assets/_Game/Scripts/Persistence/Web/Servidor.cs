@@ -30,13 +30,12 @@ public class Servidor : ScriptableObject
         {
             formulario.AddField(s.parametros[i], datos[i]);
         }
-
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.URL, formulario);
         Logger.Instance.LogInfo(servidor + "/" + s.URL);
+
         yield return www.SendWebRequest();
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log("loco que");
             respuesta = new Respuesta();
         }
         else
@@ -44,7 +43,6 @@ public class Servidor : ScriptableObject
             Logger.Instance.LogInfo($"RESPUESTA: {www.downloadHandler.text}");
             respuesta = JsonUtility.FromJson<Respuesta>(www.downloadHandler.text);
         }
-
         ocupado = false;
         www.Dispose();
         e.Invoke();

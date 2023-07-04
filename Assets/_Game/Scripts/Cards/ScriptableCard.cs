@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -111,8 +109,11 @@ namespace Cards
             duration = 0;
             modifier = 0;
         }
-        
-        
+
+        public void AddCardToDataBase()
+        {
+            
+        }
     }
 
     [System.Serializable]

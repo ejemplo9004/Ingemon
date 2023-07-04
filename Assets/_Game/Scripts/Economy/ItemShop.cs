@@ -18,6 +18,9 @@ public abstract class ItemShop : MonoBehaviour
             case 209: //jugador editado correctamente 
                 print(server.respuesta.mensaje);
                 break;
+            case 213: //carta anadida correctamente
+                print(server.respuesta.mensaje);
+                break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");
                 break;
