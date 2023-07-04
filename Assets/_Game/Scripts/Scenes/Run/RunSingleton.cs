@@ -32,7 +32,7 @@ public class RunSingleton : MonoBehaviour
         enoughIngemones = true;
     }
     private void Start() {
-        runDeck = new RunDeck(GameController.gameController.CardInventory.PlayerCards);
+        //runDeck = new RunDeck(GameController.gameController.CardInventory.BaseCollection);
     }
     public ScriptableCard AddCardReward(){
         int index = Random.Range(0, rewardCardPool.Count - 1);

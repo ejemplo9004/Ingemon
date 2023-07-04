@@ -17,10 +17,10 @@ public class CardGenerator : MonoBehaviour
         int cardCost = gameEconomy.GetItemCost("Card");
         if (playerEconomy.VerifyBuy(cardCost))
         {
-            ScriptableCard card = GameController.gameController.CardInventory.GetRandomCard();
-            GameController.gameController.CardInventory.AddCard(card);
-            StartCoroutine(ShowCard(card));
-            isInCreation = true;
+            // ScriptableCard card = GameController.gameController.CardInventory.GetRandomCard();
+            // GameController.gameController.CardInventory.AddCard(card);
+            // StartCoroutine(ShowCard(card));
+            // isInCreation = true;
         }
     }
 
