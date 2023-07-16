@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 15
   cardName: "Quimica org\xE1nica"
-  cardDescription: "Evenena a todos el mundo con 4 de da\xF1o por 5 turnos."
+  cardDescription: "Evenena a todos con 4 de da\xF1o por 5 turnos."
   cardPhrase: "El Frontend es lo que el usuario puede ver, es la interfaz con la
     que interact\xFAa. El objetivo de un desarrollador de esta \xE1rea, es crear
     la estructura y el dise\xF1o de un sitio web, trabajando de la mano con los dise\xF1adores

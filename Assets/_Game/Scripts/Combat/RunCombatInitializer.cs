@@ -34,7 +34,6 @@ public class RunCombatInitializer : MonoBehaviour
         List<Ingemonster> ingemones = new List<Ingemonster>();
         if (combatInventory != null)
         {
-            Debug.Log(combatInventory.Ingemones[0]);
             ingemones.Add(new IngemonBuilder(combatInventory.Ingemones[0].id).WithName(combatInventory.Ingemones[0].name)
                 .WithMaxHealth(combatInventory.Ingemones[0].maxHealth)
                 .WithPhenotype(combatInventory.Ingemones[0].phenotype)

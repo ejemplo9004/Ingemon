@@ -85,7 +85,6 @@ public class UICombatController : MonoBehaviour
         }
 
         healthbar.value = current;
-        yield return null;
     }
 
     public void SetHealthBars()

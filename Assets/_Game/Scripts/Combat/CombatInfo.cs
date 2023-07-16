@@ -139,11 +139,9 @@ public class CombatInfo
 
     private IEnumerator CallWin()
     {
-        Debug.Log("Winning");
         handler.DiscardHand();
         yield return new WaitForSeconds(2f);
         CombatSingletonManager.Instance.eventManager.WinBattle();
-        Debug.Log("Winning no more");
         yield return null;
     }    
     

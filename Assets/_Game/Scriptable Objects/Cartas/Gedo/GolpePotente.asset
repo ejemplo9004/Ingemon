@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GolpePotente
   m_EditorClassIdentifier: 
   id: 109
-  cardName: Salpicadura
+  cardName: Golpe Potente
   cardDescription: "Haz 6 de da\xF1o. Haz 3 de da\xF1o al oponente trasero."
   cardPhrase: "El d\xEDa del programador se celebra el 13 de septiembre (d\xEDa 256
     del a\xF1o), porque con un c\xF3digo de 8 bits se pueden representar 256 caracteres
