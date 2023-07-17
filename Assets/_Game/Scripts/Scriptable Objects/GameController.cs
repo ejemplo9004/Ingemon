@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Cards;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -34,7 +32,6 @@ public class GameController : MonoBehaviour
     public bool firstTime = false;
     private UnityEvent onWin = new UnityEvent();
     private UnityEvent onFail = new UnityEvent();
-    private Dictionary<ScriptableCard, int> userCardsAmount = new Dictionary<ScriptableCard, int>();
 
     private void Start()
     {
@@ -46,10 +43,8 @@ public class GameController : MonoBehaviour
     }
     public void AsignarJugador(dbUsuario usuario)
     {
-        
         usuarioActual = usuario;
         playerEconomy.SetPlayerMoney(usuarioActual.gold);
-
     }
 
     public void AsignarIngemones(List<string> ingemones)
@@ -59,57 +54,54 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < ingemones.Count; i++)
         {
             Ingemonster inge = JsonUtility.FromJson<Ingemonster>(ingemones[i]);
-            string[] feat = inge.phenotype.Split("-");
-            int race = Int32.Parse(feat[6]);
-            if (feat.Length < 8)
-            {
-                int index = 0;
-                switch (race)
-                {
-                    case 0:
-                        index = Random.Range(0, CardSet1.Count);
-                        inge.deck = CardSet1[index].Get();
-                        break;
-                    case 1:
-                        index = Random.Range(0, CardSet2.Count);
-                        inge.deck = CardSet2[index].Get();
-                        break;
-                    case 2:
-                        index = Random.Range(0, CardSet3.Count);
-                        inge.deck = CardSet3[index].Get();
-                        break;
-                    case 3:
-                        index = Random.Range(0, CardSet4.Count);
-                        inge.deck = CardSet4[index].Get();
-                        break;
-                    default:
-                        break;
-                }
-
-                string newPhenotype = inge.phenotype + "-" + index;
-                
-            }
-            else
-            {
-                int deck = Int32.Parse(feat[7]);
-                switch (race)
-                {
-                    case 0:
-                        inge.deck = CardSet1[deck].Get();
-                        break;
-                    case 1:
-                        inge.deck = CardSet2[deck].Get();
-                        break;
-                    case 2:
-                        inge.deck = CardSet3[deck].Get();
-                        break;
-                    case 3:
-                        inge.deck = CardSet4[deck].Get();
-                        break;
-                    default:
-                        break;
-                }
-            }
+            // if (inge.id_card1 != null) return;
+            // string[] feat = inge.phenotype.Split("-");
+            // int race = Int32.Parse(feat[6]);
+            // if (feat.Length < 8)
+            // {
+            //     int index = 0;
+            //     switch (race)
+            //     {
+            //         case 0:
+            //             inge.deck = CardSet1[0].Get();
+            //             break;
+            //         case 1:
+            //             inge.deck = CardSet2[0].Get();
+            //             break;
+            //         case 2:
+            //             inge.deck = CardSet3[0].Get();
+            //             break;
+            //         case 3:
+            //             inge.deck = CardSet4[0].Get();
+            //             break;
+            //         default:
+            //             break;
+            //     }
+            //
+            //     string newPhenotype = inge.phenotype + "-" + index;
+            //     
+            // }
+            // else
+            // {
+            //     int deck = Int32.Parse(feat[7]);
+            //     switch (race)
+            //     {
+            //         case 0:
+            //             inge.deck = CardSet1[0].Get();
+            //             break;
+            //         case 1:
+            //             inge.deck = CardSet2[0].Get();
+            //             break;
+            //         case 2:
+            //             inge.deck = CardSet3[0].Get();
+            //             break;
+            //         case 3:
+            //             inge.deck = CardSet4[0].Get();
+            //             break;
+            //         default:
+            //             break;
+            //     }
+            // }
             ingemonsters.Add(inge);
             Debug.Log(ingemones[i]);
         }
@@ -142,5 +134,4 @@ public class GameController : MonoBehaviour
 
     public List<CardSet> CardSet4 => cardSet4;
 
-    public Dictionary<ScriptableCard, int> UserCardsAmount => userCardsAmount;
 }

@@ -148,7 +148,6 @@ public class Login : MonoBehaviour
         switch (servidor.respuesta.codigo)
         {
             case 214: //user cards found
-                Debug.Log(servidor.respuesta.respuesta);
                 hasCard = servidor.respuesta.respuesta.Length > 0;
                 break;
             case 410:

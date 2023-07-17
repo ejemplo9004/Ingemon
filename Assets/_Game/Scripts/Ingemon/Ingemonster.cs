@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using Cards;
-using UnityEngine;
 
 [System.Serializable]
 public class Ingemonster
@@ -11,6 +9,13 @@ public class Ingemonster
     public string id;
     public string phenotype;
     public int maxHealth;
+    public int user_id;
+    public int id_carta1;
+    public int id_carta2;
+    public int id_carta3;
+    public int id_carta4;
+    public int id_carta5;
+    public int id_carta6;
 
     #endregion
 
@@ -26,6 +31,12 @@ public class Ingemonster
         if (id == "") return false;
         if (phenotype == "") return false;
         return true;
+    }
+
+    public void FillDeck(ScriptableCard card)
+    {
+        if(deck.Count >= 6) return;
+        deck.Add(card);
     }
 
     public Ingemonster(string id, string name, string phenotype)

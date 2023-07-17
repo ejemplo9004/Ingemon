@@ -19,6 +19,11 @@ public class MenuController : MonoBehaviour
             StartCoroutine(playerMoney.AddMoneyCoroutine(playerEconomy.money, false));
             //aca setear fecha de juego
         }
+
+        if (GameController.gameController.CardInventory.AllCardsDictionary.Count == 0)
+        {
+            GameController.gameController.CardInventory.GenerateCardDictionary();
+        }
     }
 
     public void SetCurrentRun(Run run)

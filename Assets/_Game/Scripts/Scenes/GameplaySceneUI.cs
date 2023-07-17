@@ -21,6 +21,7 @@ public class GameplaySceneUI : MonoBehaviour
 
     public void SelectIngemon(GameObject selectedImage, bool room){
         Ingemonster ingemon = selectedImage.GetComponent<IngemonSelector>().Ingemon;
+        if(ingemon.deck.Count == 0) return;
         int index = preselectionImages.IndexOf(selectedIngemonImage);
         if(sceneController.AddIngemonToPreselection(ingemon, index)){
             selectedIngemonImage.GetComponent<IngemonSelector>().Ingemon = ingemon;
@@ -40,6 +41,7 @@ public class GameplaySceneUI : MonoBehaviour
         sceneController.RemoveIngemonFromPreselection(image.GetComponent<IngemonSelector>().Ingemon);
         image.GetComponent<IngemonSelector>().Ingemon = new Ingemonster();
         image.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        image.GetComponentInChildren<RawImage>().texture = null;
         SetNextPreselectionBox();
     }
 
