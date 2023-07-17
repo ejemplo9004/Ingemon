@@ -57,7 +57,7 @@ public class IngemonDeckManager : MonoBehaviour
     {
         ingemon.deck.Add(card);
         availableUserCards[card] -= 1;
-        if (ingemon.deck.Count == 6) StartCoroutine(UpdateIngemon(ingemon));
+        if (ingemon.deck.Count == 6) StartCoroutine(UpdateIngemon(ingemon, false));
     }
 
     public void DeleteCardFromIngemon(Ingemonster ingemon, ScriptableCard card)
@@ -69,6 +69,17 @@ public class IngemonDeckManager : MonoBehaviour
         }
     }
 
+    public void ClearIngemonDeck(Ingemonster ingemon)
+    {
+        ReturnIngemonCardsToAvailable(ingemon);
+        for (int i = 0; i < ingemon.deck.Count; i++)
+        {
+            ingemon.deck[i] = null;
+        }
+
+        StartCoroutine(UpdateIngemon(ingemon, true));
+    }
+
     public void ReturnIngemonCardsToAvailable(Ingemonster ingemon)
     {
         foreach (var card in ingemon.deck)
@@ -77,22 +88,22 @@ public class IngemonDeckManager : MonoBehaviour
         }
     }
 
-    private IEnumerator UpdateIngemon(Ingemonster ingemon)
+    private IEnumerator UpdateIngemon(Ingemonster ingemon, bool clear)
     {
         var data = new string[7];
         data[0] = ingemon.id;
-        data[1] = ingemon.deck[0].id;
-        data[2] = ingemon.deck[1].id;
-        data[3] = ingemon.deck[2].id;
-        data[4] = ingemon.deck[3].id;
-        data[5] = ingemon.deck[4].id;
-        data[6] = ingemon.deck[5].id;
+        data[1] = clear ? "" : ingemon.deck[0].id;
+        data[2] = clear ? "" : ingemon.deck[1].id;
+        data[3] = clear ? "" : ingemon.deck[2].id;
+        data[4] = clear ? "" : ingemon.deck[3].id;
+        data[5] = clear ? "" : ingemon.deck[4].id;
+        data[6] = clear ? "" : ingemon.deck[5].id;
 
         StartCoroutine(server.ConsumirServicio("actualizar ingemon", data, PostIngemonUpdate));
 
         yield return new WaitUntil(() => !server.ocupado);
     }
-
+    
     private void PostIngemonUpdate()
     {
         switch (server.respuesta.codigo)

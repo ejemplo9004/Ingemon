@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cards;
 using UnityEngine;
 using UnityEngine.UI;
@@ -73,6 +74,10 @@ public class ChosenCardsPanel : MonoBehaviour
 
     public void SaveCards()
     {
+        if (chosenCards.All(card => card == null))
+        {
+            deckManager.ClearIngemonDeck(ingemon);
+        }
         if(chosenCards.Contains(null))return;
         List<ScriptableCard> cardsCopy = new List<ScriptableCard>(ingemon.deck);
         foreach (var card in cardsCopy)
@@ -93,7 +98,7 @@ public class ChosenCardsPanel : MonoBehaviour
 
     private void FillIngemonCards()
     {
-        if(ingemon.deck.Count == 0) return;
+        if(ingemon.deck.Count == 0 || ingemon.deck[0] == null) return;
         foreach (var card in ingemon.deck)
         {
             AddCard(card);
