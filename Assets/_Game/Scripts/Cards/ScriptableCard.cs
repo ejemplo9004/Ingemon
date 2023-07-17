@@ -49,12 +49,7 @@ namespace Cards
             }
         }
 
-        public void SetTarget(int target)
-        {
-            this.target = target;
-            Debug.Log("Cambiando target a " + target);
-        }
-
+        public void SetTarget(int target) => this.target = target;
         public void SetDuration(int duration) => this.duration = duration;
         public void SetCardModifier(int modifier) => this.modifier = modifier;
         public void SetDamageBonus(int bonus) => this.damageBonus = bonus;

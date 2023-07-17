@@ -99,6 +99,7 @@ public class CombatInfo
         if (frontAlly.CheckDead() && backAlly.CheckDead())
         {
             dead.StartCoroutine(CallFail());
+            return;
         }
 
         if (frontEnemy.CheckDead() && backEnemy.CheckDead())

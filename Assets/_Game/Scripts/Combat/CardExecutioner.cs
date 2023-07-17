@@ -13,12 +13,10 @@ public class CardExecutioner
 
     public void DealDamage(int damage, int target, int baseBonus, EntityController owner, int modifier)
     {
-        Debug.Log($"Daño Base: {damage}. \nObjectivo: {target}.\nModifier: {modifier}");
         List<EntityController> targets = GetTargets(target, owner);
         foreach (var t in targets)
         {
             damage = ModifyDamage(damage, modifier, baseBonus, t, owner);
-            Debug.Log($"Daño total: {damage}. \nObjectivo: {t.position}.\nModifier: {modifier}");
             t.GetDamaged(damage);
         }
 
@@ -34,7 +32,6 @@ public class CardExecutioner
     {
         foreach (var t in GetTargets(target, owner))
         {
-            Debug.Log($"Curando a {t.position}");
             t.GetHealed(health);
         }
         owner.MagicAnimation();

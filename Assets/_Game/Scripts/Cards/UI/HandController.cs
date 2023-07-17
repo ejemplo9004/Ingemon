@@ -26,7 +26,7 @@ public class HandController : MonoBehaviour
     }
     public void OnDisable()
     {
-        cardObjects = null;
+        ClearCurrentCardDrawProcess();
         CombatSingletonManager.Instance.eventManager.OnCardChange -= AddCard;
         CombatSingletonManager.Instance.eventManager.OnHandUpdate -= UpdateHand;
         CombatSingletonManager.Instance.eventManager.OnCardDiscard -= DiscardCard;
@@ -52,6 +52,7 @@ public class HandController : MonoBehaviour
         isDrawing = true;
         while (incomingCards.Count > 0)
         {
+            Debug.Log("ADDING CARD");
             Card card = incomingCards.Dequeue();
             GameObject empty = Instantiate(emptyCard, transform);
             var cardRenderer = Instantiate(cardPrefab, spawnPosition);
@@ -66,9 +67,20 @@ public class HandController : MonoBehaviour
             cardObjects.Add(cardRenderer);
             yield return wait;
         }
-
-        isDrawing = false;
+        Debug.Log("STOP Drawing");
+            isDrawing = false;
         yield return null;
+    }
+
+    private void ClearCurrentCardDrawProcess()
+    {
+        cardObjects = null;
+        isDrawing = false;
+        for (int i = transform.childCount -1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        StopAllCoroutines();
     }
 
     private void DiscardCard(Card card)

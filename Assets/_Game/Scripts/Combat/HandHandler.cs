@@ -12,11 +12,12 @@ public class HandHandler
     
     public void Draw(int draws)
     {
+        Debug.Log($"Drawing {draws} cards");
         for (int i = 0; i < draws; i++)
         {
-            if (info.drawDeck.Count > 0)
+            if (info.drawDeck.Count > 0) //Draw deck empty
             {
-                if (info.hand.Count >= 10)
+                if (info.hand.Count >= 10) //Full hand
                 {
                     info.discardDeck.Add(info.drawDeck[0]);
                     info.drawDeck.RemoveAt(0);
