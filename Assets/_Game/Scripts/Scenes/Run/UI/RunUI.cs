@@ -40,6 +40,7 @@ public class RunUI : GameplaySceneUI
             ingemonsImages.Add(instance);
             ri.Add(instance.GetComponentInChildren<RawImage>());
             Button button = instance.GetComponent<Button>();
+            button.onClick.RemoveAllListeners();
             button.onClick.AddListener(delegate { SelectIngemon(instance, false); });
         }
         renderCreator.AddImages(ri);

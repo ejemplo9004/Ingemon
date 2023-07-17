@@ -12,6 +12,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45600dc94538fb449798b75d1910704, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  ingemones: []
+  ingemones:
+  - name: carlos
+    id: 216
+    phenotype: 6-2-6-9-0-474-2-1
+    maxHealth: 48
+    id_card1: 
+    id_card2: 
+    id_card3: 
+    id_card4: 
+    id_card5: 
+    id_card6: 
+    ingemonColection: []
+    deck:
+    - {fileID: 11400000, guid: 912f56ade13ebbe4c9af11469a7b873d, type: 2}
+    - {fileID: 11400000, guid: 142d558e0fc2eb44fbb01466e9e7e72c, type: 2}
+    - {fileID: 11400000, guid: 8306a890cad433c4e81c1e9a80b98f93, type: 2}
+    - {fileID: 11400000, guid: 41c652cb218ee1d469a6e5d45ed98fa3, type: 2}
+    - {fileID: 11400000, guid: e946c1ae92c3a744c859d5e580ea2976, type: 2}
+    - {fileID: 11400000, guid: afd00b8be6637f94dbcbaa55d9d08ab1, type: 2}
+  - name: miguel
+    id: 217
+    phenotype: 8-4-2-2-2-580-1-2
+    maxHealth: 45
+    id_card1: 
+    id_card2: 
+    id_card3: 
+    id_card4: 
+    id_card5: 
+    id_card6: 
+    ingemonColection: []
+    deck: []
+  - name: shredder
+    id: 218
+    phenotype: 6-0-7-5-8-122-2-1
+    maxHealth: 54
+    id_card1: 
+    id_card2: 
+    id_card3: 
+    id_card4: 
+    id_card5: 
+    id_card6: 
+    ingemonColection: []
+    deck: []
+  - name: muscaria
+    id: 219
+    phenotype: 5-7-4-1-7-760-0-0
+    maxHealth: 52
+    id_card1: 
+    id_card2: 
+    id_card3: 
+    id_card4: 
+    id_card5: 
+    id_card6: 
+    ingemonColection: []
+    deck: []
+  - name: Jairo
+    id: 698
+    phenotype: 5-6-3-7-4-795-3-0
+    maxHealth: 52
+    id_card1: 
+    id_card2: 
+    id_card3: 
+    id_card4: 
+    id_card5: 
+    id_card6: 
+    ingemonColection: []
+    deck: []
+  - name: elapa
+    id: 703
+    phenotype: 6-6-1-8-9-464-2-0
+    maxHealth: 54
+    id_card1: 
+    id_card2: 
+    id_card3: 
+    id_card4: 
+    id_card5: 
+    id_card6: 
+    ingemonColection: []
+    deck: []
   hasLimit: 0
   limit: 0

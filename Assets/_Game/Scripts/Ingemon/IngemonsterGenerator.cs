@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -13,7 +14,7 @@ public class IngemonsterGenerator : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private PlayerEconomy playerEconomy;
     [SerializeField] private Economy gameEconomy;
-    [SerializeField] private Economia economia;
+    [SerializeField] private ShopFacade shop;
     [SerializeField] private IngemonCreationVisuals ingemonCreationVisuals;
     [SerializeField] private float eggFadeDuration;
     [SerializeField] private float ingemonShowDuration;
@@ -86,11 +87,29 @@ public class IngemonsterGenerator : MonoBehaviour
             MorionCambioColores colores = eggSelected.GetComponent<MorionCambioColores>();
             MorionCambioMascaras mascaras = eggSelected.GetComponent<MorionCambioMascaras>();
             MorionCambioPartes partes = eggSelected.GetComponent<MorionCambioPartes>();
-            string phenotype = partes.cadena + "-" + mascaras.iDorsos + "-" + mascaras.iManchas + "-" + colores.numeros + "-" + eggIndex;
+            int deck = 0;
+            switch (eggIndex)
+            {
+                case 0:
+                    deck = Random.Range(0, GameController.gameController.CardSet1.Count);
+                    break;
+                case 1:
+                    deck = Random.Range(0, GameController.gameController.CardSet2.Count);
+                    break;
+                case 2:
+                    deck = Random.Range(0, GameController.gameController.CardSet3.Count);
+                    break;
+                case 3:
+                    deck = Random.Range(0, GameController.gameController.CardSet4.Count);
+                    break;
+                default:
+                    break;
+            }
+
+            string phenotype = partes.cadena + "-" + mascaras.iDorsos + "-" + mascaras.iManchas + "-" + colores.numeros + "-" + eggIndex + "-" + deck;
             int defaultHealth = Random.Range(healthRange.x, healthRange.y);
             ingemonster = new IngemonBuilder().WithName(shopScene.shopUI.IngemonName.text).WithPhenotype(phenotype).WithMaxHealth(defaultHealth);
-            economia.ingemonNuevo = ingemonster;
-            economia.comprarObjeto(playerEconomy.money);
+            shop.BuyIngemon(playerEconomy.money, ingemonster);
             inventory.AddIngemon(ingemonster);
             shopScene.shopUI.EnableIngemonName(false);
             isInCreation = false;

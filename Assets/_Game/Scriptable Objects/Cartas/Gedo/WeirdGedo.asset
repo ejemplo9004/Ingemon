@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcd682c813543fcb47549ba7d8ec390, type: 3}
+  m_Name: WeirdGedo
+  m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 11400000, guid: 139e1d24bdf3aff429b01fd0a57c26cd, type: 2}
+  - {fileID: 11400000, guid: ac6a1b9ecc09aa14fbec592e7b1fbe57, type: 2}
+  - {fileID: 11400000, guid: 287a7592bca649f4db8eb46cd13daaa1, type: 2}
+  - {fileID: 11400000, guid: 287a7592bca649f4db8eb46cd13daaa1, type: 2}
+  - {fileID: 11400000, guid: cd6f21ac8e561774fb5a426546c5b02b, type: 2}
+  - {fileID: 11400000, guid: cd6f21ac8e561774fb5a426546c5b02b, type: 2}

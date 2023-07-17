@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Valky
   health: 53
-  phenotype: 1-2-7-2-6-114-3
+  phenotype: 1-2-7-2-6-114-3-0
   cardSet: {fileID: 11400000, guid: 3b85b599e3b08144281ca985b0b20d31, type: 2}

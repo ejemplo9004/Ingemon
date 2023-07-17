@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: YMiEscudo
   m_EditorClassIdentifier: 
   id: 312
-  cardName: "\xBFY mi escudo?"
+  cardName: Y mi escudo!
   cardDescription: "Tu compa\xF1ero gana 9 de bloqueo."
   cardPhrase: "El Deep Learning se fundamenta en el funcionamiento del sistema neurol\xF3gico
     del humano, es decir, imita la forma en que los humanos obtienen ciertos tipos

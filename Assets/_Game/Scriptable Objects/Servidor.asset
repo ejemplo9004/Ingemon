@@ -44,10 +44,43 @@ MonoBehaviour:
   - nombre: buscar frases
     URL: buscarfrases
     parametros: []
-  - nombre: user vr
-    URL: uservr
+  - nombre: borrar usuario
+    URL: borrarusuario
     parametros:
     - name
+    - password
+  - nombre: borrar ingemones
+    URL: borraringemones
+    parametros:
+    - user_id
+  - nombre: crear carta
+    URL: crearcarta
+    parametros:
+    - id_carta
+  - nombre: buscar carta
+    URL: buscarcartas
+    parametros:
+    - id_carta
+  - nombre: crear carta usuario
+    URL: crearcartausuario
+    parametros:
+    - id_usuario
+    - id_carta
+    - cantidad
+  - nombre: buscar cartas usuario
+    URL: buscarcartasusuario
+    parametros:
+    - id_usuario
+  - nombre: actualizar ingemon
+    URL: actualizaringemon
+    parametros:
+    - id
+    - id_carta1
+    - id_carta2
+    - id_carta3
+    - id_carta4
+    - id_carta5
+    - id_carta6
   ocupado: 0
   respuesta:
     codigo: 404

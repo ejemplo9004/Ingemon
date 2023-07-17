@@ -4014,6 +4014,23 @@ MonoBehaviour:
   lastRunPassed: 0
   inventory: {fileID: 11400000, guid: ab97d61e95e58554daca5fd691efe6a2, type: 2}
   cardInventory: {fileID: 11400000, guid: 13fcf4f8b6e637949b35baf08f117b3a, type: 2}
+  cardSet1:
+  - {fileID: 11400000, guid: f96d6b806520c98478e0c225effbb937, type: 2}
+  - {fileID: 11400000, guid: bf7d5ea9cf1bd994db177c3c60f39663, type: 2}
+  - {fileID: 11400000, guid: 7a13b75599e1a5148aa5fe268ca0d3ae, type: 2}
+  cardSet2:
+  - {fileID: 11400000, guid: 83fed81ed7cacab419f02354bf7d3da1, type: 2}
+  - {fileID: 11400000, guid: dad7d8f62c7c5fc4aa6bb22409f10640, type: 2}
+  - {fileID: 11400000, guid: ef41288f812d48f4fbcab05fcbe39799, type: 2}
+  cardSet3:
+  - {fileID: 11400000, guid: fae6adc2f298ac24a83fb190043da3a1, type: 2}
+  - {fileID: 11400000, guid: d18cac1622bbfbf438e48c6b025acd0f, type: 2}
+  - {fileID: 11400000, guid: 5b4fa812a193f93449e82323dabfaf48, type: 2}
+  cardSet4:
+  - {fileID: 11400000, guid: 937538710fb2654449b302bf4fca6d79, type: 2}
+  - {fileID: 11400000, guid: 3b85b599e3b08144281ca985b0b20d31, type: 2}
+  - {fileID: 11400000, guid: bcb78a569322bfd4db854bd1a2234b03, type: 2}
+  firstTime: 0
 --- !u!4 &853453214
 Transform:
   m_ObjectHideFlags: 0
@@ -4428,7 +4445,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -4747,6 +4764,10 @@ PrefabInstance:
     - target: {fileID: 2596178462042089589, guid: d8119f89484759b419c635086e79a018, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596178462042089589, guid: d8119f89484759b419c635086e79a018, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8119f89484759b419c635086e79a018, type: 3}

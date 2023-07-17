@@ -24,7 +24,7 @@ public class AnimationExecuter : MonoBehaviour
     {
         isRunning = true;
         AnimationRequest request;
-        WaitForSeconds wait = new WaitForSeconds(1);
+        WaitForSeconds wait = new WaitForSeconds(1.2f);
         CombatInfo info = CombatSingletonManager.Instance.turnManager.info;
         while (queue.Count > 0)
         {
