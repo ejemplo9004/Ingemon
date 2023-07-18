@@ -136,7 +136,11 @@ public class IngemonCardPlacer : MonoBehaviour
         button.onClick.AddListener(delegate { DeleteCardFromOptions(cardUI, card); });
         if (ingemon.deck.Contains(card))
         {
-            button.onClick.Invoke();
+            var slot = chosenCards.IndexOf(card);
+            cardSlots[slot] = cardUI;
+            cardSlots[slot].GetComponent<Image>().color = Color.green;
+            cardSlots[slot].GetComponent<Button>().onClick.RemoveAllListeners();
+            cardSlots[slot].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(slot); });
         }
     }
 
@@ -145,11 +149,9 @@ public class IngemonCardPlacer : MonoBehaviour
         
         int index = SearchEmptySlot();
         if(SearchEmptySlot() == -1) return;
-        Debug.Log("'executedddddddddddddddddddddd'");
         Debug.Log(cardObject);
         cardSlots[index] = cardObject;
         AddCard(card);
-        cardObject.GetComponent<Image>().color = Color.green;
         cardSlots[index].GetComponent<Button>().onClick.RemoveAllListeners();
         cardSlots[index].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(index); });
         //AddCard(card);

@@ -19,3 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d967a0b3d848c504284b738ed937f31c, type: 2}
   - {fileID: 11400000, guid: ae5f3be31a4bf724fbcc30299add1e96, type: 2}
   - {fileID: 11400000, guid: e913bb0a8c1844a44a07461882d136fe, type: 2}
+  shopCost: 30
+  cardsAmountToSell: 3
