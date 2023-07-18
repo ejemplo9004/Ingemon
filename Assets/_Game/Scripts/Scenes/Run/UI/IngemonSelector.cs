@@ -11,10 +11,14 @@ public class IngemonSelector : MonoBehaviour
     [SerializeField] private GameObject deckPanel;
     private List<GameObject> panelList = new List<GameObject>() { null, null, null, null };
 
+    public bool cardEditionActive;
+
     private void Start()
     {
-        if(selectButton == null) return;
-        selectButton.onClick.AddListener(GetIngemonCards);
+        if (cardEditionActive)
+        {
+            selectButton.onClick.AddListener(GetIngemonCards);
+        }
     }
 
     private void GetIngemonCards()
