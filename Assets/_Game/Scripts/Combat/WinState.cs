@@ -6,14 +6,6 @@ public class WinState : EndBattleState
     {
         base.EnterState(manager);
         PrepareNextFight();
-        DestroyEntities(manager);
-    }
-
-    private void DestroyEntities(TurnStateManager manager)
-    {
-        Debug.Log("Borrando ingemones del campo");
-        manager.info.DestroyAllys();
-        manager.info.DestroyEnemies();
     }
 
     private void PrepareNextFight()

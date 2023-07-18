@@ -26,7 +26,6 @@ public class Inventory : ScriptableObject
 
     public bool DeleteIngemon(string ingemon){
         if(ingemones.Count == 0){
-            Debug.Log("No hay ingemones para borrar.");
             return false;
         }
 
@@ -35,11 +34,9 @@ public class Inventory : ScriptableObject
             if (ingemonster.phenotype.Equals(ingemon))
             {
                 ingemones.Remove(ingemonster);
-                Debug.Log("Ingemon removido");
                 return true;
             }
         }
-        Debug.Log("No se encontro el Ingemon para borrar.");
         return false;
     }
 

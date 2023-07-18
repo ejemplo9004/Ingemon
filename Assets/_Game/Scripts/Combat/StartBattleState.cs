@@ -36,11 +36,13 @@ public class StartBattleState : TurnState
     {
         Debug.Log("Spawming Ingemons");
         yield return new WaitForSeconds(2);
+        
         manager.info.SpawnAllys(room);
-        //yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(1);
         Debug.Log("Spawn Enemies");
         manager.info.SpawnEnemies(room);
-        //yield return new WaitForSeconds(2);
+
         Debug.Log("BuffsTime");
         CombatSingletonManager.Instance.uiManager.SetHealthBars();
         CombatSingletonManager.Instance.uiManager.UpdateHealthBars();

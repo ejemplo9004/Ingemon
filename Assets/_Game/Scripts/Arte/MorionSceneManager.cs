@@ -61,7 +61,7 @@ public class MorionSceneManager : MonoBehaviour
         {
             _texto.text = ObtenerFrases.singleton.frasesF[Random.Range(0, ObtenerFrases.singleton.frasesF.Count)];
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds((Application.isEditor) ? 0.1f : 1.5f);
         audioS.Play();
         SceneManager.LoadScene(esce);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(esce);
@@ -70,7 +70,7 @@ public class MorionSceneManager : MonoBehaviour
             yield return null;
         }
         _anim.SetBool("Cargando", false);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds((Application.isEditor) ? 0.1f : 2.5f);
         //_texto.text = "";
     }
 

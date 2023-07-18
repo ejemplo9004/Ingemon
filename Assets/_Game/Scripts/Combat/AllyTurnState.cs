@@ -52,6 +52,7 @@ public class AllyTurnState : TurnState
         manager.info.frontAlly.HealBleedTick();
         manager.info.backAlly.TickPoison();
         manager.info.frontAlly.TickPoison();
+        manager.info.deadController.LetIngemonDie();
     }
 
     private void PlayCard(Card card)

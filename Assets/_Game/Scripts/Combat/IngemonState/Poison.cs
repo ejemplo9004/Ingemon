@@ -23,7 +23,6 @@ public class Poison : IngemonState
     public override int Tick(EntityController target)
     {
         target.GetDamageNoProtection(damage);
-        CombatSingletonManager.Instance.eventManager.ChangeHealth();
         remaining--;
         buffIcon.UpdateTimer(remaining);
         return remaining;

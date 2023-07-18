@@ -25,13 +25,13 @@ public class CardExecutioner
                 .WithTargets(targets));
 
         CombatSingletonManager.Instance.eventManager.ChangeHealth();
+        CombatSingletonManager.Instance.turnManager.info.deadController.LetIngemonDie();
     }
 
     public void Heal(int health, int target, EntityController owner)
     {
         foreach (var t in GetTargets(target, owner))
         {
-            Debug.Log($"Curando a {t.position}");
             t.GetHealed(health);
         }
         owner.MagicAnimation();

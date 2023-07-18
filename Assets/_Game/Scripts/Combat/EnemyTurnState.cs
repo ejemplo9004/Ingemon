@@ -32,12 +32,6 @@ public class EnemyTurnState : TurnState
         EndOfTurnEffects(manager);
         if (manager.currentState == this)
             manager.ChangeState(manager.allyState);
-        yield return null;
-    }
-
-    private void CheckEnd(EntityController ingemon)
-    {
-        
     }
     
     private void EndOfTurnEffects(TurnStateManager manager)
@@ -52,6 +46,7 @@ public class EnemyTurnState : TurnState
         manager.info.frontEnemy.HealBleedTick();
         manager.info.backEnemy.TickPoison();
         manager.info.frontEnemy.TickPoison();
+        manager.info.deadController.LetIngemonDie();
     }
 
 }

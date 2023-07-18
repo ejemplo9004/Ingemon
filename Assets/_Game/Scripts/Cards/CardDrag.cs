@@ -38,10 +38,10 @@ public class CardDrag : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         StopShakeAnimation();
         int currentEnergy = CombatSingletonManager.Instance.turnManager.info.energizer.currentEnergy;
         int cost = cardController.card.info.cost;
-        bool checkCost = currentEnergy < cost;
+        bool enoughEnergy = currentEnergy >= cost;
         if ((Vector3.Distance(transform.position, originalPosition) <= 5))
             EnableCardInfo(true);
-        if ((Vector3.Distance(transform.position, originalPosition) <= safeDistance) || checkCost)
+        if ((Vector3.Distance(transform.position, originalPosition) <= safeDistance) || !enoughEnergy)
             ResetPosition();
         else
         {

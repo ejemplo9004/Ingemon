@@ -21,8 +21,8 @@ namespace Cards
         public CardEvent[] actions;
 
         //Esta seccion es un poco rara, pero sirve para mostrar info en el inspector.
-        [TextDisplay("Targets:\t\t\tIndex\n\tOneSelf \t-4\n\tAllys \t\t-3\n\tBackAlly \t-2\n\tFrontAlly \t-1\n\t" +
-                     "All \t\t 0\n\tFrontEnemy \t 1\n\tBackEnemy \t 2\n\tEnemies \t 3\n\tAllButOneSelf \t 4")]
+        [TextDisplay("Targets:\t\t\tIndex\n\tPartner \t\t-5\n\tOneSelf \t-4\n\tAllys \t\t-3\n\tBackAlly \t-2\n\tFrontAlly \t-1\n\t" +
+                     "All \t\t 0\n\tFrontEnemy \t 1\n\tBackEnemy \t 2\n\tEnemies \t 3\n\tAllButOneSelf \t 4\n\tEnemyPartner \t 5")]
         public int[] TargetInstructions = new int[1];
         [TextDisplay("Modifiers:\n\t1. Damage = Owner Protection\n\t2. Target with poison\n\t" +
                      "3. Target with bleed\n\t4. Target with poison or bleed\n\t5. Owner with poison\n\t" +

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 307
   cardName: "Recuperaci\xF3n de emergencia"
-  cardDescription: "C\xFAra todos lo venenos."
+  cardDescription: Curate todos lo venenos.
   cardPhrase: "El Internet de las cosas (IoT) es el proceso que permite conectar
     elementos f\xEDsicos cotidianos al Internet desde objetos dom\xE9sticos comunes,
     como las bombillas de luz, hasta recursos para la atenci\xF3n de la salud, como
