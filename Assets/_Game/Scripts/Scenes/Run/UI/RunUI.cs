@@ -37,6 +37,7 @@ public class RunUI : GameplaySceneUI
             Rect elementsSize = sizeReference.GetComponent<RectTransform>().rect;
             instance.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, elementsSize.width / viewDivisorFactor);
             instance.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, elementsSize.height);
+            instance.GetComponent<IngemonSelector>().cardEditionActive = false;
             ingemonsImages.Add(instance);
             ri.Add(instance.GetComponentInChildren<RawImage>());
             Button button = instance.GetComponent<Button>();

@@ -113,11 +113,13 @@ public class CombatInfo
         if (frontAlly.CheckDead())
         {
             RunSingleton.Instance.RunInventory.DeleteIngemon(frontAlly.ingemonInfo.phenotype);
+            RunSingleton.Instance.DeleteIngemonFromRun(frontAlly.ingemonInfo.phenotype);
         }
 
         if (backAlly.CheckDead())
         {
             RunSingleton.Instance.RunInventory.DeleteIngemon(backAlly.ingemonInfo.phenotype);
+            RunSingleton.Instance.DeleteIngemonFromRun(backAlly.ingemonInfo.phenotype);
         }
     }
 
