@@ -44,6 +44,7 @@ public class IngemonDeckManager : MonoBehaviour
         var cardsByRace = new Dictionary<ScriptableCard, int>();
         foreach (var card in availableUserCards.Keys)
         {
+            Debug.Log(card.name + " " + card.race + " " + availableUserCards[card]);
             if (availableUserCards[card] > 0 && card.race == race)
             {
                 cardsByRace.Add(card, availableUserCards[card]);

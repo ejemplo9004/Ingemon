@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class ItemShop : MonoBehaviour
 {
@@ -20,6 +19,9 @@ public abstract class ItemShop : MonoBehaviour
                 break;
             case 213: //carta anadida correctamente
                 print(server.respuesta.mensaje);
+                break;
+            case 215: //carta mela
+                print(server.respuesta.codigo);
                 break;
             case 404: // Error
                 print("Error, no se puede conectar con el servidor");
