@@ -16,6 +16,7 @@ public class PlayerMoney : MonoBehaviour
 
     private void UpdatePlayerMoney(int money, bool ack)
     {
+        Debug.Log(money);
         var data = new string[2];
         data[0] = GameController.gameController.usuarioActual.id.ToString();
         data[1] = money.ToString();

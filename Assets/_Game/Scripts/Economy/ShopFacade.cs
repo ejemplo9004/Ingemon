@@ -16,7 +16,7 @@ public class ShopFacade : MonoBehaviour
     {
         if (playerEconomy.VerifyBuy(cardSet.ShopCost))
         {
-            StartCoroutine(cardShop.BuyCardSetCourutine(cardSet));
+            StartCoroutine(cardShop.BuyCardSetCourutine(cardSet, playerEconomy.money));
         }
     }
     

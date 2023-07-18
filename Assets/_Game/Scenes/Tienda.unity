@@ -1492,7 +1492,7 @@ MonoBehaviour:
         m_MethodName: BuyCardSet
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 83fed81ed7cacab419f02354bf7d3da1, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 937538710fb2654449b302bf4fca6d79, type: 2}
           m_ObjectArgumentAssemblyTypeName: CardSet, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

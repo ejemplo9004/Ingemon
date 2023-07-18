@@ -20,7 +20,7 @@ MonoBehaviour:
     de informaci\xF3n."
   cost: 0
   sprite: {fileID: 965800327, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
-  race: 2
+  race: 1
   type: 0
   actions:
   - action:

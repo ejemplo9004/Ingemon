@@ -9,12 +9,14 @@ public class UserCards : MonoBehaviour
     [SerializeField] private Servidor server;
     private void Start()
     {
-        if(!CheckUserCardsBrought()) StartCoroutine(GetUserCards());
+        RestartUserCards();
+        StartCoroutine(GetUserCards());
     }
 
-    private bool CheckUserCardsBrought()
+    private void RestartUserCards()
     {
-        return GameController.gameController.CardInventory.PlayerCards.Count != 0;
+        GameController.gameController.CardInventory.PlayerCards.Clear();
+        GameController.gameController.CardInventory.AvailablePlayerCards.Clear();
     }
 
     private IEnumerator GetUserCards()

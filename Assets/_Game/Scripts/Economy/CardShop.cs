@@ -1,13 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CardShop : ItemShop
 {
-    public IEnumerator BuyCardSetCourutine(CardSet cardSet)
+    public IEnumerator BuyCardSetCourutine(CardSet cardSet, int currentMoney)
     {
         imLoading.SetActive(true);
-        UpdatePlayerMoney(cardSet.ShopCost);
+        UpdatePlayerMoney(currentMoney - cardSet.ShopCost);
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !server.ocupado);
         yield return new WaitUntil(() => moneySubstracter.Done);
