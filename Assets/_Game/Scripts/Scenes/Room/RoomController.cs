@@ -11,7 +11,6 @@ public class RoomController : GameplayScene
     private List<CombatEventSystem.OnEndBattleAction> failActions = new List<CombatEventSystem.OnEndBattleAction>();
     private void OnEnable()
     {
-        Debug.Log("oe");
         ConfigureRoom(true); 
     }
     private void OnDisable()
@@ -79,6 +78,10 @@ public class RoomController : GameplayScene
     public bool VerifyCombatInventory(){
         for (int i = 0; i < ingemonesSelected.Count; i++)
         {
+            if (ingemonesSelected.Count < 2)
+            {
+                MorionSceneManager.LoadScene((int)Scenes.MENU);
+            }
             if(!ingemonesSelected[i].VerifyExistence()){
                 Debug.Log("No seleccionó los ingemones suficientes");
                 return false;

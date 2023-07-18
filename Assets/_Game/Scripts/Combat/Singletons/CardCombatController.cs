@@ -17,6 +17,7 @@ public class CardCombatController: MonoBehaviour
         combatCards = new List<Card>();
         List<Card> allyCards = new List<Card>();
         List<Card> enemyCards = new List<Card>();
+        
         foreach (var newCard in frontAlly.ingemonInfo.deck.Select(card => Card(card, frontAlly)))
         {
             combatCards.Add(newCard);

@@ -77,6 +77,7 @@ public class RoomUI : GameplaySceneUI
         for (int i = 0; i < runInventory.Ingemones.Count; i++)
         {
             GameObject instance = Instantiate(imagePrefab, parent: imagePrefabParent.transform);
+            instance.GetComponent<IngemonSelector>().cardEditionActive = false;
             ingemonsImages.Add(instance);
             Button button = instance.GetComponent<Button>();
             button.onClick.AddListener(delegate { SelectIngemon(instance, true); });

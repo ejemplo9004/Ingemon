@@ -19,6 +19,7 @@ public class IngemonContainer : MonoBehaviour
         for (int i = start; i < end; i++)
         {
             GameObject copy = Instantiate(ingemonDetail, gameObject.GetComponent<RectTransform>());
+            copy.GetComponent<IngemonSelector>().cardEditionActive = true;
             rawImages.Add(copy.GetComponentInChildren<RawImage>());
         }
         IngemonScrollRect scrollrect = ingemonScrollRect.GetComponent<IngemonScrollRect>();
