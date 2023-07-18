@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,17 +83,14 @@ public class Login : MonoBehaviour
                 usuario = dbUsuario.CreateFromJSON(servidor.respuesta.respuesta);
                 validUser = true;
                 GameController.gameController.AsignarJugador(usuario);
-                Debug.Log("usuario melo");
                 if (tMantener.isOn)
                 {
                     PlayerPrefs.SetString("usuario", inpUsuario.text);
                     PlayerPrefs.SetString("pass", inpPass.text);
-                    Debug.Log("locoo2");
                 }
                 break;
             case 404: // Error
                 Mensajes.singleton.Popup("Error de conexión");
-                Debug.Log("locoo5");
                 break;
             case 402: // faltan datos para ejecutar la accion solicitada
                 Logger.Instance.LogInfo(servidor.respuesta.mensaje);
