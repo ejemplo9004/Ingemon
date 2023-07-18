@@ -11,8 +11,9 @@ public class IngemonSelector : MonoBehaviour
     [SerializeField] private GameObject deckPanel;
     private List<GameObject> panelList = new List<GameObject>() { null, null, null, null };
 
-    private void OnEnable()
+    private void Start()
     {
+        if(selectButton == null) return;
         selectButton.onClick.AddListener(GetIngemonCards);
     }
 

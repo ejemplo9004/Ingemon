@@ -18,11 +18,11 @@ public class ChosenCardsPanel : MonoBehaviour
     {
         var slot = SearchEmptySlot();
         if(slot == -1) return;
+        
         chosenCards[slot] = card;
-        var index = chosenCards.IndexOf(card);
-
-        cardSlots[index].GetComponent<Image>().sprite = card.sprite;
-        cardSlots[index].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(index); });
+        
+        cardSlots[slot].GetComponent<Image>().sprite = card.sprite;
+        cardSlots[slot].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(slot); });
     }
 
     public int SearchEmptySlot()
