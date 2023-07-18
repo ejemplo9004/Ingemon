@@ -3,26 +3,31 @@ using System.Linq;
 using Cards;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChosenCardsPanel : MonoBehaviour
 {
     [SerializeField] private List<GameObject> cardSlots;
+    [SerializeField] private TextMeshProUGUI txtCardSlot;
+    
     [SerializeField] private IngemonCardPlacer cardPlacer;
 
     private List<ScriptableCard> chosenCards = new List<ScriptableCard>(6){null, null, null, null, null, null};
     
     private IngemonDeckManager deckManager;
     private Ingemonster ingemon;
-
+    
+    
     public void AddCard(ScriptableCard card)
     {
         var slot = SearchEmptySlot();
         if(slot == -1) return;
         
         chosenCards[slot] = card;
+        var index = chosenCards.IndexOf(card);
         
-        cardSlots[slot].GetComponent<Image>().sprite = card.sprite;
-        cardSlots[slot].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(slot); });
+        //cardSlots[index].GetComponent<Image>().sprite = card.sprite;
+        //cardSlots[index].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(index); });
     }
 
     public int SearchEmptySlot()
@@ -104,4 +109,5 @@ public class ChosenCardsPanel : MonoBehaviour
             AddCard(card);
         }
     }
+    
 }

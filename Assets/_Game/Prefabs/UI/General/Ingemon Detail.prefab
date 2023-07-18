@@ -233,17 +233,18 @@ MonoBehaviour:
     id: 
     phenotype: 
     maxHealth: 0
-    id_card1: 
-    id_card2: 
-    id_card3: 
-    id_card4: 
-    id_card5: 
-    id_card6: 
+    user_id: 0
+    id_carta1: 0
+    id_carta2: 0
+    id_carta3: 0
+    id_carta4: 0
+    id_carta5: 0
+    id_carta6: 0
     ingemonColection: []
     deck: []
   selectButton: {fileID: 5939170732932905686}
   deckManager: {fileID: 3774230568979413579}
-  deckPanel: {fileID: 3608336217560486866, guid: 056deeeaeb3d4704ca5e716ae8b39996, type: 3}
+  deckPanel: {fileID: 3608336217560486866, guid: dd47deb50ff116e4f9f227996cf99378, type: 3}
 --- !u!114 &5939170732932905686
 MonoBehaviour:
   m_ObjectHideFlags: 0
