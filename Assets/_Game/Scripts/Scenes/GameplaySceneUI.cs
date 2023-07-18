@@ -41,7 +41,7 @@ public class GameplaySceneUI : MonoBehaviour
         sceneController.RemoveIngemonFromPreselection(image.GetComponent<IngemonSelector>().Ingemon);
         image.GetComponent<IngemonSelector>().Ingemon = new Ingemonster();
         image.GetComponentInChildren<TextMeshProUGUI>().text = "";
-        image.GetComponentInChildren<RawImage>().texture = null;
+        if(image.GetComponentInChildren<RawImage>() != null) image.GetComponentInChildren<RawImage>().texture = null;
         SetNextPreselectionBox();
     }
 

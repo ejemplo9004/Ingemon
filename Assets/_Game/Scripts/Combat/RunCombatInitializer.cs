@@ -68,7 +68,7 @@ public class RunCombatInitializer : MonoBehaviour
 
         
         manager.info = new CombatInfo(frontAlly, backAlly, frontEnemy, backEnemy, combatInventory);
-        SetCardsOnManagerInfo();
+        //SetCardsOnManagerInfo();
     }
 
     public void SetCardsOnManagerInfo()
