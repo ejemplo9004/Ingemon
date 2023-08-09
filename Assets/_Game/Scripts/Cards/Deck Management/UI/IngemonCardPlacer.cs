@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cards;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class IngemonCardPlacer : MonoBehaviour
     [SerializeField] private UnselectedCardComponents cardUIComponents;
     [SerializeField] private GameObject content;
     [SerializeField] private ChosenCardsPanel chosenCardsPanel;
-    
+
     [SerializeField] private List<ScriptableCard> chosenCards = new List<ScriptableCard>(6){null, null, null, null, null, null};
 
     [SerializeField] private List<GameObject> cardSlots = new List<GameObject>(6){null, null, null, null, null, null};
@@ -21,6 +22,7 @@ public class IngemonCardPlacer : MonoBehaviour
     //[SerializeField] private List<GameObject> eligibleCards;
     private IngemonDeckManager deckManager;
     private Ingemonster ingemon;
+    private Dictionary<ScriptableCard, int> spawnedCards = new Dictionary<ScriptableCard, int>();
     public void AddCard(ScriptableCard card)
     {
         var slot = SearchEmptySlot();
@@ -38,7 +40,11 @@ public class IngemonCardPlacer : MonoBehaviour
     private void DeleteCard(int index)
     {
         Debug.Log("Delete card:" + index);
-        if(chosenCards[index] == null) return;
+        if (chosenCards[index] == null)
+        {
+            CleanSlot(index);
+            return;
+        }
         //cardPlacer.ReturnChosenCardToOptions(chosenCards[index]);
         CleanSlot(index);
         cardSlots[index] = null;
@@ -76,7 +82,8 @@ public class IngemonCardPlacer : MonoBehaviour
     }
     public void SaveCards()
     {
-        if(chosenCards.Contains(null))return;
+        var nullCount = chosenCards.Count(item => item == null);
+        if(nullCount < 6 && nullCount > 0)return;
         List<ScriptableCard> cardsCopy = new List<ScriptableCard>(ingemon.deck);
         foreach (var card in cardsCopy)
         {
@@ -84,7 +91,6 @@ public class IngemonCardPlacer : MonoBehaviour
             {
                 deckManager.DeleteCardFromIngemon(ingemon, card);
             }
-            
         }
         deckManager.ReturnIngemonCardsToAvailable(ingemon);
         ingemon.deck.Clear();
@@ -103,20 +109,14 @@ public class IngemonCardPlacer : MonoBehaviour
     }
     public void PlaceIngemonCards(Dictionary<ScriptableCard, int> ingemonCards, bool reload)
     {
-        if (reload)
+        if (!reload)
         {
-            var childCount = content.transform.childCount;
-            for (int i = childCount - 1; i >= 0; i--)
+            foreach (var (card, count) in ingemonCards)
             {
-                var child = content.transform.GetChild(i);
-                Destroy(child.gameObject);
-            }
-        }
-        foreach (var (card, count) in ingemonCards)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                InstantiateCard(card);
+                for (int i = 0; i < count; i++)
+                {
+                    InstantiateCard(card);
+                }
             }
         }
     }
@@ -136,17 +136,37 @@ public class IngemonCardPlacer : MonoBehaviour
         button.onClick.AddListener(delegate { DeleteCardFromOptions(cardUI, card); });
         if (ingemon.deck.Contains(card))
         {
-            var slot = chosenCards.IndexOf(card);
+            var cardRepeated = chosenCards.Count(item => item == card);
+            Debug.Log(cardRepeated);
+            if(spawnedCards.Keys.Contains(card) && spawnedCards[card] >= cardRepeated) return;
+            if (spawnedCards.Keys.Contains(card))
+            {
+                spawnedCards[card]++;
+            }
+            else
+            {
+                spawnedCards.Add(card, 1);
+            }
+            var slot = 0;
+            var repetitions = 0;
+            for (var i = 0; i < chosenCards.Count; i++)
+            {
+                if (chosenCards[i] != card) continue;
+                repetitions++;
+                if (repetitions == spawnedCards[card]) slot = i;
+            }
             cardSlots[slot] = cardUI;
-            cardSlots[slot].GetComponent<Image>().color = Color.green;
-            cardSlots[slot].GetComponent<Button>().onClick.RemoveAllListeners();
-            cardSlots[slot].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(slot); });
+            if (spawnedCards[card] <= cardRepeated)
+            {
+                cardSlots[slot].GetComponent<Image>().color = Color.green;
+                cardSlots[slot].GetComponent<Button>().onClick.RemoveAllListeners();
+                cardSlots[slot].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(slot); });
+            }
         }
     }
 
     private void DeleteCardFromOptions(GameObject cardObject, ScriptableCard card)
     {
-        
         int index = SearchEmptySlot();
         if(SearchEmptySlot() == -1) return;
         Debug.Log(cardObject);
@@ -154,9 +174,7 @@ public class IngemonCardPlacer : MonoBehaviour
         AddCard(card);
         cardSlots[index].GetComponent<Button>().onClick.RemoveAllListeners();
         cardSlots[index].GetComponent<Button>().onClick.AddListener(delegate { DeleteCard(index); });
-        //AddCard(card);
-        //chosenCardsPanel.AddCard(card);
-        //Destroy(cardObject);
+        cardSlots[index].GetComponent<Image>().color = Color.green;
     }
 
     public void ReturnChosenCardToOptions(ScriptableCard card)
