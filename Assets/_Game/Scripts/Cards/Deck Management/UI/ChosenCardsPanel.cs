@@ -81,7 +81,7 @@ public class ChosenCardsPanel : MonoBehaviour
     {
         if (chosenCards.All(card => card == null))
         {
-            deckManager.ClearIngemonDeck(ingemon);
+            //deckManager.ClearIngemonDeck(ingemon);
         }
         if(chosenCards.Contains(null))return;
         List<ScriptableCard> cardsCopy = new List<ScriptableCard>(ingemon.deck);
