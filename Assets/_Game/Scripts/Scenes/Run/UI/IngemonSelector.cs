@@ -44,7 +44,7 @@ public class IngemonSelector : MonoBehaviour
 
     private void ShowCardPanel(IngemonRace race, int panelIndex)
     {
-        var cardDictionary = deckManager.GetAvailableUserCardsByRace(race);
+        var cardDictionary = deckManager.GetUserCardsByRace(race);
         if (panelList[panelIndex] != null)
         {
             panelList[panelIndex].SetActive(true);
