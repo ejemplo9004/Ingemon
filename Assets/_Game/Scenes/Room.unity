@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3004,8 +3005,19 @@ MonoBehaviour:
     id: 
     phenotype: 
     maxHealth: 0
+    user_id: 0
+    id_carta1: 0
+    id_carta2: 0
+    id_carta3: 0
+    id_carta4: 0
+    id_carta5: 0
+    id_carta6: 0
     ingemonColection: []
     deck: []
+  selectButton: {fileID: 0}
+  deckManager: {fileID: 0}
+  deckPanel: {fileID: 0}
+  cardEditionActive: 0
 --- !u!114 &670431280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7062,8 +7074,19 @@ MonoBehaviour:
     id: 
     phenotype: 
     maxHealth: 0
+    user_id: 0
+    id_carta1: 0
+    id_carta2: 0
+    id_carta3: 0
+    id_carta4: 0
+    id_carta5: 0
+    id_carta6: 0
     ingemonColection: []
     deck: []
+  selectButton: {fileID: 0}
+  deckManager: {fileID: 0}
+  deckPanel: {fileID: 0}
+  cardEditionActive: 0
 --- !u!114 &1720844811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7704,12 +7727,26 @@ MonoBehaviour:
     id: 
     phenotype: 
     maxHealth: 0
+    user_id: 0
+    id_carta1: 0
+    id_carta2: 0
+    id_carta3: 0
+    id_carta4: 0
+    id_carta5: 0
+    id_carta6: 0
     ingemonColection: []
     deck: []
   - name: 
     id: 
     phenotype: 
     maxHealth: 0
+    user_id: 0
+    id_carta1: 0
+    id_carta2: 0
+    id_carta3: 0
+    id_carta4: 0
+    id_carta5: 0
+    id_carta6: 0
     ingemonColection: []
     deck: []
   combatInventory: {fileID: 11400000, guid: a383b40d339fed645b2e32a117881961, type: 2}

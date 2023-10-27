@@ -18,6 +18,8 @@ public class RunCombatInitializer : MonoBehaviour
     public void Awake()
     {
         //baseCollection = RunSingleton.Instance.runDeck.Deck;
+        GameController gc = FindObjectOfType<GameController>();
+        enemiesInventory = gc.GetRun().enemiesInventory;
         SetIngemons();
     }
 

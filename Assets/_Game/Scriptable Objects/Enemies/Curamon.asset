@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6bf4a001393486f9fb60d2748f9f467, type: 3}
+  m_Name: Curamon
+  m_EditorClassIdentifier: 
+  EnemyName: Fishamon
+  health: 50
+  phenotype: 1-2-3-5-6-895-1-0
+  cardSet: {fileID: 11400000, guid: 83fed81ed7cacab419f02354bf7d3da1, type: 2}
