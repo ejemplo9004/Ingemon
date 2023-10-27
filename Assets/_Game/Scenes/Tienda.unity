@@ -21087,6 +21087,7 @@ MonoBehaviour:
   server: {fileID: 11400000, guid: 75d6f006d7a456943a6f3585f365a2bc, type: 2}
   imLoading: {fileID: 1492543319}
   moneySubstracter: {fileID: 1968886825}
+  cardShop: {fileID: 2022269523}
 --- !u!4 &1174245071
 Transform:
   m_ObjectHideFlags: 0

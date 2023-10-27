@@ -44,10 +44,12 @@ public class Ingemonster
         this.id = id;
         this.name = name;
         this.phenotype = phenotype;
+        deck = new List<ScriptableCard>();
     }
     public Ingemonster(string id)
     {
         this.id = id;
+        deck = new List<ScriptableCard>();
     }
 
     public Ingemonster(Ingemonster ingemon){
@@ -59,5 +61,7 @@ public class Ingemonster
         this.deck = ingemon.deck;
     }
 
-    public Ingemonster() { }
+    public Ingemonster() {
+        deck = new List<ScriptableCard>();
+    }
 }
