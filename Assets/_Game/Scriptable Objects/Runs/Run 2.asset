@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3047191a217de544aa9a8e8ae0c2f925, type: 3}
-  m_Name: Run 1
+  m_Name: Run 2
   m_EditorClassIdentifier: 
   rooms:
   - {fileID: 11400000, guid: 87461233872a2784992f41187717ba4b, type: 2}
   - {fileID: 11400000, guid: 7dfa7ced14e09fc4ab0ea026632ddc8b, type: 2}
+  - {fileID: 11400000, guid: 0444a4780d19144438bf0cd6239607b5, type: 2}
   currentRoom: {fileID: 0}
   lastFightPassed: 1
   runCompleted: 0
   currentRoomNumber: 0
-  enemiesInventory: {fileID: 11400000, guid: e638c26801a205346aad0539372857b1, type: 2}
+  enemiesInventory: {fileID: 11400000, guid: f2c49dad7bb0fe144984091e427a3835, type: 2}
   reward: 100
   boss: {fileID: 3909638985360245683, guid: 11b878e25174cf44ba9441974c3415bd, type: 3}
   background: {fileID: 21300000, guid: ef9809ff8bafd434382d393e07cbfead, type: 3}
