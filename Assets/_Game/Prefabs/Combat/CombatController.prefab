@@ -55,7 +55,7 @@ MonoBehaviour:
   cardManager: {fileID: 9125055636574715147}
   uiManager: {fileID: 9125055637579441039}
   anim: {fileID: 9125055635601498002}
-  damageMultiplier: 3
+  damageMultiplier: 1
 --- !u!114 &9125055635585767987
 MonoBehaviour:
   m_ObjectHideFlags: 0

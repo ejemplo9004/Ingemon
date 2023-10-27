@@ -40,6 +40,10 @@ public class GameController : MonoBehaviour
 
     public void SetRun(Run run){
         currentRun = run;
+    }    
+    
+    public Run GetRun(){
+        return currentRun;
     }
     public void AsignarJugador(dbUsuario usuario)
     {

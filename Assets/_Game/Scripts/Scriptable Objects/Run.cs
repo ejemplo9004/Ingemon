@@ -9,6 +9,7 @@ public class Run : ScriptableObject
     public bool lastFightPassed;
     public bool runCompleted;
     public int currentRoomNumber;
+    public EnemiesInventory enemiesInventory;
     [SerializeField] private int reward;
     [SerializeField] private GameObject boss;
     [SerializeField] private Sprite background;
