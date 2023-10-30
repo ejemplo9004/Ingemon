@@ -18,7 +18,7 @@ MonoBehaviour:
   cardPhrase: "Blockchain es una cadena de bloques en la nube encargada de contener
     una base de datos p\xFAblica y distribuida en la que se registran de forma segura
     las transacciones que se van realizando en la red."
-  cost: 0
+  cost: 1
   sprite: {fileID: 993831712, guid: dba2bb206b43c8346b904feba80217cc, type: 3}
   race: 1
   type: 0
